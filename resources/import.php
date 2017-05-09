@@ -134,6 +134,7 @@
 			        jsonData.acquisitionType = $("#acquisition_type").val();
 			        jsonData.fundCode = $("#fundCode").val();
 			        jsonData.cost = $("#cost").val();
+					jsonData.coverage = $("#coverage").val();
 
 			        jsonData.subject = [];
 			        $('div.subject-record').each(function() {
@@ -211,6 +212,7 @@
 		$resourceFormatColumn=intval($jsonData['resourceFormat'])-1;
 		$fundCodeColumn=intval($jsonData['fundCode'])-1;
 		$costColumn=intval($jsonData['cost'])-1;
+		$resourceCoverageColumn=intval($jsonData['coverage'])-1;
 
 		//get all resource formats
 		$resourceFormatArray = array();
@@ -457,6 +459,7 @@
 						$resource->resourceTypeID   = $resourceTypeID;
 						$resource->acquisitionTypeID   = $acquisitionTypeID;
 						$resource->resourceFormatID = $resourceFormatID;
+						$resource->coverageText			= trim($data[$resourceCoverageColumn]);
 						//$resource->providerText     = $data[$_POST['providerText']];
 						$resource->statusID         = 1;
 						$resource->save();
