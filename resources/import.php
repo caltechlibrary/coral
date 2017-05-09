@@ -134,6 +134,8 @@
 			        jsonData.acquisitionType = $("#acquisition_type").val();
 			        jsonData.fundCode = $("#fundCode").val();
 			        jsonData.cost = $("#cost").val();
+					jsonData.authenticationType = $("#authentication_type").val();
+					jsonData.accessMethod = $("#access_method").val();
 					jsonData.coverage = $("#coverage").val();
 
 			        jsonData.subject = [];
@@ -212,6 +214,8 @@
 		$resourceFormatColumn=intval($jsonData['resourceFormat'])-1;
 		$fundCodeColumn=intval($jsonData['fundCode'])-1;
 		$costColumn=intval($jsonData['cost'])-1;
+		$authenticationTypeColumn=intval($jsonData['authenticationType'])-1;
+		$accessMethodColumn=intval($jsonData['accessMethod'])-1;
 		$resourceCoverageColumn=intval($jsonData['coverage'])-1;
 
 		//get all resource formats
@@ -250,6 +254,17 @@
 			}
 			array_push($allIsbnOrIssn_columns,$columnObj);
 		}
+
+		//get all authentication types
+		$authenticationTypeArray = array();
+		$authenticationTypeObj = new AuthenticationType();
+		$authenticationTypeArray = $authenticationTypeObj->allAsArray();
+
+		//get all access methods
+		$accessMethodArray = array();
+		$accessMethodObj = new AccessMethod();
+		$accessMethodArray = $accessMethodObj->allAsArray();
+
 		$uploadfile = $_POST['uploadfile'];
 		// Let's analyze this file
 		if (($handle = fopen($uploadfile, "r")) !== FALSE)
@@ -446,6 +461,47 @@
 							}
 						}
 
+						// If Authentication Type is mapped, check to see if it exists.
+						$authenticationTypeID = null;
+						if($jsonData['authenticationType'] != '')
+						{
+							$index = searchForShortName($data[$authenticationTypeColumn], $authenticationTypeArray);
+							if($index !== null)
+							{
+								$authenticationTypeID = $authenticationTypeArray[$index]['authenticationTypeID'];
+							}
+							// If Authentication Type does not exist, add it to the database.
+							else if($index === null && $data[$authenticationTypeColumn] != '')
+							{
+								$authenticationTypeObj = new AuthenticationType();
+								$authenticationTypeObj->shortName = $data[$authenticationTypeColumn];
+								$authenticationTypeObj->save();
+								$authenticationTypeID = $authenticationTypeObj->primaryKey;
+								$authenticationTypeArray = $authenticationTypeObj->allAsArray();
+								$authenticationTypeInserted++;
+							}
+						}
+
+						// If Access Method is mapped, check to see if it exists.
+						$accessMethodID = null;
+						if($jsonData['accessMethod'] != '')
+						{
+							$index = searchForShortName($data[$accessMethodColumn], $accessMethodArray);
+							if($index !== null)
+							{
+								$accessMethodID = $accessMethodArray[$index]['accessMethod'];
+							}
+							// If Access Method does not exist, add it to the database.
+							else if($index === null && $data[$accessMethodColumn] != '')
+							{
+								$accessMethodObj = new AccessMethod();
+								$accessMethodObj->shortName = $data[$accessMethodColumn];
+								$accessMethodObj->save();
+								$accessMethodID = $accessMethodObj->primaryKey;
+								$accessMethodArray = $accessMethodObj->allAsArray();
+								$accessMethodInserted++;
+							}
+						}
 
 						// Let's insert data
 						$resource->createLoginID    = $loginID;
@@ -459,6 +515,8 @@
 						$resource->resourceTypeID   = $resourceTypeID;
 						$resource->acquisitionTypeID   = $acquisitionTypeID;
 						$resource->resourceFormatID = $resourceFormatID;
+						$resource->authenticationTypeID = $authenticationTypeID;
+						$resource->accessMethodID = $accessMethodID;
 						$resource->coverageText			= trim($data[$resourceCoverageColumn]);
 						//$resource->providerText     = $data[$_POST['providerText']];
 						$resource->statusID         = 1;

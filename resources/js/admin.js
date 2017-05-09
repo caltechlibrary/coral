@@ -414,8 +414,10 @@ function submitImportConfigData() {
         });
         jsonData.resourceFormat = $("#resource_format").val();
         jsonData.resourceType = $("#resource_type").val();
-		jsonData.resourceType = $("#coverage").val();
         jsonData.acquisitionType = $("#acquisition_type").val();
+		jsonData.authenticationType = $("#authentication_type").val();
+		jsonData.accessMethod = $("#access_method").val();
+		jsonData.coverage = $("#coverage").val();
         jsonData.fundCode = $("#fundCode").val();
         jsonData.cost = $("#cost").val();
 	jsonData.currencyCode = $("#currency").val();
