@@ -131,6 +131,10 @@
 			        });
 			        jsonData.resourceFormat = $("#resource_format").val();
 			        jsonData.resourceType = $("#resource_type").val();
+					jsonData.acquisitionType = $("#acquisition_type").val();
+					jsonData.authenticationType = $("#authentication_type").val();
+					jsonData.accessMethod = $("#access_method").val();
+					jsonData.coverage = $("#coverage").val();
 			        jsonData.subject = [];
 			        $('div.subject-record').each(function() {
 			            var subjectObject={};
@@ -204,6 +208,10 @@
 		$resourceAltURLColumn=intval($jsonData['altUrl'])-1;
 		$resourceTypeColumn=intval($jsonData['resourceType'])-1;
 		$resourceFormatColumn=intval($jsonData['resourceFormat'])-1;
+		$acquisitionTypeColumn=intval($jsonData['acquisitionType'])-1;
+		$authenticationTypeColumn=intval($jsonData['authenticationType'])-1;
+		$accessMethodColumn=intval($jsonData['accessMethod'])-1;
+		$resourceCoverageColumn=intval($jsonData['coverage'])-1;
 
 		//get all resource formats
 		$resourceFormatArray = array();
@@ -219,6 +227,11 @@
 		$resourceFormatArray = array();
 		$resourceFormatObj = new ResourceFormat();
 		$resourceFormatArray = $resourceFormatObj->allAsArray();
+
+		//get all acquisition types
+		$acquisitionTypeArray = array();
+		$acquisitionTypeObj = new AcquisitionType();
+		$acquisitionTypeArray = $acquisitionTypeObj->allAsArray();
 
 		//get all subjects
 		$generalSubjectArray = array();
@@ -241,6 +254,17 @@
 			}
 			array_push($allIsbnOrIssn_columns,$columnObj);
 		}
+
+		//get all authentication types
+		$authenticationTypeArray = array();
+		$authenticationTypeObj = new AuthenticationType();
+		$authenticationTypeArray = $authenticationTypeObj->allAsArray();
+
+		//get all access methods
+		$accessMethodArray = array();
+		$accessMethodObj = new AccessMethod();
+		$accessMethodArray = $accessMethodObj->allAsArray();
+
 		$uploadfile = $_POST['uploadfile'];
 		// Let's analyze this file
 		if (($handle = fopen($uploadfile, "r")) !== FALSE)
@@ -352,6 +376,27 @@
 							}
 						}
 
+						// If Acquisition Type is mapped, check to see if it exists.
+						$acquisitionTypeID = null;
+						if($jsonData['acquisitionType'] != '')
+						{
+							$index = searchForShortName($data[$acquisitionTypeColumn], $acquisitionTypeArray);
+							if($index !== null)
+							{
+								$acquisitionTypeID = $acquisitionTypeArray[$index]['acquisitionTypeID'];
+							}
+							// If Acquisition Type does not exist, add it to the database.
+							else if($index === null && $data[$acquisitionTypeColumn] != '')
+							{
+								$acquisitionTypeObj = new AcquisitionType();
+								$acquisitionTypeObj->shortName = $data[$acquisitionTypeColumn];
+								$acquisitionTypeObj->save();
+								$acquisitionTypeID = $acquisitionTypeObj->primaryKey;
+								$acquisitionTypeArray = $acquisitionTypeObj->allAsArray();
+								$acquisitionTypeInserted++;
+							}
+						}
+
 						// If Resource Format is mapped, check to see if it exists
 						$resourceFormatID = null;
 						if($jsonData['resourceFormat'] != '')
@@ -417,6 +462,47 @@
 							}
 						}
 
+						// If Authentication Type is mapped, check to see if it exists.
+						$authenticationTypeID = null;
+						if($jsonData['authenticationType'] != '')
+						{
+							$index = searchForShortName($data[$authenticationTypeColumn], $authenticationTypeArray);
+							if($index !== null)
+							{
+								$authenticationTypeID = $authenticationTypeArray[$index]['authenticationTypeID'];
+							}
+							// If Authentication Type does not exist, add it to the database.
+							else if($index === null && $data[$authenticationTypeColumn] != '')
+							{
+								$authenticationTypeObj = new AuthenticationType();
+								$authenticationTypeObj->shortName = $data[$authenticationTypeColumn];
+								$authenticationTypeObj->save();
+								$authenticationTypeID = $authenticationTypeObj->primaryKey;
+								$authenticationTypeArray = $authenticationTypeObj->allAsArray();
+								$authenticationTypeInserted++;
+							}
+						}
+
+						// If Access Method is mapped, check to see if it exists.
+						$accessMethodID = null;
+						if($jsonData['accessMethod'] != '')
+						{
+							$index = searchForShortName($data[$accessMethodColumn], $accessMethodArray);
+							if($index !== null)
+							{
+								$accessMethodID = $accessMethodArray[$index]['accessMethod'];
+							}
+							// If Access Method does not exist, add it to the database.
+							else if($index === null && $data[$accessMethodColumn] != '')
+							{
+								$accessMethodObj = new AccessMethod();
+								$accessMethodObj->shortName = $data[$accessMethodColumn];
+								$accessMethodObj->save();
+								$accessMethodID = $accessMethodObj->primaryKey;
+								$accessMethodArray = $accessMethodObj->allAsArray();
+								$accessMethodInserted++;
+							}
+						}
 
 						// Let's insert data
 						$resource->createLoginID    = $loginID;
@@ -429,6 +515,10 @@
 						$resource->resourceAltURL   = trim($data[$resourceAltURLColumn]);
 						$resource->resourceTypeID   = $resourceTypeID;
 						$resource->resourceFormatID = $resourceFormatID;
+						$resource->acquisitionTypeID = $acquisitionTypeID;
+						$resource->authenticationTypeID = $authenticationTypeID;
+						$resource->accessMethodID = $accessMethodID;
+						$resource->coverageText = trim($data[$resourceCoverageColumn]);
 						//$resource->providerText     = $data[$_POST['providerText']];
 						$resource->statusID         = 1;
 						$resource->save();
