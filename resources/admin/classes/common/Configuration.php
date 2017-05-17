@@ -26,7 +26,7 @@ class Configuration extends DynamicObject {
 		$config = array_replace_recursive($global_config, $module_config);
 
 		// use other DBs for tests
-		if($config["settings"]["environment"] === "test") {
+		if(isset($config["settings"]["environment"]) && $config["settings"]["environment"] === "test") {
 			$this->switchAllDbsToTest($config);
 		}
 

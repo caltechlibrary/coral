@@ -19,7 +19,7 @@
 <?php
 	// CSV configuration
 	$required_columns = array('titleText' => 0, 'resourceURL' => 0, 'resourceAltURL' => 0, 'parentResource' => 0, 'organization' => 0, 'role' => 0);
-	if ($_POST['submit'])
+	if (isset($_POST['submit']))
 	{
 		//get necessary configuration instances
 		$importConfigInstanceArray = array();
@@ -62,7 +62,7 @@
 		{
 			$error = _("Unable to upload the file");
 		}
-		if ($error)
+		if (isset($error))
 		{
 			print "<p>"._("Error: ").$error.".</p>";
 		}
@@ -193,7 +193,7 @@
 <?php
 		}
 	}
-	elseif ($_POST['matchsubmit'])
+	elseif (isset($_POST['matchsubmit']))
 	{
 		//get the configuration as a php array
 		$jsonData = $_POST['jsonData'];
@@ -241,18 +241,22 @@
 		$delimiter = $_POST['delimiter'];
 		$deduping_columns = array();
 		$dedupeCriteria = array();
+
 		$allIsbnOrIssn_columns = array();
 		foreach($jsonData['isbnOrIssn'] as $isbnOrIssn)
 		{
-			$columnObj = array();
-			$columnObj['column'] = intval($isbnOrIssn['column'])-1;
-			$columnObj['delimiter'] = $isbnOrIssn['delimiter'];
-			if($isbnOrIssn['dedupe'] === true)
+			if (!empty($isbnOrIssn['column']))
 			{
-				array_push($dedupeCriteria,$columnObj);
-				array_push($deduping_columns,intval($isbnOrIssn['column'])-1);
+				$columnObj = array();
+				$columnObj['column'] = intval($isbnOrIssn['column'])-1;
+				$columnObj['delimiter'] = $isbnOrIssn['delimiter'];
+				if ($isbnOrIssn['dedupe'] === true)
+				{
+					array_push($dedupeCriteria, $columnObj);
+					array_push($deduping_columns, intval($isbnOrIssn['column'])-1);
+				}
+				array_push($allIsbnOrIssn_columns, $columnObj);
 			}
-			array_push($allIsbnOrIssn_columns,$columnObj);
 		}
 
 		//get all authentication types
@@ -329,28 +333,31 @@
 							}
 						}
 					}
-					foreach ($allIsbnOrIssn_columns as $columnCriterion)
+					if (!empty($allIsbnOrIssn_columns))
 					{
-						if($columnCriterion['delimiter'] !== '')
+						foreach ($allIsbnOrIssn_columns as $columnCriterion)
 						{
-							$columnValues = explode($columnCriterion['delimiter'],$data[$columnCriterion['column']]);
-							foreach($columnValues as $value)
+							if($columnCriterion['delimiter'] !== '')
 							{
-								if($value != '')
+								$columnValues = explode($columnCriterion['delimiter'],$data[$columnCriterion['column']]);
+								foreach($columnValues as $value)
 								{
-									$isbnIssn_values[] = $value;
+									if($value != '')
+									{
+										$isbnIssn_values[] = $value;
+									}
+								}
+							}
+							else
+							{
+								if($data[$columnCriterion['column']] != '')
+								{
+									$isbnIssn_values[] = $data[$columnCriterion['column']];
 								}
 							}
 						}
-						else
-						{
-							if($data[$columnCriterion['column']] != '')
-							{
-								$isbnIssn_values[] = $data[$columnCriterion['column']];
-							}
-						}
 					}
-					$deduping_count = count($resourceObj->getResourceByIsbnOrISSN($deduping_values));
+					$deduping_count = isset($deduping_values) ? count($resourceObj->getResourceByIsbnOrISSN($deduping_values)) : 0;
 					if ($deduping_count == 0)
 					{
 						// Convert to UTF-8
@@ -509,20 +516,20 @@
 						$resource->createDate       = date( 'Y-m-d' );
 						$resource->updateLoginID    = '';
 						$resource->updateDate       = date('Y-m-d');
-						$resource->titleText        = trim($data[$resourceTitleColumn]);
-						$resource->descriptionText  = trim($data[$resourceDescColumn]);
-						$resource->resourceURL      = trim($data[$resourceURLColumn]);
-						$resource->resourceAltURL   = trim($data[$resourceAltURLColumn]);
-						$resource->resourceTypeID   = $resourceTypeID;
-						$resource->resourceFormatID = $resourceFormatID;
-						$resource->acquisitionTypeID = $acquisitionTypeID;
-						$resource->authenticationTypeID = $authenticationTypeID;
-						$resource->accessMethodID = $accessMethodID;
-						$resource->coverageText = trim($data[$resourceCoverageColumn]);
+						$resource->titleText			= isset($data[$resourceTitleColumn]) ? trim($data[$resourceTitleColumn]) : '';
+						$resource->descriptionText		= isset($data[$resourceDescColumn]) ? trim($data[$resourceDescColumn]) : '';
+						$resource->resourceURL			= isset($data[$resourceURLColumn]) ? trim($data[$resourceURLColumn]) : '';
+						$resource->resourceAltURL		= isset($data[$resourceAltURLColumn]) ? trim($data[$resourceAltURLColumn]) : '';
+						$resource->resourceTypeID		= isset($resourceTypeID) ? $resourceTypeID : '';
+						$resource->resourceFormatID		= isset($resourceFormatID) ? $resourceFormatID : '';
+						$resource->acquisitionTypeID	= isset($acquisitionTypeID) ? $acquisitionTypeID : '';
+						$resource->authenticationTypeID	= isset($authenticationTypeID) ? $authenticationTypeID : '';
+						$resource->accessMethodID		= isset($accessMethodID) ? $accessMethodID : '';
+						$resource->coverageText			= isset($data[$resourceCoverageColumn]) ? trim($data[$resourceCoverageColumn]) : '';
 						//$resource->providerText     = $data[$_POST['providerText']];
 						$resource->statusID         = 1;
 						$resource->save();
-						$resource->setIsbnOrIssn($isbnIssn_values);
+						isset($isbnIssn_values) ? $resource->setIsbnOrIssn($isbnIssn_values) : NULL;
 						$inserted++;
 
 						// If Alias is mapped, check to see if it exists

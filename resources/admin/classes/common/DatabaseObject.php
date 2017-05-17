@@ -218,15 +218,18 @@ class DatabaseObject extends DynamicObject {
 	public function save() {
 		$pairs = array();
 		foreach (array_keys($this->attributeNames) as $attributeName) {
-			$value = $this->attributes[$attributeName];
-			if ($value == '' || !isset($value)) {
-				$value = "NULL";
-			} else {
-				$value = $this->db->escapeString($value);
-				$value = "'$value'";
+			if (isset($this->attributes[$attributeName]))
+			{
+				$value = $this->attributes[$attributeName];
+				if ($value == '' || !isset($value)) {
+					$value = "NULL";
+				} else {
+					$value = $this->db->escapeString($value);
+					$value = "'$value'";
+				}
+				$pair = "`$attributeName`=$value";
+				array_push($pairs, $pair);
 			}
-			$pair = "`$attributeName`=$value";
-			array_push($pairs, $pair);
 		}
 		$set = implode(', ', $pairs);
 		if (isset($this->primaryKey)) {
