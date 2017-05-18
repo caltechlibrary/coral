@@ -433,6 +433,13 @@ function submitImportConfigData() {
             noteObject.delimiter=$(this).find('input.ic-delimiter').val();
             jsonData.note.push(noteObject);
         });
+		jsonData.purchaseSite = [];
+		$('div.purchaseSite-record').each(function() {
+			var purchaseSiteObject={}
+			purchaseSiteObject.column=$(this).find('input.ic-column').val();
+			purchaseSiteObject.delimiter=$(this).find('input.ic-delimiter').val();
+			jsonData.purchaseSite.push(purchaseSiteObject);
+		});
         jsonData.organization = [];
         $('div.organization-record').each(function() {
             var organizationObject={}

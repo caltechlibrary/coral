@@ -173,6 +173,25 @@
 					?>
 				</div><p><a id='add_note' href='#'><?php echo _("+ Add another note set");?></a></p></fieldset>
 
+			<fieldset>
+				<legend>
+					<?php echo _("Purchasing Sites");?>
+				</legend>
+				<div id='purchase_site'>
+					<?php
+					if(count($configuration["purchaseSite"]) > 0) {
+						foreach($configuration["purchaseSite"] as $purchaseSite) {
+							echo "<div class='purchaseSite-record'><p><span class='ic-label'>" . _("Purchasing Site") . "</span><span><input class='ic-column' value='" . $purchaseSite['column'] . "' /></span></p>";
+							echo "<p><span class='ic-label'>" . _("If delimited, delimited by") . "</span><input class='ic-delimiter' value='" . $purchaseSite['delimiter'] . "' /></span></p></div>";
+						}
+					}
+					else {
+						echo "<div class='purchaseSite-record'><p><span class='ic-label'>" . _("Purchasing Site") . "</span><span><input class='ic-column' value='' /></span></p>";
+						echo "<p><span class='ic-label'>" . _("If delimited, delimited by") . "</span><input class='ic-delimiter' value='' /></span></p></div>";
+					}
+					?>
+				</div><p><a id='add_purchaseSite' href='#'><?php echo _("+ Add another purchasing site");?></a></p>
+			</fieldset>
 
 		</div>
 	</div>
@@ -274,6 +293,12 @@
 			"<div class='note-record'><p><span class='ic-label'><?php echo _('Note');?></span><span><input class='ic-column' value='' /></span></p><p><span class='ic-label'><?php echo _('Note Type');?></span><span><select class='ic-dropdown'><?php echo $noteOptions?></select></span></p><p><span class='ic-label'><?php echo _('If delimited, delimited by');?></span><span><input class='ic-delimiter' value='' /></span></p></div>"
    		);
    });
+	$('#add_purchaseSite').click(function (e) {
+		e.preventDefault();
+		$('#resource_purchaseSite').append(
+			"<div class='purchaseSite-record'><p><span class='ic-label'><?php echo _('Purchasing Site');?></span><span><input class='ic-column' value='' /></span></p><p><span class='ic-label'><?php echo _('If delimited, delimited by');?></span><input class='ic-delimiter' value='' /></span></p></div>"
+		);
+	});
    $('#add_organization').click(function (e) {
    		e.preventDefault();
    		$('#resource_organization').append (

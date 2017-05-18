@@ -150,6 +150,13 @@
 			            noteObject.delimiter=$(this).find('input.ic-delimiter').val();
 			            jsonData.note.push(noteObject);
 			        });
+					jsonData.purchaseSite = [];
+					$('div.purchaseSite-record').each(function() {
+						var purchaseSiteObject={};
+						purchaseSiteObject.column=$(this).find('input.ic-column').val();
+						purchaseSiteObject.delimiter=$(this).find('input.ic-delimiter').val();
+						jsonData.purchaseSite.push(purchaseSiteObject);
+					});
 			        jsonData.organization = [];
 			        $('div.organization-record').each(function() {
 			            var organizationObject={}
@@ -238,6 +245,11 @@
 		$generalSubjectObj = new GeneralSubject();
 		$generalSubjectArray = $generalSubjectObj->allAsArray();
 
+		// Get all existing Purchasing Sites from the database.
+		$existingPurchaseSiteArray = array();
+		$purchaseSiteObj = new PurchaseSite();
+		$existingPurchaseSiteArray = $purchaseSiteObj->allAsArray();
+
 		$delimiter = $_POST['delimiter'];
 		$deduping_columns = array();
 		$dedupeCriteria = array();
@@ -284,6 +296,7 @@
 			$generalSubjectInserted = 0;
 			$aliasInserted = 0;
 			$noteInserted = 0;
+			$purchaseSiteInserted = 0;
 			$arrayOrganizationsCreated = array();
 			while (($data = fgetcsv($handle, 0, $delimiter)) !== FALSE)
 			{
@@ -465,6 +478,50 @@
 									{
 										array_push($generalDetailSubjectLinkIDArray, $generalDetailID);
 									}
+								}
+							}
+						}
+
+						// Check the Purchasing Site field(s).
+						$resourcePurchaseSiteIDArray = array();
+						foreach ($jsonData['purchaseSite'] as $importedPurchaseSite)
+						{
+							// Skip this field if column reference is blank.
+							if ($importedPurchaseSite['column'] === "")
+							{
+								continue;
+							}
+							// Split up the values if the column is delimited.
+							if ($importedPurchaseSite['delimiter'] !== "")
+							{
+								$importedPurchaseSiteArray = array_map('trim', explode($importedPurchaseSite['delimiter'], $data[intval($importedPurchaseSite['column'])-1]));
+							}
+							else
+							{
+								$importedPurchaseSiteArray = array(trim($data[intval($importedPurchaseSite['column'])-1]));
+							}
+							// Check imported Purchasing Sites against existing list; create new entries when necessary.
+							foreach ($importedPurchaseSiteArray as $currentPurchaseSite)
+							{
+								$index = searchForShortName($currentPurchaseSite, $existingPurchaseSiteArray);
+								if ($index !== NULL)
+								{
+									$purchaseSiteID = $existingPurchaseSiteArray[$index]['purchaseSiteID'];
+								}
+								// If Purchasing Site does not exist, add it to the database.
+								elseif ($index === NULL && $currentPurchaseSite != '')
+								{
+									$purchaseSiteObj = new PurchaseSite();
+									$purchaseSiteObj->shortName = $currentPurchaseSite;
+									$purchaseSiteObj->save();
+									$purchaseSiteID = $purchaseSiteObj->primaryKey;
+									$existingPurchaseSiteArray = $purchaseSiteObj->allAsArray();
+									$purchaseSiteInserted++;
+								}
+								// Gather all the Purchasing Sites for this Resource into an array.
+								if ($purchaseSiteID !== NULL)
+								{
+									array_push($resourcePurchaseSiteIDArray, $purchaseSiteID);
 								}
 							}
 						}
@@ -694,6 +751,15 @@
 								$organizationLink->save();
 							}
 						}
+
+						// Add Purchasing Sites to the Resource.
+						foreach ($resourcePurchaseSiteIDArray as $resourcePurchaseSiteID)
+						{
+							$resourcePurchaseSiteLink = new ResourcePurchaseSiteLink();
+							$resourcePurchaseSiteLink->resourceID = $resource->primaryKey;
+							$resourcePurchaseSiteLink->purchaseSiteID = $resourcePurchaseSiteID;
+							$resourcePurchaseSiteLink->save();
+						}
 					}
 					elseif ($deduping_count == 1)
 					{
@@ -765,6 +831,7 @@
 			print "<p>" . $generalSubjectInserted . _(" general subjects have been created") . "</p>";
 			print "<p>" . $aliasInserted . _(" aliases have been created") . "</p>";
 			print "<p>" . $noteInserted . _(" notes have been created") . "</p>";
+			print "<p>" . $purchaseSiteInserted . _(" purchasing sites have been created.") . "</p>";
 		}
 	}
 	else
