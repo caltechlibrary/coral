@@ -220,35 +220,42 @@
 		$accessMethodColumn=intval($jsonData['accessMethod'])-1;
 		$resourceCoverageColumn=intval($jsonData['coverage'])-1;
 
-		//get all resource formats
-		$resourceFormatArray = array();
-		$resourceFormatObj = new ResourceFormat();
-		$resourceFormatArray = $resourceFormatObj->sortedArray();
+		// Get existing values from option lists. (Alphabetical by class name.)
 
-		//get all resource types
-		$resourceTypeArray = array();
-		$resourceTypeObj = new ResourceType();
-		$resourceTypeArray = $resourceTypeObj->allAsArray();
+		// access methods
+		$accessMethodArray = array();
+		$accessMethodObj = new AccessMethod();
+		$accessMethodArray = $accessMethodObj->allAsArray();
 
-		//get all resource formats
-		$resourceFormatArray = array();
-		$resourceFormatObj = new ResourceFormat();
-		$resourceFormatArray = $resourceFormatObj->allAsArray();
-
-		//get all acquisition types
+		// acquisition types
 		$acquisitionTypeArray = array();
 		$acquisitionTypeObj = new AcquisitionType();
 		$acquisitionTypeArray = $acquisitionTypeObj->allAsArray();
 
-		//get all subjects
+		// authentication types
+		$authenticationTypeArray = array();
+		$authenticationTypeObj = new AuthenticationType();
+		$authenticationTypeArray = $authenticationTypeObj->allAsArray();
+
+		// general subjects
 		$generalSubjectArray = array();
 		$generalSubjectObj = new GeneralSubject();
 		$generalSubjectArray = $generalSubjectObj->allAsArray();
 
-		// Get all existing Purchasing Sites from the database.
+		// purchasing sites
 		$existingPurchaseSiteArray = array();
 		$purchaseSiteObj = new PurchaseSite();
 		$existingPurchaseSiteArray = $purchaseSiteObj->allAsArray();
+
+		// resource formats
+		$resourceFormatArray = array();
+		$resourceFormatObj = new ResourceFormat();
+		$resourceFormatArray = $resourceFormatObj->allAsArray();
+
+		// resource types
+		$resourceTypeArray = array();
+		$resourceTypeObj = new ResourceType();
+		$resourceTypeArray = $resourceTypeObj->allAsArray();
 
 		$delimiter = $_POST['delimiter'];
 		$deduping_columns = array();
@@ -271,20 +278,11 @@
 			}
 		}
 
-		//get all authentication types
-		$authenticationTypeArray = array();
-		$authenticationTypeObj = new AuthenticationType();
-		$authenticationTypeArray = $authenticationTypeObj->allAsArray();
-
-		//get all access methods
-		$accessMethodArray = array();
-		$accessMethodObj = new AccessMethod();
-		$accessMethodArray = $accessMethodObj->allAsArray();
-
 		$uploadfile = $_POST['uploadfile'];
 		// Let's analyze this file
 		if (($handle = fopen($uploadfile, "r")) !== FALSE)
 		{
+			// Initialize counters.
 			$row = 0;
 			$inserted = 0;
 			$parentInserted = 0;
@@ -297,7 +295,9 @@
 			$aliasInserted = 0;
 			$noteInserted = 0;
 			$purchaseSiteInserted = 0;
+
 			$arrayOrganizationsCreated = array();
+
 			while (($data = fgetcsv($handle, 0, $delimiter)) !== FALSE)
 			{
 		    	// Getting column names again for deduping
@@ -376,37 +376,40 @@
 						// Convert to UTF-8
 						$data = array_map(function($row) { return mb_convert_encoding($row, 'UTF-8'); }, $data);
 
-						// If Resource Type is mapped, check to see if it exists
-						$resourceTypeID = null;
-						if($jsonData['resourceType'] != '')
+						// Check imported values against existing option lists. (Alphabetical by class name.)
+
+						// If Access Method is mapped, check to see if it exists.
+						$accessMethodID = NULL;
+						if ($jsonData['accessMethod'] != '')
 						{
-							$index = searchForShortName($data[$resourceTypeColumn], $resourceTypeArray);
-							if($index !== null)
+							$index = searchForShortName($data[$accessMethodColumn], $accessMethodArray);
+							if ($index !== NULL)
 							{
-								$resourceTypeID = $resourceTypeArray[$index]['resourceTypeID'];
+								$accessMethodID = $accessMethodArray[$index]['accessMethod'];
 							}
-							else if($index === null && $data[$resourceTypeColumn] != '') //If Resource Type does not exist, add it to the database
+							// If Access Method does not exist, add it to the database.
+							elseif ($index === NULL && $data[$accessMethodColumn] != '')
 							{
-								$resourceTypeObj = new ResourceType();
-								$resourceTypeObj->shortName = $data[$resourceTypeColumn];
-								$resourceTypeObj->save();
-								$resourceTypeID = $resourceTypeObj->primaryKey;
-								$resourceTypeArray = $resourceTypeObj->allAsArray();
-								$resourceTypeInserted++;
+								$accessMethodObj = new AccessMethod();
+								$accessMethodObj->shortName = $data[$accessMethodColumn];
+								$accessMethodObj->save();
+								$accessMethodID = $accessMethodObj->primaryKey;
+								$accessMethodArray = $accessMethodObj->allAsArray();
+								$accessMethodInserted++;
 							}
 						}
 
 						// If Acquisition Type is mapped, check to see if it exists.
-						$acquisitionTypeID = null;
-						if($jsonData['acquisitionType'] != '')
+						$acquisitionTypeID = NULL;
+						if ($jsonData['acquisitionType'] != '')
 						{
 							$index = searchForShortName($data[$acquisitionTypeColumn], $acquisitionTypeArray);
-							if($index !== null)
+							if ($index !== NULL)
 							{
 								$acquisitionTypeID = $acquisitionTypeArray[$index]['acquisitionTypeID'];
 							}
 							// If Acquisition Type does not exist, add it to the database.
-							else if($index === null && $data[$acquisitionTypeColumn] != '')
+							elseif ($index === NULL && $data[$acquisitionTypeColumn] != '')
 							{
 								$acquisitionTypeObj = new AcquisitionType();
 								$acquisitionTypeObj->shortName = $data[$acquisitionTypeColumn];
@@ -417,27 +420,28 @@
 							}
 						}
 
-						// If Resource Format is mapped, check to see if it exists
-						$resourceFormatID = null;
-						if($jsonData['resourceFormat'] != '')
+						// If Authentication Type is mapped, check to see if it exists.
+						$authenticationTypeID = NULL;
+						if ($jsonData['authenticationType'] != '')
 						{
-							$index = searchForShortName($data[$resourceFormatColumn], $resourceFormatArray);
-							if($index !== null)
+							$index = searchForShortName($data[$authenticationTypeColumn], $authenticationTypeArray);
+							if ($index !== NULL)
 							{
-								$resourceFormatID = $resourceFormatArray[$index]['resourceFormatID'];
+								$authenticationTypeID = $authenticationTypeArray[$index]['authenticationTypeID'];
 							}
-							else if($index === null && $data[$resourceFormatColumn] != '') //If Resource Format does not exist, add it to the database
+							// If Authentication Type does not exist, add it to the database.
+							elseif ($index === NULL && $data[$authenticationTypeColumn] != '')
 							{
-								$resourceFormatObj = new ResourceFormat();
-								$resourceFormatObj->shortName = $data[$resourceFormatColumn];
-								$resourceFormatObj->save();
-								$resourceFormatID = $resourceFormatObj->primaryKey;
-								$resourceFormatArray = $resourceFormatObj->allAsArray();
-								$resourceFormatInserted++;
+								$authenticationTypeObj = new AuthenticationType();
+								$authenticationTypeObj->shortName = $data[$authenticationTypeColumn];
+								$authenticationTypeObj->save();
+								$authenticationTypeID = $authenticationTypeObj->primaryKey;
+								$authenticationTypeArray = $authenticationTypeObj->allAsArray();
+								$authenticationTypeInserted++;
 							}
 						}
 
-						// If Subject is mapped, check to see if it exists
+						// If General Subject is mapped, check to see if it exists
 						$generalDetailSubjectLinkIDArray = array();
 						foreach($jsonData['subject'] as $subject)
 						{
@@ -526,70 +530,75 @@
 							}
 						}
 
-						// If Authentication Type is mapped, check to see if it exists.
-						$authenticationTypeID = null;
-						if($jsonData['authenticationType'] != '')
+						// If Resource Format is mapped, check to see if it exists
+						$resourceFormatID = null;
+						if($jsonData['resourceFormat'] != '')
 						{
-							$index = searchForShortName($data[$authenticationTypeColumn], $authenticationTypeArray);
+							$index = searchForShortName($data[$resourceFormatColumn], $resourceFormatArray);
 							if($index !== null)
 							{
-								$authenticationTypeID = $authenticationTypeArray[$index]['authenticationTypeID'];
+								$resourceFormatID = $resourceFormatArray[$index]['resourceFormatID'];
 							}
-							// If Authentication Type does not exist, add it to the database.
-							else if($index === null && $data[$authenticationTypeColumn] != '')
+							else if($index === null && $data[$resourceFormatColumn] != '') //If Resource Format does not exist, add it to the database
 							{
-								$authenticationTypeObj = new AuthenticationType();
-								$authenticationTypeObj->shortName = $data[$authenticationTypeColumn];
-								$authenticationTypeObj->save();
-								$authenticationTypeID = $authenticationTypeObj->primaryKey;
-								$authenticationTypeArray = $authenticationTypeObj->allAsArray();
-								$authenticationTypeInserted++;
+								$resourceFormatObj = new ResourceFormat();
+								$resourceFormatObj->shortName = $data[$resourceFormatColumn];
+								$resourceFormatObj->save();
+								$resourceFormatID = $resourceFormatObj->primaryKey;
+								$resourceFormatArray = $resourceFormatObj->allAsArray();
+								$resourceFormatInserted++;
 							}
 						}
 
-						// If Access Method is mapped, check to see if it exists.
-						$accessMethodID = null;
-						if($jsonData['accessMethod'] != '')
+						// If Resource Type is mapped, check to see if it exists
+						$resourceTypeID = null;
+						if($jsonData['resourceType'] != '')
 						{
-							$index = searchForShortName($data[$accessMethodColumn], $accessMethodArray);
+							$index = searchForShortName($data[$resourceTypeColumn], $resourceTypeArray);
 							if($index !== null)
 							{
-								$accessMethodID = $accessMethodArray[$index]['accessMethod'];
+								$resourceTypeID = $resourceTypeArray[$index]['resourceTypeID'];
 							}
-							// If Access Method does not exist, add it to the database.
-							else if($index === null && $data[$accessMethodColumn] != '')
+							else if($index === null && $data[$resourceTypeColumn] != '') //If Resource Type does not exist, add it to the database
 							{
-								$accessMethodObj = new AccessMethod();
-								$accessMethodObj->shortName = $data[$accessMethodColumn];
-								$accessMethodObj->save();
-								$accessMethodID = $accessMethodObj->primaryKey;
-								$accessMethodArray = $accessMethodObj->allAsArray();
-								$accessMethodInserted++;
+								$resourceTypeObj = new ResourceType();
+								$resourceTypeObj->shortName = $data[$resourceTypeColumn];
+								$resourceTypeObj->save();
+								$resourceTypeID = $resourceTypeObj->primaryKey;
+								$resourceTypeArray = $resourceTypeObj->allAsArray();
+								$resourceTypeInserted++;
 							}
 						}
 
-						// Let's insert data
-						$resource->createLoginID    = $loginID;
+						// Save Resource data.
+
+						// Set values for basic resource creation fields.
 						$resource->createDate       = date( 'Y-m-d' );
-						$resource->updateLoginID    = '';
+						$resource->createLoginID    = $loginID;
+						$resource->statusID         = 1;
 						$resource->updateDate       = date('Y-m-d');
-						$resource->titleText			= isset($data[$resourceTitleColumn]) ? trim($data[$resourceTitleColumn]) : '';
+						$resource->updateLoginID    = '';
+						// Set values for simple text fields from imported data.
+						$resource->coverageText			= isset($data[$resourceCoverageColumn]) ? trim($data[$resourceCoverageColumn]) : '';
 						$resource->descriptionText		= isset($data[$resourceDescColumn]) ? trim($data[$resourceDescColumn]) : '';
-						$resource->resourceURL			= isset($data[$resourceURLColumn]) ? trim($data[$resourceURLColumn]) : '';
 						$resource->resourceAltURL		= isset($data[$resourceAltURLColumn]) ? trim($data[$resourceAltURLColumn]) : '';
-						$resource->resourceTypeID		= isset($resourceTypeID) ? $resourceTypeID : '';
-						$resource->resourceFormatID		= isset($resourceFormatID) ? $resourceFormatID : '';
+						$resource->resourceURL			= isset($data[$resourceURLColumn]) ? trim($data[$resourceURLColumn]) : '';
+						$resource->titleText			= isset($data[$resourceTitleColumn]) ? trim($data[$resourceTitleColumn]) : '';
+						// Set single-value option list fields from imported data.
+						$resource->accessMethodID		= isset($accessMethodID) ? $accessMethodID : '';
 						$resource->acquisitionTypeID	= isset($acquisitionTypeID) ? $acquisitionTypeID : '';
 						$resource->authenticationTypeID	= isset($authenticationTypeID) ? $authenticationTypeID : '';
-						$resource->accessMethodID		= isset($accessMethodID) ? $accessMethodID : '';
-						$resource->coverageText			= isset($data[$resourceCoverageColumn]) ? trim($data[$resourceCoverageColumn]) : '';
-						//$resource->providerText     = $data[$_POST['providerText']];
-						$resource->statusID         = 1;
+						$resource->resourceFormatID		= isset($resourceFormatID) ? $resourceFormatID : '';
+						$resource->resourceTypeID		= isset($resourceTypeID) ? $resourceTypeID : '';
+
 						$resource->save();
 						isset($isbnIssn_values) ? $resource->setIsbnOrIssn($isbnIssn_values) : NULL;
 						$inserted++;
 
-						// If Alias is mapped, check to see if it exists
+						// Set multi-value fields from imported data.
+
+						// Check for imported Alias Sets; save any Aliases for the Resource.
+						// (The Resource must exist before we can add Aliases to Resources.)
 						foreach($jsonData['alias'] as $alias)
 						{
 							if($alias['column'] === "") //Skip alias if column reference is blank
@@ -619,36 +628,8 @@
 							}
 						}
 
-						// If Note is mapped, check to see if it exists
-						foreach($jsonData['note'] as $note)
-						{
-							if($note['column'] === "") //Skip note if column reference is blank
-							{
-								continue;
-							}
-							if($note['delimiter'] !== "") //If the notes in the column are delimited
-							{
-								$noteArray = array_map('trim', explode($note['delimiter'],$data[intval($note['column'])-1]));
-							}
-							else
-							{
-								$noteArray = array(trim($data[intval($note['column'])-1]));
-							}
-							foreach($noteArray as $currentNote)
-							{
-								$noteObj = new ResourceNote();
-								$noteObj->resourceID = $resource->primaryKey;
-								$noteObj->noteTypeID = $note['noteType'];
-								$noteObj->updateLoginID = '';
-								$noteObj->updateDate = date('Y-m-d H:i:s');
-								$noteObj->noteText = $currentNote;
-								$noteObj->tabName = 'Product';
-								$noteObj->save();
-								$noteInserted++;
-							}
-						}
-
-						//Add subjects to the resource
+						// Save any Subjects for the Resource.
+						// (The Resource and General Subject must exist before we can add Subjects to Resources.)
 						foreach($generalDetailSubjectLinkIDArray as $generalDetailID)
 						{
 							$resourceSubject = new ResourceSubject();
@@ -656,6 +637,7 @@
 							$resourceSubject->generalDetailSubjectLinkID = $generalDetailID;
 							$resourceSubject->save();
 						}
+
 						// Do we have to create an organization or attach the resource to an existing one?
 						foreach($jsonData['organization'] as $importOrganization)
 						{
@@ -752,7 +734,8 @@
 							}
 						}
 
-						// Add Purchasing Sites to the Resource.
+						// Save any Purchasing Sites for the Resource.
+						// (The Resource and Purchasing Site must exist before we can add Purchasing Sites to Resources.)
 						foreach ($resourcePurchaseSiteIDArray as $resourcePurchaseSiteID)
 						{
 							$resourcePurchaseSiteLink = new ResourcePurchaseSiteLink();
@@ -760,6 +743,37 @@
 							$resourcePurchaseSiteLink->purchaseSiteID = $resourcePurchaseSiteID;
 							$resourcePurchaseSiteLink->save();
 						}
+
+						// Check for imported Note Sets; save any Notes for the Resource.
+						// (The Resource must exist before we can add Notes to Resources.)
+						foreach($jsonData['note'] as $note)
+						{
+							if($note['column'] === "") //Skip note if column reference is blank
+							{
+								continue;
+							}
+							if($note['delimiter'] !== "") //If the notes in the column are delimited
+							{
+								$noteArray = array_map('trim', explode($note['delimiter'],$data[intval($note['column'])-1]));
+							}
+							else
+							{
+								$noteArray = array(trim($data[intval($note['column'])-1]));
+							}
+							foreach($noteArray as $currentNote)
+							{
+								$noteObj = new ResourceNote();
+								$noteObj->resourceID = $resource->primaryKey;
+								$noteObj->noteTypeID = $note['noteType'];
+								$noteObj->updateLoginID = '';
+								$noteObj->updateDate = date('Y-m-d H:i:s');
+								$noteObj->noteText = $currentNote;
+								$noteObj->tabName = 'Product';
+								$noteObj->save();
+								$noteInserted++;
+							}
+						}
+
 					}
 					elseif ($deduping_count == 1)
 					{
