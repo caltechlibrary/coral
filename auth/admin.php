@@ -43,10 +43,10 @@ if (isset($user) && ($user->isAdmin) && ($user->getOpenSession())){
 <link rel="SHORTCUT ICON" href="images/favicon.ico" />
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:100,400,300,600,700' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/plugins/jquery.js"></script>
+<script type="text/javascript" src="../js/plugins/jquery-1.4.4.js"></script>
 <script type="text/javascript" src="js/plugins/thickbox.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/plugins/Gettext.js"></script>
+<script type="text/javascript" src="../js/plugins/Gettext.js"></script>
 <?php
    // Add translation for the JavaScript files
     global $http_lang;
@@ -96,23 +96,23 @@ if (isset($user) && ($user->isAdmin) && ($user->getOpenSession())){
 			// Get all translations on the 'locale' folder
             $route='locale';
             $lang[]="en_US"; // add default language
-            if (is_dir($route)) {
-                if ($dh = opendir($route)) {
+            if (is_dir($route)) { 
+                if ($dh = opendir($route)) { 
                     while (($file = readdir($dh)) !== false) {
                         if (is_dir("$route/$file") && $file!="." && $file!=".."){
                             $lang[]=$file;
-                        }
-                    }
-                    closedir($dh);
-                }
+                        } 
+                    } 
+                    closedir($dh); 
+                } 
             }else {
-                echo "<br>"._("Invalid translation route!");
+                echo "<br>"._("Invalid translation route!"); 
             }
             // Get language of navigator
             $defLang = substr($_SERVER["HTTP_ACCEPT_LANGUAGE"],0,5);
-
+            
             // Show an ordered list
-            sort($lang);
+            sort($lang); 
             for($i=0; $i<count($lang); $i++){
                 if(isset($_COOKIE["lang"])){
                     if($_COOKIE["lang"]==$lang[$i]){
