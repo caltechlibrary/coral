@@ -38,6 +38,10 @@ class License extends DatabaseObject {
                 $expressionType = new ExpressionType(new NamedArguments(array('primaryKey' => $expression->expressionTypeID)));
                 if ($expressionType->noteType == "Display") {
                     $larray['documents'][$doccount]['expressions'][$exprcount]['content'] = $expression->asArray();
+                    foreach ($expression->getQualifiers() as $qualifier) {
+                        $larray['documents'][$doccount]['expressions'][$exprcount]['qualifiers'][] = $qualifier->shortName;
+                    }
+
                     $notescount = 0;
                     foreach ($expression->getExpressionNotes() as $expressionNote) {
                         $larray['documents'][$doccount]['expressions'][$exprcount]['notes'][$notescount] = $expressionNote->asArray();;

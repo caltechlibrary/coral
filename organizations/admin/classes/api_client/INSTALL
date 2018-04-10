@@ -1,0 +1,2 @@
+Install Unirest in resources/api_client with composer, so autoload.php is available like this: resources/api_client/vendor/autoload.php
+If you plan to use OAuth, install league/oauth2-client also in resources/api_client with composer.

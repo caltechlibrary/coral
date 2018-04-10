@@ -56,6 +56,13 @@ class Resource extends DatabaseObject {
 		foreach ($identifiers as $identifier) {
 				array_push($rarray['isbnOrIssn'], $identifier->isbnOrIssn);
 		}
+
+        $aliases = $this->getAliases();
+        $rarray['aliases'] = array();
+		foreach ($aliases as $alias) {
+				array_push($rarray['aliases'], $alias->shortName);
+		}
+
 		return $rarray;
 		
   
@@ -196,7 +203,6 @@ class Resource extends DatabaseObject {
 
     // return array of related resource objects
     private function getRelatedResources($key) {
-
         $query = "SELECT rr.resourceRelationshipID
 			FROM ResourceRelationship rr
             JOIN Resource r on rr.resourceID = r.resourceID

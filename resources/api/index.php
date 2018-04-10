@@ -3,6 +3,15 @@ require 'vendor/autoload.php';
 
 include_once '../directory.php';
 
+# We still need to manually include classes from other modules
+include_once '../../licensing/admin/classes/domain/License.php';
+include_once '../../licensing/admin/classes/domain/Document.php';
+include_once '../../licensing/admin/classes/domain/DocumentType.php';
+include_once '../../licensing/admin/classes/domain/Expression.php';
+include_once '../../licensing/admin/classes/domain/ExpressionNote.php';
+include_once '../../licensing/admin/classes/domain/ExpressionType.php';
+include_once '../../licensing/admin/classes/domain/Qualifier.php';
+
 if (!isAllowed()) {
     header('HTTP/1.0 403 Forbidden');
     echo "Unauthorized IP: " . $_SERVER['REMOTE_ADDR'];
@@ -299,6 +308,25 @@ Flight::route('GET /resources/', function() {
     }
 });
 
+Flight::route('GET /resources/@id/packages', function($id) {
+    $r = new Resource(new NamedArguments(array('primaryKey' => $id)));
+	$parentResourceArray = array();
+	$parentResourceIDArray = array();
+	foreach ($r->getParentResources() as $instance) {
+	   foreach (array_keys($instance->attributeNames) as $attributeName) {
+			$sanitizedInstance[$attributeName] = $instance->$attributeName;
+		}
+		$sanitizedInstance[$instance->primaryKeyName] = $instance->primaryKey;
+		array_push($parentResourceIDArray, $sanitizedInstance);
+	}
+
+	foreach ($parentResourceIDArray as $parentResource){
+		$parentResourceObj = new Resource(new NamedArguments(array('primaryKey' => $parentResource['relatedResourceID'])));
+		array_push($parentResourceArray, $parentResourceObj->asArray());
+	}
+    Flight::json($parentResourceArray);
+});
+
 Flight::route('GET /resources/@id/titles', function($id) {
     $r = new Resource(new NamedArguments(array('primaryKey' => $id)));
 	$childResourceArray = array();
@@ -321,14 +349,17 @@ Flight::route('GET /resources/@id/titles', function($id) {
 Flight::route('GET /resources/@id/licenses', function($id) {
     $db = DBService::getInstance();
     $r = new Resource(new NamedArguments(array('primaryKey' => $id)));
-	$licensesArray = array();
-    $rla = $r->getLicenseArray();
-    $db->changeDb('licensingDatabaseName');
-	foreach($rla as $license) {
-		$l = new License(new NamedArguments(array('primaryKey' => $license['licenseID'])));
-		array_push($licensesArray, $l->asArray());
-	}
-    $db->changeDb();
+    $ras = $r->getResourceAcquisitions();
+    $licensesArray = array();
+    foreach ($ras as $ra) {
+        $rla = $ra->getLicenseArray();
+        $db->changeDb('licensingDatabaseName');
+        foreach($rla as $license) {
+            $l = new License(new NamedArguments(array('primaryKey' => $license['licenseID'])));
+            array_push($licensesArray, $l->asArray());
+        }
+        $db->changeDb();
+    }
 	Flight::json($licensesArray);
 });
 
