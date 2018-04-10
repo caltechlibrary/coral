@@ -139,7 +139,7 @@ function register_have_default_db_user_provider()
 								"uid" => "check_user_has_access_db_access",
 								"translatable_title" => sprintf(_("Check %s Has DB Access"), $default_db_username),
 								"post_installation" => true,
-                "bundle" => function($version = 0) use ($config_files, $db_info) {
+                "bundle" => function($version = 0) use ($db_info, $failed_user_grants) {
 									return [
 										"function" => function($shared_module_info) use ($db_info, $failed_user_grants) {
 											$return = new stdClass();
