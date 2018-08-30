@@ -31,15 +31,16 @@ function watchString($string) {
 function usage_sidemenu($selected_link = '') {
   global $user;
   $links = array(
-    'imports' => 'seahorseicon',
-    'titles' => 'acquisitions',
-    'statistics' => 'xls',
-    'logins' => 'key',
-    'sushi' => 'arrow_sides',
+    'Imports' => 'seahorseicon',
+    'Titles' => 'acquisitions',
+    'Statistics' => 'xls',
+    'Logins' => 'key',
+    'Sushi' => 'arrow_sides',
   );
 
   foreach ($links as $key => $icon) {
     $name = ucfirst($key);
+    $selected_link = ucfirst($selected_link);
     if ($selected_link == $key) {
       $class = 'sidemenuselected';
       $image = "images/".$icon;

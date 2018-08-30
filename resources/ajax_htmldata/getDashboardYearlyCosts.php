@@ -23,7 +23,7 @@
     $costDetails = new CostDetails();
     $costDetailsArray = $costDetails->allAsArray();
 
-    echo "<table id='dashboard_table' class='dataTable' style='width:840px'>";
+    echo "<table id='dashboard_table' class='dataTable' style='width:840px;margin-top:0'>";
     echo "<thead><tr>";
     echo "<th>" . _("Name") . "</th>";
     echo "<th>" . _("Resource Type") . "</th>";

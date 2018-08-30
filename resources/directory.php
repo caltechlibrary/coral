@@ -84,20 +84,21 @@ function watchString($string) {
 function resource_sidemenu($selected_link = '') {
   global $user;
   $links = array(
-    'product',
-    'orders',
-    'acquisitions',
-    'access',
-    'cataloging',
-    'contacts',
-    'accounts',
-    'issues',
-    'attachments',
-    'workflow',
+    'Product',
+    'Orders',
+    'Acquisitions',
+    'Access',
+    'Cataloging',
+    'Contacts',
+    'Accounts',
+    'Issues',
+    'Attachments',
+    'Workflow',
   );
 
   foreach ($links as $key) {
     $name = ucfirst($key);
+    $selected_link = ucfirst($selected_link);
     if ($selected_link == $key) {
       $class = 'sidemenuselected';
       $icon_id = "icon_$key";

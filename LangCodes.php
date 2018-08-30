@@ -11,7 +11,8 @@ class LangCodes{
             'en_US'=>'en_US',
             'zh_CN'=>'zh_CN',
             'zh_TW'=>'zh_TW',
-            'de_DE'=>'de_DE'
+            'de_DE'=>'de_DE',
+            'tr_TR'=>'tr_TR'
         );
         return array_key_exists($code, $all_lang) ? $all_lang[$code] : "en_US";
     }
@@ -22,7 +23,8 @@ class LangCodes{
             'en_US'=>'English (US)',
             'zh_CN'=>'中文 (简体)',
             'zh_TW'=>'中文 (正體)',
-            'de_DE'=>'Deutsch'
+            'de_DE'=>'Deutsch',
+            'tr_TR'=>'Türkçe'
         );
         return array_key_exists($code_lang, $name_lang) ? $name_lang[$code_lang] : "English";
     }

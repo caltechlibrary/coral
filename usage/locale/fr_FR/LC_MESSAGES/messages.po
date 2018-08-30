@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: messages\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-12 11:30+0100\n"
+"POT-Creation-Date: 2018-06-19 17:05+0200\n"
 "PO-Revision-Date: 2018-03-13 17:21+0100\n"
 "Last-Translator: Paul Poulain <paul.poulain@biblibre.com>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -92,7 +92,7 @@ msgstr "Notes de connexion"
 
 #: ajax_htmldata.php:128 ajax_htmldata.php:189 ajax_htmldata.php:351
 #: ajax_htmldata.php:420 ajax_htmldata.php:901 ajax_htmldata.php:925
-#: uploadComplete.php:357
+#: uploadComplete.php:366
 msgid "edit"
 msgstr "Modifier"
 
@@ -358,11 +358,11 @@ msgstr "Supprimer"
 msgid "Current Outlier Parameters"
 msgstr "Paramètres actuels des valeurs hors normes"
 
-#: ajax_htmldata.php:924 uploadComplete.php:112
+#: ajax_htmldata.php:924 uploadComplete.php:121
 msgid "Level "
 msgstr "Niveau "
 
-#: ajax_htmldata.php:924 uploadComplete.php:112
+#: ajax_htmldata.php:924 uploadComplete.php:121
 msgid " over plus "
 msgstr " dépassant de "
 
@@ -741,11 +741,11 @@ msgstr " fonctionne"
 msgid "Run complete.  Log has been emailed to "
 msgstr "Processus terminé. Le fichier journal a été envoyé par email à "
 
-#: sushiSchedule.php:72 uploadComplete.php:977
+#: sushiSchedule.php:72 uploadComplete.php:986
 msgid "Email to "
 msgstr "Envoyer par email à "
 
-#: sushiSchedule.php:72 uploadComplete.php:977
+#: sushiSchedule.php:72 uploadComplete.php:986
 msgid " Failed!"
 msgstr " Echec !"
 
@@ -849,36 +849,36 @@ msgstr "Total de tous les livres"
 msgid "Total for all Databases"
 msgstr "Total de toutes les bases de données"
 
-#: uploadComplete.php:25
+#: uploadComplete.php:24
 msgid "Upload Process Complete"
 msgstr "Processus de téléchargement terminé"
 
-#: uploadComplete.php:90
+#: uploadComplete.php:99
 msgid "Process started on "
 msgstr "Processus démarré le "
 
-#: uploadComplete.php:91
+#: uploadComplete.php:100
 msgid "File: "
 msgstr "Fichier : "
 
-#: uploadComplete.php:92 uploadConfirmation.php:334
+#: uploadComplete.php:101 uploadConfirmation.php:334
 msgid "Report Format: "
 msgstr "Format du rapport : "
 
-#: uploadComplete.php:105
+#: uploadComplete.php:114
 msgid "Outlier Parameters:"
 msgstr "Paramètres des valeurs hors normes :"
 
-#: uploadComplete.php:112
+#: uploadComplete.php:121
 #, php-format
 msgid "% over "
 msgstr "% de dépassement "
 
-#: uploadComplete.php:283
+#: uploadComplete.php:292
 msgid "Override indicator set - all months will be imported."
 msgstr "Indicateur d'outrepassement défini - tous les mois seront importés."
 
-#: uploadComplete.php:292
+#: uploadComplete.php:301
 msgid ""
 "Entire year already exists for this Platform / year.  No counts will be "
 "imported."
@@ -886,18 +886,18 @@ msgstr ""
 "L'année entière existe déjà pour cette Plateforme/année. Aucun décompte ne "
 "sera importé."
 
-#: uploadComplete.php:296
+#: uploadComplete.php:305
 msgid "Month Started at: "
 msgstr "Mois commencé à : "
 
-#: uploadComplete.php:298
+#: uploadComplete.php:307
 msgid ""
 "No records exist for this Platform / year.  Import will start with month 1."
 msgstr ""
 "Aucun résultat n'existe pour cette plateforme/année. L'import commencera "
 "avec le mois 1."
 
-#: uploadComplete.php:301
+#: uploadComplete.php:310
 msgid ""
 "Partial year records exist for this Platform / year.  Import will start with "
 "month 1 and end with month "
@@ -905,90 +905,90 @@ msgstr ""
 "Des données pour une partie de l'année existent pour cette Plateforme/année. "
 "L'import commencera avec le mois 1 et terminera par le mois"
 
-#: uploadComplete.php:320
+#: uploadComplete.php:329
 msgid "Year: "
 msgstr "Année : "
 
-#: uploadComplete.php:357
+#: uploadComplete.php:366
 msgid "New Platform set up: "
 msgstr "Nouvelle plateforme configurée : "
 
-#: uploadComplete.php:439
+#: uploadComplete.php:448
 msgid "New Publisher / Platform set up: "
 msgstr "Nouvel éditeur/plateforme configuré : "
 
-#: uploadComplete.php:672
+#: uploadComplete.php:681
 msgid "Publisher / Platform: "
 msgstr "Editeur/plateforme : "
 
-#: uploadComplete.php:681
+#: uploadComplete.php:690
 msgid "Title: "
 msgstr "Titre : "
 
-#: uploadComplete.php:712
+#: uploadComplete.php:721
 msgid "Merged"
 msgstr "Fusionné"
 
-#: uploadComplete.php:717
+#: uploadComplete.php:726
 msgid "Duplicate record for this Print ISSN in same spreadsheet: Month: "
 msgstr ""
 "Notice dupliquée pour ce numéro ISSN imprimé dans la même feuille de calcul: "
 "Mois: "
 
-#: uploadComplete.php:717
+#: uploadComplete.php:726
 msgid "  New Count: "
 msgstr "  Nouveau décompte : "
 
-#: uploadComplete.php:809
+#: uploadComplete.php:818
 msgid "New Usage Count Record Added: Month: "
 msgstr "Nouvelle notice de décompte ajoutée : Mois : "
 
-#: uploadComplete.php:809 uploadComplete.php:811
+#: uploadComplete.php:818 uploadComplete.php:820
 msgid "  Count: "
 msgstr "  Décompte : "
 
-#: uploadComplete.php:811
+#: uploadComplete.php:820
 msgid "Usage Count Record is not numeric for month: "
 msgstr ""
 "La notice du décompte d'utilisation n'est pas numérique pour le mois : "
 
-#: uploadComplete.php:811
+#: uploadComplete.php:820
 msgid " imported as 0."
 msgstr " importé comme 0."
 
-#: uploadComplete.php:818
+#: uploadComplete.php:827
 msgid "Outlier found for this record: Level "
 msgstr "Valeur hors normes trouvée pour cette notice : Niveau "
 
-#: uploadComplete.php:827
+#: uploadComplete.php:836
 msgid "Current or future month will not be imported: "
 msgstr "Le mois actuel ou le mois prochain ne seront pas importés : "
 
-#: uploadComplete.php:877
+#: uploadComplete.php:886
 msgid "YTD Already Exists for this Print ISSN, counts are added together."
 msgstr ""
 "Le cumul annuel existe déjà pour ce numéro ISSN imprimé, les décomptes sont "
 "ajoutés ensemble."
 
-#: uploadComplete.php:901
+#: uploadComplete.php:910
 msgid "YTD Total Count: "
 msgstr "Décompte total du cumul annuel : "
 
-#: uploadComplete.php:901
+#: uploadComplete.php:910
 msgid "YTD HTML Count: "
 msgstr "Décompte total du cumul annuel en HTML : "
 
-#: uploadComplete.php:901
+#: uploadComplete.php:910
 msgid "YTD PDF Count: "
 msgstr "Décompte total du cumul annuel en PDF : "
 
-#: uploadComplete.php:908
+#: uploadComplete.php:917
 msgid "No YTD import performed since monthly stats were not imported"
 msgstr ""
 "Aucun import de cumul annuel effectué car les statistiques mensuelles n'ont "
 "pas été importées"
 
-#: uploadComplete.php:918
+#: uploadComplete.php:927
 msgid ""
 "Title match did not complete correctly, please check ISBN / ISSN to verify "
 "for Title:  "
@@ -996,43 +996,43 @@ msgstr ""
 "La correspondance de titres n'a pas pu terminer correctement, merci de "
 "vérifier l'ISBN/l'ISSN du titre :  "
 
-#: uploadComplete.php:970
+#: uploadComplete.php:979
 msgid "Log Output for "
 msgstr "Fichier journal des résultats pour "
 
-#: uploadComplete.php:971
+#: uploadComplete.php:980
 msgid "Usage Statistics File Import Run!"
 msgstr "Import réussi du fichier statistiques des utilisations !"
 
-#: uploadComplete.php:971
+#: uploadComplete.php:980
 msgid "Please find log file: "
 msgstr "Voici le fichier journal : "
 
-#: uploadComplete.php:975
+#: uploadComplete.php:984
 msgid "Log has been emailed to "
 msgstr "Le fichier journal a été envoyé par email à "
 
-#: uploadComplete.php:993 uploadComplete.php:1000 uploadComplete.php:1043
+#: uploadComplete.php:1002 uploadComplete.php:1009 uploadComplete.php:1052
 msgid " titles processed."
 msgstr " titres traités."
 
-#: uploadComplete.php:1037
+#: uploadComplete.php:1046
 msgid "Status"
 msgstr "Statut"
 
-#: uploadComplete.php:1039
+#: uploadComplete.php:1048
 msgid "File archived as"
 msgstr "Fichier archivé comme"
 
-#: uploadComplete.php:1040
+#: uploadComplete.php:1049
 msgid "Log file available at:"
 msgstr "Fichier journal disponible : "
 
-#: uploadComplete.php:1041
+#: uploadComplete.php:1050
 msgid "Process completed."
 msgstr "Processus terminé."
 
-#: uploadComplete.php:1043
+#: uploadComplete.php:1052
 msgid "Summary:"
 msgstr "Résumé :"
 
@@ -1256,7 +1256,7 @@ msgstr "URL de base du résolveur de liens (facultatif)"
 
 #: install/usage.php:63
 msgid "Use Outlier Flagging Feature"
-msgstr ""
+msgstr "Utiliser le marquage des valeurs hors norme"
 
 #: install/usage.php:71
 msgid "Please set up the following options for the Usage module."
@@ -1732,14 +1732,17 @@ msgstr "Mettre à jour un éditeur/une plateforme"
 msgid "view / edit"
 msgstr "voir/modifier"
 
+msgid "Statistics"
+msgstr "Statistiques"
+
+msgid "Logins"
+msgstr "Connexions"
+
 #~ msgid "imports"
 #~ msgstr "Importations"
 
 #~ msgid "titles"
 #~ msgstr "Titres"
-
-#~ msgid "statistics"
-#~ msgstr "statistiques"
 
 #~ msgid "logins"
 #~ msgstr "Connexions"

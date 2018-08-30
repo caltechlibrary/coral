@@ -282,13 +282,7 @@ $(document).ready(function(){
 
 	$(".showAccounts").click(function () {
 	  $('.resource_tab_content').hide();
-		$('#div_product').hide();
-		$('#div_acquisitions').hide();
-		$('#div_access').hide();
-		$('#div_contacts').hide();
 		$('#div_accounts').show();
-		$('#div_attachments').hide();
-		$('#div_workflow').hide();
 		$('#div_fullRightPanel').show();
 		updateAccounts();
 		return false;
@@ -661,6 +655,7 @@ function submitCloseIssue() {
 }
 
 function updateAccounts(){
+  currentTab = "Accounts";
   $("#icon_accounts").html("<img src='images/littlecircle.gif' />");
   $.ajax({
 	 type:       "GET",
@@ -878,7 +873,7 @@ function bind_removes(){
              url:        "ajax_processing.php",
              cache:      false,
              data:       "action=deleteOrder&resourceAcquisitionID=" + $(this).attr("id"),
-             success:    function(html, ) {
+             success:    function(html) {
                  //post return message to index
                 postwith('resource.php?resourceID=' + $("#resourceID").val(), {message:html});
              }

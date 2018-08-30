@@ -187,6 +187,22 @@ if ($resource->titleText){
 
 		</div>
 
+		<div style="display:none;width: 597px;" id='div_accounts' class="resource_tab_content">
+			<table cellpadding="0" cellspacing="0" style="width: 100%;">
+				<tr>
+					<td class="sidemenu">
+						<?php echo resource_sidemenu(watchString('accounts')); ?>
+					</td>
+					<td class='mainContent'>
+
+						<div class='div_mainContent'></div>
+
+					</td>
+				</tr>
+			</table>
+
+		</div>
+
 		<div style="display:none;width: 597px;" id='div_issues' class="resource_tab_content">
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>

@@ -1,468 +1,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Coral\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 17:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: BSZ - Abteilung Bibliothekssysteme\n"
-"Language-Abteilung: BSZ - Abteilung Bibliothekssysteme\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
-"X-Generator: Poedit 2.0.4\n"
+"Language-Abteilung: BSZ - Abteilung Bibliothekssysteme\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-#: install/licensing.php:9 install/licensing.php:31 install/licensing.php:104
-#: install/licensing.php:130
-msgid "Licensing Module"
-msgstr "Lizenzen"
-
-#: install/licensing.php:20
-msgid "Licensing Database"
-msgstr "Lizenzdatenbank"
-
-#: install/licensing.php:53
-msgid "Use Terms Tool Functionality"
-msgstr "Verwende das Terms Tool"
-
-#: calendar.php:21 templates/header.php:181 templates/header.php:236
-#: templates/header.php:284 index.php:23 in_progress.php:23
-msgid "Home"
-msgstr "Start"
-
-#: calendar.php:34 templates/header.php:210 templates/header.php:265
-#: templates/header.php:313
-msgid "Calendar"
-msgstr "Kalender"
-
-#: calendar.php:41
-msgid "Could not connect to host."
-msgstr "Konnte keine Verbindung zum Host herstellen."
-
-#: calendar.php:42
-msgid "Could not find License database."
-msgstr "Konnte Lizenzdatenbank nicht finden."
-
-#: calendar.php:43
-msgid "Could not find Resource database."
-msgstr "Konnte Ressourcendatenbank nicht finden."
-
-#: calendar.php:49
-msgid ""
-"There was an error with the CalendarSettings Table please verify the table "
-"has been created."
-msgstr ""
-"Es trat ein Fehler in der Tabelle CalendarSettings auf, bitte überprüfen Sie "
-"ob die Tabelle angelegt wurde."
-
-#: calendar.php:90
-msgid "There was an error with the CalendarSettings Configuration."
-msgstr "Es trat ein Fehler bei der Konfiguration von CalenderSettings auf."
-
-#: calendar.php:115 calendar.php:152
-msgid "Bad Query Failure"
-msgstr "Fehlerhafte Abfrage"
-
-#: calendar.php:122
-msgid "Upcoming License Renewals"
-msgstr "Anstehende Lizenzverlängerungen"
-
-#: calendar.php:210
-msgid "No associated licenses available."
-msgstr "Keine verbundenen Lizenzen verfügbar."
-
-#: calendar.php:216
-msgid "Expired "
-msgstr "Abgelaufen "
-
-#: calendar.php:216
-msgid " days ago"
-msgstr " Tagen"
-
-#: calendar.php:218
-msgid "- Expires in "
-msgstr "- Läuft in "
-
-#: calendar.php:221
-msgid " days)"
-msgstr " Tagen)"
-
-#: calendar.php:223
-msgid " days "
-msgstr " Tage "
-
-#: calendar.php:234
-msgid "Participants:  "
-msgstr "Teilnehmer: "
-
-#: admin.php:22
-msgid "Administration"
-msgstr "Administration"
-
-#: admin.php:35
-msgid "Users"
-msgstr "Nutzer"
-
-#: admin.php:36
-msgid "add new user"
-msgstr "Neuer Nutzer hinzufügen"
-
-#: admin.php:39 admin.php:56 admin.php:70 admin.php:83 admin.php:97
-#: admin.php:112 admin.php:132 admin.php:153 admin.php:167 in_progress.php:38
-#: license.php:70 license.php:112 license.php:131 license.php:151
-msgid "Loading..."
-msgstr "Lädt..."
-
-#: admin.php:52
-msgid "Document Types"
-msgstr "Dokumenttypen"
-
-#: admin.php:53
-msgid "add new document type"
-msgstr "Neuer Dokumenttyp hinzufügen"
-
-#: admin.php:66
-msgid "Expression Types"
-msgstr "Lizenzbedingungstypen"
-
-#: admin.php:67
-msgid "add new expression type"
-msgstr "Neuer Lizenzbedingungstyp hinzufügen"
-
-#: admin.php:79
-msgid "Qualifiers"
-msgstr "Kennzeichner"
-
-#: admin.php:80
-msgid "add new qualifier"
-msgstr "Neuen Kennzeichner hinzufügen"
-
-#: admin.php:93
-msgid "Signature Types"
-msgstr "Unterschriftart"
-
-#: admin.php:94
-msgid "add new signature type"
-msgstr "Neue Unterschriftart hinzufügen"
-
-#: admin.php:108
-msgid "License Statuses"
-msgstr "Lizentstatus"
-
-#: admin.php:109
-msgid "add new license status"
-msgstr "Neuer Lizenzstatus hinzufügen"
-
-#: admin.php:129 ajax_forms.php:1033
-msgid "Calendar Settings"
-msgstr "Kalendereinstellungen"
-
-#: admin.php:149
-msgid "Consortia"
-msgstr "Konsortium"
-
-#: admin.php:150
-msgid "add new consortium"
-msgstr "Neues Konsortium hinzufügen"
-
-#: admin.php:163
-msgid "Providers"
-msgstr "Anbieter"
-
-#: admin.php:164
-msgid "add new provider"
-msgstr "Neuen Anbieter hinzufügen"
-
-#: admin.php:180
-msgid "You don't have permission to access this page"
-msgstr "Sie haben nicht die Berechtigung auf diese Seite zuzugreifen"
-
-#: js/license.js:103
-msgid "Do you really want to delete this license?"
-msgstr "Möchten Sie diese Lizenz wirklich löschen?"
-
-#: js/license.js:159
-msgid "Refreshing Contents..."
-msgstr "Inhalte aktualisieren..."
-
-#: js/license.js:279
-msgid " record)"
-msgstr " Treffer)"
-
-#: js/license.js:281
-msgid " records)"
-msgstr " Treffer)"
-
-#: js/license.js:314
-msgid "Do you really want to archive this document?"
-msgstr "Möchten Sie dieses Dokument wirklich archivieren?"
-
-#: js/license.js:332
-msgid "Do you really want to delete this document?"
-msgstr "Möchten Sie dieses Dokument wirklich löschen?"
-
-#: js/license.js:339
-msgid ""
-"There was a problem with deleting the document.  You may not delete a "
-"document if there are associated expressions.  Remove all expressions and "
-"try again."
-msgstr ""
-"Beim Löschen des Dokuments ist ein Fehler aufgetreten. Sie können ein "
-"Dokument nicht löschen, dass mit Lizenzbedingungen verknüpft ist. Löschen "
-"Sie alle Bedingungen und versuchen Sie es erneut."
-
-#: js/license.js:353
-msgid "Do you really want to delete this expression?"
-msgstr "Möchten Sie diese Lizenzbedingung wirklich löschen?"
-
-#: js/license.js:368
-msgid ""
-"Do you really want to delete this attachment?  This will also delete all "
-"attached files."
-msgstr ""
-"Möchten Sie diesen Anhang wirklich löschen? Damit werden auch alle "
-"verknüpften Dateien gelöscht."
-
-#: js/license.js:385
-msgid "Do you really want to delete this terms tool resource link?"
-msgstr "Möchten Sie diesen Link zur Ressource im Terms Tool wirklich löschen?"
-
-#: js/license.js:425 js/license.js:455
-msgid "File name is already being used."
-msgstr "Der Dateiname wird bereits verwendet."
-
-#: js/license.js:457 js/forms/attachmentForm.js:84 js/forms/documentForm.js:134
-msgid " successfully uploaded."
-msgstr " wurde erfolgreich hochgeladen."
-
-#: js/admin.js:122 js/admin.js:257 js/admin.js:282 js/admin.js:308
-#: js/admin.js:335 js/index.js:43
-msgid "Processing..."
-msgstr "Lade..."
-
-#: js/admin.js:255 js/admin.js:333
-msgid "Do you really want to delete this data?"
-msgstr "Möchten Sie diese Daten wirklich löschen?"
-
-#: js/admin.js:280
-msgid "Do you really want to delete this user?"
-msgstr "Möchten Sie diesen Nutzer wirklich löschen?"
-
-#: js/admin.js:306
-msgid ""
-"Do you really want to delete this expression type?  Any associated "
-"Qualifiers will be deleted as well."
-msgstr ""
-"Möchten Sie den Lizenbedingungstyp wirklich löschen? Alle verknüpften "
-"Kennzeichner werden ebenfalls gelöscht."
-
-#: js/admin.js:357 js/forms/licenseForm.js:172 js/forms/signatureForm.js:115
-#: js/forms/expressionForm.js:78 js/forms/documentForm.js:188
-#: ajax_forms.php:480 ajax_forms.php:743
-msgid "add"
-msgstr "Hinzufügen"
-
-#: js/forms/licenseForm.js:34 js/forms/documentForm.js:38
-msgid "This name is already being used!"
-msgstr "Dieser Name wird bereits verwendet!"
-
-#: js/forms/licenseForm.js:57 js/forms/licenseForm.js:118 js/onix_import.js:11
-#: js/onix_import.js:68
-msgid "Warning!  This organization will be added new."
-msgstr "Warnung! Diese Organisation wird neu hinzugefügt."
-
-#: js/forms/licenseForm.js:191
-msgid "Consortium has been added"
-msgstr "Das Konsortium wurd hinzugefügt"
-
-#: js/forms/licenseForm.js:200
-msgid "License Name is required."
-msgstr "Ein Lizenzname ist erforderlich."
-
-#: js/forms/licenseForm.js:201
-msgid "Provider is required."
-msgstr "Der Anbieter ist erforderlich."
-
-#: js/forms/attachmentForm.js:41 js/forms/attachmentForm.js:54
-#: js/forms/documentForm.js:102
-msgid "File name is already being used..."
-msgstr "Der Dateiname wird bereits verwendet..."
-
-#: js/forms/attachmentForm.js:46
-msgid "The attachments directory is not writable."
-msgstr "Das Verzeichnis attachements ist nicht beschreibbar."
-
-#: js/forms/attachmentForm.js:84 ajax_htmldata.php:142 ajax_htmldata.php:234
-#: ajax_htmldata.php:1150 ajax_htmldata.php:1230 ajax_htmldata.php:1287
-#: ajax_htmldata.php:1335 ajax_htmldata.php:1452 ajax_forms.php:458
-#: ajax_forms.php:728 ajax_forms.php:815
-msgid "remove"
-msgstr "Entfernen"
-
-#: js/forms/attachmentForm.js:101 js/forms/attachmentForm.js:109
-msgid "Do you really want to delete this attachment?"
-msgstr "Möchten Sie diesen Anhang wirklich löschen?"
-
-#: js/forms/signatureForm.js:41
-msgid "No match!"
-msgstr "Keine Übereinstimmung!"
-
-#: js/forms/signatureForm.js:41
-msgid "Selected: "
-msgstr "Ausgewählt: "
-
-#: js/forms/signatureForm.js:96
-msgid "Do you really want to delete this signature?"
-msgstr "Möchten Sie diese Signatur wirklich löschen?"
-
-#: js/forms/signatureForm.js:126
-msgid "SignatureType has been added"
-msgstr "Signaturtyp wurde hinzugefügt"
-
-#: js/forms/expressionForm.js:89
-msgid "ExpressionType has been added"
-msgstr "Der Lizenzbedingungstyp wurde hinzugefügt"
-
-#: js/forms/documentForm.js:106
-msgid ""
-"File name may not contain special characters - ampersand, single quote, "
-"double quote or less than/greater than characters"
-msgstr ""
-"Der Dateiname darf keine Sonderzeichen enthalten - Kaufmanns-Und, einfache "
-"und doppelte Anführungszeichen, spitze Klammern"
-
-#: js/forms/documentForm.js:110
-msgid "The documents directory is not writable."
-msgstr "Das Verzeichnis documents ist nicht beschreibbar."
-
-#: js/forms/documentForm.js:176
-msgid "Document Type is required."
-msgstr "Der Dokumenttyp ist erforderlich."
-
-#: js/forms/documentForm.js:177
-msgid "Short Name is required."
-msgstr "Die Kurzbezeichnung ist erforderlich."
-
-#: js/forms/documentForm.js:207
-msgid "DocumentType has been added"
-msgstr "Der Dokumenttyp wurde hinzugefügt"
-
-#: js/forms/sfxForm.js:59
-msgid "A document must be selected to continue."
-msgstr "Es muss ein Dokument ausgewählt werden um fortzufahren."
-
-#: js/forms/sfxForm.js:60
-msgid "Terms Tool Resource must be entered to continue."
-msgstr "Die Terms Tool Ressource muss eingegeben werden um fortzufahren."
-
-#: js/onix_import.js:99
-msgid "Please select a file to upload."
-msgstr "Bitte wählen Sie eine Datei zum Hochladen aus."
-
-#: js/onix_import.js:105
-msgid "At least one term type must be selected."
-msgstr "Mindestens ein Bedingungstyp muss ausgewählt werden."
-
-#: js/onix_import.js:111
-msgid "The Publisher / Provider field must contain a value."
-msgstr "Das Verlags- / Anbieterfeld muss einen Wert enthalten."
-
-#: js/onix_import.js:114
-msgid ""
-"Please correct the following form error(s):\n"
-"\n"
-msgstr ""
-"Bitte korrigieren Sie folgende(n) Formfehler:\n"
-"\n"
-
-#: templates/header.php:35
-msgid ""
-"Both license name and organization must be filled out.  Please try again."
-msgstr "Lizenzname und Organisation müssen ausgefüllt sein. Bitte ergänzen."
-
-#: templates/header.php:85
-msgid ""
-"JavaScript must be enabled in order for you to use CORAL. However, it seems "
-"JavaScript is either disabled or not supported by your browser. To use "
-"CORAL, enable JavaScript by changing your browser options, then "
-msgstr ""
-"JavaScript muss aktiviert sein, um Coral verwenden zu können. Es scheint, "
-"dass JavaScript entweder deaktiviert ist oder von Ihrem Browser nicht "
-"unterstützt wird. Um Coral zu verwenden, aktivieren Sie JavaScript in den "
-"Einstellungen Ihres Browsers und "
-
-#: templates/header.php:85
-msgid "try again"
-msgstr "versuchen Sie es erneut"
-
-#: templates/header.php:107
-msgid "Licensing"
-msgstr "Lizenzen"
-
-#: templates/header.php:108
-msgid "Powered by"
-msgstr "Powered by"
-
-#: templates/header.php:114
-msgid "Hello"
-msgstr "Hallo"
-
-#: templates/header.php:124
-msgid "logout"
-msgstr "Logout"
-
-#: templates/header.php:124
-msgid "Help"
-msgstr "Hilfe"
-
-#: templates/header.php:142
-msgid "Invalid translation route!"
-msgstr "Ungültige Übersetzung!"
-
-#: templates/header.php:188 templates/header.php:243 templates/header.php:291
-msgid "New License"
-msgstr "Neue Lizenz"
-
-#: templates/header.php:195 templates/header.php:250 templates/header.php:298
-msgid "License In Progress"
-msgstr "Lizenzen in Bearbeitung"
-
-#: templates/header.php:202 templates/header.php:257 templates/header.php:305
-#: compare.php:22
-msgid "Expression Comparison"
-msgstr "Lizenzbedingungsvergleich"
-
-#: templates/header.php:218 templates/header.php:273 templates/header.php:321
-msgid "ONIX-PL File Import"
-msgstr "ONIX-PL-Dateiimport"
-
-#: templates/header.php:225
-msgid "Admin"
-msgstr "Admin"
-
-#: templates/header.php:342
-msgid "Change Module"
-msgstr "Modul wechseln"
-
-#: templates/header.php:345
-msgid "Main Menu"
-msgstr "Hauptmenü"
-
-#: templates/header.php:350
-msgid "Resources"
-msgstr "Ressourcen"
-
-#: templates/header.php:355
-msgid "Organizations"
-msgstr "Organisationen"
-
-#: templates/header.php:360
-msgid "Usage Statistics"
-msgstr "Nutzungsstatistik"
-
-#: templates/header.php:365
-msgid "Management"
-msgstr "Management"
+"Language-Team: \n"
+
+#: terms_report.php:22
+msgid "Terms Report"
+msgstr "Reportbedingungen"
 
 #: onix_import.php:14 onix_import.php:17
 msgid "ONIX-PL Import"
@@ -535,6 +89,688 @@ msgstr "Verlag / Anbieter:"
 #: onix_import.php:334
 msgid "Upload"
 msgstr "Upload"
+
+#: admin.php:22
+msgid "Administration"
+msgstr "Administration"
+
+#: admin.php:35
+msgid "Users"
+msgstr "Nutzer"
+
+#: admin.php:36
+msgid "add new user"
+msgstr "Neuer Nutzer hinzufügen"
+
+#: admin.php:39 admin.php:56 admin.php:70 admin.php:83 admin.php:97
+#: admin.php:112 admin.php:132 admin.php:153 admin.php:167 license.php:70
+#: license.php:112 license.php:131 license.php:151 in_progress.php:38
+msgid "Loading..."
+msgstr "Lädt..."
+
+#: admin.php:52
+msgid "Document Types"
+msgstr "Dokumenttypen"
+
+#: admin.php:53
+msgid "add new document type"
+msgstr "Neuer Dokumenttyp hinzufügen"
+
+#: admin.php:66
+msgid "Expression Types"
+msgstr "Lizenzbedingungstypen"
+
+#: admin.php:67
+msgid "add new expression type"
+msgstr "Neuer Lizenzbedingungstyp hinzufügen"
+
+#: admin.php:79
+msgid "Qualifiers"
+msgstr "Kennzeichner"
+
+#: admin.php:80
+msgid "add new qualifier"
+msgstr "Neuen Kennzeichner hinzufügen"
+
+#: admin.php:93
+msgid "Signature Types"
+msgstr "Unterschriftart"
+
+#: admin.php:94
+msgid "add new signature type"
+msgstr "Neue Unterschriftart hinzufügen"
+
+#: admin.php:108
+msgid "License Statuses"
+msgstr "Lizentstatus"
+
+#: admin.php:109
+msgid "add new license status"
+msgstr "Neuer Lizenzstatus hinzufügen"
+
+#: admin.php:129 ajax_forms.php:1033
+msgid "Calendar Settings"
+msgstr "Kalendereinstellungen"
+
+#: admin.php:149
+msgid "Consortia"
+msgstr "Konsortium"
+
+#: admin.php:150
+msgid "add new consortium"
+msgstr "Neues Konsortium hinzufügen"
+
+#: admin.php:163
+msgid "Providers"
+msgstr "Anbieter"
+
+#: admin.php:164
+msgid "add new provider"
+msgstr "Neuen Anbieter hinzufügen"
+
+#: admin.php:180
+msgid "You don't have permission to access this page"
+msgstr "Sie haben nicht die Berechtigung auf diese Seite zuzugreifen"
+
+#: license.php:62 license.php:104 license.php:124 license.php:143
+msgid "Documents"
+msgstr "Dokumente"
+
+#: license.php:63 license.php:105 license.php:125 license.php:144
+#: ajax_forms.php:546
+msgid "Expressions"
+msgstr "Lizenzbedingungen"
+
+#: license.php:64 license.php:106 license.php:126 license.php:145
+msgid "Terms Tool"
+msgstr "Terms Tool"
+
+#: license.php:65 license.php:107 license.php:127 license.php:146
+#: ajax_forms.php:789
+msgid "Attachments"
+msgstr "Anhänge"
+
+#: license.php:79
+msgid "Helpful Links"
+msgstr "Hilfreiche Links"
+
+#: license.php:87
+msgid "Send feedback on this resource"
+msgstr "Sende Feedback für diese Ressource"
+
+#: in_progress.php:23 templates/header.php:181 templates/header.php:236
+#: templates/header.php:284 index.php:23 calendar.php:21
+msgid "Home"
+msgstr "Start"
+
+#: in_progress.php:33
+msgid "Licenses In Progress"
+msgstr "Lizenzen in Bearbeitung"
+
+#: in_progress.php:33
+msgid "Browse All"
+msgstr "Alle"
+
+#: templates/header.php:35
+msgid ""
+"Both license name and organization must be filled out.  Please try again."
+msgstr "Lizenzname und Organisation müssen ausgefüllt sein. Bitte ergänzen."
+
+#: templates/header.php:85
+msgid ""
+"JavaScript must be enabled in order for you to use CORAL. However, it seems "
+"JavaScript is either disabled or not supported by your browser. To use "
+"CORAL, enable JavaScript by changing your browser options, then "
+msgstr ""
+"JavaScript muss aktiviert sein, um Coral verwenden zu können. Es scheint, "
+"dass JavaScript entweder deaktiviert ist oder von Ihrem Browser nicht "
+"unterstützt wird. Um Coral zu verwenden, aktivieren Sie JavaScript in den "
+"Einstellungen Ihres Browsers und "
+
+#: templates/header.php:85
+msgid "try again"
+msgstr "versuchen Sie es erneut"
+
+#: templates/header.php:107
+msgid "Licensing"
+msgstr "Lizenzen"
+
+#: templates/header.php:108
+msgid "Powered by"
+msgstr "Powered by"
+
+#: templates/header.php:114
+msgid "Hello"
+msgstr "Hallo"
+
+#: templates/header.php:124
+msgid "logout"
+msgstr "Logout"
+
+#: templates/header.php:124
+msgid "Help"
+msgstr "Hilfe"
+
+#: templates/header.php:142
+msgid "Invalid translation route!"
+msgstr "Ungültige Übersetzung!"
+
+#: templates/header.php:188 templates/header.php:243 templates/header.php:291
+msgid "New License"
+msgstr "Neue Lizenz"
+
+#: templates/header.php:195 templates/header.php:250 templates/header.php:298
+msgid "License In Progress"
+msgstr "Lizenzen in Bearbeitung"
+
+#: templates/header.php:202 templates/header.php:257 templates/header.php:305
+#: compare.php:22
+msgid "Expression Comparison"
+msgstr "Lizenzbedingungsvergleich"
+
+#: templates/header.php:210 templates/header.php:265 templates/header.php:313
+#: calendar.php:34
+msgid "Calendar"
+msgstr "Kalender"
+
+#: templates/header.php:218 templates/header.php:273 templates/header.php:321
+msgid "ONIX-PL File Import"
+msgstr "ONIX-PL-Dateiimport"
+
+#: templates/header.php:225
+msgid "Admin"
+msgstr "Admin"
+
+#: templates/header.php:342
+msgid "Change Module"
+msgstr "Modul wechseln"
+
+#: templates/header.php:345
+msgid "Main Menu"
+msgstr "Hauptmenü"
+
+#: templates/header.php:350
+msgid "Resources"
+msgstr "Ressourcen"
+
+#: templates/header.php:355
+msgid "Organizations"
+msgstr "Organisationen"
+
+#: templates/header.php:360
+msgid "Usage Statistics"
+msgstr "Nutzungsstatistik"
+
+#: templates/header.php:365
+msgid "Management"
+msgstr "Management"
+
+#: index.php:48
+msgid "Search"
+msgstr "Suche"
+
+#: index.php:49 index.php:238
+msgid "new search"
+msgstr "Neue Suche"
+
+#: index.php:58
+msgid "Name (contains)"
+msgstr "Name (enthält)"
+
+#: index.php:61
+msgid "go!"
+msgstr "Los!"
+
+#: index.php:67
+msgid "Publisher/Provider"
+msgstr "Verlag/Anbieter"
+
+#: index.php:78 index.php:104
+msgid "All"
+msgstr "Alle"
+
+#: index.php:92 ajax_htmldata.php:496 ajax_forms.php:94
+msgid ""
+"There was an error processing this request - please verify configuration.ini "
+"is set up for organizations correctly and the database and tables have been "
+"created."
+msgstr ""
+"Bei der Verarbeitung dieser Anfrage ist ein Fehler aufgetreten - bitte "
+"überprüfen Sie, dass Ihre configuration.ini für Organisationen korrekt "
+"eingerichtet ist und die Datenbank mit den Tabellen korrekt angelegt wurde."
+
+#: index.php:101 ajax_htmldata.php:385 ajax_htmldata.php:465
+msgid "Consortium"
+msgstr "Konsortium"
+
+#: index.php:105 ajax_htmldata.php:1170
+msgid "(none)"
+msgstr "(keine Treffer)"
+
+#: index.php:124 ajax_htmldata.php:386 ajax_htmldata.php:466
+msgid "Status"
+msgstr "Status"
+
+#: index.php:149
+msgid "Document Type"
+msgstr "Dokumenttyp"
+
+#: index.php:180 ajax_htmldata.php:1324 ajax_forms.php:993 ajax_forms.php:994
+msgid "Expression Type"
+msgstr "Lizenzbedingungstyp"
+
+#: index.php:205 ajax_htmldata.php:1086 ajax_htmldata.php:1439
+#: ajax_forms.php:1144 ajax_forms.php:1167
+msgid "Qualifier"
+msgstr "Kennzeichner"
+
+#: index.php:215
+msgid "Starts with"
+msgstr "Beginnt mit"
+
+#: compare.php:39
+msgid "Limit by Expression Type:"
+msgstr "Limit nach Lizenzbedingungstyp:"
+
+#: js/forms/sfxForm.js:59
+msgid "A document must be selected to continue."
+msgstr "Es muss ein Dokument ausgewählt werden um fortzufahren."
+
+#: js/forms/sfxForm.js:60
+msgid "Terms Tool Resource must be entered to continue."
+msgstr "Die Terms Tool Ressource muss eingegeben werden um fortzufahren."
+
+#: js/forms/licenseForm.js:34 js/forms/documentForm.js:38
+msgid "This name is already being used!"
+msgstr "Dieser Name wird bereits verwendet!"
+
+#: js/forms/licenseForm.js:57 js/forms/licenseForm.js:118 js/onix_import.js:11
+#: js/onix_import.js:68
+msgid "Warning!  This organization will be added new."
+msgstr "Warnung! Diese Organisation wird neu hinzugefügt."
+
+#: js/forms/licenseForm.js:172 js/forms/expressionForm.js:78
+#: js/forms/signatureForm.js:115 js/forms/documentForm.js:188 js/admin.js:357
+#: ajax_forms.php:480 ajax_forms.php:743
+msgid "add"
+msgstr "Hinzufügen"
+
+#: js/forms/licenseForm.js:191
+msgid "Consortium has been added"
+msgstr "Das Konsortium wurd hinzugefügt"
+
+#: js/forms/licenseForm.js:200
+msgid "License Name is required."
+msgstr "Ein Lizenzname ist erforderlich."
+
+#: js/forms/licenseForm.js:201
+msgid "Provider is required."
+msgstr "Der Anbieter ist erforderlich."
+
+#: js/forms/expressionForm.js:89
+msgid "ExpressionType has been added"
+msgstr "Der Lizenzbedingungstyp wurde hinzugefügt"
+
+#: js/forms/attachmentForm.js:41 js/forms/attachmentForm.js:54
+#: js/forms/documentForm.js:102
+msgid "File name is already being used..."
+msgstr "Der Dateiname wird bereits verwendet..."
+
+#: js/forms/attachmentForm.js:46
+msgid "The attachments directory is not writable."
+msgstr "Das Verzeichnis attachements ist nicht beschreibbar."
+
+#: js/forms/attachmentForm.js:84 js/forms/documentForm.js:134 js/license.js:457
+msgid " successfully uploaded."
+msgstr " wurde erfolgreich hochgeladen."
+
+#: js/forms/attachmentForm.js:84 ajax_htmldata.php:142 ajax_htmldata.php:234
+#: ajax_htmldata.php:1150 ajax_htmldata.php:1230 ajax_htmldata.php:1287
+#: ajax_htmldata.php:1335 ajax_htmldata.php:1452 ajax_forms.php:458
+#: ajax_forms.php:728 ajax_forms.php:815
+msgid "remove"
+msgstr "Entfernen"
+
+#: js/forms/attachmentForm.js:101 js/forms/attachmentForm.js:109
+msgid "Do you really want to delete this attachment?"
+msgstr "Möchten Sie diesen Anhang wirklich löschen?"
+
+#: js/forms/signatureForm.js:41
+msgid "No match!"
+msgstr "Keine Übereinstimmung!"
+
+#: js/forms/signatureForm.js:41
+msgid "Selected: "
+msgstr "Ausgewählt: "
+
+#: js/forms/signatureForm.js:96
+msgid "Do you really want to delete this signature?"
+msgstr "Möchten Sie diese Signatur wirklich löschen?"
+
+#: js/forms/signatureForm.js:126
+msgid "SignatureType has been added"
+msgstr "Signaturtyp wurde hinzugefügt"
+
+#: js/forms/documentForm.js:106
+msgid ""
+"File name may not contain special characters - ampersand, single quote, "
+"double quote or less than/greater than characters"
+msgstr ""
+"Der Dateiname darf keine Sonderzeichen enthalten - Kaufmanns-Und, einfache "
+"und doppelte Anführungszeichen, spitze Klammern"
+
+#: js/forms/documentForm.js:110
+msgid "The documents directory is not writable."
+msgstr "Das Verzeichnis documents ist nicht beschreibbar."
+
+#: js/forms/documentForm.js:176
+msgid "Document Type is required."
+msgstr "Der Dokumenttyp ist erforderlich."
+
+#: js/forms/documentForm.js:177
+msgid "Short Name is required."
+msgstr "Die Kurzbezeichnung ist erforderlich."
+
+#: js/forms/documentForm.js:207
+msgid "DocumentType has been added"
+msgstr "Der Dokumenttyp wurde hinzugefügt"
+
+#: js/admin.js:122 js/admin.js:257 js/admin.js:282 js/admin.js:308
+#: js/admin.js:335 js/index.js:43
+msgid "Processing..."
+msgstr "Lade..."
+
+#: js/admin.js:255 js/admin.js:333
+msgid "Do you really want to delete this data?"
+msgstr "Möchten Sie diese Daten wirklich löschen?"
+
+#: js/admin.js:280
+msgid "Do you really want to delete this user?"
+msgstr "Möchten Sie diesen Nutzer wirklich löschen?"
+
+#: js/admin.js:306
+msgid ""
+"Do you really want to delete this expression type?  Any associated "
+"Qualifiers will be deleted as well."
+msgstr ""
+"Möchten Sie den Lizenbedingungstyp wirklich löschen? Alle verknüpften "
+"Kennzeichner werden ebenfalls gelöscht."
+
+#: js/onix_import.js:99
+msgid "Please select a file to upload."
+msgstr "Bitte wählen Sie eine Datei zum Hochladen aus."
+
+#: js/onix_import.js:105
+msgid "At least one term type must be selected."
+msgstr "Mindestens ein Bedingungstyp muss ausgewählt werden."
+
+#: js/onix_import.js:111
+msgid "The Publisher / Provider field must contain a value."
+msgstr "Das Verlags- / Anbieterfeld muss einen Wert enthalten."
+
+#: js/onix_import.js:114
+msgid ""
+"Please correct the following form error(s):\n"
+"\n"
+msgstr ""
+"Bitte korrigieren Sie folgende(n) Formfehler:\n"
+"\n"
+
+#: js/license.js:103
+msgid "Do you really want to delete this license?"
+msgstr "Möchten Sie diese Lizenz wirklich löschen?"
+
+#: js/license.js:159
+msgid "Refreshing Contents..."
+msgstr "Inhalte aktualisieren..."
+
+#: js/license.js:279
+msgid " record)"
+msgstr " Treffer)"
+
+#: js/license.js:281
+msgid " records)"
+msgstr " Treffer)"
+
+#: js/license.js:314
+msgid "Do you really want to archive this document?"
+msgstr "Möchten Sie dieses Dokument wirklich archivieren?"
+
+#: js/license.js:332
+msgid "Do you really want to delete this document?"
+msgstr "Möchten Sie dieses Dokument wirklich löschen?"
+
+#: js/license.js:339
+msgid ""
+"There was a problem with deleting the document.  You may not delete a "
+"document if there are associated expressions.  Remove all expressions and "
+"try again."
+msgstr ""
+"Beim Löschen des Dokuments ist ein Fehler aufgetreten. Sie können ein "
+"Dokument nicht löschen, dass mit Lizenzbedingungen verknüpft ist. Löschen "
+"Sie alle Bedingungen und versuchen Sie es erneut."
+
+#: js/license.js:353
+msgid "Do you really want to delete this expression?"
+msgstr "Möchten Sie diese Lizenzbedingung wirklich löschen?"
+
+#: js/license.js:368
+msgid ""
+"Do you really want to delete this attachment?  This will also delete all "
+"attached files."
+msgstr ""
+"Möchten Sie diesen Anhang wirklich löschen? Damit werden auch alle "
+"verknüpften Dateien gelöscht."
+
+#: js/license.js:385
+msgid "Do you really want to delete this terms tool resource link?"
+msgstr "Möchten Sie diesen Link zur Ressource im Terms Tool wirklich löschen?"
+
+#: js/license.js:425 js/license.js:455
+msgid "File name is already being used."
+msgstr "Der Dateiname wird bereits verwendet."
+
+#: ajax_processing.php:96
+msgid "License successfully deleted."
+msgstr "Lizenz wurde erfolgreich gelöscht."
+
+#: ajax_processing.php:172 ajax_processing.php:957
+msgid "success uploading!"
+msgstr "erfolgreich hochgeladen!"
+
+#: ajax_processing.php:175 ajax_processing.php:960
+msgid "There was a problem saving your file to"
+msgstr "Es trat ein Problem auf beim Speichern Ihrer Datei nach"
+
+#: ajax_processing.php:236
+msgid "Document Saved Successfully."
+msgstr "Dokument wurde erfolgreich gespeichert."
+
+#: ajax_processing.php:250
+msgid "Signature Deleted Successfully."
+msgstr "Signatur wurde erfolgreich gelöscht."
+
+#: ajax_processing.php:312
+msgid "Expression Removed Successfully."
+msgstr "Lizenzbedingung wurde erfolgreich entfernt."
+
+#: ajax_processing.php:335
+msgid ""
+"An expression in the licensing module has been approved for terms tool use."
+msgstr ""
+"Eine Lizenzbedingung im Lizenzmodul wurde für die Nutzung im Terms Tool "
+"freigegeben."
+
+#: ajax_processing.php:336
+msgid "License:  "
+msgstr "Lizenz: "
+
+#: ajax_processing.php:337
+msgid "View License Record:  "
+msgstr "Zeige Lizenz: "
+
+#: ajax_processing.php:341
+msgid "Licensing - expression set to production use"
+msgstr "Lizenzen - Lizenzbedingung für Verwendung aktiv"
+
+#: ajax_processing.php:346
+msgid "Approved for terms tool display."
+msgstr "Für die Terms Tool Anzeige angenommen."
+
+#: ajax_processing.php:348
+msgid "Removed from terms tool display."
+msgstr "Entfernt von der Terms Tool Anzeige."
+
+#: ajax_processing.php:375
+msgid "Expression Note Updated Successfully."
+msgstr "Lizenzbedingungsnotiz wurde erfolgreich aktualisiert."
+
+#: ajax_processing.php:391
+msgid "Expression Note Added Successfully."
+msgstr "Lizenzbedingungsnotiz wurde erfolgreich hinzugefügt."
+
+#: ajax_processing.php:415
+msgid "Note Removed Successfully."
+msgstr "Notiz wurde erfolgreich entfernt."
+
+#: ajax_processing.php:452
+msgid "Terms Tool Resource Link successfully deleted"
+msgstr "Der Terms Tool Resource Link wurde erfolgreich gelöscht"
+
+#: ajax_processing.php:468
+msgid "License Updated Successfully."
+msgstr "Lizenz erfolgreich aktualisiert."
+
+#: ajax_processing.php:477
+msgid "License Added Successfully."
+msgstr "Lizenz erfolgreich hinzugefügt."
+
+#: ajax_processing.php:477
+msgid "Please continue to upload documents and add expressions or emails."
+msgstr ""
+"Bitte fahren Sie mit dem Upload von Dokumenten fort und fügen Sie "
+"Lizenzbedingungen und E-Mail-Adressen hinzu."
+
+#: ajax_processing.php:505 ajax_processing.php:517 ajax_processing.php:530
+#: ajax_forms.php:305
+msgid "Continue"
+msgstr "Fortfahren"
+
+#: ajax_processing.php:514 ajax_processing.php:527
+msgid "SQL Insert Failed."
+msgstr "SQL Insert fehlgeschlagen."
+
+#: ajax_processing.php:514 ajax_processing.php:527
+msgid "Please make sure everything is filled out correctly."
+msgstr "Bitte stellen Sie sicher das alles korrekt ausgefüllt ist."
+
+#: ajax_processing.php:772
+msgid "Unable to delete  - this "
+msgstr "Kann nicht gelöscht werden - "
+
+#: ajax_processing.php:772
+msgid ""
+" is in use.  Please make sure no licenses are set up with this information."
+msgstr ""
+" wird verwendet. Bitte stellen Sie sicher, dass keine Lizenzen mit dieser "
+"Information vorhanden sind."
+
+#: ajax_processing.php:778
+msgid ""
+"Unable to delete.  Please make sure no licenses are set up with this "
+"information."
+msgstr ""
+"Kann nicht gelöscht werden. Bitte setllen Sie sicher, dass keine Lizenzen "
+"mit dieser Information vorhanden sind."
+
+#: ajax_processing.php:1027
+msgid "Attachment successfully deleted"
+msgstr "Anhang wurde erfolgreich gelöscht"
+
+#: ajax_processing.php:1041
+msgid "Attachment file successfully deleted"
+msgstr "Anhang wurde erfolgreich gelöscht"
+
+#: ajax_processing.php:1062
+msgid "Status has been updated"
+msgstr "Der Status wurde aktualisiert"
+
+#: ajax_processing.php:1172 ajax_htmldata.php:1590 ajax_forms.php:1194
+msgid "Action "
+msgstr "Aktion "
+
+#: ajax_processing.php:1172 ajax_htmldata.php:1590 ajax_forms.php:1194
+msgid " not set up!"
+msgstr " nicht aufgesetzt!"
+
+#: not_available.php:21
+msgid "Not Available"
+msgstr "Nicht verfügbar"
+
+#: not_available.php:66
+msgid "Please contact your Administrator for access to the Licensing Module."
+msgstr ""
+"Bitte kontaktieren Sie Ihren Administrator für den Zugang zum Lizenzmodul."
+
+#: calendar.php:41
+msgid "Could not connect to host."
+msgstr "Konnte keine Verbindung zum Host herstellen."
+
+#: calendar.php:42
+msgid "Could not find License database."
+msgstr "Konnte Lizenzdatenbank nicht finden."
+
+#: calendar.php:43
+msgid "Could not find Resource database."
+msgstr "Konnte Ressourcendatenbank nicht finden."
+
+#: calendar.php:49
+msgid ""
+"There was an error with the CalendarSettings Table please verify the table "
+"has been created."
+msgstr ""
+"Es trat ein Fehler in der Tabelle CalendarSettings auf, bitte überprüfen Sie "
+"ob die Tabelle angelegt wurde."
+
+#: calendar.php:90
+msgid "There was an error with the CalendarSettings Configuration."
+msgstr "Es trat ein Fehler bei der Konfiguration von CalenderSettings auf."
+
+#: calendar.php:115 calendar.php:152
+msgid "Bad Query Failure"
+msgstr "Fehlerhafte Abfrage"
+
+#: calendar.php:122
+msgid "Upcoming License Renewals"
+msgstr "Anstehende Lizenzverlängerungen"
+
+#: calendar.php:210
+msgid "No associated licenses available."
+msgstr "Keine verbundenen Lizenzen verfügbar."
+
+#: calendar.php:216
+msgid "Expired "
+msgstr "Abgelaufen "
+
+#: calendar.php:216
+msgid " days ago"
+msgstr " Tagen"
+
+#: calendar.php:218
+msgid "- Expires in "
+msgstr "- Läuft in "
+
+#: calendar.php:221
+msgid " days)"
+msgstr " Tagen)"
+
+#: calendar.php:223
+msgid " days "
+msgstr " Tage "
+
+#: calendar.php:234
+msgid "Participants:  "
+msgstr "Teilnehmer: "
 
 #: ajax_htmldata.php:50
 msgid "edit license"
@@ -634,27 +870,9 @@ msgstr "Name"
 msgid "Publisher / Provider"
 msgstr "Verlag  / Anbieter"
 
-#: ajax_htmldata.php:385 ajax_htmldata.php:465 index.php:101
-msgid "Consortium"
-msgstr "Konsortium"
-
-#: ajax_htmldata.php:386 ajax_htmldata.php:466 index.php:124
-msgid "Status"
-msgstr "Status"
-
 #: ajax_htmldata.php:432
 msgid "records per page"
 msgstr "Datensätze pro Seite"
-
-#: ajax_htmldata.php:496 index.php:92 ajax_forms.php:94
-msgid ""
-"There was an error processing this request - please verify configuration.ini "
-"is set up for organizations correctly and the database and tables have been "
-"created."
-msgstr ""
-"Bei der Verarbeitung dieser Anfrage ist ein Fehler aufgetreten - bitte "
-"überprüfen Sie, dass Ihre configuration.ini für Organisationen korrekt "
-"eingerichtet ist und die Datenbank mit den Tabellen korrekt angelegt wurde."
 
 #: ajax_htmldata.php:535
 msgid "view / edit license"
@@ -807,18 +1025,9 @@ msgstr "Lade neues Dokument hoch"
 msgid "For Document:"
 msgstr "Für Dokument:"
 
-#: ajax_htmldata.php:1086 ajax_htmldata.php:1439 index.php:205
-#: ajax_forms.php:1144 ajax_forms.php:1167
-msgid "Qualifier"
-msgstr "Kennzeichner"
-
 #: ajax_htmldata.php:1125
 msgid "used in terms tool"
 msgstr "wird im Terms Tool verwendet"
-
-#: ajax_htmldata.php:1170 index.php:105
-msgid "(none)"
-msgstr "(keine Treffer)"
 
 #: ajax_htmldata.php:1176
 msgid "add/view "
@@ -853,10 +1062,6 @@ msgstr "Terms Tool E-Mail aktualisieren"
 msgid "update"
 msgstr "Update"
 
-#: ajax_htmldata.php:1324 index.php:180 ajax_forms.php:993 ajax_forms.php:994
-msgid "Expression Type"
-msgstr "Lizenzbedingungstyp"
-
 #: ajax_htmldata.php:1325 ajax_forms.php:995
 msgid "Note Type"
 msgstr "Notiztyp"
@@ -881,188 +1086,6 @@ msgstr "Einschränken nach Kennzeichner:"
 #: ajax_htmldata.php:1572
 msgid "Resources Module"
 msgstr "Ressourcen"
-
-#: ajax_htmldata.php:1590 ajax_processing.php:1172 ajax_forms.php:1194
-msgid "Action "
-msgstr "Aktion "
-
-#: ajax_htmldata.php:1590 ajax_processing.php:1172 ajax_forms.php:1194
-msgid " not set up!"
-msgstr " nicht aufgesetzt!"
-
-#: terms_report.php:22
-msgid "Terms Report"
-msgstr "Reportbedingungen"
-
-#: compare.php:39
-msgid "Limit by Expression Type:"
-msgstr "Limit nach Lizenzbedingungstyp:"
-
-#: index.php:48
-msgid "Search"
-msgstr "Suche"
-
-#: index.php:49 index.php:238
-msgid "new search"
-msgstr "Neue Suche"
-
-#: index.php:58
-msgid "Name (contains)"
-msgstr "Name (enthält)"
-
-#: index.php:61
-msgid "go!"
-msgstr "Los!"
-
-#: index.php:67
-msgid "Publisher/Provider"
-msgstr "Verlag/Anbieter"
-
-#: index.php:78 index.php:104
-msgid "All"
-msgstr "Alle"
-
-#: index.php:149
-msgid "Document Type"
-msgstr "Dokumenttyp"
-
-#: index.php:215
-msgid "Starts with"
-msgstr "Beginnt mit"
-
-#: not_available.php:21
-msgid "Not Available"
-msgstr "Nicht verfügbar"
-
-#: not_available.php:66
-msgid "Please contact your Administrator for access to the Licensing Module."
-msgstr ""
-"Bitte kontaktieren Sie Ihren Administrator für den Zugang zum Lizenzmodul."
-
-#: ajax_processing.php:96
-msgid "License successfully deleted."
-msgstr "Lizenz wurde erfolgreich gelöscht."
-
-#: ajax_processing.php:172 ajax_processing.php:957
-msgid "success uploading!"
-msgstr "erfolgreich hochgeladen!"
-
-#: ajax_processing.php:175 ajax_processing.php:960
-msgid "There was a problem saving your file to"
-msgstr "Es trat ein Problem auf beim Speichern Ihrer Datei nach"
-
-#: ajax_processing.php:236
-msgid "Document Saved Successfully."
-msgstr "Dokument wurde erfolgreich gespeichert."
-
-#: ajax_processing.php:250
-msgid "Signature Deleted Successfully."
-msgstr "Signatur wurde erfolgreich gelöscht."
-
-#: ajax_processing.php:312
-msgid "Expression Removed Successfully."
-msgstr "Lizenzbedingung wurde erfolgreich entfernt."
-
-#: ajax_processing.php:335
-msgid ""
-"An expression in the licensing module has been approved for terms tool use."
-msgstr ""
-"Eine Lizenzbedingung im Lizenzmodul wurde für die Nutzung im Terms Tool "
-"freigegeben."
-
-#: ajax_processing.php:336
-msgid "License:  "
-msgstr "Lizenz: "
-
-#: ajax_processing.php:337
-msgid "View License Record:  "
-msgstr "Zeige Lizenz: "
-
-#: ajax_processing.php:341
-msgid "Licensing - expression set to production use"
-msgstr "Lizenzen - Lizenzbedingung für Verwendung aktiv"
-
-#: ajax_processing.php:346
-msgid "Approved for terms tool display."
-msgstr "Für die Terms Tool Anzeige angenommen."
-
-#: ajax_processing.php:348
-msgid "Removed from terms tool display."
-msgstr "Entfernt von der Terms Tool Anzeige."
-
-#: ajax_processing.php:375
-msgid "Expression Note Updated Successfully."
-msgstr "Lizenzbedingungsnotiz wurde erfolgreich aktualisiert."
-
-#: ajax_processing.php:391
-msgid "Expression Note Added Successfully."
-msgstr "Lizenzbedingungsnotiz wurde erfolgreich hinzugefügt."
-
-#: ajax_processing.php:415
-msgid "Note Removed Successfully."
-msgstr "Notiz wurde erfolgreich entfernt."
-
-#: ajax_processing.php:452
-msgid "Terms Tool Resource Link successfully deleted"
-msgstr "Der Terms Tool Resource Link wurde erfolgreich gelöscht"
-
-#: ajax_processing.php:468
-msgid "License Updated Successfully."
-msgstr "Lizenz erfolgreich aktualisiert."
-
-#: ajax_processing.php:477
-msgid "License Added Successfully."
-msgstr "Lizenz erfolgreich hinzugefügt."
-
-#: ajax_processing.php:477
-msgid "Please continue to upload documents and add expressions or emails."
-msgstr ""
-"Bitte fahren Sie mit dem Upload von Dokumenten fort und fügen Sie "
-"Lizenzbedingungen und E-Mail-Adressen hinzu."
-
-#: ajax_processing.php:505 ajax_processing.php:517 ajax_processing.php:530
-#: ajax_forms.php:305
-msgid "Continue"
-msgstr "Fortfahren"
-
-#: ajax_processing.php:514 ajax_processing.php:527
-msgid "SQL Insert Failed."
-msgstr "SQL Insert fehlgeschlagen."
-
-#: ajax_processing.php:514 ajax_processing.php:527
-msgid "Please make sure everything is filled out correctly."
-msgstr "Bitte stellen Sie sicher das alles korrekt ausgefüllt ist."
-
-#: ajax_processing.php:772
-msgid "Unable to delete  - this "
-msgstr "Kann nicht gelöscht werden - "
-
-#: ajax_processing.php:772
-msgid ""
-" is in use.  Please make sure no licenses are set up with this information."
-msgstr ""
-" wird verwendet. Bitte stellen Sie sicher, dass keine Lizenzen mit dieser "
-"Information vorhanden sind."
-
-#: ajax_processing.php:778
-msgid ""
-"Unable to delete.  Please make sure no licenses are set up with this "
-"information."
-msgstr ""
-"Kann nicht gelöscht werden. Bitte setllen Sie sicher, dass keine Lizenzen "
-"mit dieser Information vorhanden sind."
-
-#: ajax_processing.php:1027
-msgid "Attachment successfully deleted"
-msgstr "Anhang wurde erfolgreich gelöscht"
-
-#: ajax_processing.php:1041
-msgid "Attachment file successfully deleted"
-msgstr "Anhang wurde erfolgreich gelöscht"
-
-#: ajax_processing.php:1062
-msgid "Status has been updated"
-msgstr "Der Status wurde aktualisiert"
 
 #: ajax_forms.php:51
 msgid "License Name:"
@@ -1151,11 +1174,6 @@ msgstr "bestätige Aktualisierung"
 msgid "Close"
 msgstr "Schließen"
 
-#: ajax_forms.php:546 license.php:63 license.php:105 license.php:125
-#: license.php:144
-msgid "Expressions"
-msgstr "Lizenzbedingungen"
-
 #: ajax_forms.php:551
 msgid "Document:"
 msgstr "Dokument:"
@@ -1175,11 +1193,6 @@ msgstr "Kennzeichner:"
 #: ajax_forms.php:674
 msgid "For Document Text:"
 msgstr "Für Dokumenttext:"
-
-#: ajax_forms.php:789 license.php:65 license.php:107 license.php:127
-#: license.php:146
-msgid "Attachments"
-msgstr "Anhänge"
 
 #: ajax_forms.php:793
 msgid "Date:"
@@ -1267,13 +1280,18 @@ msgstr "Bearbeite"
 msgid "Variable Name"
 msgstr "Name der Variable"
 
-#: in_progress.php:33
-msgid "Licenses In Progress"
-msgstr "Lizenzen in Bearbeitung"
+#: install/licensing.php:9 install/licensing.php:31 install/licensing.php:104
+#: install/licensing.php:130
+msgid "Licensing Module"
+msgstr "Lizenzen"
 
-#: in_progress.php:33
-msgid "Browse All"
-msgstr "Alle"
+#: install/licensing.php:20
+msgid "Licensing Database"
+msgstr "Lizenzdatenbank"
+
+#: install/licensing.php:53
+msgid "Use Terms Tool Functionality"
+msgstr "Verwende das Terms Tool"
 
 #: admin/classes/common/Object.php:72
 msgid "Cannot get value for undefined key ("
@@ -1283,19 +1301,3 @@ msgstr ""
 #: admin/classes/common/DBService.php:54
 msgid "There was a problem with the database: "
 msgstr "Es gab ein Problem mit folgender Datenbank: "
-
-#: license.php:62 license.php:104 license.php:124 license.php:143
-msgid "Documents"
-msgstr "Dokumente"
-
-#: license.php:64 license.php:106 license.php:126 license.php:145
-msgid "Terms Tool"
-msgstr "Terms Tool"
-
-#: license.php:79
-msgid "Helpful Links"
-msgstr "Hilfreiche Links"
-
-#: license.php:87
-msgid "Send feedback on this resource"
-msgstr "Sende Feedback für diese Ressource"

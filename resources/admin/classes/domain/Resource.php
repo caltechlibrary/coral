@@ -596,7 +596,7 @@ class Resource extends DatabaseObject {
 
 
 		if ($search['resourceNote']) {
-			$whereAdd[] = "UPPER(RN.noteText) LIKE UPPER('%" . $resource->db->escapeString($search['resourceNote']) . "%')";
+			$whereAdd[] = "(UPPER(RNA.noteText) LIKE UPPER('%" . $resource->db->escapeString($search['resourceNote']) . "%') AND RNA.tabName <> 'Product') OR (UPPER(RNR.noteText) LIKE UPPER('%" . $resource->db->escapeString($search['resourceNote']) . "%') AND RNR.tabName = 'Product')";
 			$searchDisplay[] = _("Note contains: ") . $search['resourceNote'];
 		}
 
@@ -659,10 +659,10 @@ class Resource extends DatabaseObject {
 		}
 
 		if ($search['noteTypeID'] == 'none') {
-			$whereAdd[] = "(RN.noteTypeID IS NULL) AND (RN.noteText IS NOT NULL)";
+			$whereAdd[] = "(RNA.noteTypeID IS NULL) AND (RNA.noteText IS NOT NULL) AND (RNR.noteTypeID IS NULL) AND (RNR.noteText IS NOT NULL)";
 			$searchDisplay[] = _("Note Type: none");
 		}else if ($search['noteTypeID']) {
-			$whereAdd[] = "RN.noteTypeID = '" . $resource->db->escapeString($search['noteTypeID']) . "'";
+			$whereAdd[] = "(RNA.noteTypeID = '" . $resource->db->escapeString($search['noteTypeID']) . "' AND RNA.tabName <> 'Product') OR (RNR.noteTypeID = '" . $resource->db->escapeString($search['noteTypeID']) . "' AND RNR.tabName = 'Product')";
 			$noteType = new NoteType(new NamedArguments(array('primaryKey' => $search['noteTypeID'])));
 			$searchDisplay[] = _("Note Type: ") . $noteType->shortName;
 		}
@@ -699,19 +699,19 @@ class Resource extends DatabaseObject {
 
 
 		if ($search['authenticationTypeID'] == 'none') {
-			$whereAdd[] = "R.authenticationTypeID IS NULL";
+			$whereAdd[] = "RA.authenticationTypeID IS NULL";
 			$searchDisplay[] = _("Authentication Type: none");
 		}else if ($search['authenticationTypeID']) {
-			$whereAdd[] = "R.authenticationTypeID = '" . $resource->db->escapeString($search['authenticationTypeID']) . "'";
+			$whereAdd[] = "RA.authenticationTypeID = '" . $resource->db->escapeString($search['authenticationTypeID']) . "'";
 			$authenticationType = new AuthenticationType(new NamedArguments(array('primaryKey' => $search['authenticationTypeID'])));
 			$searchDisplay[] = _("Authentication Type: ") . $authenticationType->shortName;
 		}
 
 		if ($search['catalogingStatusID'] == 'none') {
-			$whereAdd[] = "(R.catalogingStatusID IS NULL)";
+			$whereAdd[] = "(RA.catalogingStatusID IS NULL)";
 			$searchDisplay[] = _("Cataloging Status: none");
 		} else if ($search['catalogingStatusID']) {
-			$whereAdd[] = "R.catalogingStatusID = '" . $resource->db->escapeString($search['catalogingStatusID']) . "'";
+			$whereAdd[] = "RA.catalogingStatusID = '" . $resource->db->escapeString($search['catalogingStatusID']) . "'";
 			$catalogingStatus = new CatalogingStatus(new NamedArguments(array('primaryKey' => $search['catalogingStatusID'])));
 			$searchDisplay[] = _("Cataloging Status: ") . $catalogingStatus->shortName;
 		}
@@ -803,10 +803,10 @@ class Resource extends DatabaseObject {
 		$table_matches = array();
 
 		// Build a list of tables that are referenced by the select and where statements in order to limit the number of joins performed in the search.
-		preg_match_all("/[A-Z]+(?=[.][A-Z]+)/i", $select, $table_matches);
+		preg_match_all("/[A-Z]+(?=[.][A-Z]+)/iu", $select, $table_matches);
 		$referenced_tables = array_unique($table_matches[0]);
 
-		preg_match_all("/[A-Z]+(?=[.][A-Z]+)/i", $whereStatement, $table_matches);
+		preg_match_all("/[A-Z]+(?=[.][A-Z]+)/iu", $whereStatement, $table_matches);
 		$referenced_tables = array_unique(array_merge($referenced_tables, $table_matches[0]));
 
 		// These join statements will only be included in the query if the alias is referenced by the select and/or where.
@@ -815,12 +815,13 @@ class Resource extends DatabaseObject {
 									LEFT JOIN AcquisitionType AT ON RA.acquisitionTypeID = AT.acquisitionTypeID
 									LEFT JOIN Status S ON R.statusID = S.statusID
 									LEFT JOIN User CU ON R.createLoginID = CU.loginID
-									LEFT JOIN ResourcePurchaseSiteLink RPSL ON R.resourceID = RPSL.resourceID
-									LEFT JOIN ResourceAuthorizedSiteLink RAUSL ON R.resourceID = RAUSL.resourceID
-									LEFT JOIN ResourceAdministeringSiteLink RADSL ON R.resourceID = RADSL.resourceID
-									LEFT JOIN ResourcePayment RPAY ON R.resourceID = RPAY.resourceID
-									LEFT JOIN ResourceNote RN ON R.resourceID = RN.resourceID
-									LEFT JOIN ResourceStep RS ON R.resourceID = RS.resourceID
+									LEFT JOIN ResourcePurchaseSiteLink RPSL ON RA.resourceAcquisitionID = RPSL.resourceAcquisitionID
+									LEFT JOIN ResourceAuthorizedSiteLink RAUSL ON RA.resourceAcquisitionID = RAUSL.resourceAcquisitionID
+									LEFT JOIN ResourceAdministeringSiteLink RADSL ON RA.resourceAcquisitionID = RADSL.resourceAcquisitionID
+                                    LEFT JOIN ResourceNote RNA ON RA.resourceAcquisitionID = RNA.entityID
+                                    LEFT JOIN ResourceNote RNR ON R.resourceID = RNR.entityID
+									LEFT JOIN ResourcePayment RPAY ON RA.resourceAcquisitionID = RPAY.resourceAcquisitionID
+									LEFT JOIN ResourceStep RS ON RA.resourceAcquisitionID = RS.resourceAcquisitionID
 									LEFT JOIN IsbnOrIssn I ON R.resourceID = I.resourceID
 									");
 
@@ -837,7 +838,6 @@ class Resource extends DatabaseObject {
 				$additional_joins[] = $join;
 			}
 		}
-
 		$query = $select . "
 								FROM Resource R
                                     LEFT JOIN ResourceAcquisition RA ON R.resourceID = RA.resourceID

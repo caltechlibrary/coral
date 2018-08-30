@@ -94,7 +94,7 @@ foreach ($resourceAcquisition->getResourceLicenseStatuses() as $instance) {
 
 
 //get licenses (already returned in array)
-$licenseArray = $resource->getLicenseArray();
+$licenseArray = $resourceAcquisition->getLicenseArray();
 
 ?>
 <table class='linedFormTable'>

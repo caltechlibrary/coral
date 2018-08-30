@@ -93,7 +93,7 @@ $title = $ebscoKb->getTitle($titleId);
                 <div class="row">
                     <div class="col-4">
                         <label for="showAllPackages">
-                            <input type="checkbox" id="showAllPackages"> <?php echo_("Show all packages"); ?>
+                            <input type="checkbox" id="showAllPackages"> <?php echo _("Show all packages"); ?>
                         </label>
                     </div>
                 </div>

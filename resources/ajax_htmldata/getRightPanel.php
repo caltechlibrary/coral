@@ -36,7 +36,7 @@
 		$orgArray = $resource->getDistinctOrganizationArray();
 
 		//get licenses (already returned in array)
-		$licenseArray = $resource->getLicenseArray();
+		$licenseArray = $resourceAcquisition->getLicenseArray();
 
 		echo "<div style='background-color:white; width:219px; padding:7px;'>";
 		echo "<div class='rightPanelLink'><a href='summary.php?resourceID=" . $resource->resourceID . "&resourceAcquisitionID=" . $resourceAcquisitionID . "' target='_blank' class='helpfulLink'>"._("Print View")."</a></div>";

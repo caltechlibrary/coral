@@ -158,7 +158,7 @@ if (isset($user) && ($user->isAdmin) && ($user->getOpenSession())){
         var cookievalid=2592000000; // 30 days (1000*60*60*24*30)
         time += cookievalid;
         now.setTime(time);
-        document.cookie ='lang='+lang+';path=/'+';domain='+wl.host+';expires='+now;
+        document.cookie ='lang='+lang+';path=/'+';domain='+wl.hostname+';expires='+now;
     }
 </script>
 <script type="text/javascript" src="js/admin.js"></script>

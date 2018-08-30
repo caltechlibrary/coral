@@ -12,7 +12,7 @@
 <tr style='vertical-align:top;'>
 <td style="width:155px;padding-right:10px;">
 <table class='noBorder' id='title-search'>
-    <tr><td style='text-align:left;width:75px;' align='left'>
+    <tr><td style='text-align:left;width:75px;vertical-align:top' align='left'>
 
     <table class='borderedFormTable' style="width:150px">
 
@@ -80,7 +80,7 @@
     </table>
     </div>
  </td>
-<td>
+<td style="vertical-align:top">
 <div id="dashboardTable" />
 </td></tr>
 </table>

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: messages\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-12 11:29+0100\n"
-"PO-Revision-Date: 2018-03-12 16:59+0100\n"
+"POT-Creation-Date: 2018-06-19 15:31+0200\n"
+"PO-Revision-Date: 2018-06-19 15:49+0200\n"
 "Last-Translator: Paul Poulain <paul.poulain@biblibre.com>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: fr_FR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-KeywordsList: watchString\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -46,7 +46,7 @@ msgstr "Délai de rappel (en jours)"
 #: ajax_htmldata/getDashboardYearlyCosts.php:28
 #: ajax_htmldata/getSubmittedQueue.php:15 ajax_htmldata/getSavedQueue.php:18
 #: ajax_htmldata/getSearchResources.php:113
-#: ajax_htmldata/getAdminImportConfigDisplay.php:13 export.php:58
+#: ajax_htmldata/getAdminImportConfigDisplay.php:13 export.php:57
 msgid "Name"
 msgstr "Nom"
 
@@ -83,7 +83,7 @@ msgstr "Ajouter "
 #: ajax_forms/getAdminAlertDaysForm.php:34 ajax_forms/getAccountForm.php:86
 #: ajax_forms/getNoteForm.php:61 ajax_forms/getEbscoKbTitleImportForm.php:130
 #: ajax_forms/getGeneralDetailSubjectForm.php:130
-#: ajax_forms/getContactForm.php:163 ajax_forms/getNewResourceForm.php:295
+#: ajax_forms/getContactForm.php:163 ajax_forms/getNewResourceForm.php:287
 #: ajax_forms/getAdminCurrencyUpdateForm.php:38
 #: ajax_forms/getAccessForm.php:254 ajax_forms/getUpdateProductForm.php:429
 #: ajax_forms/getAdminUserUpdateForm.php:66
@@ -106,10 +106,10 @@ msgstr "Valider"
 #: ajax_forms/getNoteForm.php:62 ajax_forms/getEbscoKbTitleImportForm.php:132
 #: ajax_forms/getGeneralDetailSubjectForm.php:131
 #: ajax_forms/getContactForm.php:164 ajax_forms/getImportSaveCfgForm.php:28
-#: ajax_forms/getNewResourceForm.php:296
+#: ajax_forms/getNewResourceForm.php:288
 #: ajax_forms/getAdminCurrencyUpdateForm.php:39
 #: ajax_forms/getAccessForm.php:255
-#: ajax_forms/getEbscoKbPackageImportForm.php:331
+#: ajax_forms/getEbscoKbPackageImportForm.php:345
 #: ajax_forms/getUpdateProductForm.php:430
 #: ajax_forms/getAdminUserUpdateForm.php:67
 #: ajax_forms/getAdminImportConfigUpdateForm.php:41
@@ -369,7 +369,7 @@ msgid "Workflow Steps"
 msgstr "Étapes du workflow"
 
 #: ajax_forms/getAdminWorkflowForm.php:125 ajax_forms/getContactForm.php:45
-#: ajax_forms/getImportSaveCfgForm.php:16 ajax_forms/getNewResourceForm.php:100
+#: ajax_forms/getImportSaveCfgForm.php:16 ajax_forms/getNewResourceForm.php:92
 #: ajax_forms/getUpdateProductForm.php:91 ajax_forms/getAttachmentForm.php:29
 msgid "Name:"
 msgstr "Nom&nbsp;:"
@@ -407,7 +407,7 @@ msgstr "Ajouter un compte"
 msgid "Login Type:"
 msgstr "Type de connexion&nbsp;:"
 
-#: ajax_forms/getAccountForm.php:44 ajax_forms/getNewResourceForm.php:115
+#: ajax_forms/getAccountForm.php:44 ajax_forms/getNewResourceForm.php:107
 #: ajax_forms/getUpdateProductForm.php:101 summary.php:805
 msgid "URL:"
 msgstr "URL:"
@@ -444,67 +444,67 @@ msgid "Note Type:"
 msgstr "Type de remarque&nbsp;:"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:27
-#: ajax_forms/getEbscoKbPackageImportForm.php:75 templates/header.php:187
+#: ajax_forms/getEbscoKbPackageImportForm.php:80 templates/header.php:187
 #: templates/ebscoKbTitleList.php:8
 msgid "Import"
 msgstr "Importer"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:27
-#: ajax_forms/getEbscoKbPackageImportForm.php:75
+#: ajax_forms/getEbscoKbPackageImportForm.php:80
 msgid " from EBSCO Kb"
 msgstr "de la KB EBSCO"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:31
-#: ajax_forms/getNewResourceForm.php:85
-#: ajax_forms/getEbscoKbPackageImportForm.php:80
+#: ajax_forms/getNewResourceForm.php:77
+#: ajax_forms/getEbscoKbPackageImportForm.php:85
 msgid "required fields"
 msgstr "champs obligatoires"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:34
-#: ajax_forms/getEbscoKbPackageImportForm.php:83
+#: ajax_forms/getEbscoKbPackageImportForm.php:88
 msgid "There was a problem importing this resource"
 msgstr "Il y a eu un problème à l'import de cette ressource"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:47
 #: ajax_forms/getEbscoKbTitleImportForm.php:50
-#: ajax_forms/getEbscoKbPackageImportForm.php:98
+#: ajax_forms/getEbscoKbPackageImportForm.php:103
 msgid "Provider"
 msgstr "Fournisseur"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:60
-#: ajax_forms/getNewResourceForm.php:131
-#: ajax_forms/getEbscoKbPackageImportForm.php:235 export.php:60
+#: ajax_forms/getNewResourceForm.php:123
+#: ajax_forms/getEbscoKbPackageImportForm.php:249 export.php:59
 msgid "Format"
 msgstr "Format"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:88
-#: ajax_forms/getNewResourceForm.php:176
-#: ajax_forms/getEbscoKbPackageImportForm.php:260
+#: ajax_forms/getNewResourceForm.php:168
+#: ajax_forms/getEbscoKbPackageImportForm.php:274
 #: ajax_forms/getImportConfigForm.php:56 dashboard_yearly_costs_exports.php:55
 #: dashboard.php:69 index.php:146 dashboard_yearly_costs.php:69
-#: dashboard_export.php:49 admin.php:55 admin/classes/common/Dashboard.php:137
+#: dashboard_export.php:49 admin.php:55 admin/classes/common/Dashboard.php:139
 #: ajax_htmldata/getDashboard.php:24 ajax_htmldata/getOutstandingQueue.php:22
 #: ajax_htmldata/getDashboardYearlyCosts.php:31
 #: ajax_htmldata/getAdminWorkflowDisplay.php:16
-#: ajax_htmldata/getSearchResources.php:117 export.php:85
+#: ajax_htmldata/getSearchResources.php:117 export.php:84
 msgid "Acquisition Type"
 msgstr "Type d'acquisition"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:112
-#: ajax_forms/getNewResourceForm.php:269
-#: ajax_forms/getEbscoKbPackageImportForm.php:315
+#: ajax_forms/getNewResourceForm.php:261
+#: ajax_forms/getEbscoKbPackageImportForm.php:329
 #: ajax_htmldata/getAcquisitionsDetails.php:120
 msgid "Notes"
 msgstr "Notes"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:115
-#: ajax_forms/getNewResourceForm.php:278
-#: ajax_forms/getEbscoKbPackageImportForm.php:318
+#: ajax_forms/getNewResourceForm.php:270
+#: ajax_forms/getEbscoKbPackageImportForm.php:332
 msgid "Include any additional information"
 msgstr "Ajoutez des informations supplémentaires"
 
 #: ajax_forms/getEbscoKbTitleImportForm.php:127
-#: ajax_forms/getImportSaveCfgForm.php:27 ajax_forms/getNewResourceForm.php:294
+#: ajax_forms/getImportSaveCfgForm.php:27 ajax_forms/getNewResourceForm.php:286
 msgid "save"
 msgstr "Enregistrer"
 
@@ -582,37 +582,37 @@ msgstr "Rôle(s)&nbsp;:"
 msgid "Save Import Configuration"
 msgstr "Enregistrer la configuration importée"
 
-#: ajax_forms/getNewResourceForm.php:84
+#: ajax_forms/getNewResourceForm.php:76
 msgid "Edit Saved Resource"
 msgstr "Modifier une ressource enregistrée"
 
-#: ajax_forms/getNewResourceForm.php:84
+#: ajax_forms/getNewResourceForm.php:76
 msgid "Add New Resource"
 msgstr "Ajouter une nouvelle ressource"
 
-#: ajax_forms/getNewResourceForm.php:91 ajax_forms/getUpdateProductForm.php:81
+#: ajax_forms/getNewResourceForm.php:83 ajax_forms/getUpdateProductForm.php:81
 msgid "Product"
-msgstr "Description"
+msgstr "Produit"
 
-#: ajax_forms/getNewResourceForm.php:105 ajax_forms/getUpdateProductForm.php:96
+#: ajax_forms/getNewResourceForm.php:97 ajax_forms/getUpdateProductForm.php:96
 #: summary.php:363 ajax_htmldata/getProductDetails.php:286
 msgid "Description:"
 msgstr "Description&nbsp;:"
 
-#: ajax_forms/getNewResourceForm.php:110
+#: ajax_forms/getNewResourceForm.php:102
 msgid "Provider:"
 msgstr "Fournisseur&nbsp;:"
 
-#: ajax_forms/getNewResourceForm.php:120
+#: ajax_forms/getNewResourceForm.php:112
 #: ajax_forms/getUpdateProductForm.php:106 summary.php:355
 #: ajax_htmldata/getProductDetails.php:278
 msgid "Alt URL:"
 msgstr "Autre URL&nbsp;:"
 
-#: ajax_forms/getNewResourceForm.php:223 ajax_forms/getImportConfigForm.php:55
+#: ajax_forms/getNewResourceForm.php:215 ajax_forms/getImportConfigForm.php:55
 #: dashboard_yearly_costs_exports.php:53 dashboard.php:67 index.php:256
 #: dashboard_yearly_costs.php:67 dashboard_export.php:47 admin.php:92
-#: admin/classes/common/Dashboard.php:125 ebsco_kb.php:156
+#: admin/classes/common/Dashboard.php:127 ebsco_kb.php:156
 #: templates/ebscoKbTitleList.php:6 ajax_htmldata/getDashboard.php:22
 #: ajax_htmldata/getDashboardYearlyCosts.php:29
 #: ajax_htmldata/getAdminWorkflowDisplay.php:18
@@ -674,25 +674,51 @@ msgstr "Site(s) autorisé(s)"
 msgid "Administering Site(s)"
 msgstr "Site(s) gestionnaire(s)"
 
-#: ajax_forms/getEbscoKbPackageImportForm.php:138
+#: ajax_forms/getEbscoKbPackageImportForm.php:30
+msgid ""
+"The EBSCO Kb API only allows importing a maximum of 10,000 records. Only "
+"package information will be imported."
+msgstr ""
+"L'API EBSCO permet d'importer 10000 notices au maximum. Seules les "
+"informations des bouquets seront importées."
+
+#: ajax_forms/getEbscoKbPackageImportForm.php:32
+msgid ""
+"Alternatively, you may import titles individually or via a manual import."
+msgstr ""
+"Vous pouvez également importer les titres individuellement ou via un import "
+"manuel."
+
+#: ajax_forms/getEbscoKbPackageImportForm.php:143
 #: ajax_forms/getImportConfigForm.php:63 ajax_forms/getImportConfigForm.php:77
 #: ajax_forms/getImportConfigForm.php:299 admin.php:60
 msgid "Alias Type"
 msgstr "Type d'alias"
 
-#: ajax_forms/getEbscoKbPackageImportForm.php:172
+#: ajax_forms/getEbscoKbPackageImportForm.php:177
 msgid "Package Titles"
 msgstr "Titres du bouquet"
 
-#: ajax_forms/getEbscoKbPackageImportForm.php:206
+#: ajax_forms/getEbscoKbPackageImportForm.php:188
+#, php-format
+msgid "You have %d of %d title selected in EBSCO Kb"
+msgid_plural "You have %d of %d titles selected in EBSCO Kb"
+msgstr[0] "Vous avez sélectionné %d titre sur %d dans EBSCO Kb."
+msgstr[1] "Vous avez sélectionné %d titres sur %d dans EBSCO Kb."
+
+#: ajax_forms/getEbscoKbPackageImportForm.php:194
+msgid "All titles not available"
+msgstr "Tous les titres ne sont pas disponibles"
+
+#: ajax_forms/getEbscoKbPackageImportForm.php:220
 msgid "Workflow Options"
 msgstr "Options de workflow"
 
-#: ajax_forms/getEbscoKbPackageImportForm.php:284
+#: ajax_forms/getEbscoKbPackageImportForm.php:298
 msgid "Package Resource Type"
 msgstr "Type de ressource bouquet"
 
-#: ajax_forms/getEbscoKbPackageImportForm.php:329 importFunds.php:63
+#: ajax_forms/getEbscoKbPackageImportForm.php:343 importFunds.php:63
 #: templates/ebscoKbPackageList.php:52 templates/ebscoKbTitleList.php:57
 #: ajax_htmldata/getEbscoKbTitleDetails.php:157
 msgid "import"
@@ -727,6 +753,11 @@ msgstr "Ajouter ISBN"
 msgid "remove Issn/Isbn"
 msgstr "Supprimer Issn/Isbn"
 
+#: ajax_forms/getUpdateProductForm.php:235 admin.php:86
+#: templates/header.php:243 export.php:68
+msgid "Organizations"
+msgstr "Organisations"
+
 #: ajax_forms/getUpdateProductForm.php:243
 msgid "Role:"
 msgstr "Rôle&nbsp;:"
@@ -739,7 +770,7 @@ msgstr "Ajouter une organisation"
 msgid "remove organization"
 msgstr "Supprimer une organisation"
 
-#: ajax_forms/getUpdateProductForm.php:328 export.php:82
+#: ajax_forms/getUpdateProductForm.php:328 export.php:81
 msgid "Aliases"
 msgstr "Alias"
 
@@ -836,8 +867,8 @@ msgstr ""
 "colonnes mappées peuvent être paramétrées dans la page Administration."
 
 #: ajax_forms/getCostForm.php:57
-msgid "Edit Cost Information aaa"
-msgstr "Modifier information de coût aaa"
+msgid "Edit Cost Information"
+msgstr "Modifier les informations de coût"
 
 #: ajax_forms/getCostForm.php:64 summary.php:493
 #: ajax_htmldata/getAcquisitionsDetails.php:93
@@ -845,13 +876,13 @@ msgid "Cost History"
 msgstr "Historique du coût"
 
 #: ajax_forms/getCostForm.php:72 dashboard.php:59
-#: admin/classes/common/Dashboard.php:168
-#: ajax_htmldata/getAcquisitionsDetails.php:102 export.php:70
+#: admin/classes/common/Dashboard.php:170
+#: ajax_htmldata/getAcquisitionsDetails.php:102 export.php:69
 msgid "Year"
 msgstr "Année"
 
 #: ajax_forms/getCostForm.php:73 ajax_htmldata/getAcquisitionsDetails.php:103
-#: export.php:89
+#: export.php:88
 msgid "Sub Start"
 msgstr "Début de l'abonnement&nbsp;:"
 
@@ -878,22 +909,22 @@ msgid "Tax Incl."
 msgstr "TVA Incl."
 
 #: ajax_forms/getCostForm.php:82 ajax_htmldata/getAcquisitionsDetails.php:112
-#: export.php:76
+#: export.php:75
 msgid "Payment"
 msgstr "Paiement"
 
 #: ajax_forms/getCostForm.php:83 ajax_forms/getImportConfigForm.php:264
-#: admin.php:70 ajax_htmldata/getAdminCurrencyDisplay.php:8 export.php:77
+#: admin.php:70 ajax_htmldata/getAdminCurrencyDisplay.php:8 export.php:76
 msgid "Currency"
 msgstr "Devise"
 
 #: ajax_forms/getCostForm.php:84 ajax_htmldata/getAcquisitionsDetails.php:116
-#: export.php:59
+#: export.php:58
 msgid "Type"
 msgstr "Type"
 
 #: ajax_forms/getCostForm.php:86 dashboard.php:52 dashboard_yearly_costs.php:51
-#: admin.php:68 admin/classes/common/Dashboard.php:147
+#: admin.php:68 admin/classes/common/Dashboard.php:149
 msgid "Cost Details"
 msgstr "Détails du prix"
 
@@ -904,7 +935,7 @@ msgid "Note"
 msgstr "Remarque"
 
 #: ajax_forms/getCostForm.php:90 ajax_htmldata/getAcquisitionsDetails.php:122
-#: export.php:81
+#: export.php:80
 msgid "Invoice"
 msgstr "Facture"
 
@@ -924,7 +955,7 @@ msgstr "Titre de la ressource"
 msgid "Description"
 msgstr "Description"
 
-#: ajax_forms/getImportConfigForm.php:52 export.php:67
+#: ajax_forms/getImportConfigForm.php:52 export.php:66
 msgid "Resource URL"
 msgstr "URL"
 
@@ -1006,7 +1037,7 @@ msgstr "Ensembles de sujets"
 #: ajax_forms/getImportConfigForm.php:317 dashboard_yearly_costs_exports.php:54
 #: dashboard.php:31 dashboard.php:68 dashboard_yearly_costs.php:30
 #: dashboard_yearly_costs.php:68 dashboard_export.php:48
-#: admin/classes/common/Dashboard.php:133 ajax_htmldata/getDashboard.php:23
+#: admin/classes/common/Dashboard.php:135 ajax_htmldata/getDashboard.php:23
 #: ajax_htmldata/getDashboardYearlyCosts.php:30
 msgid "Subject"
 msgstr "Sujet"
@@ -1089,7 +1120,7 @@ msgstr "+ Ajouter un autre mappage"
 msgid "Acquisitions"
 msgstr "Acquisitions"
 
-#: ajax_forms/getImportConfigForm.php:250 export.php:72
+#: ajax_forms/getImportConfigForm.php:250 export.php:71
 msgid "Fund Code"
 msgstr "Code budget"
 
@@ -1099,7 +1130,7 @@ msgstr "Coût"
 
 #: ajax_forms/getImportConfigForm.php:252 dashboard.php:46
 #: dashboard_yearly_costs.php:45 admin.php:78
-#: admin/classes/common/Dashboard.php:143 export.php:79
+#: admin/classes/common/Dashboard.php:145 export.php:78
 msgid "Order Type"
 msgstr "Type de commande"
 
@@ -1268,7 +1299,7 @@ msgstr ""
 msgid "Dashboard Yearly Costs Export"
 msgstr "Export du tableau de bord des coûts annuels"
 
-#: dashboard_yearly_costs_exports.php:51 dashboard_export.php:45 export.php:57
+#: dashboard_yearly_costs_exports.php:51 dashboard_export.php:45 export.php:56
 msgid "Record ID"
 msgstr "Numéro de notice"
 
@@ -1654,6 +1685,10 @@ msgstr "Plus d'options..."
 msgid "Resource successfully deleted."
 msgstr "Ressource supprimée avec succès."
 
+#: ajax_processing/deleteResource.php:10
+msgid "Resource not found. Error: "
+msgstr "Ressource non trouvée. Erreur :"
+
 #: ajax_processing/deleteResourceNote.php:7
 msgid "Note successfully deleted."
 msgstr "Remarque supprimée avec succès."
@@ -1800,7 +1835,7 @@ msgstr "(aucun)"
 
 #: index.php:169 ajax_htmldata/getSubmittedQueue.php:17
 #: ajax_htmldata/getSavedQueue.php:20 ajax_htmldata/getSearchResources.php:118
-#: export.php:65
+#: export.php:64
 msgid "Status"
 msgstr "Statut"
 
@@ -1841,11 +1876,11 @@ msgstr "Site autorisé"
 msgid "Administering Site"
 msgstr "Site gestionnaire"
 
-#: index.php:533 admin.php:62 export.php:96
+#: index.php:533 admin.php:62 export.php:95
 msgid "Authentication Type"
 msgstr "Type d'authentification"
 
-#: index.php:563 admin.php:64 resources/cataloging_edit.php:58 export.php:104
+#: index.php:563 admin.php:64 resources/cataloging_edit.php:58 export.php:103
 msgid "Cataloging Status"
 msgstr "Statut de catalogage"
 
@@ -1976,7 +2011,7 @@ msgstr ". Pensez à supprimer les doublons."
 msgid " Please consider deduping."
 msgstr " Pensez à supprimer les doublons."
 
-#: import.php:921
+#: import.php:922
 msgid ""
 "The first line of the CSV file must contain column names, and not data. "
 "These names will be used during the import process."
@@ -1984,37 +2019,50 @@ msgstr ""
 "La première ligne du fichier CSV doit contenir des noms de colonnes et non "
 "des données. Ces noms seront utilisés pendant le processus d'importation."
 
-#: import.php:924
+#: import.php:925
 msgid "File selection"
 msgstr "Sélection du fichier"
 
-#: import.php:925
+#: import.php:926
 msgid "CSV File"
 msgstr "Fichier CSV"
 
-#: import.php:929
+#: import.php:930
 msgid "Import options"
 msgstr "Options d'importation"
 
-#: import.php:930
+#: import.php:931
 msgid "CSV delimiter"
 msgstr "Délimiteur CSV"
 
-#: import.php:932
+#: import.php:933
 msgid "(comma)"
 msgstr "(virgule)"
 
-#: import.php:933
+#: import.php:934
 msgid "(semicolon)"
 msgstr "(point-virgule)"
 
-#: import.php:934
+#: import.php:935
 msgid "(pipe)"
 msgstr "(barre verticale)"
 
-#: import.php:937
+#: import.php:936
+msgid "tabulation"
+msgstr "tabulation"
+
+#: import.php:939
 msgid "Upload"
 msgstr "Télcharger"
+
+#: import.php:943
+msgid ""
+"PHP's extension mbstring doesn't seem to be installed or activated on your "
+"installation. Please install and activate mbstring to use the import tool."
+msgstr ""
+"L'extension PHP mbstring ne semble pas être installée ou activée sur votre "
+"installation. Vous devez installer et activer mbstring pour pouvoir utiliser "
+"l'outil d'import."
 
 #: ajax_htmldata.php:25
 msgid "Data action "
@@ -2225,7 +2273,7 @@ msgstr "Utilisateurs"
 msgid "Workflow / User Group"
 msgstr "Workflow / Groupe d'utilisateurs"
 
-#: admin.php:54 export.php:97
+#: admin.php:54 export.php:96
 msgid "Access Method"
 msgstr "Méthode d'accès"
 
@@ -2237,7 +2285,7 @@ msgstr "Configuration des messages"
 msgid "Attachment Type"
 msgstr "Type de pièce jointe"
 
-#: admin.php:65 resources/cataloging_edit.php:51 export.php:103
+#: admin.php:65 resources/cataloging_edit.php:51 export.php:102
 msgid "Cataloging Type"
 msgstr "Type de catalogage"
 
@@ -2265,23 +2313,20 @@ msgstr "Fonds"
 msgid "Import Configuration"
 msgstr "Importer une configuration"
 
-#: admin.php:76 export.php:93
+#: admin.php:76 export.php:92
 msgid "License Status"
 msgstr "Statut de licence"
-
-#: admin.php:86 templates/header.php:243 export.php:69
-msgid "Organizations"
-msgstr "Organisations"
 
 #: admin.php:90
 msgid "Purchasing Site"
 msgstr "Site acquéreur"
 
-#: admin.php:93 export.php:98
+#: admin.php:93 export.php:97
 msgid "Storage Location"
 msgstr "Lieu de stockage"
 
 #: admin.php:94 ajax_htmldata/getProductDetails.php:322
+#: ajax_htmldata/getEbscoKbTitleDetails.php:51
 msgid "Subjects"
 msgstr "Sujets"
 
@@ -2318,28 +2363,28 @@ msgstr "Impossible d'assigner une valeur pour la clé indéfinie ("
 msgid "There was a problem with the database: "
 msgstr "Problème avec la base de données&nbsp;: "
 
-#: admin/classes/common/Dashboard.php:150
+#: admin/classes/common/Dashboard.php:152
 msgid "Filters on resources"
 msgstr "Filtres sur les ressources"
 
-#: admin/classes/common/Dashboard.php:154
-#: admin/classes/common/Dashboard.php:161
+#: admin/classes/common/Dashboard.php:156
+#: admin/classes/common/Dashboard.php:163
 msgid "none"
 msgstr "aucun"
 
-#: admin/classes/common/Dashboard.php:157
+#: admin/classes/common/Dashboard.php:159
 msgid "Filters on payments"
 msgstr "Filtres sur les paiements"
 
-#: admin/classes/common/Dashboard.php:165
+#: admin/classes/common/Dashboard.php:167
 msgid "Start year"
 msgstr "Année début"
 
-#: admin/classes/common/Dashboard.php:166
+#: admin/classes/common/Dashboard.php:168
 msgid "End year"
 msgstr "Année fin"
 
-#: admin/classes/common/Dashboard.php:172
+#: admin/classes/common/Dashboard.php:174
 msgid "Group by"
 msgstr "Groupé par"
 
@@ -2372,136 +2417,136 @@ msgstr ""
 msgid "There was a problem with the EBSCO Kb Service Query: "
 msgstr "Il y a eu un problème avec le service de recherche KB EBSCO&nbsp;:"
 
-#: admin/classes/domain/Resource.php:535
+#: admin/classes/domain/Resource.php:541
 msgid "Name contains: "
 msgstr "Nom contient&nbsp;: "
 
-#: admin/classes/domain/Resource.php:542
+#: admin/classes/domain/Resource.php:548
 msgid "ISSN/ISBN: "
 msgstr "ISSN/ISBN&nbsp;: "
 
-#: admin/classes/domain/Resource.php:549
+#: admin/classes/domain/Resource.php:555
 msgid "Workflow Step: "
 msgstr "Étape de workflow&nbsp;:"
 
-#: admin/classes/domain/Resource.php:564
+#: admin/classes/domain/Resource.php:570
 msgid "Status: "
 msgstr "Statut&nbsp;:"
 
-#: admin/classes/domain/Resource.php:576
+#: admin/classes/domain/Resource.php:582
 msgid "Creator: "
 msgstr "Créé par&nbsp;:"
 
-#: admin/classes/domain/Resource.php:582
+#: admin/classes/domain/Resource.php:588
 msgid "Resource Format: "
 msgstr "Format de ressource&nbsp;:"
 
-#: admin/classes/domain/Resource.php:588
+#: admin/classes/domain/Resource.php:594
 msgid "Acquisition Type: "
 msgstr "Type d'acquisition&nbsp;:"
 
-#: admin/classes/domain/Resource.php:594
+#: admin/classes/domain/Resource.php:600
 msgid "Note contains: "
 msgstr "Remarque contient&nbsp;:"
 
-#: admin/classes/domain/Resource.php:600
+#: admin/classes/domain/Resource.php:606
 msgid "Created on or after: "
 msgstr "Créé sur le ou après&nbsp;:"
 
-#: admin/classes/domain/Resource.php:602
+#: admin/classes/domain/Resource.php:608
 msgid "Created between: "
 msgstr "Créé entre&nbsp;:"
 
-#: admin/classes/domain/Resource.php:609
+#: admin/classes/domain/Resource.php:615
 msgid "Created on or before: "
 msgstr "Créé sur le ou après le&nbsp;:"
 
-#: admin/classes/domain/Resource.php:615
+#: admin/classes/domain/Resource.php:621
 msgid "Starts with: "
 msgstr "Commençe par&nbsp;:"
 
-#: admin/classes/domain/Resource.php:621
+#: admin/classes/domain/Resource.php:627
 msgid "Fund: none"
 msgstr "Fonds&nbsp;: aucun"
 
-#: admin/classes/domain/Resource.php:625
+#: admin/classes/domain/Resource.php:631
 msgid "Fund: "
 msgstr "Fonds&nbsp;:"
 
-#: admin/classes/domain/Resource.php:629 admin/classes/domain/Resource.php:639
-#: admin/classes/domain/Resource.php:648
+#: admin/classes/domain/Resource.php:635 admin/classes/domain/Resource.php:645
+#: admin/classes/domain/Resource.php:654
 msgid "Resource Type: none"
 msgstr "Type de ressource&nbsp;: aucun"
 
-#: admin/classes/domain/Resource.php:633
+#: admin/classes/domain/Resource.php:639
 msgid "Resource Type: "
 msgstr "Type de ressource&nbsp;:"
 
-#: admin/classes/domain/Resource.php:643
+#: admin/classes/domain/Resource.php:649
 msgid "General Subject: "
 msgstr "Sugjet général&nbsp;:"
 
-#: admin/classes/domain/Resource.php:652
+#: admin/classes/domain/Resource.php:658
 msgid "Detailed Subject: "
 msgstr "Sujet spécifique&nbsp;:"
 
-#: admin/classes/domain/Resource.php:657
+#: admin/classes/domain/Resource.php:663
 msgid "Note Type: none"
 msgstr "Type de remarque&nbsp;: aucun"
 
-#: admin/classes/domain/Resource.php:661
+#: admin/classes/domain/Resource.php:667
 msgid "Note Type: "
 msgstr "Type de remarque&nbsp;:"
 
-#: admin/classes/domain/Resource.php:667
+#: admin/classes/domain/Resource.php:673
 msgid "Purchase Site: none"
 msgstr "Site d'achat&nbsp;: aucun"
 
-#: admin/classes/domain/Resource.php:671
+#: admin/classes/domain/Resource.php:677
 msgid "Purchase Site: "
 msgstr "Site d'achat&nbsp;:"
 
-#: admin/classes/domain/Resource.php:677
+#: admin/classes/domain/Resource.php:683
 msgid "Authorized Site: none"
 msgstr "Site autorisé&nbsp;: aucun"
 
-#: admin/classes/domain/Resource.php:681
+#: admin/classes/domain/Resource.php:687
 msgid "Authorized Site: "
 msgstr "Site autorisé&nbsp;: "
 
-#: admin/classes/domain/Resource.php:687
+#: admin/classes/domain/Resource.php:693
 msgid "Administering Site: none"
 msgstr "Site gestionnaire&nbsp;: aucun"
 
-#: admin/classes/domain/Resource.php:691
+#: admin/classes/domain/Resource.php:697
 msgid "Administering Site: "
 msgstr "Site gestionnaire&nbsp;: "
 
-#: admin/classes/domain/Resource.php:697
+#: admin/classes/domain/Resource.php:703
 msgid "Authentication Type: none"
 msgstr "Type d'authentification&nbsp;: aucun"
 
-#: admin/classes/domain/Resource.php:701
+#: admin/classes/domain/Resource.php:707
 msgid "Authentication Type: "
 msgstr "Type d'authentification&nbsp;: "
 
-#: admin/classes/domain/Resource.php:706
+#: admin/classes/domain/Resource.php:712
 msgid "Cataloging Status: none"
 msgstr "Statut de catalogage&nbsp;: aucun"
 
-#: admin/classes/domain/Resource.php:710
+#: admin/classes/domain/Resource.php:716
 msgid "Cataloging Status: "
 msgstr "Statut de catalogage&nbsp;: "
 
-#: admin/classes/domain/Resource.php:723
+#: admin/classes/domain/Resource.php:729
 msgid "Publisher name contains: "
 msgstr "Le nom de l'éditeur contient&nbsp;:"
 
-#: admin/classes/domain/Resource.php:736
+#: admin/classes/domain/Resource.php:742
 msgid "Platform name contains: "
 msgstr "Le nom de plateforme contient&nbsp;:"
 
-#: admin/classes/domain/Resource.php:749
+#: admin/classes/domain/Resource.php:755
 msgid "Provider name contains: "
 msgstr "Le nom du fournisseur contient&nbsp;:"
 
@@ -2548,7 +2593,7 @@ msgstr "Coûts annuels"
 
 #: queue.php:26 queue.php:42 templates/header.php:180 templates/header.php:183
 msgid "My Queue"
-msgstr "Ma file d'attente"
+msgstr "File d'attente"
 
 #: ebsco_kb.php:49
 msgid "EBSCO Knowledge Base"
@@ -2589,6 +2634,10 @@ msgstr "Importé&nbsp;?"
 #: templates/ebscoKbPackageList.php:6
 msgid "Title Count"
 msgstr "Nombre de titres"
+
+#: templates/ebscoKbPackageList.php:24 templates/ebscoKbTitleList.php:25
+msgid "imported in Coral"
+msgstr "importé dans Coral"
 
 #: templates/ebscoKbPackageList.php:32
 msgid "selected"
@@ -2694,7 +2743,7 @@ msgstr "Gestion"
 msgid "Title"
 msgstr "Titre"
 
-#: templates/ebscoKbTitleList.php:7
+#: templates/ebscoKbTitleList.php:7 ajax_htmldata/getEbscoKbTitleDetails.php:60
 msgid "ISXNs"
 msgstr "ISXNs"
 
@@ -2808,7 +2857,7 @@ msgstr "Modifier"
 msgid "edit cost history"
 msgstr "Modifier l'historique de coût"
 
-#: ajax_htmldata/getAcquisitionsDetails.php:118 export.php:78
+#: ajax_htmldata/getAcquisitionsDetails.php:118 export.php:77
 msgid "Details"
 msgstr "Détails"
 
@@ -2990,6 +3039,42 @@ msgstr "Dernière mise à jour le&nbsp;:"
 msgid "No accounts available"
 msgstr "Aucun compte disponible"
 
+#: ajax_htmldata/getSearchEbscoKb.php:8
+msgid "Please enter a search term."
+msgstr "Merci d'entrer un terme de recherche."
+
+#: ajax_htmldata/getSearchEbscoKb.php:24
+msgid "No results found."
+msgstr "Aucun résultat trouvé."
+
+#: ajax_htmldata/getSearchEbscoKb.php:66
+msgid "Packages from"
+msgstr "Bouquets de"
+
+#: ajax_htmldata/getSearchEbscoKb.php:67 ajax_htmldata/getSearchEbscoKb.php:82
+msgid "of"
+msgstr "de"
+
+#: ajax_htmldata/getSearchEbscoKb.php:67
+msgid "selected)"
+msgstr "sélectionnés"
+
+#: ajax_htmldata/getSearchEbscoKb.php:75
+msgid "Title list from"
+msgstr "Liste des titres de"
+
+#: ajax_htmldata/getSearchEbscoKb.php:82
+msgid "Displaying"
+msgstr "Affichage de"
+
+#: ajax_htmldata/getSearchEbscoKb.php:82
+msgid "to"
+msgstr "à "
+
+#: ajax_htmldata/getSearchEbscoKb.php:82
+msgid "results"
+msgstr "résultats"
+
 #: ajax_htmldata/getAdminFundDisplay.php:46
 msgid "add new fund"
 msgstr "Ajouter nouveau fonds"
@@ -3094,9 +3179,61 @@ msgstr "ajouter des jours"
 msgid "EBSCO Kb Title Details"
 msgstr "KB EBSCO détail du titre"
 
+#: ajax_htmldata/getEbscoKbTitleDetails.php:34
+msgid "Publication Type"
+msgstr "Type de publication"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:38
+msgid "Edition"
+msgstr "Édition"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:42
+msgid "Peer Reviewed"
+msgstr "Évalué par des pairs"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:45
+msgid "Publisher"
+msgstr "Éditeur"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:68
+msgid " (Print)"
+msgstr "(Imprimé)"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:71
+msgid " (Electronic)"
+msgstr "(Électronique)"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:84
+msgid "Contributors"
+msgstr "Contributeurs"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:109
+msgid "Selected in EBSCO Kb"
+msgstr "Sélectionnés dans EBSCO Kb"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:111
+msgid "Not selected in EBSCO Kb"
+msgstr "Non-sélectionnés dans EBSCO Kb"
+
 #: ajax_htmldata/getEbscoKbTitleDetails.php:128
 msgid "import package"
 msgstr "Importer bouquet"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:134
+msgid "Vendor"
+msgstr "Vendeur"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:136
+msgid "Coverage Statement"
+msgstr "Couverture"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:138
+msgid "Embargo"
+msgstr "Embargo"
+
+#: ajax_htmldata/getEbscoKbTitleDetails.php:140
+msgid "Resource Url"
+msgstr "URL de la resource"
 
 #: ajax_htmldata/getIssues.php:18
 msgid "Issues/Problems"
@@ -3139,7 +3276,7 @@ msgid "No submitted requests"
 msgstr "Aucune demande envoyée"
 
 #: ajax_htmldata/getSubmittedQueue.php:16 ajax_htmldata/getSavedQueue.php:19
-#: ajax_htmldata/getSearchResources.php:116 export.php:61
+#: ajax_htmldata/getSearchResources.php:116 export.php:60
 msgid "Date Created"
 msgstr "Créée le"
 
@@ -3421,127 +3558,127 @@ msgstr "Il n'y a aucun incident au niveau organisationnel."
 msgid "There are no order level issues."
 msgstr "Il n'y a pas de problème au niveau de la commande"
 
-#: export.php:62
+#: export.php:61
 msgid "User Created"
 msgstr "Utilisateur créé"
 
-#: export.php:63
+#: export.php:62
 msgid "Date Updated"
 msgstr "Date mise à jour"
 
-#: export.php:64
+#: export.php:63
 msgid "User Updated"
 msgstr "Utilisateur mis à jour"
 
-#: export.php:66
+#: export.php:65
 msgid "ISSN/ISBN"
 msgstr "ISSN/ISBN"
 
-#: export.php:68
+#: export.php:67
 msgid "Alt URL"
 msgstr "URL alternative"
 
-#: export.php:71
+#: export.php:70
 msgid "Fund Name"
 msgstr "Nom budget"
 
-#: export.php:73
+#: export.php:72
 msgid "Tax excluded"
 msgstr "Taxe exclue"
 
-#: export.php:74
+#: export.php:73
 msgid "Rate"
 msgstr "Taux"
 
-#: export.php:75
+#: export.php:74
 msgid "Tax included"
 msgstr "Taxe incluse"
 
-#: export.php:80
+#: export.php:79
 msgid "Cost Note"
 msgstr "Note de coût"
 
-#: export.php:83
+#: export.php:82
 msgid "Parent Record"
 msgstr "Enregistrement parent"
 
-#: export.php:84
+#: export.php:83
 msgid "Child Record"
 msgstr "Enregistrement enfant"
 
-#: export.php:86
+#: export.php:85
 msgid "Order Number"
 msgstr "Numéro de commande"
 
-#: export.php:87
+#: export.php:86
 msgid "System Number"
 msgstr "Numéro système"
 
-#: export.php:88
+#: export.php:87
 msgid "Purchasing Sites"
 msgstr "Sites acquéreurs"
 
-#: export.php:90
+#: export.php:89
 msgid "Current Sub End"
 msgstr "fin courante"
 
-#: export.php:91
+#: export.php:90
 msgid "Subscription Alert Enabled"
 msgstr "Alerte abonnement activée"
 
-#: export.php:92
+#: export.php:91
 msgid "License Names"
 msgstr "Noms de licenses"
 
-#: export.php:94
+#: export.php:93
 msgid "Authorized Sites"
 msgstr "Sites autorisés"
 
-#: export.php:95
+#: export.php:94
 msgid "Administering Sites"
 msgstr "Sites administrateurs"
 
-#: export.php:99
+#: export.php:98
 msgid "Simultaneous User Limit"
 msgstr "Limite utilisateurs simultanés"
 
-#: export.php:100
+#: export.php:99
 msgid "Coverage"
 msgstr "Couverture"
 
-#: export.php:101
+#: export.php:100
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: export.php:102
+#: export.php:101
 msgid "Password"
 msgstr "Mot de passe"
 
-#: export.php:105
+#: export.php:104
 msgid "Catalog Record Set Identifier"
 msgstr "Identifiant du \"record set\""
 
-#: export.php:106
+#: export.php:105
 msgid "Catalog Record Source URL"
 msgstr "URL source de la notice catalogue"
 
-#: export.php:107
+#: export.php:106
 msgid "Catalog Records Available"
 msgstr "Notices catalogue disponibles"
 
-#: export.php:108
+#: export.php:107
 msgid "Catalog Records Loaded"
 msgstr "Notices catalogue chargées"
 
-#: export.php:109
+#: export.php:108
 msgid "OCLC Holdings Updated"
 msgstr "Exemplaires OCLC mis à jour"
 
-#: export.php:112
+#: export.php:111
 msgid "Resource Record Export"
 msgstr "Export enregistrement de ressource"
 
-#: export.php:114
+#: export.php:113
 msgid "All Resource Records"
 msgstr "Tous les enregistrements de ressource"
 
@@ -3593,6 +3730,9 @@ msgstr "Merci de définir les options suivantes pour le module ressources."
 #: ajax_processing.php:27
 msgid "Processing action "
 msgstr "Traitement de l'opération en cours"
+
+#~ msgid "Edit Cost Information aaa"
+#~ msgstr "Modifier information de coût aaa"
 
 #~ msgid "Sunday"
 #~ msgstr "Dimanche"
@@ -3726,9 +3866,6 @@ msgstr "Traitement de l'opération en cours"
 #~ msgid "Routing Step: "
 #~ msgstr "Étape du routage :"
 
-#~ msgid "Edit Cost Information"
-#~ msgstr "Modifier les informations de coût"
-
 #~ msgid "Edit Acquisitions Information"
 #~ msgstr "Modifier les informations d'acquisition"
 
@@ -3781,26 +3918,20 @@ msgstr "Traitement de l'opération en cours"
 #~ msgid " notes have been created"
 #~ msgstr " remarques ont été créées"
 
-#~ msgid "product"
-#~ msgstr "Produit"
+msgid "Orders"
+msgstr "Commandes"
 
-#~ msgid "acquisitions"
-#~ msgstr "acquisitions"
+msgid "Contacts"
+msgstr "Contacts"
 
-#~ msgid "access"
-#~ msgstr "accès"
+msgid "Issues"
+msgstr "Incidents"
 
-#~ msgid "contacts"
-#~ msgstr "contacts"
+msgid "Accounts"
+msgstr "Comptes"
 
-#~ msgid "issues"
-#~ msgstr "Incidents"
-
-#~ msgid "accounts"
-#~ msgstr "Comptes"
-
-#~ msgid "attachments"
-#~ msgstr "Pièces jointes"
+msgid "Attachments"
+msgstr "Pièces jointes"
 
 #~ msgid "routing"
 #~ msgstr "En transit"

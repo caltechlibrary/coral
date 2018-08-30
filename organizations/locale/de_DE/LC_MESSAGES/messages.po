@@ -1,263 +1,265 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Coral\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 17:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: BSZ - Abteilung Bibliothekssysteme\n"
-"Language-Abteilung: BSZ - Abteilung Bibliothekssysteme\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
-"Language: de_DE\n"
+"Language-Abteilung: BSZ - Abteilung Bibliothekssysteme\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"Language-Team: \n"
 
-#: install/organizations.php:9 install/organizations.php:36
-#: install/organizations.php:100 install/organizations.php:119
-msgid "Organizations Module"
-msgstr "Modul Organisationen"
+#: ajax_processing.php:438
+msgid "Unable to delete  - this "
+msgstr "Kann nicht gelöscht werden - "
 
-#: install/organizations.php:25
-msgid "Organizations Database"
-msgstr "Datenbank Organisationen"
-
-#: admin.php:22
-msgid "Administration"
-msgstr "Administration"
-
-#: admin.php:33
-msgid "Users"
-msgstr "Nutzer"
-
-#: admin.php:34
-msgid "add new user"
-msgstr "Neuen Nutzer anlegen"
-
-#: admin.php:37 admin.php:52 admin.php:66 admin.php:81 admin.php:95
-#: admin.php:106
-msgid "Loading..."
-msgstr "Lade..."
-
-#: admin.php:48
-msgid "Organization Role"
-msgstr "Rolle der Organisation"
-
-#: admin.php:49
-msgid "add new organization role"
-msgstr "Neue Rolle für Organisation anlegen"
-
-#: admin.php:62
-msgid "Contact Role"
-msgstr "Rolle des Kontakts"
-
-#: admin.php:63
-msgid "add new contact role"
-msgstr "Neue Rolle für Kontakt anlegen"
-
-#: admin.php:77 ajax_htmldata.php:339 ajax_forms.php:209
-msgid "Alias Type"
-msgstr "Art des Alias"
-
-#: admin.php:78
-msgid "add new alias type"
-msgstr "Neuen Typ für Alias anlegen"
-
-#: admin.php:91
-msgid "External Login Type"
-msgstr "Art des Externen Logins"
-
-#: admin.php:92
-msgid "add new external login type"
-msgstr "Neuer Typ für Externes Login anlegen"
-
-#: admin.php:102
-msgid "Issue Type"
-msgstr "Art des Problems"
-
-#: admin.php:103
-msgid "add new issue type"
-msgstr "Neue Art des Problems anlegen"
-
-#: admin.php:118
-msgid "You do not have permissions to access this screen."
-msgstr "Sie haben nicht die Berechtigung auf diese Seite zuzugreifen."
-
-#: js/admin.js:81 js/admin.js:133 js/admin.js:159 js/admin.js:200
-#: js/index.js:46
-msgid "Processing..."
-msgstr "Lade..."
-
-#: js/admin.js:131
-msgid "Do you really want to delete this data?"
-msgstr "Möchten Sie diese Daten wirklich löschen?"
-
-#: js/admin.js:157
-msgid "Do you really want to delete this user?"
-msgstr "Möchten Sie diesen Nutzer wirklich löschen?"
-
-#: js/admin.js:181
-msgid "add"
-msgstr "hinzufügen"
-
-#: js/forms/contactSubmitForm.js:117
-msgid "Please choose at least one role."
-msgstr "Bitte wählen Sie mindestens eine Rolle aus."
-
-#: js/forms/contactSubmitForm.js:125 js/forms/organizationSubmitForm.js:149
-#: js/forms/aliasSubmitForm.js:43
-msgid "Name must be entered to continue."
-msgstr "Das Feld Name muss ausgefüllt sein."
-
-#: js/forms/organizationSubmitForm.js:56
-msgid "This organization already exists!"
-msgstr "Diese Organisation existiert bereits!"
-
-#: js/forms/organizationSubmitForm.js:72
-msgid "This vendor does not exist in the ILS."
-msgstr "Dieser Lieferant existiert nicht im Bibliothekssystem."
-
-#: js/forms/organizationSubmitForm.js:76
-msgid "This vendor exists in the ILS."
-msgstr "Dieser Lieferant existiert im Bibliothekssystem."
-
-#: js/orgDetail.js:159
-msgid "Must set a date."
-msgstr "Datum fehlt."
-
-#: js/orgDetail.js:185
-msgid "Must set an end date."
-msgstr "Enddatum fehlt."
-
-#: js/orgDetail.js:247 js/orgDetail.js:281 js/orgDetail.js:300
-#: js/orgDetail.js:324 js/orgDetail.js:342 js/orgDetail.js:504
-#: js/orgDetail.js:560
-msgid "Refreshing Contents..."
-msgstr "Aktualisiere..."
-
-#: js/orgDetail.js:527
-msgid "New contact must have a name."
-msgstr "Das Feld Name muss ausgefüllt sein."
-
-#: js/orgDetail.js:534
-msgid "CC must be a valid email."
-msgstr "Bitte geben Sie bei CC eine valide E-Mailadresse an."
-
-#: js/orgDetail.js:578
-msgid "Do you really want to delete this organization?"
-msgstr "Möchten Sie diese Organisation wirklich löschen?"
-
-#: js/orgDetail.js:591
+#: ajax_processing.php:438
 msgid ""
-"This Organization cannot be deleted because it has at least one License "
-"Record associated."
+" is in use.  Please make sure no organizations are set up with this "
+"information."
 msgstr ""
-"Diese Organisation kann nicht gelöscht werden, da noch ein verknüpfter "
-"Lizenzdatensatz existiert."
+" wird verwendet. Bitte stellen Sie sicher das keine Organisationen mit "
+"dieser Information vorhanden sind."
 
-#: js/orgDetail.js:655
-msgid "Do you really want to delete this alias?"
-msgstr "Möchten Sie diesen Alias wirklich löschen?"
-
-#: js/orgDetail.js:673
-msgid "Do you really want to delete this contact?"
-msgstr "Möchten Sie diesen Kontakt wirklich löschen?"
-
-#: js/orgDetail.js:691
-msgid "Do you really want to delete this account?"
-msgstr "Möchten Sie diesen Account wirklich löschen?"
-
-#: js/orgDetail.js:710
-msgid "Do you really want to delete this issue?"
-msgstr "Möchten Sie dieses Problem wirklich löschen?"
-
-#: js/common.js:68
-msgid "No match!"
-msgstr "Kein Treffer!"
-
-#: js/common.js:68
-msgid "Selected: "
-msgstr "Ausgewählt: "
-
-#: templates/header.php:78
+#: ajax_processing.php:444
 msgid ""
-"JavaScript must be enabled in order for you to use CORAL. However, it seems "
-"JavaScript is either disabled or not supported by your browser. To use "
-"CORAL, enable JavaScript by changing your browser options, then "
+"Unable to delete.  Please make sure no organizations are set up with this "
+"information."
 msgstr ""
-"Für CORAL muss JavaScript aktiviert sein. Bitte aktivieren Sie dieses über "
-"Ihre Browser-Einstellungen. "
+"Kann nicht gelöscht werden. Bitte stellen Sie sicher das keine "
+"Organisationen mit dieser Information vorhanden sind."
 
-#: templates/header.php:78
-msgid "try again"
-msgstr "Nochmal versuchen"
+#: ajax_processing.php:457
+msgid "Organization successfully deleted."
+msgstr "Die Organisation wurde erfolgreich gelöscht."
 
-#: templates/header.php:98
-msgid "Organizations"
-msgstr "Organisationen"
+#: ajax_processing.php:501
+msgid "User successfully saved."
+msgstr "Nutzer erfolgreich gespeichert."
 
-#: templates/header.php:99
-msgid "Powered by"
-msgstr "Powered by"
+#: ajax_processing.php:586 ajax_htmldata.php:1091 ajax_forms.php:1176
+msgid "Action "
+msgstr "Aktion "
 
-#: templates/header.php:105
-msgid "Hello"
-msgstr "Hallo"
+#: ajax_processing.php:586 ajax_htmldata.php:1091 ajax_forms.php:1176
+msgid " not set up!"
+msgstr " nicht aufgesetzt!"
 
-#: templates/header.php:115
-msgid "logout"
-msgstr "Abmelden"
+#: summary.php:129 ajax_htmldata.php:200
+msgid "Parent Organization:"
+msgstr "Übergeordnete Organisation:"
 
-#: templates/header.php:115
-msgid "Help"
-msgstr "Hilfe"
+#: summary.php:134 summary.php:150 ajax_htmldata.php:205
+msgid "view organization"
+msgstr "Organsiation ansehen"
 
-#: templates/header.php:133
-msgid "Invalid translation route!"
-msgstr "Ungültige Übersetzung!"
+#: summary.php:134 summary.php:150 ajax_htmldata.php:205
+msgid "View"
+msgstr "Ansehen"
 
-#: templates/header.php:172 templates/header.php:196 templates/header.php:212
-#: index.php:25
-msgid "Home"
-msgstr "Start"
+#: summary.php:145 ajax_htmldata.php:216
+msgid "Child Organizations:"
+msgstr "Untergeordnete Organisationen:"
 
-#: templates/header.php:179 templates/header.php:203 templates/header.php:219
-msgid "New Organization"
-msgstr "Neue Organisation"
+#: summary.php:161 ajax_htmldata.php:232 ajax_forms.php:107
+msgid "Company URL:"
+msgstr "Firmen-URL:"
 
-#: templates/header.php:187 templates/header.php:227
-msgid "Admin"
-msgstr "Admin"
+#: summary.php:169 ajax_htmldata.php:242 ajax_forms.php:113 ajax_forms.php:386
+msgid "Role(s):"
+msgstr "Rolle(n):"
 
-#: templates/header.php:245
-msgid "Change Module"
-msgstr "Modul wechseln"
+#: summary.php:177 ajax_htmldata.php:250 ajax_forms.php:146
+msgid "Account Details:"
+msgstr "Account Details:"
 
-#: templates/header.php:248
-msgid "Main Menu"
-msgstr "Hauptmenü"
+#: summary.php:185 summary.php:393 summary.php:497 ajax_htmldata.php:258
+#: ajax_htmldata.php:505 ajax_htmldata.php:627 ajax_forms.php:151
+#: ajax_forms.php:423 ajax_forms.php:526 ajax_forms.php:941
+msgid "Notes:"
+msgstr "Notizen:"
 
-#: templates/header.php:253
-msgid "Licensing"
+#: summary.php:202
+msgid "Created: "
+msgstr "Erstellt: "
+
+#: summary.php:205 summary.php:221 ajax_htmldata.php:284 ajax_htmldata.php:298
+msgid " by "
+msgstr " von "
+
+#: summary.php:221
+msgid "Last Update: "
+msgstr "Zuletzt geändert: "
+
+#: summary.php:248 orgDetail.php:120 orgDetail.php:151 orgDetail.php:188
+#: orgDetail.php:225 orgDetail.php:278 orgDetail.php:304
+msgid "Aliases"
+msgstr "Aliase"
+
+#: summary.php:261 ajax_htmldata.php:362
+msgid "No aliases defined"
+msgstr "Kein Alias definiert"
+
+#: summary.php:283 ajax_htmldata.php:396
+msgid "The following are archived contacts:"
+msgstr "Folgende Kontakte wurden archiviert:"
+
+#: summary.php:314 orgDetail.php:121 orgDetail.php:152 orgDetail.php:189
+#: orgDetail.php:226 orgDetail.php:279 orgDetail.php:305
+msgid "Contacts"
+msgstr "Kontakte"
+
+#: summary.php:337 ajax_htmldata.php:449
+msgid "No longer valid:"
+msgstr "Nicht mehr gültig:"
+
+#: summary.php:345 ajax_htmldata.php:457 ajax_forms.php:336
+msgid "Title:"
+msgstr "Titel:"
+
+#: summary.php:353 ajax_htmldata.php:465 ajax_forms.php:379
+msgid "Address:"
+msgstr "Adresse:"
+
+#: summary.php:361 ajax_htmldata.php:473 ajax_forms.php:343
+msgid "Phone:"
+msgstr "Telefonnummer:"
+
+#: summary.php:369 ajax_htmldata.php:481 ajax_forms.php:350
+msgid "Alt Phone:"
+msgstr "Alternative Telefonnummer:"
+
+#: summary.php:377 ajax_htmldata.php:489 ajax_forms.php:357
+msgid "Fax:"
+msgstr "Fax:"
+
+#: summary.php:385 ajax_htmldata.php:497 ajax_forms.php:364
+msgid "Email:"
+msgstr "E-Mail:"
+
+#: summary.php:401 summary.php:489 ajax_htmldata.php:513 ajax_htmldata.php:619
+msgid "Last Updated:"
+msgstr "Zuletzt geändert:"
+
+#: summary.php:412 ajax_htmldata.php:526
+msgid "No unarchived contacts"
+msgstr "Keine archivierten Kontakte"
+
+#: summary.php:438
+msgid "External Logins"
+msgstr "Externe Logins"
+
+#: summary.php:453 ajax_htmldata.php:583
+msgid "Login URL:"
+msgstr "Login URL:"
+
+#: summary.php:458 ajax_htmldata.php:588
+msgid "Visit Login URL"
+msgstr "Besuche Login URL"
+
+#: summary.php:465 ajax_htmldata.php:595
+msgid "Local email on account:"
+msgstr "Lokale E-Mail für Konto:"
+
+#: summary.php:473 ajax_htmldata.php:603
+msgid "User Name:"
+msgstr "Nutzername:"
+
+#: summary.php:481 ajax_htmldata.php:611 ajax_forms.php:519
+msgid "Password:"
+msgstr "Passwort:"
+
+#: summary.php:507 ajax_htmldata.php:640
+msgid "No external logins added"
+msgstr "Es wurden keine externen Login hinzugefügt"
+
+#: summary.php:540 orgDetail.php:125 orgDetail.php:127 orgDetail.php:156
+#: orgDetail.php:158 orgDetail.php:193 orgDetail.php:195 orgDetail.php:230
+#: orgDetail.php:232 orgDetail.php:259 orgDetail.php:281 orgDetail.php:309
+#: orgDetail.php:311
+msgid "Issues"
+msgstr "Probleme"
+
+#: summary.php:549
+msgid "Date Added"
+msgstr "Hinzugefügt am"
+
+#: summary.php:550
+msgid "Issue Date"
+msgstr "Datum"
+
+#: summary.php:551 ajax_htmldata.php:774
+msgid "Notes"
+msgstr "Notizen"
+
+#: summary.php:562 ajax_htmldata.php:791
+msgid "by "
+msgstr "von "
+
+#: summary.php:571 ajax_htmldata.php:818
+msgid "No issues reported"
+msgstr "Keine Probleme gemeldet"
+
+#: summary.php:590 orgDetail.php:130 orgDetail.php:161 orgDetail.php:198
+#: orgDetail.php:235 orgDetail.php:282 orgDetail.php:314
+msgid "Licenses"
 msgstr "Lizenzen"
 
-#: templates/header.php:258
-msgid "Resources"
-msgstr "Ressourcen"
+#: summary.php:598 ajax_htmldata.php:855
+msgid "Consortium"
+msgstr "Konsortium"
 
-#: templates/header.php:263
-msgid "Cancel"
-msgstr "Abbrechen"
+#: summary.php:599 ajax_htmldata.php:856
+msgid "Status"
+msgstr "Status"
 
-#: templates/header.php:268
-msgid "Usage Statistics"
-msgstr "Nutzungsstatistik"
+#: summary.php:618 ajax_htmldata.php:875
+msgid "No licenses set up for this organization"
+msgstr "Für diese Organisation sind keine Lizenzen angelegt"
 
-#: templates/header.php:273
-msgid "Management"
-msgstr "Management"
+#: summary.php:624 ajax_htmldata.php:879
+msgid ""
+"Unable to access the licensing database.  Make sure the configuration.ini is "
+"pointing to the correct place and that the database and associated tables "
+"have been set up."
+msgstr ""
+"Zugriff auf die Lizenzdatenbank nicht möglich. Stellen Sie sicher das die "
+"Datei configuration.ini am richtigen Ort liegt und die Datenbank mit den "
+"zugehörigen Tabellen angelegt wurde."
 
-#: ajax_htmldata.php:194 ajax_htmldata.php:348 ajax_htmldata.php:436
-#: ajax_htmldata.php:571 ajax_htmldata.php:804 ajax_forms.php:991
+#: summary.php:643 orgDetail.php:337
+msgid "invalid organization"
+msgstr "ungültige Organisation"
+
+#: user.php:106
+msgid ""
+"Login is not working.  Check the .htaccess file and the "
+"remoteAuthVariableName specified in /admin/configuration.ini"
+msgstr ""
+"Das Login funktioniert nicht. Bitte überprüfen Sie die  .htaccess Datei und "
+"den remoteAuthVariableName Parameter unter /admin/configuration.ini"
+
+#: admin/classes/common/DBService.php:54
+msgid "There was a problem with the database: "
+msgstr "Es gab ein Problem mit folgender Datenbank: "
+
+#: admin/classes/common/Object.php:63
+msgid "Cannot set value for undefined key ("
+msgstr ""
+"Der Wert des nicht definierten Schlüssels konnte nicht gesetzt werden ("
+
+#: admin/classes/common/Object.php:72
+msgid "Cannot get value for undefined key ("
+msgstr ""
+"Der Wert des nicht definierten Schlüssels konnte nicht ermittelt werden ("
+
+#: ajax_htmldata.php:194 ajax_htmldata.php:350 ajax_htmldata.php:438
+#: ajax_htmldata.php:573 ajax_htmldata.php:806 ajax_forms.php:991
 msgid "edit"
 msgstr "bearbeiten"
 
@@ -269,346 +271,207 @@ msgstr "Ressource bearbeiten"
 msgid "remove resource"
 msgstr "Ressource löschen"
 
-#: ajax_htmldata.php:200 summary.php:129
-msgid "Parent Organization:"
-msgstr "Übergeordnete Organisation:"
-
-#: ajax_htmldata.php:205 summary.php:134 summary.php:150
-msgid "view organization"
-msgstr "Organsiation ansehen"
-
-#: ajax_htmldata.php:205 summary.php:134 summary.php:150
-msgid "View"
-msgstr "Ansehen"
-
-#: ajax_htmldata.php:216 summary.php:145
-msgid "Child Organizations:"
-msgstr "Untergeordnete Organisationen:"
-
-#: ajax_htmldata.php:232 summary.php:161 ajax_forms.php:107
-msgid "Company URL:"
-msgstr "Firmen-URL:"
-
-#: ajax_htmldata.php:240 summary.php:169 ajax_forms.php:113 ajax_forms.php:386
-msgid "Role(s):"
-msgstr "Rolle(n):"
-
-#: ajax_htmldata.php:248 summary.php:177 ajax_forms.php:146
-msgid "Account Details:"
-msgstr "Account Details:"
-
-#: ajax_htmldata.php:256 ajax_htmldata.php:503 ajax_htmldata.php:625
-#: summary.php:185 summary.php:393 summary.php:497 ajax_forms.php:151
-#: ajax_forms.php:423 ajax_forms.php:526 ajax_forms.php:941
-msgid "Notes:"
-msgstr "Notizen:"
-
-#: ajax_htmldata.php:266
+#: ajax_htmldata.php:268
 msgid "ILS:"
 msgstr "Bibliothekssystem:"
 
-#: ajax_htmldata.php:277
+#: ajax_htmldata.php:279
 msgid "Created:"
 msgstr "Erstellt:"
 
-#: ajax_htmldata.php:282 ajax_htmldata.php:296 summary.php:205 summary.php:221
-msgid " by "
-msgstr " von "
-
-#: ajax_htmldata.php:296
+#: ajax_htmldata.php:298
 msgid "Last Update:"
 msgstr "Zuletzt geändert:"
 
-#: ajax_htmldata.php:338 ajax_htmldata.php:976
+#: ajax_htmldata.php:340 ajax_htmldata.php:978
 msgid "Alias"
 msgstr "Alias"
 
-#: ajax_htmldata.php:348
+#: ajax_htmldata.php:341 ajax_forms.php:209 admin.php:77
+msgid "Alias Type"
+msgstr "Art des Alias"
+
+#: ajax_htmldata.php:350
 msgid "edit alias"
 msgstr "Alias bearbeiten"
 
-#: ajax_htmldata.php:349
+#: ajax_htmldata.php:351
 msgid "remove alias"
 msgstr "Alias löschen"
 
-#: ajax_htmldata.php:360 summary.php:261
-msgid "No aliases defined"
-msgstr "Kein Alias definiert"
-
-#: ajax_htmldata.php:366
+#: ajax_htmldata.php:368
 msgid "add a new alias"
 msgstr "Neuen Alias anlegen"
 
-#: ajax_htmldata.php:394 summary.php:283
-msgid "The following are archived contacts:"
-msgstr "Folgende Kontakte wurden archiviert:"
-
-#: ajax_htmldata.php:436
+#: ajax_htmldata.php:438
 msgid "edit contact"
 msgstr "Kontakt bearbeiten"
 
-#: ajax_htmldata.php:437
+#: ajax_htmldata.php:439
 msgid "remove contact"
 msgstr "Kontakt löschen"
 
-#: ajax_htmldata.php:447 summary.php:337
-msgid "No longer valid:"
-msgstr "Nicht mehr gültig:"
-
-#: ajax_htmldata.php:455 summary.php:345 ajax_forms.php:336
-msgid "Title:"
-msgstr "Titel:"
-
-#: ajax_htmldata.php:463 summary.php:353 ajax_forms.php:379
-msgid "Address:"
-msgstr "Adresse:"
-
-#: ajax_htmldata.php:471 summary.php:361 ajax_forms.php:343
-msgid "Phone:"
-msgstr "Telefonnummer:"
-
-#: ajax_htmldata.php:479 summary.php:369 ajax_forms.php:350
-msgid "Alt Phone:"
-msgstr "Alternative Telefonnummer:"
-
-#: ajax_htmldata.php:487 summary.php:377 ajax_forms.php:357
-msgid "Fax:"
-msgstr "Fax:"
-
-#: ajax_htmldata.php:495 summary.php:385 ajax_forms.php:364
-msgid "Email:"
-msgstr "E-Mail:"
-
-#: ajax_htmldata.php:511 ajax_htmldata.php:617 summary.php:401 summary.php:489
-msgid "Last Updated:"
-msgstr "Zuletzt geändert:"
-
-#: ajax_htmldata.php:524 summary.php:412
-msgid "No unarchived contacts"
-msgstr "Keine archivierten Kontakte"
-
-#: ajax_htmldata.php:529
+#: ajax_htmldata.php:531
 msgid " archived contact(s) available.  "
 msgstr " archivierte Kontakte verfügbar "
 
-#: ajax_htmldata.php:529
+#: ajax_htmldata.php:531
 msgid "show archived contacts"
 msgstr "Zeige archivierte Kontakte"
 
-#: ajax_htmldata.php:533
+#: ajax_htmldata.php:535
 msgid "hide archived contacts"
 msgstr "Verberge archivierte Kontakte"
 
-#: ajax_htmldata.php:571
+#: ajax_htmldata.php:573
 msgid "edit external login"
 msgstr "bearbeite externes Login"
 
-#: ajax_htmldata.php:572
+#: ajax_htmldata.php:574
 msgid "remove external login"
 msgstr "entferne externes Login"
 
-#: ajax_htmldata.php:581 summary.php:453
-msgid "Login URL:"
-msgstr "Login URL:"
-
-#: ajax_htmldata.php:586 summary.php:458
-msgid "Visit Login URL"
-msgstr "Besuche Login URL"
-
-#: ajax_htmldata.php:593 summary.php:465
-msgid "Local email on account:"
-msgstr "Lokale E-Mail für Konto:"
-
-#: ajax_htmldata.php:601 summary.php:473
-msgid "User Name:"
-msgstr "Nutzername:"
-
-#: ajax_htmldata.php:609 summary.php:481 ajax_forms.php:519
-msgid "Password:"
-msgstr "Passwort:"
-
-#: ajax_htmldata.php:638 summary.php:507
-msgid "No external logins added"
-msgstr "Es wurden keine externen Login hinzugefügt"
-
-#: ajax_htmldata.php:643
+#: ajax_htmldata.php:645
 msgid "add new external login"
 msgstr "neuer externer Login hinzufügen"
 
-#: ajax_htmldata.php:660
+#: ajax_htmldata.php:662
 msgid "Issues/Problems"
 msgstr "Probleme"
 
-#: ajax_htmldata.php:663
+#: ajax_htmldata.php:665
 msgid "report new issue"
 msgstr "neues Problem melden"
 
-#: ajax_htmldata.php:667
+#: ajax_htmldata.php:669
 msgid "view open issues"
 msgstr "zeige offene Probleme"
 
-#: ajax_htmldata.php:674
+#: ajax_htmldata.php:676
 msgid "view archived issues"
 msgstr "zeige archivierte Probleme"
 
-#: ajax_htmldata.php:683
+#: ajax_htmldata.php:685
 msgid "Downtime"
 msgstr "Ausfallzeit"
 
-#: ajax_htmldata.php:686
+#: ajax_htmldata.php:688
 msgid "report new Downtime"
 msgstr "neue Ausfallzeit melden"
 
-#: ajax_htmldata.php:690
+#: ajax_htmldata.php:692
 msgid "view current/upcoming downtime"
 msgstr "zeige aktuelle/kommende Ausfallzeiten"
 
-#: ajax_htmldata.php:697
+#: ajax_htmldata.php:699
 msgid "view archived downtime"
 msgstr "zeige archivierte Ausfallzeiten"
 
-#: ajax_htmldata.php:716
+#: ajax_htmldata.php:718
 msgid "There are no organization level issues."
 msgstr "Es gibt keine Probleme auf Organisationsebene."
 
-#: ajax_htmldata.php:731
+#: ajax_htmldata.php:733
 msgid "There are no organization level downtimes."
 msgstr "Es gibt keine Ausfallzeiten auf Organisationsebene."
 
-#: ajax_htmldata.php:769
+#: ajax_htmldata.php:771
 msgid "Added"
 msgstr "Hinzugefügt"
 
-#: ajax_htmldata.php:770 ajax_forms.php:725 ajax_forms.php:792
+#: ajax_htmldata.php:772 ajax_forms.php:725 ajax_forms.php:792
 #: ajax_forms.php:809
 msgid "Date"
 msgstr "Datum"
 
-#: ajax_htmldata.php:771
+#: ajax_htmldata.php:773
 msgid "Type"
 msgstr "Typ"
 
-#: ajax_htmldata.php:772 summary.php:551
-msgid "Notes"
-msgstr "Notizen"
-
-#: ajax_htmldata.php:789 summary.php:562
-msgid "by "
-msgstr "von "
-
-#: ajax_htmldata.php:792 ajax_htmldata.php:923
+#: ajax_htmldata.php:794 ajax_htmldata.php:925
 msgid " to "
 msgstr " zu "
 
-#: ajax_htmldata.php:794
+#: ajax_htmldata.php:796
 msgid "start: "
 msgstr "Start: "
 
-#: ajax_htmldata.php:796
+#: ajax_htmldata.php:798
 msgid "end: "
 msgstr "Ende: "
 
-#: ajax_htmldata.php:804
+#: ajax_htmldata.php:806
 msgid "edit issue"
 msgstr "Problem bearbeiten"
 
-#: ajax_htmldata.php:805
+#: ajax_htmldata.php:807
 msgid "remove issue"
 msgstr "Problem entfernen"
 
-#: ajax_htmldata.php:816 summary.php:571
-msgid "No issues reported"
-msgstr "Keine Probleme gemeldet"
-
-#: ajax_htmldata.php:821
+#: ajax_htmldata.php:823
 msgid "add new issue"
 msgstr "neues Problem hinzufügen"
 
-#: ajax_htmldata.php:825
+#: ajax_htmldata.php:827
 msgid "export these issues"
 msgstr "exportiere diese Probleme"
 
-#: ajax_htmldata.php:825
+#: ajax_htmldata.php:827
 msgid "export all issues"
 msgstr "exportiere alle Probleme"
 
-#: ajax_htmldata.php:852
+#: ajax_htmldata.php:854
 msgid "License"
 msgstr "Lizenz"
 
-#: ajax_htmldata.php:853 summary.php:598
-msgid "Consortium"
-msgstr "Konsortium"
-
-#: ajax_htmldata.php:854 summary.php:599
-msgid "Status"
-msgstr "Status"
-
-#: ajax_htmldata.php:873 summary.php:618
-msgid "No licenses set up for this organization"
-msgstr "Für diese Organisation sind keine Lizenzen angelegt"
-
-#: ajax_htmldata.php:877 summary.php:624
-msgid ""
-"Unable to access the licensing database.  Make sure the configuration.ini is "
-"pointing to the correct place and that the database and associated tables "
-"have been set up."
-msgstr ""
-"Zugriff auf die Lizenzdatenbank nicht möglich. Stellen Sie sicher das die "
-"Datei configuration.ini am richtigen Ort liegt und die Datenbank mit den "
-"zugehörigen Tabellen angelegt wurde."
-
-#: ajax_htmldata.php:919
+#: ajax_htmldata.php:921
 msgid "Sorry, no requests fit your query"
 msgstr "Ihre Suche ergab keine Treffer"
 
-#: ajax_htmldata.php:923
+#: ajax_htmldata.php:925
 msgid "Displaying "
 msgstr "Angezeigt "
 
-#: ajax_htmldata.php:923
+#: ajax_htmldata.php:925
 msgid " of "
 msgstr " von "
 
-#: ajax_htmldata.php:923
+#: ajax_htmldata.php:925
 msgid " Organization Records"
 msgstr " Organisationsdatensätze"
 
-#: ajax_htmldata.php:968
+#: ajax_htmldata.php:970
 msgid "Contact Name(s)"
 msgstr "Kontaktname(n)"
 
-#: ajax_htmldata.php:969
+#: ajax_htmldata.php:971
 msgid "Contact Role(s)"
 msgstr "Kontaktrolle(n)"
 
-#: ajax_htmldata.php:970 ajax_htmldata.php:975
+#: ajax_htmldata.php:972 ajax_htmldata.php:977
 msgid "Organization Name"
 msgstr "Name der Organisation"
 
-#: ajax_htmldata.php:971 ajax_htmldata.php:977
+#: ajax_htmldata.php:973 ajax_htmldata.php:979
 msgid "Parent Organization"
 msgstr "Übergeordnete Organisation"
 
-#: ajax_htmldata.php:972
+#: ajax_htmldata.php:974
 msgid "Organization Role(s)"
 msgstr "Organisationsrolle(n)"
 
-#: ajax_htmldata.php:978
+#: ajax_htmldata.php:980
 msgid "Role(s)"
 msgstr "Rolle(n)"
 
-#: ajax_htmldata.php:1067
+#: ajax_htmldata.php:1069
 msgid "records per page"
 msgstr "Datensätze pro Seite"
 
-#: ajax_htmldata.php:1089 ajax_processing.php:586 ajax_forms.php:1176
-msgid "Action "
-msgstr "Aktion "
-
-#: ajax_htmldata.php:1089 ajax_processing.php:586 ajax_forms.php:1176
-msgid " not set up!"
-msgstr " nicht aufgesetzt!"
+#: index.php:25 templates/header.php:172 templates/header.php:196
+#: templates/header.php:212
+msgid "Home"
+msgstr "Start"
 
 #: index.php:49
 msgid "Search"
@@ -642,79 +505,14 @@ msgstr "Kontaktname (enthält)"
 msgid "Starts with"
 msgstr "Beginnt mit"
 
-#: summary.php:202
-msgid "Created: "
-msgstr "Erstellt: "
+#: install/organizations.php:9 install/organizations.php:36
+#: install/organizations.php:100 install/organizations.php:119
+msgid "Organizations Module"
+msgstr "Modul Organisationen"
 
-#: summary.php:221
-msgid "Last Update: "
-msgstr "Zuletzt geändert: "
-
-#: summary.php:248 orgDetail.php:120 orgDetail.php:151 orgDetail.php:188
-#: orgDetail.php:225 orgDetail.php:278 orgDetail.php:304
-msgid "Aliases"
-msgstr "Aliase"
-
-#: summary.php:314 orgDetail.php:121 orgDetail.php:152 orgDetail.php:189
-#: orgDetail.php:226 orgDetail.php:279 orgDetail.php:305
-msgid "Contacts"
-msgstr "Kontakte"
-
-#: summary.php:438
-msgid "External Logins"
-msgstr "Externe Logins"
-
-#: summary.php:540 orgDetail.php:125 orgDetail.php:127 orgDetail.php:156
-#: orgDetail.php:158 orgDetail.php:193 orgDetail.php:195 orgDetail.php:230
-#: orgDetail.php:232 orgDetail.php:259 orgDetail.php:281 orgDetail.php:309
-#: orgDetail.php:311
-msgid "Issues"
-msgstr "Probleme"
-
-#: summary.php:549
-msgid "Date Added"
-msgstr "Hinzugefügt am"
-
-#: summary.php:550
-msgid "Issue Date"
-msgstr "Datum"
-
-#: summary.php:590 orgDetail.php:130 orgDetail.php:161 orgDetail.php:198
-#: orgDetail.php:235 orgDetail.php:282 orgDetail.php:314
-msgid "Licenses"
-msgstr "Lizenzen"
-
-#: summary.php:643 orgDetail.php:337
-msgid "invalid organization"
-msgstr "ungültige Organisation"
-
-#: ajax_processing.php:438
-msgid "Unable to delete  - this "
-msgstr "Kann nicht gelöscht werden - "
-
-#: ajax_processing.php:438
-msgid ""
-" is in use.  Please make sure no organizations are set up with this "
-"information."
-msgstr ""
-" wird verwendet. Bitte stellen Sie sicher das keine Organisationen mit "
-"dieser Information vorhanden sind."
-
-#: ajax_processing.php:444
-msgid ""
-"Unable to delete.  Please make sure no organizations are set up with this "
-"information."
-msgstr ""
-"Kann nicht gelöscht werden. Bitte stellen Sie sicher das keine "
-"Organisationen mit dieser Information vorhanden sind."
-
-#: ajax_processing.php:457
-msgid "Organization successfully deleted."
-msgstr "Die Organisation wurde erfolgreich gelöscht."
-
-#: ajax_processing.php:501
-msgid "User successfully saved."
-msgstr "Nutzer erfolgreich gespeichert."
+#: install/organizations.php:25
+msgid "Organizations Database"
+msgstr "Datenbank Organisationen"
 
 #: ajax_forms.php:67
 msgid "Update Organization"
@@ -954,6 +752,79 @@ msgstr "Füge neu hinzu"
 msgid "User"
 msgstr "Nutzer"
 
+#: templates/header.php:78
+msgid ""
+"JavaScript must be enabled in order for you to use CORAL. However, it seems "
+"JavaScript is either disabled or not supported by your browser. To use "
+"CORAL, enable JavaScript by changing your browser options, then "
+msgstr ""
+"Für CORAL muss JavaScript aktiviert sein. Bitte aktivieren Sie dieses über "
+"Ihre Browser-Einstellungen. "
+
+#: templates/header.php:78
+msgid "try again"
+msgstr "Nochmal versuchen"
+
+#: templates/header.php:98
+msgid "Organizations"
+msgstr "Organisationen"
+
+#: templates/header.php:99
+msgid "Powered by"
+msgstr "Powered by"
+
+#: templates/header.php:105
+msgid "Hello"
+msgstr "Hallo"
+
+#: templates/header.php:115
+msgid "logout"
+msgstr "Abmelden"
+
+#: templates/header.php:115
+msgid "Help"
+msgstr "Hilfe"
+
+#: templates/header.php:133
+msgid "Invalid translation route!"
+msgstr "Ungültige Übersetzung!"
+
+#: templates/header.php:179 templates/header.php:203 templates/header.php:219
+msgid "New Organization"
+msgstr "Neue Organisation"
+
+#: templates/header.php:187 templates/header.php:227
+msgid "Admin"
+msgstr "Admin"
+
+#: templates/header.php:245
+msgid "Change Module"
+msgstr "Modul wechseln"
+
+#: templates/header.php:248
+msgid "Main Menu"
+msgstr "Hauptmenü"
+
+#: templates/header.php:253
+msgid "Licensing"
+msgstr "Lizenzen"
+
+#: templates/header.php:258
+msgid "Resources"
+msgstr "Ressourcen"
+
+#: templates/header.php:263
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: templates/header.php:268
+msgid "Usage Statistics"
+msgstr "Nutzungsstatistik"
+
+#: templates/header.php:273
+msgid "Management"
+msgstr "Management"
+
 #: setuser.php:41
 msgid ""
 "LDAP Connection is not working or has timed out.  Please check configuration."
@@ -961,20 +832,6 @@ msgid ""
 msgstr ""
 "Die LDAP Verbindung funktioniert oder ist in einen Timeout gelaufen. Bitte "
 "überprüfen Sie die Einstellungen in der Datei configuration.ini."
-
-#: admin/classes/common/Object.php:63
-msgid "Cannot set value for undefined key ("
-msgstr ""
-"Der Wert des nicht definierten Schlüssels konnte nicht gesetzt werden ("
-
-#: admin/classes/common/Object.php:72
-msgid "Cannot get value for undefined key ("
-msgstr ""
-"Der Wert des nicht definierten Schlüssels konnte nicht ermittelt werden ("
-
-#: admin/classes/common/DBService.php:54
-msgid "There was a problem with the database: "
-msgstr "Es gab ein Problem mit folgender Datenbank: "
 
 #: orgDetail.php:66
 msgid "Organization Search"
@@ -1016,10 +873,155 @@ msgstr " Treffer"
 msgid " records"
 msgstr " Treffer"
 
-#: user.php:106
+#: js/orgDetail.js:159
+msgid "Must set a date."
+msgstr "Datum fehlt."
+
+#: js/orgDetail.js:185
+msgid "Must set an end date."
+msgstr "Enddatum fehlt."
+
+#: js/orgDetail.js:247 js/orgDetail.js:281 js/orgDetail.js:300
+#: js/orgDetail.js:324 js/orgDetail.js:342 js/orgDetail.js:504
+#: js/orgDetail.js:560
+msgid "Refreshing Contents..."
+msgstr "Aktualisiere..."
+
+#: js/orgDetail.js:527
+msgid "New contact must have a name."
+msgstr "Das Feld Name muss ausgefüllt sein."
+
+#: js/orgDetail.js:534
+msgid "CC must be a valid email."
+msgstr "Bitte geben Sie bei CC eine valide E-Mailadresse an."
+
+#: js/orgDetail.js:578
+msgid "Do you really want to delete this organization?"
+msgstr "Möchten Sie diese Organisation wirklich löschen?"
+
+#: js/orgDetail.js:591
 msgid ""
-"Login is not working.  Check the .htaccess file and the "
-"remoteAuthVariableName specified in /admin/configuration.ini"
+"This Organization cannot be deleted because it has at least one License "
+"Record associated."
 msgstr ""
-"Das Login funktioniert nicht. Bitte überprüfen Sie die  .htaccess Datei und "
-"den remoteAuthVariableName Parameter unter /admin/configuration.ini"
+"Diese Organisation kann nicht gelöscht werden, da noch ein verknüpfter "
+"Lizenzdatensatz existiert."
+
+#: js/orgDetail.js:655
+msgid "Do you really want to delete this alias?"
+msgstr "Möchten Sie diesen Alias wirklich löschen?"
+
+#: js/orgDetail.js:673
+msgid "Do you really want to delete this contact?"
+msgstr "Möchten Sie diesen Kontakt wirklich löschen?"
+
+#: js/orgDetail.js:691
+msgid "Do you really want to delete this account?"
+msgstr "Möchten Sie diesen Account wirklich löschen?"
+
+#: js/orgDetail.js:710
+msgid "Do you really want to delete this issue?"
+msgstr "Möchten Sie dieses Problem wirklich löschen?"
+
+#: js/common.js:68
+msgid "No match!"
+msgstr "Kein Treffer!"
+
+#: js/common.js:68
+msgid "Selected: "
+msgstr "Ausgewählt: "
+
+#: js/admin.js:81 js/admin.js:133 js/admin.js:159 js/admin.js:200
+#: js/index.js:46
+msgid "Processing..."
+msgstr "Lade..."
+
+#: js/admin.js:131
+msgid "Do you really want to delete this data?"
+msgstr "Möchten Sie diese Daten wirklich löschen?"
+
+#: js/admin.js:157
+msgid "Do you really want to delete this user?"
+msgstr "Möchten Sie diesen Nutzer wirklich löschen?"
+
+#: js/admin.js:181
+msgid "add"
+msgstr "hinzufügen"
+
+#: js/forms/organizationSubmitForm.js:56
+msgid "This organization already exists!"
+msgstr "Diese Organisation existiert bereits!"
+
+#: js/forms/organizationSubmitForm.js:72
+msgid "This vendor does not exist in the ILS."
+msgstr "Dieser Lieferant existiert nicht im Bibliothekssystem."
+
+#: js/forms/organizationSubmitForm.js:76
+msgid "This vendor exists in the ILS."
+msgstr "Dieser Lieferant existiert im Bibliothekssystem."
+
+#: js/forms/organizationSubmitForm.js:149 js/forms/aliasSubmitForm.js:43
+#: js/forms/contactSubmitForm.js:125
+msgid "Name must be entered to continue."
+msgstr "Das Feld Name muss ausgefüllt sein."
+
+#: js/forms/contactSubmitForm.js:117
+msgid "Please choose at least one role."
+msgstr "Bitte wählen Sie mindestens eine Rolle aus."
+
+#: admin.php:22
+msgid "Administration"
+msgstr "Administration"
+
+#: admin.php:33
+msgid "Users"
+msgstr "Nutzer"
+
+#: admin.php:34
+msgid "add new user"
+msgstr "Neuen Nutzer anlegen"
+
+#: admin.php:37 admin.php:52 admin.php:66 admin.php:81 admin.php:95
+#: admin.php:106
+msgid "Loading..."
+msgstr "Lade..."
+
+#: admin.php:48
+msgid "Organization Role"
+msgstr "Rolle der Organisation"
+
+#: admin.php:49
+msgid "add new organization role"
+msgstr "Neue Rolle für Organisation anlegen"
+
+#: admin.php:62
+msgid "Contact Role"
+msgstr "Rolle des Kontakts"
+
+#: admin.php:63
+msgid "add new contact role"
+msgstr "Neue Rolle für Kontakt anlegen"
+
+#: admin.php:78
+msgid "add new alias type"
+msgstr "Neuen Typ für Alias anlegen"
+
+#: admin.php:91
+msgid "External Login Type"
+msgstr "Art des Externen Logins"
+
+#: admin.php:92
+msgid "add new external login type"
+msgstr "Neuer Typ für Externes Login anlegen"
+
+#: admin.php:102
+msgid "Issue Type"
+msgstr "Art des Problems"
+
+#: admin.php:103
+msgid "add new issue type"
+msgstr "Neue Art des Problems anlegen"
+
+#: admin.php:118
+msgid "You do not have permissions to access this screen."
+msgstr "Sie haben nicht die Berechtigung auf diese Seite zuzugreifen."

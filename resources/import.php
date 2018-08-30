@@ -688,7 +688,7 @@
 							{
                                 if (isset($proceed)) {
                                     $noteObj = new ResourceNote();
-                                    $noteObj->resourceID = $resource->primaryKey;
+                                    $noteObj->entityID = $resource->primaryKey;
                                     $noteObj->noteTypeID = $note['noteType'];
                                     $noteObj->updateLoginID = '';
                                     $noteObj->updateDate = date('Y-m-d H:i:s');
@@ -933,6 +933,7 @@
 					<option value=",">, <?php echo _("(comma)");?></option>
 					<option value=";">; <?php echo _("(semicolon)");?></option>
 					<option value="|">| <?php echo _("(pipe)");?></option>
+					<option value="&#9;"><?php echo _("tabulation");?></option>
 				</select>
 			</fieldset>
 			<input type="submit" name="submit" value="<?php echo _("Upload");?>" class="submit-button" />

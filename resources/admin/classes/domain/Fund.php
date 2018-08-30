@@ -66,7 +66,7 @@ class Fund extends DatabaseObject {
 	//returns array of archived objects
 		public function getUnArchivedFunds(){
 
-		$query = "SELECT * FROM Fund WHERE archived is null ORDER BY 3";
+		$query = "SELECT * FROM Fund WHERE archived is null OR archived = 0 ORDER BY 3";
 				$result = $this->db->processQuery($query, 'assoc');
 
 				$resultArray = array();
