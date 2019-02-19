@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: messages\n"
-"POT-Creation-Date: 2016-10-24 11:09-0600\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-24 16:34+0100\n"
 "PO-Revision-Date: 2016-10-24 11:30-0600\n"
 "Last-Translator: <>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -16,124 +17,26 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: js/plugins/jquery.js\n"
 
-#: js/index.js:21
-msgid "Refreshing Contents..."
-msgstr "正在刷新內容......"
-
-#: admin/classes/domain/ReportNotes.php:53
-msgid "Platform Interface Notes (if available)"
-msgstr "平臺介面備註(如果有)"
-
-#: admin/classes/domain/ReportNotes.php:54
-msgid "Publisher Notes (if available)"
-msgstr "出版商備註(如果有)"
-
-#: admin/classes/domain/ReportTable.php:109
-msgid "Sorry, no rows were returned."
-msgstr "抱歉，沒有返回任何行。"
-
-#: admin/classes/domain/ReportTable.php:183
-#: admin/classes/domain/ReportTable.php:185
-msgid "view related titles"
-msgstr "查看相關的題名"
-
-#: admin/classes/domain/ReportTable.php:190
-msgid "view in link resolver"
-msgstr "在連結解析器中查看"
-
-#: index.php:38 report.php:117
-msgid "Usage Reports"
-msgstr "使用情況報表"
-
-#: index.php:41 report.php:120
-msgid "Powered by"
-msgstr "技術支持："
-
-#: index.php:60
-msgid "Invalid translation route!"
-msgstr "不正確翻譯路線 ！"
-
-#: index.php:87
-msgid "Help"
-msgstr "説明"
-
-#: index.php:97
-msgid "Select Report"
-msgstr "選擇報表"
-
-#: index.php:147
-msgid "Submit"
-msgstr "提交"
-
-#: index.php:148
-msgid "Reset"
-msgstr "重置"
-
-#: popup.php:66
-msgid "Frequently Asked Questions"
-msgstr "常見問答"
-
-#: popup.php:67
-msgid ""
-"Q. Why isn't the HTML number double the PDF number for interfaces that "
-"automatically download HTML?"
+#: install/reports.php:9 install/reports.php:30 install/reports.php:94
+#: install/reports.php:105 install/reports.php:115
+msgid "Reports Module"
 msgstr ""
-"問：為什麼在自動下載 HTML 的介面上，HTML 點擊率並不是 PDF 點擊率的雙倍？"
 
-#: popup.php:69
-msgid ""
-"A. Frequently these sites do NOT automatically download HTML from the Table "
-"of Contents browse interface, so even platforms such as ScienceDirect "
-"occasionally have higher PDF than HTML counts."
+#: install/reports.php:19
+msgid "Reports Database"
 msgstr ""
-"答：經常性的，這些網站不會從瀏覽目錄介面自動下載 HTML。因此即便是諸如 "
-"ScienceDirect 的平臺，也會偶爾有高於 HTML 計數的 PDF。"
-
-#: popup.php:71
-msgid ""
-"Q. I thought COUNTER standards prevented double-counting of article "
-"downloads."
-msgstr "問：我以為 COUNTER 標準可阻止雙計數文章下載。"
-
-#: popup.php:73
-msgid ""
-"A. COUNTER does require that duplicate clicks on HTML or PDF within a short "
-"period of time be counted once. But COUNTER specifically does not deny "
-"double count of different formats--HTML and PDF. Because some publishers "
-"automatically choose HTML for users, and because many users prefer to save "
-"and/or print the PDF version, this interface significantly inflates total "
-"article usage."
-msgstr ""
-"答：COUNTER 要求短時間內重複點擊 HTML 或 PDF 按一次計算。但是 COUNTER 並不否"
-"認不同格式(HTML 和 PDF)的雙計數。 由於一些供應商自動為使用者選擇 HTML，且很多"
-"使用者會選擇保存和/或列印 PDF 版本，該介面可顯著地增加文章使用總計數。"
-
-#: popup.php:75
-msgid ""
-"Q. Why do some Highwire Press publishers have high HTML ratios to PDFs, but "
-"some appear to have a very low ratio?"
-msgstr ""
-"問：為什麼一些 Highwire Press 出版商的 HTML 對 PDF 的點擊率比值更高，而另一些"
-"則非常低？"
-
-#: popup.php:77
-msgid ""
-"A. Some publishers have automatic HTML display on Highwire, and some do not. "
-"This is because the publisher is able to indicate a preferred linking page "
-"through the DOI registry. Because this platform includes multiple "
-"publishers, the interface impact is not consistent."
-msgstr ""
-"答：一些出版商讓 Highwire 自動顯示 HTML，而另一些則不會。這是因為出版商可以透"
-"過 DOI 註冊表指定一個首選的連結頁面。由於平臺包括多個出版商，所以對介面的影響"
-"是不一致的。"
-
-#: popup.php:85
-msgid "Invalid type!!"
-msgstr "不正確類型!!"
 
 #: report.php:74
 msgid "CORAL Usage Statistics Reporting"
 msgstr "CORAL 使用情況統計報表"
+
+#: report.php:117 index.php:38
+msgid "Usage Reports"
+msgstr "使用情況報表"
+
+#: report.php:120 index.php:41
+msgid "Powered by"
+msgstr "技術支持："
 
 #: report.php:136
 msgid "Click to show information about this report"
@@ -225,6 +128,107 @@ msgstr ""
 #: templates/header.php:72
 msgid "try again"
 msgstr "再試一次"
+
+#: popup.php:66
+msgid "Frequently Asked Questions"
+msgstr "常見問答"
+
+#: popup.php:67
+msgid ""
+"Q. Why isn't the HTML number double the PDF number for interfaces that "
+"automatically download HTML?"
+msgstr ""
+"問：為什麼在自動下載 HTML 的介面上，HTML 點擊率並不是 PDF 點擊率的雙倍？"
+
+#: popup.php:69
+msgid ""
+"A. Frequently these sites do NOT automatically download HTML from the Table "
+"of Contents browse interface, so even platforms such as ScienceDirect "
+"occasionally have higher PDF than HTML counts."
+msgstr ""
+"答：經常性的，這些網站不會從瀏覽目錄介面自動下載 HTML。因此即便是諸如 "
+"ScienceDirect 的平臺，也會偶爾有高於 HTML 計數的 PDF。"
+
+#: popup.php:71
+msgid ""
+"Q. I thought COUNTER standards prevented double-counting of article "
+"downloads."
+msgstr "問：我以為 COUNTER 標準可阻止雙計數文章下載。"
+
+#: popup.php:73
+msgid ""
+"A. COUNTER does require that duplicate clicks on HTML or PDF within a short "
+"period of time be counted once. But COUNTER specifically does not deny "
+"double count of different formats--HTML and PDF. Because some publishers "
+"automatically choose HTML for users, and because many users prefer to save "
+"and/or print the PDF version, this interface significantly inflates total "
+"article usage."
+msgstr ""
+"答：COUNTER 要求短時間內重複點擊 HTML 或 PDF 按一次計算。但是 COUNTER 並不否"
+"認不同格式(HTML 和 PDF)的雙計數。 由於一些供應商自動為使用者選擇 HTML，且很多"
+"使用者會選擇保存和/或列印 PDF 版本，該介面可顯著地增加文章使用總計數。"
+
+#: popup.php:75
+msgid ""
+"Q. Why do some Highwire Press publishers have high HTML ratios to PDFs, but "
+"some appear to have a very low ratio?"
+msgstr ""
+"問：為什麼一些 Highwire Press 出版商的 HTML 對 PDF 的點擊率比值更高，而另一些"
+"則非常低？"
+
+#: popup.php:77
+msgid ""
+"A. Some publishers have automatic HTML display on Highwire, and some do not. "
+"This is because the publisher is able to indicate a preferred linking page "
+"through the DOI registry. Because this platform includes multiple "
+"publishers, the interface impact is not consistent."
+msgstr ""
+"答：一些出版商讓 Highwire 自動顯示 HTML，而另一些則不會。這是因為出版商可以透"
+"過 DOI 註冊表指定一個首選的連結頁面。由於平臺包括多個出版商，所以對介面的影響"
+"是不一致的。"
+
+#: popup.php:85
+msgid "Invalid type!!"
+msgstr "不正確類型!!"
+
+#: index.php:60
+msgid "Invalid translation route!"
+msgstr "不正確翻譯路線 ！"
+
+#: index.php:87
+msgid "Help"
+msgstr "説明"
+
+#: index.php:97
+msgid "Select Report"
+msgstr "選擇報表"
+
+#: index.php:147
+msgid "Submit"
+msgstr "提交"
+
+#: index.php:148
+msgid "Reset"
+msgstr "重置"
+
+#: js/index.js:21
+msgid "Refreshing Contents..."
+msgstr "正在刷新內容......"
+
+#~ msgid "Platform Interface Notes (if available)"
+#~ msgstr "平臺介面備註(如果有)"
+
+#~ msgid "Publisher Notes (if available)"
+#~ msgstr "出版商備註(如果有)"
+
+#~ msgid "Sorry, no rows were returned."
+#~ msgstr "抱歉，沒有返回任何行。"
+
+#~ msgid "view related titles"
+#~ msgstr "查看相關的題名"
+
+#~ msgid "view in link resolver"
+#~ msgstr "在連結解析器中查看"
 
 #~ msgid ""
 #~ "Programmatically flagged as outlier using the following formula: Count is "

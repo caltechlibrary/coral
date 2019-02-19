@@ -2814,6 +2814,19 @@ img.remove {
     padding-bottom: 5px;
 }
 
+#saveCurrentMappingDiv fieldset legend {
+	padding: 0 5px;
+	font-weight: bold;
+	width: initial;
+}
+
+#saveCurrentMappingDiv fieldset {
+	border: solid 1px #ccc;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-bottom: 10px;
+}
+
 #importConfigColumns fieldset legend {
 	padding: 0 5px;
 	font-weight: bold;
@@ -3242,4 +3255,13 @@ input#archiveInd {
 	top: 5vh !important;
 	margin-top: 0px !important;
 	overflow-x: hidden !important;
+}
+
+#resourceAcquisitionSelect {
+    max-width: 1000px;
+}
+
+#resourceAcquisitionSelectDiv {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

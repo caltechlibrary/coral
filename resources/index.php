@@ -334,7 +334,7 @@ include 'templates/header.php';
 		$detailedSubject = new DetailedSubject();
 
 		foreach($detailedSubject->allAsArray() as $display) {
-			if ($search['detailedSubjectID'] == $display['detailedSubjectID']){
+			if (isset($search['detailedSubjectID']) && $search['detailedSubjectID'] == $display['detailedSubjectID']){
 				echo "<option value='" . $display['detailedSubjectID'] . "' selected>" . $display['shortName'] . "</option>";
 			}else{
 				echo "<option value='" . $display['detailedSubjectID'] . "'>" . $display['shortName'] . "</option>";

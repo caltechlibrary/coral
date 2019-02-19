@@ -72,9 +72,11 @@ $(function(){
                     $("#ils_span").html(_("This vendor does not exist in the ILS."));
                     $("#retrieveVendor").hide();
                     $("#submitOrganizationChanges").removeAttr("disabled");
-                }else{
+                } else if (exists == 1) {
                     $("#ils_span").html(_("This vendor exists in the ILS."));
                     $("#retrieveVendor").show();
+                }else {
+                    $("#ils_span").html(_("Something went wrong: ") + exists);
                 }
              }
           });

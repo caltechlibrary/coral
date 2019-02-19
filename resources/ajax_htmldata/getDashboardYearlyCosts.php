@@ -29,6 +29,7 @@
     echo "<th>" . _("Resource Type") . "</th>";
     echo "<th>" . _("Subject") . "</th>";
     echo "<th>" . _("Acquisition Type") . "</th>";
+    echo "<th>" . _("Library Number") . "</th>";
     for ($i = $startYear; $i <= $endYear; $i++) {
         foreach ($costDetailsArray as $costDetail) {
             if ($costDetailsID && $costDetail['costDetailsID'] != $costDetailsID) continue;
@@ -49,6 +50,7 @@
                 $result['generalSubject'] . $result['detailedSubject'];
             echo "<td>" . $subject . "</td>";
             echo "<td>" . $result['acquisitionType'] . "</td>";
+            echo "<td>" . $result['libraryNumber'] . "</td>";
             for ($i = $startYear; $i <= $endYear; $i++) {
                 foreach ($costDetailsArray as $costDetail) {
                     if ($costDetailsID && $costDetail['costDetailsID'] != $costDetailsID) continue;
@@ -57,7 +59,7 @@
             }
             echo "</tr>";
         } else {
-            echo "<tr><td colspan='4'><b>";
+            echo "<tr><td colspan='5'><b>";
             if ($currentCount == $count) { echo  _("Total"); } else { echo _("Sub-Total:") . " " . $result[$groupBy]; }
             echo "</b></td>";
             for ($i = $startYear; $i <= $endYear; $i++) {

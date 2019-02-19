@@ -31,7 +31,7 @@ class KohaClient implements ILSClient {
             $oauth = new OAuth();
             $token = $oauth->getToken();
             if ($token) {
-                $headers['Authorization: Bearer '] = $token;
+                $headers['Authorization'] = 'Bearer ' . $token->getToken();
             }
         }
         return $headers;
@@ -74,25 +74,16 @@ class KohaClient implements ILSClient {
     }
 
     /**
-     * Gets a vendor from the ILS
-     * @param name of the vendor in the ils
-     * @return key-value array with vendor description
-     */
-    function getVendorByExactName($name) {
-        $headers = $this->authenticate();
-        $response = Unirest\Request::get($this->api . "/acquisitions/vendors/?exactname=$name", $headers);
-        return $this->_vendorToCoral((array) $response->body);
-    }
-
-    /**
      * Does a vendor exist in the ILS?
      * @param name of the vendor in the ils
      * @return boolean
      */
     function vendorExists($name) {
         $headers = $this->authenticate();
-        $response = Unirest\Request::get($this->api . "/acquisitions/vendors/?exactname=$name");
-        return (count((array) $response->body) > 0) ? true : false;
+        $response = Unirest\Request::get($this->api . "/acquisitions/vendors/?name=$name", $headers);
+        $error = $this->_checkForError($response);
+        if ($error) return $error;
+        return (count((array) $response->body) > 0) ? 1 : 0;
     }
 
     /**
@@ -117,6 +108,19 @@ class KohaClient implements ILSClient {
      */
     function getVendorURL() {
         return $this->server . "/cgi-bin/koha/acqui/supplier.pl?booksellerid=";
+    }
+
+
+    /**
+     * Checks if a response is an error
+     * @return the error if it exists, or null is there is no error
+     */
+    function _checkForError($response) {
+        $body = (array) $response->body;
+        if (array_key_exists("error", $body)) {
+            return $body['error'];
+        }
+        return null;
     }
 
     /**

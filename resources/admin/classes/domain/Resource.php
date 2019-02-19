@@ -64,8 +64,8 @@ class Resource extends DatabaseObject {
 		}
 
 		return $rarray;
-		
-  
+
+
     }
 
 	//returns resource objects by title
@@ -108,7 +108,7 @@ class Resource extends DatabaseObject {
     }
 
     public function getResourceAcquisitions() {
-        $query = "SELECT * from ResourceAcquisition WHERE resourceID = " . $this->resourceID;
+        $query = "SELECT * from ResourceAcquisition WHERE resourceID = " . $this->resourceID . " ORDER BY subscriptionStartDate DESC, subscriptionEndDate DESC";
 		$result = $this->db->processQuery($query, 'assoc');
         $objects = array();
 
@@ -662,7 +662,7 @@ class Resource extends DatabaseObject {
 			$whereAdd[] = "(RNA.noteTypeID IS NULL) AND (RNA.noteText IS NOT NULL) AND (RNR.noteTypeID IS NULL) AND (RNR.noteText IS NOT NULL)";
 			$searchDisplay[] = _("Note Type: none");
 		}else if ($search['noteTypeID']) {
-			$whereAdd[] = "(RNA.noteTypeID = '" . $resource->db->escapeString($search['noteTypeID']) . "' AND RNA.tabName <> 'Product') OR (RNR.noteTypeID = '" . $resource->db->escapeString($search['noteTypeID']) . "' AND RNR.tabName = 'Product')";
+			$whereAdd[] = "((RNA.noteTypeID = '" . $resource->db->escapeString($search['noteTypeID']) . "' AND RNA.tabName <> 'Product') OR (RNR.noteTypeID = '" . $resource->db->escapeString($search['noteTypeID']) . "' AND RNR.tabName = 'Product'))";
 			$noteType = new NoteType(new NamedArguments(array('primaryKey' => $search['noteTypeID'])));
 			$searchDisplay[] = _("Note Type: ") . $noteType->shortName;
 		}
@@ -953,7 +953,7 @@ class Resource extends DatabaseObject {
 							LEFT JOIN LicenseStatus LS ON LS.licenseStatusID = RLS.licenseStatusID";
 
 			$licSelectAdd = "GROUP_CONCAT(DISTINCT L.shortName ORDER BY L.shortName DESC SEPARATOR '; ') licenseNames,
-							GROUP_CONCAT(DISTINCT LS.shortName, ': ', DATE_FORMAT(RLS.licenseStatusChangeDate, '%m/%d/%Y') ORDER BY RLS.licenseStatusChangeDate DESC SEPARATOR '; ') licenseStatuses, ";
+							GROUP_CONCAT(DISTINCT LS.shortName, ': ', DATE_FORMAT(RLS.licenseStatusChangeDate, '" . return_date_format() . "') ORDER BY RLS.licenseStatusChangeDate DESC SEPARATOR '; ') licenseStatuses, ";
 
 		}
 
@@ -975,17 +975,17 @@ class Resource extends DatabaseObject {
 						R.createDate createDate, CONCAT_WS(' ', UU.firstName, UU.lastName) updateName,
 						R.updateDate updateDate, S.shortName status,
 						RT.shortName resourceType, RF.shortName resourceFormat, RA.orderNumber, RA.systemNumber, R.resourceURL, R.resourceAltURL,
-						R.currentStartDate, R.currentEndDate, RA.subscriptionAlertEnabledInd, AUT.shortName authenticationType,
+						RA.subscriptionStartDate, RA.subscriptionEndDate, RA.subscriptionAlertEnabledInd, AUT.shortName authenticationType,
 						AM.shortName accessMethod, SL.shortName storageLocation, UL.shortName userLimit, RA.authenticationUserName,
 						RA.authenticationPassword, RA.coverageText, CT.shortName catalogingType, CS.shortName catalogingStatus, RA.recordSetIdentifier, RA.bibSourceURL,
 						RA.numberRecordsAvailable, RA.numberRecordsLoaded, RA.hasOclcHoldings, GROUP_CONCAT(DISTINCT I.isbnOrIssn ORDER BY isbnOrIssnID SEPARATOR '; ') AS isbnOrIssn,
                         RPAY.year,
-                        F.shortName as fundName, F.fundCode, 
-                        ROUND(COALESCE(RPAY.priceTaxExcluded, 0) / 100, 2) as priceTaxExcluded, 
-                        ROUND(COALESCE(RPAY.taxRate, 0) / 100, 2) as taxRate, 
-                        ROUND(COALESCE(RPAY.priceTaxIncluded, 0) / 100, 2) as priceTaxIncluded, 
-                        ROUND(COALESCE(RPAY.paymentAmount, 0) / 100, 2) as paymentAmount, 
-                        RPAY.currencyCode, CD.shortName as costDetails, OT.shortName as orderType, RPAY.costNote, RPAY.invoiceNum, 
+                        F.shortName as fundName, F.fundCode,
+                        ROUND(COALESCE(RPAY.priceTaxExcluded, 0) / 100, 2) as priceTaxExcluded,
+                        ROUND(COALESCE(RPAY.taxRate, 0) / 100, 2) as taxRate,
+                        ROUND(COALESCE(RPAY.priceTaxIncluded, 0) / 100, 2) as priceTaxIncluded,
+                        ROUND(COALESCE(RPAY.paymentAmount, 0) / 100, 2) as paymentAmount,
+                        RPAY.currencyCode, CD.shortName as costDetails, OT.shortName as orderType, RPAY.costNote, RPAY.invoiceNum,
 						" . $orgSelectAdd . ",
 						" . $licSelectAdd . "
 						GROUP_CONCAT(DISTINCT A.shortName ORDER BY A.shortName DESC SEPARATOR '; ') aliases,

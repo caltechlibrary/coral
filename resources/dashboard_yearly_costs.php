@@ -67,6 +67,7 @@
         <option value="resourceType"><?php echo _("Resource Type"); ?></option>
         <option value="GS.shortName"><?php echo _("Subject"); ?></option>
         <option value="acquisitionType"><?php echo _("Acquisition Type"); ?></option>
+        <option value="libraryNumber"><?php echo _("Library Number"); ?></option>
     </select>
     </td>
     </tr> 

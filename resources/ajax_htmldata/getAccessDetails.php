@@ -34,7 +34,7 @@
 
 
 			<?php if ($user->canEdit()){ ?>
-				<span style='float:right;vertical-align:bottom;'><a href='ajax_forms.php?action=getAccessForm&height=394&width=640&modal=true&resourceID=<?php echo $resourceID; ?>' class='thickbox' id='editAccess'><img src='images/edit.gif' alt='<?php echo _("edit");?>' title='<?php echo _("edit resource");?>'></a></span>
+				<span style='float:right;vertical-align:bottom;'><a href='ajax_forms.php?action=getAccessForm&height=394&width=640&modal=true&resourceID=<?php echo $resourceID; ?>&resourceAcquisitionID=<?php echo $resourceAcquisitionID; ?>' class='thickbox' id='editAccess'><img src='images/edit.gif' alt='<?php echo _("edit");?>' title='<?php echo _("edit resource");?>'></a></span>
 			<?php } ?>
 
 			</th>

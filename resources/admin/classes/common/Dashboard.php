@@ -11,6 +11,7 @@ class Dashboard {
                         CD.shortName AS costDetails,
                         GS.shortName AS generalSubject,
                         DS.shortName AS detailedSubject,
+                        RA.libraryNumber AS libraryNumber,
                         SUM(ROUND(COALESCE(RP.paymentAmount, 0) / 100, 2)) as paymentAmount
                         ";
 
@@ -55,7 +56,8 @@ class Dashboard {
                         AT.shortName AS acquisitionType,
                         CD.shortName AS costDetails,
                         GS.shortName AS generalSubject,
-                        DS.shortName AS detailedSubject
+                        DS.shortName AS detailedSubject,
+                        RA.libraryNumber AS libraryNumber
                         ";
 
         $costDetails = new CostDetails();

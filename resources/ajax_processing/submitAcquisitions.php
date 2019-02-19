@@ -11,19 +11,20 @@
 		if ((isset($_POST['currentStartDate'])) && ($_POST['currentStartDate'] != '')){
 			$resourceAcquisition->subscriptionStartDate = date("Y-m-d", strtotime($_POST['currentStartDate']));
 		}else{
-			$resourceAcquisition->subscriptionStartDate= date("Y-m-d");
+			$resourceAcquisition->subscriptionStartDate = '';
 		}
 
 		//first set current end Date for proper saving
 		if ((isset($_POST['currentEndDate'])) && ($_POST['currentEndDate'] != '')){
 			$resourceAcquisition->subscriptionEndDate = date("Y-m-d", strtotime($_POST['currentEndDate']));
 		}else{
-			$resourceAcquisition->subscriptionEndDate= date("Y-m-d");
+			$resourceAcquisition->subscriptionEndDate = '';
 		}
 
 		$resourceAcquisition->acquisitionTypeID 				= $_POST['acquisitionTypeID'];
 		$resourceAcquisition->orderNumber 						= $_POST['orderNumber'];
 		$resourceAcquisition->systemNumber 					= $_POST['systemNumber'];
+		$resourceAcquisition->libraryNumber 					= $_POST['libraryNumber'];
 		$resourceAcquisition->subscriptionAlertEnabledInd 		= isset($_POST['subscriptionAlertEnabledInd']) ? $_POST['subscriptionAlertEnabledInd'] : 0;
 		$resourceAcquisition->resourceID 		= $_POST['resourceID'];
 		$resourceAcquisition->organizationID    = $_POST['organizationID'];

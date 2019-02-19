@@ -7,7 +7,7 @@ class LangCodes{
     public function getLanguage($code){
         $all_lang=array(
             'fr_FR'=>'fr_FR',
-            'en_GB'=>'en_US',
+            'en_GB'=>'en_GB',
             'en_US'=>'en_US',
             'zh_CN'=>'zh_CN',
             'zh_TW'=>'zh_TW',

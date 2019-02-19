@@ -63,21 +63,27 @@ if(function_exists("date_default_timezone_set") and function_exists("date_defaul
 	@date_default_timezone_set(@date_default_timezone_get());
 }
 
+function return_date_format() {
+    $config = new Configuration();
+    $config_date_format = $config->settings->date_format;
+    if (isset($config_date_format) && $config_date_format != '') {
+        $date_format = $config_date_format;
+    } else {
+        $date_format = "%m/%d/%Y";
+    }
+    return $date_format;
+}
 
 function format_date($mysqlDate) {
 
 	//see http://php.net/manual/en/function.date.php for options
-
-	//there is a dependence on strtotime recognizing date format for date inputs
-	//thus, european format (d-m-Y) must use dashes rather than slashes
 
 	//upper case Y = four digit year
 	//lower case y = two digit year
 	//make sure digit years matches for both directory.php and common.js
 
 	//SUGGESTED: "m/d/Y" or "d-m-Y"
-
-	return date("m/d/Y", strtotime($mysqlDate));
+    return strftime(return_date_format(), strtotime($mysqlDate));
 
 }
 

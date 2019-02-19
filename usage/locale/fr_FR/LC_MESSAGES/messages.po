@@ -2,44 +2,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: messages\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 17:05+0200\n"
-"PO-Revision-Date: 2018-03-13 17:21+0100\n"
-"Last-Translator: Paul Poulain <paul.poulain@biblibre.com>\n"
+"POT-Creation-Date: 2019-01-24 16:34+0100\n"
+"PO-Revision-Date: 2019-01-25 14:20+0000\n"
+"Last-Translator: Matthias Meusburger <matthias.meusburger@biblibre.com>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 2.8\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-KeywordsList: watchString\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-POOTLE-MTIME: 1548426022.525210\n"
 
-#: index.php:26 import.php:3 templates/header.php:167 templates/header.php:216
-msgid "Home"
-msgstr "Accueil"
+#: install/usage.php:9 install/usage.php:30 install/usage.php:113
+#: install/usage.php:124 install/usage.php:134
+msgid "Usage Module"
+msgstr "Module Usage"
 
-#: index.php:49
-msgid "Search"
-msgstr "Rechercher"
+#: install/usage.php:19
+msgid "Usage Database"
+msgstr "Base de données Usage"
 
-#: index.php:50
-msgid "new search"
-msgstr "Nouvelle recherche"
+#: install/usage.php:58
+msgid "Link Resolver Base URL (optional)"
+msgstr "URL de base du résolveur de liens (facultatif)"
 
-#: index.php:59
-msgid "Name (contains)"
-msgstr "Nom (contient)"
+#: install/usage.php:63
+msgid "Use Outlier Flagging Feature"
+msgstr "Utiliser le marquage des valeurs hors norme"
 
-#: index.php:62
-msgid "go!"
-msgstr "OK"
-
-#: index.php:69
-msgid "Starts with"
-msgstr "Commençant par"
+#: install/usage.php:71
+msgid "Please set up the following options for the Usage module."
+msgstr "Merci de sélectionner parmi les options du module Usage."
 
 #: ajax_htmldata.php:47
 msgid "Import History for "
@@ -290,7 +288,7 @@ msgstr "Remplacement de mises à jour pour cette année"
 msgid "(no outliers found for this year)"
 msgstr "(aucune valeur hors-norme pour cet année)"
 
-#: ajax_htmldata.php:661 ajax_htmldata.php:699
+#: ajax_htmldata.php:661 ajax_htmldata.php:699 directory.php:35
 msgid "Titles"
 msgstr "Titres"
 
@@ -311,13 +309,13 @@ msgid "Title"
 msgstr "Titre"
 
 #: ajax_htmldata.php:719 ajax_htmldata.php:794 spreadsheet.php:63
-#: spreadsheet.php:83 titles_spreadsheet.php:49 titles_spreadsheet.php:53
-#: ajax_forms.php:871
+#: spreadsheet.php:83 ajax_forms.php:871 titles_spreadsheet.php:49
+#: titles_spreadsheet.php:53
 msgid "DOI"
 msgstr "DOI"
 
 #: ajax_htmldata.php:720 ajax_htmldata.php:796 spreadsheet.php:86
-#: titles_spreadsheet.php:55 ajax_forms.php:867
+#: ajax_forms.php:867 titles_spreadsheet.php:55
 msgid "ISSN"
 msgstr "ISSN"
 
@@ -337,8 +335,8 @@ msgstr "Afficher dans le résolveur de liens"
 msgid "Books - Associated Titles and ISBNs"
 msgstr "Livres - Titres et numéros ISBN associés"
 
-#: ajax_htmldata.php:795 spreadsheet.php:85 titles_spreadsheet.php:54
-#: ajax_forms.php:869
+#: ajax_htmldata.php:795 spreadsheet.php:85 ajax_forms.php:869
+#: titles_spreadsheet.php:54
 msgid "ISBN"
 msgstr "ISBN"
 
@@ -527,8 +525,8 @@ msgstr "Editeurs"
 msgid "By"
 msgstr "Par"
 
-#: ajax_htmldata.php:1541 js/index.js:133 reporting.php:41
-#: publisherPlatformList.php:32
+#: ajax_htmldata.php:1541 publisherPlatformList.php:32 reporting.php:41
+#: js/index.js:133
 msgid "show publisher list"
 msgstr "Afficher la liste des éditeurs"
 
@@ -544,214 +542,185 @@ msgstr "Fonction "
 msgid " not set up!"
 msgstr " Non défini !"
 
-#: admin/classes/domain/ImportLog.php:36
-msgid " (via sushi)"
-msgstr " (via Sushi)"
+#: not_avail.php:21
+msgid "Not Available"
+msgstr "Non disponible"
 
-#: admin/classes/domain/ImportLog.php:42
-msgid "Failed"
-msgstr "Echec"
+#: not_avail.php:29
+msgid "Usage Statistics Module"
+msgstr "Module Statistiques d'utilisation"
 
-#: admin/classes/domain/ImportLog.php:44
-msgid "awaiting import"
-msgstr "En attente d'import"
-
-#: admin/classes/domain/SushiService.php:186
-msgid "At least one report type must be set up!"
-msgstr "Au moins un type de rapport doit être configuré !"
-
-#: admin/classes/domain/SushiService.php:188
-msgid "Connection test successful!"
-msgstr "Test de connexion réussi !"
-
-#: admin/classes/domain/SushiService.php:211
-msgid "No report types are set up!"
-msgstr "Aucun type de rapport configuré !"
-
-#: admin/classes/common/Object.php:63
-msgid "Cannot set value for undefined key ("
-msgstr "Impossible d'assigner une valeur pour la clé indéfinie ("
-
-#: admin/classes/common/Object.php:72
-msgid "Cannot get value for undefined key ("
-msgstr "Impossible d'obtenir la valeur de la clé indéfinie ("
-
-#: admin/classes/common/DBService.php:54
-msgid "There was a problem with the database: "
-msgstr "Problème avec la base de données : "
-
-#: admin/classes/common/LdapPerson.php:34
-msgid "Could not connect to "
-msgstr "Impossible de se connecter à "
-
-#: js/admin.js:62
-msgid "Do you really want to delete this user?"
-msgstr "Voulez-vous vraiment supprimer cet utilisateur ?"
-
-#: js/admin.js:64 js/index.js:41 js/sushi.js:80 js/publisherPlatform.js:81
-#: js/publisherPlatform.js:99 js/publisherPlatform.js:117
-#: js/publisherPlatform.js:136 js/publisherPlatform.js:155
-#: js/publisherPlatform.js:227
-msgid "Processing..."
-msgstr "Traitement en cours..."
-
-#: js/admin.js:121 js/reporting.js:61
-msgid "Error - Please enter a value."
-msgstr "Erreur - Entrez une valeur."
-
-#: js/admin.js:125
-msgid "Error - Please enter a valid email address."
-msgstr "Erreur - Entrez une adresse email valide."
-
-#: js/admin.js:135
-msgid "Do you really want to delete this email address?"
-msgstr "Voulez-vous vraiment supprimer cette adresse email ?"
-
-#: js/admin.js:199
-msgid "Count over must be a number."
-msgstr "Le dépassement de décompte doit être un chiffre."
-
-#: js/admin.js:200
-#, javascript-format
-msgid "% over must be a number."
-msgstr "Le % dépassé doit être un chiffre."
-
-#: js/publisherPlatformList.js:35 js/reporting.js:35
-msgid "show Publisher list"
-msgstr "Afficher la liste des éditeurs"
-
-#: js/publisherPlatformList.js:39 js/reporting.js:39
-msgid "hide Publisher list"
-msgstr "Masquer la liste des éditeurs"
-
-#: js/index.js:139
-msgid "hide publisher list"
-msgstr "Masquer la liste des éditeurs"
-
-#: js/sushi.js:78
-msgid "Do you really want to delete this import?"
-msgstr "Voulez-vous vraiment supprimer cet import ?"
-
-#: js/sushi.js:104 js/publisherPlatform.js:263
-msgid "Running..."
-msgstr "En cours d'exécution..."
-
-#: js/publisherPlatform.js:139 js/import.js:38 admin.php:16 admin.php:31
-#: admin.php:46
-msgid "Loading..."
-msgstr "Chargement en cours..."
-
-#: js/publisherPlatform.js:175
-msgid "Do you really want to remove this interface note?"
-msgstr "Voulez-vous vraiment supprimer cette note d'interface ?"
-
-#: js/publisherPlatform.js:193
-msgid "Do you really want to remove this Publisher note?"
-msgstr "Voulez-vous vraiment supprimer cette note d'éditeur ?"
-
-#: js/publisherPlatform.js:211
-msgid "Do you really want to remove this login information?"
-msgstr "Voulez-vous vraiment supprimer ces informations de connexion ?"
-
-#: js/publisherPlatform.js:226
-msgid "Do you really want to delete this month?"
-msgstr "Voulez-vous vraiment supprimer ce mois?"
-
-#: js/publisherPlatform.js:244
-msgid "Do you really want to delete this "
-msgstr "Voulez-vous vraiment supprimer ce/cette "
-
-#: js/forms/publisherNoteSubmitForm.js:55 js/forms/platformNoteSubmitForm.js:54
-msgid "Start Year must be 4 numbers and start with 19 or 20."
-msgstr "L'année de début doit comporter 4 chiffres et commencer par 19 ou 20."
-
-#: js/forms/publisherNoteSubmitForm.js:56 js/forms/platformNoteSubmitForm.js:55
-msgid "End Year must be 4 numbers and start with 19 or 20."
-msgstr "L'année de fin doit comporter 4 chiffres et commencer par 19 ou 20."
-
-#: js/forms/identifierSubmitForm.js:71
-msgid "Identifier must be valid format."
-msgstr "L'identifiant doit avoir un format valide."
-
-#: js/forms/platformSubmitForm.js:71
-msgid "Platform must be entered."
-msgstr "La plateforme doit être indiquée."
-
-#: js/forms/organizationForm.js:34
-msgid "This organization doesn't exist in the CORAL Organizations module."
-msgstr "Cette organisation n'existe pas dans le module Organisations de CORAL."
-
-#: js/forms/organizationForm.js:97
-msgid "This organization doesn't exist in the CORAL Organizations Module."
-msgstr "Cette organisation n'existe pas dans le module Organisations de CORAL."
-
-#: js/forms/externalLoginSubmitForm.js:54
-msgid "Please enter a username to continue"
-msgstr "Veuillez entrer un nom d'utilisateur pour continuer"
-
-#: js/forms/externalLoginSubmitForm.js:58
-msgid "For security, please enter a password"
-msgstr "Pour des raisons de sécurité, veuillez entrer un mot de passe"
-
-#: js/forms/outlierSubmitForm.js:94
+#: not_avail.php:61
 msgid ""
-"Count is required.  If you wish to remove the count the outlier should be "
-"ignored."
+"Please contact your Administrator for access to the Usage Statistics Module."
 msgstr ""
-"Le décompte est obligatoire. Si vous voulez supprimer le décompte, la valeur "
-"hors norme doit être ignorée."
+"Veuillez contacter votre Administrateur pour accéder au Module Statistiques "
+"d'utilisation."
 
-#: js/forms/platformNoteSubmitForm.js:56
-msgid "Please choose Yes or No for Counter Compliant."
-msgstr "Sélectionnez Oui ou Non pour la Conformité au décompte."
+#: templates/header.php:40 templates/header.php:92
+msgid "Usage Statistics"
+msgstr "Statistiques d'utilisation"
 
-#: js/forms/overrideSubmitForm.js:58
-msgid "Count is required."
-msgstr "Le décompte est obligatoire."
+#: templates/header.php:72
+msgid ""
+"JavaScript must be enabled in order for you to use CORAL. However, it seems "
+"JavaScript is either disabled or not supported by your browser. To use "
+"CORAL, enable JavaScript by changing your browser options, then "
+msgstr ""
+"JavaScript doit être activé pour utiliser CORAL. JavaScript semble désactivé "
+"ou n'est pas supporté par votre navigateur web. Pour utiliser CORAL, activez "
+"le JavaScript en modifiant les options de votre navigateur web, puis "
 
-#: js/import.js:65
-msgid "Please select a file."
-msgstr "Veuillez sélectionner un fichier."
+#: templates/header.php:72
+msgid "try again"
+msgstr "réessayez"
 
-#: sushiSchedule.php:33
-msgid " SUSHI runs found for day: "
-msgstr " Processus SUSHI trouvés pour le jour : "
+#: templates/header.php:93
+msgid "Powered by"
+msgstr "Alimenté par"
 
-#: sushiSchedule.php:52
-msgid "Log in to "
-msgstr "Connectez-vous à "
+#: templates/header.php:99
+msgid "Hello"
+msgstr "Bonjour"
 
-#: sushiSchedule.php:52
-msgid "Sushi Administration"
-msgstr "l'administration Sushi"
+#: templates/header.php:109
+msgid "logout"
+msgstr "Se déconnecter"
 
-#: sushiSchedule.php:52
-msgid " for more information."
-msgstr " pour plus d'informations."
+#: templates/header.php:109
+msgid "Help"
+msgstr "Aide"
 
-#: sushiSchedule.php:65
-msgid "SUSHI Scheduled run log for "
-msgstr "Fichier journal du processus SUSHI prévu pour "
+#: templates/header.php:127
+msgid "Invalid translation route!"
+msgstr "Chemin d'accès aux traductions invalide !"
 
-#: sushiSchedule.php:65
-msgid " runs"
-msgstr " fonctionne"
+#: templates/header.php:167 templates/header.php:216 import.php:3 index.php:26
+msgid "Home"
+msgstr "Accueil"
 
-#: sushiSchedule.php:70
-msgid "Run complete.  Log has been emailed to "
-msgstr "Processus terminé. Le fichier journal a été envoyé par email à "
+#: templates/header.php:174 templates/header.php:223
+msgid "File Import"
+msgstr "Importer"
 
-#: sushiSchedule.php:72 uploadComplete.php:986
-msgid "Email to "
-msgstr "Envoyer par email à "
+#: templates/header.php:181 templates/header.php:230
+msgid "SUSHI"
+msgstr "SUSHI"
 
-#: sushiSchedule.php:72 uploadComplete.php:986
-msgid " Failed!"
-msgstr " Echec !"
+#: templates/header.php:188
+msgid "Admin"
+msgstr "Administration"
 
-#: sushiSchedule.php:77
-msgid "Nothing to see here!  (no sushi scheduled today)"
-msgstr "Rien à afficher (aucun processus Sushi prévu pour aujourd'hui)"
+#: templates/header.php:195 templates/header.php:237 reporting.php:2
+msgid "Report Options"
+msgstr "Options de rapport"
+
+#: templates/header.php:204 templates/header.php:246
+msgid "Usage Reports"
+msgstr "Rapports d'utilisation"
+
+#: templates/header.php:265
+msgid "Change Module"
+msgstr "Changer de module"
+
+#: templates/header.php:268
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#: templates/header.php:273
+msgid "Resources"
+msgstr "Ressources"
+
+#: templates/header.php:278
+msgid "Organizations"
+msgstr "Organisations"
+
+#: templates/header.php:283
+msgid "Licensing"
+msgstr "Licences"
+
+#: templates/header.php:288
+msgid "Management"
+msgstr "Gestion"
+
+#: publisherPlatformList.php:4
+msgid "Edit Publishers / Platforms"
+msgstr "Modifier les éditeurs/plateformes"
+
+#: publisherPlatformList.php:16
+msgid "Publisher / Platform Update"
+msgstr "Mettre à jour un éditeur/une plateforme"
+
+#: publisherPlatformList.php:31 publisherPlatformList.php:42
+msgid "view / edit"
+msgstr "voir/modifier"
+
+#: publisherPlatformList.php:50 reporting.php:71
+msgid "No publishers / platforms found."
+msgstr "Aucun éditeur/plateforme trouvé"
+
+#: import.php:14
+msgid "Usage Statistics Import"
+msgstr "Importer des statistiques d'utilisation"
+
+#: import.php:25
+msgid "Incorrect File format, must be .txt!"
+msgstr "Format de fichier incorrect, doit être en .txt !"
+
+#: import.php:28
+msgid ""
+"There was an error uploading the file.  Please verify the size is not over "
+"5MB and try again!"
+msgstr ""
+"Erreur lors du téléchargement du fichier. Vérifiez que le fichier ne dépasse "
+"pas 5 Mo et réessayez !"
+
+#: import.php:31
+msgid "File has an incorrectly formatted name - try filename.txt!"
+msgstr "Format du nom du fichier incorrect - renommez-le en nomdefichier.txt !"
+
+#: import.php:43
+msgid "File:"
+msgstr "Fichier :"
+
+#: import.php:48
+msgid "Layout:"
+msgstr "Mise en page :"
+
+#: import.php:57
+msgid "Override previous month verification"
+msgstr "Outrepasser la vérification du mois précédent"
+
+#: import.php:58
+msgid "Upload"
+msgstr "Télcharger"
+
+#: import.php:68
+msgid "Instructions:"
+msgstr "Consignes :"
+
+#: import.php:70
+msgid "Save file as .txt files in tab delimited format"
+msgstr "Enregistrez le fichier au format .txt séparé par des tabulations."
+
+#: import.php:71
+msgid "File may not be larger than 5MB"
+msgstr "Le fichier ne peut dépasser 5 Mo."
+
+#: import.php:72
+msgid ""
+"Ensure column headers conform to Counter's standards for the report type"
+msgstr ""
+"Vérifiez que les en-têtes de colonnes sont conformes aux normes Counter pour "
+"ce type de rapport."
+
+#: import.php:73
+msgid "More info: "
+msgstr "Pour plus d'informations : "
+
+#: import.php:82
+msgid "Recent Imports"
+msgstr "Imports récents"
 
 #: spreadsheet.php:60
 msgid "Publisher"
@@ -849,381 +818,50 @@ msgstr "Total de tous les livres"
 msgid "Total for all Databases"
 msgstr "Total de toutes les bases de données"
 
-#: uploadComplete.php:24
-msgid "Upload Process Complete"
-msgstr "Processus de téléchargement terminé"
-
-#: uploadComplete.php:99
-msgid "Process started on "
-msgstr "Processus démarré le "
-
-#: uploadComplete.php:100
-msgid "File: "
-msgstr "Fichier : "
-
-#: uploadComplete.php:101 uploadConfirmation.php:334
-msgid "Report Format: "
-msgstr "Format du rapport : "
-
-#: uploadComplete.php:114
-msgid "Outlier Parameters:"
-msgstr "Paramètres des valeurs hors normes :"
-
-#: uploadComplete.php:121
-#, php-format
-msgid "% over "
-msgstr "% de dépassement "
-
-#: uploadComplete.php:292
-msgid "Override indicator set - all months will be imported."
-msgstr "Indicateur d'outrepassement défini - tous les mois seront importés."
-
-#: uploadComplete.php:301
-msgid ""
-"Entire year already exists for this Platform / year.  No counts will be "
-"imported."
-msgstr ""
-"L'année entière existe déjà pour cette Plateforme/année. Aucun décompte ne "
-"sera importé."
-
-#: uploadComplete.php:305
-msgid "Month Started at: "
-msgstr "Mois commencé à : "
-
-#: uploadComplete.php:307
-msgid ""
-"No records exist for this Platform / year.  Import will start with month 1."
-msgstr ""
-"Aucun résultat n'existe pour cette plateforme/année. L'import commencera "
-"avec le mois 1."
-
-#: uploadComplete.php:310
-msgid ""
-"Partial year records exist for this Platform / year.  Import will start with "
-"month 1 and end with month "
-msgstr ""
-"Des données pour une partie de l'année existent pour cette Plateforme/année. "
-"L'import commencera avec le mois 1 et terminera par le mois"
-
-#: uploadComplete.php:329
-msgid "Year: "
-msgstr "Année : "
-
-#: uploadComplete.php:366
-msgid "New Platform set up: "
-msgstr "Nouvelle plateforme configurée : "
-
-#: uploadComplete.php:448
-msgid "New Publisher / Platform set up: "
-msgstr "Nouvel éditeur/plateforme configuré : "
-
-#: uploadComplete.php:681
-msgid "Publisher / Platform: "
-msgstr "Editeur/plateforme : "
-
-#: uploadComplete.php:690
-msgid "Title: "
-msgstr "Titre : "
-
-#: uploadComplete.php:721
-msgid "Merged"
-msgstr "Fusionné"
-
-#: uploadComplete.php:726
-msgid "Duplicate record for this Print ISSN in same spreadsheet: Month: "
-msgstr ""
-"Notice dupliquée pour ce numéro ISSN imprimé dans la même feuille de calcul: "
-"Mois: "
-
-#: uploadComplete.php:726
-msgid "  New Count: "
-msgstr "  Nouveau décompte : "
-
-#: uploadComplete.php:818
-msgid "New Usage Count Record Added: Month: "
-msgstr "Nouvelle notice de décompte ajoutée : Mois : "
-
-#: uploadComplete.php:818 uploadComplete.php:820
-msgid "  Count: "
-msgstr "  Décompte : "
-
-#: uploadComplete.php:820
-msgid "Usage Count Record is not numeric for month: "
-msgstr ""
-"La notice du décompte d'utilisation n'est pas numérique pour le mois : "
-
-#: uploadComplete.php:820
-msgid " imported as 0."
-msgstr " importé comme 0."
-
-#: uploadComplete.php:827
-msgid "Outlier found for this record: Level "
-msgstr "Valeur hors normes trouvée pour cette notice : Niveau "
-
-#: uploadComplete.php:836
-msgid "Current or future month will not be imported: "
-msgstr "Le mois actuel ou le mois prochain ne seront pas importés : "
-
-#: uploadComplete.php:886
-msgid "YTD Already Exists for this Print ISSN, counts are added together."
-msgstr ""
-"Le cumul annuel existe déjà pour ce numéro ISSN imprimé, les décomptes sont "
-"ajoutés ensemble."
-
-#: uploadComplete.php:910
-msgid "YTD Total Count: "
-msgstr "Décompte total du cumul annuel : "
-
-#: uploadComplete.php:910
-msgid "YTD HTML Count: "
-msgstr "Décompte total du cumul annuel en HTML : "
-
-#: uploadComplete.php:910
-msgid "YTD PDF Count: "
-msgstr "Décompte total du cumul annuel en PDF : "
-
-#: uploadComplete.php:917
-msgid "No YTD import performed since monthly stats were not imported"
-msgstr ""
-"Aucun import de cumul annuel effectué car les statistiques mensuelles n'ont "
-"pas été importées"
-
-#: uploadComplete.php:927
-msgid ""
-"Title match did not complete correctly, please check ISBN / ISSN to verify "
-"for Title:  "
-msgstr ""
-"La correspondance de titres n'a pas pu terminer correctement, merci de "
-"vérifier l'ISBN/l'ISSN du titre :  "
-
-#: uploadComplete.php:979
-msgid "Log Output for "
-msgstr "Fichier journal des résultats pour "
-
-#: uploadComplete.php:980
-msgid "Usage Statistics File Import Run!"
-msgstr "Import réussi du fichier statistiques des utilisations !"
-
-#: uploadComplete.php:980
-msgid "Please find log file: "
-msgstr "Voici le fichier journal : "
-
-#: uploadComplete.php:984
-msgid "Log has been emailed to "
-msgstr "Le fichier journal a été envoyé par email à "
-
-#: uploadComplete.php:1002 uploadComplete.php:1009 uploadComplete.php:1052
-msgid " titles processed."
-msgstr " titres traités."
-
-#: uploadComplete.php:1046
-msgid "Status"
-msgstr "Statut"
-
-#: uploadComplete.php:1048
-msgid "File archived as"
-msgstr "Fichier archivé comme"
-
-#: uploadComplete.php:1049
-msgid "Log file available at:"
-msgstr "Fichier journal disponible : "
-
-#: uploadComplete.php:1050
-msgid "Process completed."
-msgstr "Processus terminé."
-
-#: uploadComplete.php:1052
-msgid "Summary:"
-msgstr "Résumé :"
-
-#: uploadConfirmation.php:33
-msgid "SUSHI Import Confirmation"
-msgstr "Confirmation de l'import SUSHI"
-
-#: uploadConfirmation.php:115
-msgid "The file "
-msgstr "Le fichier "
-
-#: uploadConfirmation.php:115
-msgid " has been uploaded successfully."
-msgstr " a été téléchargé avec succès."
-
-#: uploadConfirmation.php:115
-msgid "Please confirm the following data:"
-msgstr "Veuillez confirmer les données suivantes :"
-
-#: uploadConfirmation.php:135
-msgid "Upload Process Confirmation"
-msgstr "Confirmation du processus de téléchargement"
-
-#: uploadConfirmation.php:185 uploadConfirmation.php:249
-msgid " for "
-msgstr " pour "
-
-#: uploadConfirmation.php:232
-msgid "Looking for "
-msgstr "Rechercher "
-
-#: uploadConfirmation.php:232
-msgid " in column "
-msgstr " dans la colonne "
-
-#: uploadConfirmation.php:232
-msgid "but found "
-msgstr "mais a trouvé "
-
-#: uploadConfirmation.php:307
-msgid "Error with Format"
-msgstr "Erreur du format"
-
-#: uploadConfirmation.php:307
-msgid "Report format is set to "
-msgstr "Le format du rapport est défini à "
-
-#: uploadConfirmation.php:307
-msgid ""
-" but does not match the column names listed in layouts.ini for this format"
-msgstr ""
-" mais ne correspond pas aux noms de colonnes indiqués dans le fichier "
-"layouts.ini pour ce format"
-
-#: uploadConfirmation.php:307
-msgid "Expecting columns: "
-msgstr "Colonnes prévues : "
-
-#: uploadConfirmation.php:307
-msgid "Found columns: "
-msgstr "Colonnes trouvées : "
-
-#: uploadConfirmation.php:307
-msgid ""
-"If problems persist you can copy an existing header that works into this "
-"file."
-msgstr ""
-"Si les problèmes persistent, vous pouvez copier un en-tête existant qui "
-"fonctionne dans ce fichier."
-
-#: uploadConfirmation.php:312
-msgid "Error with Setup:  This report format is not set up in layouts.ini."
-msgstr ""
-"Erreur de Configuration : Ce format de rapport n'est pas configuré dans le "
-"fichier layouts.ini."
-
-#: uploadConfirmation.php:317
-msgid ""
-"Error with Format:  The line preceding the first should start with 'Total'."
-msgstr ""
-"Erreur de format : La ligne précédent la première devrait commencer par "
-"\"Total\"."
-
-#: uploadConfirmation.php:322
-msgid "Error with Year:  Year listed in header"
-msgstr "Erreur avec l'Année : Année dans l'en-tête"
-
-#: uploadConfirmation.php:322
-msgid "may not be ahead of current year.  Please correct and submit again."
-msgstr ""
-"pourrait ne pas être en avance de l'année actuelle. Corrigez ce problème et "
-"envoyez à nouveau."
-
-#: uploadConfirmation.php:327
-msgid ""
-"File is flagged to override verifications of previous month data.  If this "
-"is incorrect use 'Cancel' to fix."
-msgstr ""
-"Le fichier est identifié comme pouvant outrepasser les vérifications des "
-"données du mois précédent. Si ceci est incorrect, utilisez \"Annuler\" pour "
-"corriger ce problème."
-
-#: uploadConfirmation.php:334
-msgid ""
-"If this is incorrect, please use 'Cancel' to go back and fix the headers of "
-"the file."
-msgstr ""
-"Si ceci est incorrect, veuillez utiliser \"Annuler\" pour revenir en arrière "
-"et corriger les en-têtes du fichier."
-
-#: uploadConfirmation.php:337
-msgid ""
-"File has been imported from SUSHI. The default behavior for imported SUSHI "
-"files is to overwrite previously imported data. If this is incorrect, please "
-"contact a system administrator."
-msgstr ""
-"Fichier importé depuis SUSHI. Le fonctionnement par défaut des fichiers "
-"SUSHI importés est de remplacer les données importées précédemment. Si ceci "
-"est incorrect, veuillez contacter un administrateur système."
-
-#: uploadConfirmation.php:354
-msgid "Confirm"
-msgstr "Confirmer"
-
-#: uploadConfirmation.php:357
-msgid "Cancel"
-msgstr "Annuler"
-
-#: titles_spreadsheet.php:35
-msgid " Titles "
-msgstr " Titres"
-
-#: not_avail.php:21
-msgid "Not Available"
-msgstr "Non disponible"
-
-#: not_avail.php:29
-msgid "Usage Statistics Module"
-msgstr "Module Statistiques d'utilisation"
-
-#: not_avail.php:61
-msgid ""
-"Please contact your Administrator for access to the Usage Statistics Module."
-msgstr ""
-"Veuillez contacter votre Administrateur pour accéder au Module Statistiques "
-"d'utilisation."
-
-#: reporting.php:2 templates/header.php:195 templates/header.php:237
-msgid "Report Options"
-msgstr "Options de rapport"
-
-#: reporting.php:10
-msgid "Publisher / Platform Reporting Administrative Update"
-msgstr "Mise à jour administrative des rapports d'éditeur/de plateforme"
-
-#: reporting.php:12
-msgid "Directions:"
-msgstr "Consignes :"
-
-#: reporting.php:12
-msgid ""
-"Mark the checkboxes to add / remove specific Platforms or Publishers to the "
-"default report list."
-msgstr ""
-"Cochez les cases pour ajouter/supprimer des plateformes ou des éditeurs "
-"spécifiques à la liste des rapports par défaut."
-
-#: reporting.php:12
-msgid ""
-"Click 'edit report display name' to change the display name in the reporting "
-"system for specific Platforms or Publishers."
-msgstr ""
-"Cliquez sur \"Modifier le nom d'affichage du rapport\" pour modifier le nom "
-"affiché dans le système de rapports pour des plateformes ou des éditeurs "
-"spécifiques."
-
-#: reporting.php:25
-msgid "Available"
-msgstr "Disponible"
-
-#: reporting.php:25
-msgid "As Default"
-msgstr "Par défaut"
-
-#: reporting.php:25
-msgid "Report"
-msgstr "Rapport"
-
-#: reporting.php:71 publisherPlatformList.php:50
-msgid "No publishers / platforms found."
-msgstr "Aucun éditeur/plateforme trouvé"
+#: directory.php:34
+msgid "Imports"
+msgstr "Imports"
+
+#: directory.php:36
+msgid "Statistics"
+msgstr "Statistiques"
+
+#: directory.php:37
+msgid "Logins"
+msgstr "Connexions"
+
+#: directory.php:38
+msgid "Sushi"
+msgstr "Sushi"
+
+#: admin.php:2
+msgid "Administration"
+msgstr "Administration"
+
+#: admin.php:12
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: admin.php:13
+msgid "add new user"
+msgstr "Ajouter un utilisateur"
+
+#: admin.php:16 admin.php:31 admin.php:46 js/publisherPlatform.js:139
+#: js/import.js:38
+msgid "Loading..."
+msgstr "Chargement en cours..."
+
+#: admin.php:27
+msgid "Email addresses for logs"
+msgstr "Adresses email des fichiers journaux"
+
+#: admin.php:28
+msgid "add new email address"
+msgstr "Ajouter un email"
+
+#: admin.php:43
+msgid "Outlier Parameters"
+msgstr "Paramètres des valeurs hors normes"
 
 #: ajax_processing.php:395
 msgid "Override has been updated"
@@ -1240,168 +878,6 @@ msgstr "Liste de l'affichage par défaut mis à jour"
 #: ajax_processing.php:474
 msgid "Publisher Reporting Display Name has been updated"
 msgstr "Le nom d'affichage de le l'éditeur des rapports a été mis à jour"
-
-#: install/usage.php:9 install/usage.php:30 install/usage.php:113
-#: install/usage.php:124
-msgid "Usage Module"
-msgstr "Module Usage"
-
-#: install/usage.php:19
-msgid "Usage Database"
-msgstr "Base de données Usage"
-
-#: install/usage.php:58
-msgid "Link Resolver Base URL (optional)"
-msgstr "URL de base du résolveur de liens (facultatif)"
-
-#: install/usage.php:63
-msgid "Use Outlier Flagging Feature"
-msgstr "Utiliser le marquage des valeurs hors norme"
-
-#: install/usage.php:71
-msgid "Please set up the following options for the Usage module."
-msgstr "Merci de sélectionner parmi les options du module Usage."
-
-#: import.php:14
-msgid "Usage Statistics Import"
-msgstr "Importer des statistiques d'utilisation"
-
-#: import.php:25
-msgid "Incorrect File format, must be .txt!"
-msgstr "Format de fichier incorrect, doit être en .txt !"
-
-#: import.php:28
-msgid ""
-"There was an error uploading the file.  Please verify the size is not over "
-"5MB and try again!"
-msgstr ""
-"Erreur lors du téléchargement du fichier. Vérifiez que le fichier ne dépasse "
-"pas 5 Mo et réessayez !"
-
-#: import.php:31
-msgid "File has an incorrectly formatted name - try filename.txt!"
-msgstr "Format du nom du fichier incorrect - renommez-le en nomdefichier.txt !"
-
-#: import.php:43
-msgid "File:"
-msgstr "Fichier :"
-
-#: import.php:48
-msgid "Layout:"
-msgstr "Mise en page :"
-
-#: import.php:57
-msgid "Override previous month verification"
-msgstr "Outrepasser la vérification du mois précédent"
-
-#: import.php:58
-msgid "Upload"
-msgstr "Télcharger"
-
-#: import.php:68
-msgid "Instructions:"
-msgstr "Consignes :"
-
-#: import.php:70
-msgid "Save file as .txt files in tab delimited format"
-msgstr "Enregistrez le fichier au format .txt séparé par des tabulations."
-
-#: import.php:71
-msgid "File may not be larger than 5MB"
-msgstr "Le fichier ne peut dépasser 5 Mo."
-
-#: import.php:72
-msgid ""
-"Ensure column headers conform to Counter's standards for the report type"
-msgstr ""
-"Vérifiez que les en-têtes de colonnes sont conformes aux normes Counter pour "
-"ce type de rapport."
-
-#: import.php:73
-msgid "More info: "
-msgstr "Pour plus d'informations : "
-
-#: import.php:82
-msgid "Recent Imports"
-msgstr "Imports récents"
-
-#: templates/header.php:40 templates/header.php:92
-msgid "Usage Statistics"
-msgstr "Statistiques d'utilisation"
-
-#: templates/header.php:72
-msgid ""
-"JavaScript must be enabled in order for you to use CORAL. However, it seems "
-"JavaScript is either disabled or not supported by your browser. To use "
-"CORAL, enable JavaScript by changing your browser options, then "
-msgstr ""
-"JavaScript doit être activé pour utiliser CORAL. JavaScript semble désactivé "
-"ou n'est pas supporté par votre navigateur web. Pour utiliser CORAL, activez "
-"le JavaScript en modifiant les options de votre navigateur web, puis "
-
-#: templates/header.php:72
-msgid "try again"
-msgstr "réessayez"
-
-#: templates/header.php:93
-msgid "Powered by"
-msgstr "Alimenté par"
-
-#: templates/header.php:99
-msgid "Hello"
-msgstr "Bonjour"
-
-#: templates/header.php:109
-msgid "logout"
-msgstr "Se déconnecter"
-
-#: templates/header.php:109
-msgid "Help"
-msgstr "Aide"
-
-#: templates/header.php:127
-msgid "Invalid translation route!"
-msgstr "Chemin d'accès aux traductions invalide !"
-
-#: templates/header.php:174 templates/header.php:223
-msgid "File Import"
-msgstr "Importer"
-
-#: templates/header.php:181 templates/header.php:230
-msgid "SUSHI"
-msgstr "SUSHI"
-
-#: templates/header.php:188
-msgid "Admin"
-msgstr "Administration"
-
-#: templates/header.php:204 templates/header.php:246
-msgid "Usage Reports"
-msgstr "Rapports d'utilisation"
-
-#: templates/header.php:265
-msgid "Change Module"
-msgstr "Changer de module"
-
-#: templates/header.php:268
-msgid "Main Menu"
-msgstr "Menu principal"
-
-#: templates/header.php:273
-msgid "Resources"
-msgstr "Ressources"
-
-#: templates/header.php:278
-msgid "Organizations"
-msgstr "Organisations"
-
-#: templates/header.php:283
-msgid "Licensing"
-msgstr "Licences"
-
-#: templates/header.php:288
-msgid "Management"
-msgstr "Gestion"
 
 #: ajax_forms.php:39 ajax_forms.php:167 ajax_forms.php:256 ajax_forms.php:353
 #: ajax_forms.php:420 ajax_forms.php:485 ajax_forms.php:978
@@ -1664,30 +1140,6 @@ msgstr "sauf à l'onglet Administration et aux utilisateurs Admin"
 msgid "have access to everything"
 msgstr "qui ont accès à tout"
 
-#: admin.php:2
-msgid "Administration"
-msgstr "Administration"
-
-#: admin.php:12
-msgid "Users"
-msgstr "Utilisateurs"
-
-#: admin.php:13
-msgid "add new user"
-msgstr "Ajouter un utilisateur"
-
-#: admin.php:27
-msgid "Email addresses for logs"
-msgstr "Adresses email des fichiers journaux"
-
-#: admin.php:28
-msgid "add new email address"
-msgstr "Ajouter un email"
-
-#: admin.php:43
-msgid "Outlier Parameters"
-msgstr "Paramètres des valeurs hors normes"
-
 #: sushi.php:26
 msgid "SUSHI Import"
 msgstr "Import SUSHI"
@@ -1716,39 +1168,582 @@ msgstr "Derniers imports SUSHI ayant échoué"
 msgid "All SUSHI Services"
 msgstr "Tous les services SUSHI"
 
+#: titles_spreadsheet.php:35
+msgid " Titles "
+msgstr " Titres"
+
+#: sushiSchedule.php:33
+msgid " SUSHI runs found for day: "
+msgstr " Processus SUSHI trouvés pour le jour : "
+
+#: sushiSchedule.php:52
+msgid "Log in to "
+msgstr "Connectez-vous à "
+
+#: sushiSchedule.php:52
+msgid "Sushi Administration"
+msgstr "l'administration Sushi"
+
+#: sushiSchedule.php:52
+msgid " for more information."
+msgstr " pour plus d'informations."
+
+#: sushiSchedule.php:65
+msgid "SUSHI Scheduled run log for "
+msgstr "Fichier journal du processus SUSHI prévu pour "
+
+#: sushiSchedule.php:65
+msgid " runs"
+msgstr " fonctionne"
+
+#: sushiSchedule.php:70
+msgid "Run complete.  Log has been emailed to "
+msgstr "Processus terminé. Le fichier journal a été envoyé par email à "
+
+#: sushiSchedule.php:72 uploadComplete.php:986
+msgid "Email to "
+msgstr "Envoyer par email à "
+
+#: sushiSchedule.php:72 uploadComplete.php:986
+msgid " Failed!"
+msgstr " Echec !"
+
+#: sushiSchedule.php:77
+msgid "Nothing to see here!  (no sushi scheduled today)"
+msgstr "Rien à afficher (aucun processus Sushi prévu pour aujourd'hui)"
+
+#: reporting.php:10
+msgid "Publisher / Platform Reporting Administrative Update"
+msgstr "Mise à jour administrative des rapports d'éditeur/de plateforme"
+
+#: reporting.php:12
+msgid "Directions:"
+msgstr "Consignes :"
+
+#: reporting.php:12
+msgid ""
+"Mark the checkboxes to add / remove specific Platforms or Publishers to the "
+"default report list."
+msgstr ""
+"Cochez les cases pour ajouter/supprimer des plateformes ou des éditeurs "
+"spécifiques à la liste des rapports par défaut."
+
+#: reporting.php:12
+msgid ""
+"Click 'edit report display name' to change the display name in the reporting "
+"system for specific Platforms or Publishers."
+msgstr ""
+"Cliquez sur \"Modifier le nom d'affichage du rapport\" pour modifier le nom "
+"affiché dans le système de rapports pour des plateformes ou des éditeurs "
+"spécifiques."
+
+#: reporting.php:25
+msgid "Available"
+msgstr "Disponible"
+
+#: reporting.php:25
+msgid "As Default"
+msgstr "Par défaut"
+
+#: reporting.php:25
+msgid "Report"
+msgstr "Rapport"
+
+#: uploadConfirmation.php:33
+msgid "SUSHI Import Confirmation"
+msgstr "Confirmation de l'import SUSHI"
+
+#: uploadConfirmation.php:115
+msgid "The file "
+msgstr "Le fichier "
+
+#: uploadConfirmation.php:115
+msgid " has been uploaded successfully."
+msgstr " a été téléchargé avec succès."
+
+#: uploadConfirmation.php:115
+msgid "Please confirm the following data:"
+msgstr "Veuillez confirmer les données suivantes :"
+
+#: uploadConfirmation.php:135
+msgid "Upload Process Confirmation"
+msgstr "Confirmation du processus de téléchargement"
+
+#: uploadConfirmation.php:185 uploadConfirmation.php:249
+msgid " for "
+msgstr " pour "
+
+#: uploadConfirmation.php:232
+msgid "Looking for "
+msgstr "Rechercher "
+
+#: uploadConfirmation.php:232
+msgid " in column "
+msgstr " dans la colonne "
+
+#: uploadConfirmation.php:232
+msgid "but found "
+msgstr "mais a trouvé "
+
+#: uploadConfirmation.php:307
+msgid "Error with Format"
+msgstr "Erreur du format"
+
+#: uploadConfirmation.php:307
+msgid "Report format is set to "
+msgstr "Le format du rapport est défini à "
+
+#: uploadConfirmation.php:307
+msgid ""
+" but does not match the column names listed in layouts.ini for this format"
+msgstr ""
+" mais ne correspond pas aux noms de colonnes indiqués dans le fichier "
+"layouts.ini pour ce format"
+
+#: uploadConfirmation.php:307
+msgid "Expecting columns: "
+msgstr "Colonnes prévues : "
+
+#: uploadConfirmation.php:307
+msgid "Found columns: "
+msgstr "Colonnes trouvées : "
+
+#: uploadConfirmation.php:307
+msgid ""
+"If problems persist you can copy an existing header that works into this "
+"file."
+msgstr ""
+"Si les problèmes persistent, vous pouvez copier un en-tête existant qui "
+"fonctionne dans ce fichier."
+
+#: uploadConfirmation.php:312
+msgid "Error with Setup:  This report format is not set up in layouts.ini."
+msgstr ""
+"Erreur de Configuration : Ce format de rapport n'est pas configuré dans le "
+"fichier layouts.ini."
+
+#: uploadConfirmation.php:317
+msgid ""
+"Error with Format:  The line preceding the first should start with 'Total'."
+msgstr ""
+"Erreur de format : La ligne précédent la première devrait commencer par "
+"\"Total\"."
+
+#: uploadConfirmation.php:322
+msgid "Error with Year:  Year listed in header"
+msgstr "Erreur avec l'Année : Année dans l'en-tête"
+
+#: uploadConfirmation.php:322
+msgid "may not be ahead of current year.  Please correct and submit again."
+msgstr ""
+"pourrait ne pas être en avance de l'année actuelle. Corrigez ce problème et "
+"envoyez à nouveau."
+
+#: uploadConfirmation.php:327
+msgid ""
+"File is flagged to override verifications of previous month data.  If this "
+"is incorrect use 'Cancel' to fix."
+msgstr ""
+"Le fichier est identifié comme pouvant outrepasser les vérifications des "
+"données du mois précédent. Si ceci est incorrect, utilisez \"Annuler\" pour "
+"corriger ce problème."
+
+#: uploadConfirmation.php:334 uploadComplete.php:101
+msgid "Report Format: "
+msgstr "Format du rapport : "
+
+#: uploadConfirmation.php:334
+msgid ""
+"If this is incorrect, please use 'Cancel' to go back and fix the headers of "
+"the file."
+msgstr ""
+"Si ceci est incorrect, veuillez utiliser \"Annuler\" pour revenir en arrière "
+"et corriger les en-têtes du fichier."
+
+#: uploadConfirmation.php:337
+msgid ""
+"File has been imported from SUSHI. The default behavior for imported SUSHI "
+"files is to overwrite previously imported data. If this is incorrect, please "
+"contact a system administrator."
+msgstr ""
+"Fichier importé depuis SUSHI. Le fonctionnement par défaut des fichiers "
+"SUSHI importés est de remplacer les données importées précédemment. Si ceci "
+"est incorrect, veuillez contacter un administrateur système."
+
+#: uploadConfirmation.php:354
+msgid "Confirm"
+msgstr "Confirmer"
+
+#: uploadConfirmation.php:357
+msgid "Cancel"
+msgstr "Annuler"
+
+#: index.php:49
+msgid "Search"
+msgstr "Rechercher"
+
+#: index.php:50
+msgid "new search"
+msgstr "Nouvelle recherche"
+
+#: index.php:59
+msgid "Name (contains)"
+msgstr "Nom (contient)"
+
+#: index.php:62
+msgid "go!"
+msgstr "OK"
+
+#: index.php:69
+msgid "Starts with"
+msgstr "Commençant par"
+
+#: js/sushi.js:78
+msgid "Do you really want to delete this import?"
+msgstr "Voulez-vous vraiment supprimer cet import ?"
+
+#: js/sushi.js:80 js/publisherPlatform.js:81 js/publisherPlatform.js:99
+#: js/publisherPlatform.js:117 js/publisherPlatform.js:136
+#: js/publisherPlatform.js:155 js/publisherPlatform.js:227 js/index.js:41
+#: js/admin.js:64
+msgid "Processing..."
+msgstr "Traitement en cours..."
+
+#: js/sushi.js:104 js/publisherPlatform.js:263
+msgid "Running..."
+msgstr "En cours d'exécution..."
+
+#: js/publisherPlatformList.js:35 js/reporting.js:35
+msgid "show Publisher list"
+msgstr "Afficher la liste des éditeurs"
+
+#: js/publisherPlatformList.js:39 js/reporting.js:39
+msgid "hide Publisher list"
+msgstr "Masquer la liste des éditeurs"
+
+#: js/publisherPlatform.js:175
+msgid "Do you really want to remove this interface note?"
+msgstr "Voulez-vous vraiment supprimer cette note d'interface ?"
+
+#: js/publisherPlatform.js:193
+msgid "Do you really want to remove this Publisher note?"
+msgstr "Voulez-vous vraiment supprimer cette note d'éditeur ?"
+
+#: js/publisherPlatform.js:211
+msgid "Do you really want to remove this login information?"
+msgstr "Voulez-vous vraiment supprimer ces informations de connexion ?"
+
+#: js/publisherPlatform.js:226
+msgid "Do you really want to delete this month?"
+msgstr "Voulez-vous vraiment supprimer ce mois?"
+
+#: js/publisherPlatform.js:244
+msgid "Do you really want to delete this "
+msgstr "Voulez-vous vraiment supprimer ce/cette "
+
+#: js/reporting.js:61 js/admin.js:121
+msgid "Error - Please enter a value."
+msgstr "Erreur - Entrez une valeur."
+
+#: js/forms/externalLoginSubmitForm.js:54
+msgid "Please enter a username to continue"
+msgstr "Veuillez entrer un nom d'utilisateur pour continuer"
+
+#: js/forms/externalLoginSubmitForm.js:58
+msgid "For security, please enter a password"
+msgstr "Pour des raisons de sécurité, veuillez entrer un mot de passe"
+
+#: js/forms/identifierSubmitForm.js:71
+msgid "Identifier must be valid format."
+msgstr "L'identifiant doit avoir un format valide."
+
+#: js/forms/organizationForm.js:34
+msgid "This organization doesn't exist in the CORAL Organizations module."
+msgstr "Cette organisation n'existe pas dans le module Organisations de CORAL."
+
+#: js/forms/organizationForm.js:97
+msgid "This organization doesn't exist in the CORAL Organizations Module."
+msgstr "Cette organisation n'existe pas dans le module Organisations de CORAL."
+
+#: js/forms/outlierSubmitForm.js:94
+msgid ""
+"Count is required.  If you wish to remove the count the outlier should be "
+"ignored."
+msgstr ""
+"Le décompte est obligatoire. Si vous voulez supprimer le décompte, la valeur "
+"hors norme doit être ignorée."
+
+#: js/forms/platformSubmitForm.js:71
+msgid "Platform must be entered."
+msgstr "La plateforme doit être indiquée."
+
+#: js/forms/publisherNoteSubmitForm.js:55 js/forms/platformNoteSubmitForm.js:54
+msgid "Start Year must be 4 numbers and start with 19 or 20."
+msgstr "L'année de début doit comporter 4 chiffres et commencer par 19 ou 20."
+
+#: js/forms/publisherNoteSubmitForm.js:56 js/forms/platformNoteSubmitForm.js:55
+msgid "End Year must be 4 numbers and start with 19 or 20."
+msgstr "L'année de fin doit comporter 4 chiffres et commencer par 19 ou 20."
+
+#: js/forms/overrideSubmitForm.js:58
+msgid "Count is required."
+msgstr "Le décompte est obligatoire."
+
+#: js/forms/platformNoteSubmitForm.js:56
+msgid "Please choose Yes or No for Counter Compliant."
+msgstr "Sélectionnez Oui ou Non pour la Conformité au décompte."
+
+#: js/import.js:65
+msgid "Please select a file."
+msgstr "Veuillez sélectionner un fichier."
+
+#: js/index.js:139
+msgid "hide publisher list"
+msgstr "Masquer la liste des éditeurs"
+
+#: js/admin.js:62
+msgid "Do you really want to delete this user?"
+msgstr "Voulez-vous vraiment supprimer cet utilisateur ?"
+
+#: js/admin.js:125
+msgid "Error - Please enter a valid email address."
+msgstr "Erreur - Entrez une adresse email valide."
+
+#: js/admin.js:135
+msgid "Do you really want to delete this email address?"
+msgstr "Voulez-vous vraiment supprimer cette adresse email ?"
+
+#: js/admin.js:199
+msgid "Count over must be a number."
+msgstr "Le dépassement de décompte doit être un chiffre."
+
+#: js/admin.js:200
+#, javascript-format
+msgid "% over must be a number."
+msgstr "Le % dépassé doit être un chiffre."
+
 #: publisherPlatform.php:20
 msgid "View or Edit Publisher / Platform"
 msgstr "Voir ou modifier la plateforme/l'éditeur"
 
-#: publisherPlatformList.php:4
-msgid "Edit Publishers / Platforms"
-msgstr "Modifier les éditeurs/plateformes"
+#: uploadComplete.php:24
+msgid "Upload Process Complete"
+msgstr "Processus de téléchargement terminé"
 
-#: publisherPlatformList.php:16
-msgid "Publisher / Platform Update"
-msgstr "Mettre à jour un éditeur/une plateforme"
+#: uploadComplete.php:99
+msgid "Process started on "
+msgstr "Processus démarré le "
 
-#: publisherPlatformList.php:31 publisherPlatformList.php:42
-msgid "view / edit"
-msgstr "voir/modifier"
+#: uploadComplete.php:100
+msgid "File: "
+msgstr "Fichier : "
 
-msgid "Statistics"
-msgstr "Statistiques"
+#: uploadComplete.php:114
+msgid "Outlier Parameters:"
+msgstr "Paramètres des valeurs hors normes :"
 
-msgid "Logins"
-msgstr "Connexions"
+#: uploadComplete.php:121
+#, php-format
+msgid "% over "
+msgstr "% de dépassement "
 
-#~ msgid "imports"
-#~ msgstr "Importations"
+#: uploadComplete.php:292
+msgid "Override indicator set - all months will be imported."
+msgstr "Indicateur d'outrepassement défini - tous les mois seront importés."
+
+#: uploadComplete.php:301
+msgid ""
+"Entire year already exists for this Platform / year.  No counts will be "
+"imported."
+msgstr ""
+"L'année entière existe déjà pour cette Plateforme/année. Aucun décompte ne "
+"sera importé."
+
+#: uploadComplete.php:305
+msgid "Month Started at: "
+msgstr "Mois commencé à : "
+
+#: uploadComplete.php:307
+msgid ""
+"No records exist for this Platform / year.  Import will start with month 1."
+msgstr ""
+"Aucun résultat n'existe pour cette plateforme/année. L'import commencera "
+"avec le mois 1."
+
+#: uploadComplete.php:310
+msgid ""
+"Partial year records exist for this Platform / year.  Import will start with "
+"month 1 and end with month "
+msgstr ""
+"Des données pour une partie de l'année existent pour cette Plateforme/année. "
+"L'import commencera avec le mois 1 et terminera par le mois"
+
+#: uploadComplete.php:329
+msgid "Year: "
+msgstr "Année : "
+
+#: uploadComplete.php:366
+msgid "New Platform set up: "
+msgstr "Nouvelle plateforme configurée : "
+
+#: uploadComplete.php:448
+msgid "New Publisher / Platform set up: "
+msgstr "Nouvel éditeur/plateforme configuré : "
+
+#: uploadComplete.php:681
+msgid "Publisher / Platform: "
+msgstr "Editeur/plateforme : "
+
+#: uploadComplete.php:690
+msgid "Title: "
+msgstr "Titre : "
+
+#: uploadComplete.php:721
+msgid "Merged"
+msgstr "Fusionné"
+
+#: uploadComplete.php:726
+msgid "Duplicate record for this Print ISSN in same spreadsheet: Month: "
+msgstr ""
+"Notice dupliquée pour ce numéro ISSN imprimé dans la même feuille de calcul: "
+"Mois: "
+
+#: uploadComplete.php:726
+msgid "  New Count: "
+msgstr "  Nouveau décompte : "
+
+#: uploadComplete.php:818
+msgid "New Usage Count Record Added: Month: "
+msgstr "Nouvelle notice de décompte ajoutée : Mois : "
+
+#: uploadComplete.php:818 uploadComplete.php:820
+msgid "  Count: "
+msgstr "  Décompte : "
+
+#: uploadComplete.php:820
+msgid "Usage Count Record is not numeric for month: "
+msgstr ""
+"La notice du décompte d'utilisation n'est pas numérique pour le mois : "
+
+#: uploadComplete.php:820
+msgid " imported as 0."
+msgstr " importé comme 0."
+
+#: uploadComplete.php:827
+msgid "Outlier found for this record: Level "
+msgstr "Valeur hors normes trouvée pour cette notice : Niveau "
+
+#: uploadComplete.php:836
+msgid "Current or future month will not be imported: "
+msgstr "Le mois actuel ou le mois prochain ne seront pas importés : "
+
+#: uploadComplete.php:886
+msgid "YTD Already Exists for this Print ISSN, counts are added together."
+msgstr ""
+"Le cumul annuel existe déjà pour ce numéro ISSN imprimé, les décomptes sont "
+"ajoutés ensemble."
+
+#: uploadComplete.php:910
+msgid "YTD Total Count: "
+msgstr "Décompte total du cumul annuel : "
+
+#: uploadComplete.php:910
+msgid "YTD HTML Count: "
+msgstr "Décompte total du cumul annuel en HTML : "
+
+#: uploadComplete.php:910
+msgid "YTD PDF Count: "
+msgstr "Décompte total du cumul annuel en PDF : "
+
+#: uploadComplete.php:917
+msgid "No YTD import performed since monthly stats were not imported"
+msgstr ""
+"Aucun import de cumul annuel effectué car les statistiques mensuelles n'ont "
+"pas été importées"
+
+#: uploadComplete.php:927
+msgid ""
+"Title match did not complete correctly, please check ISBN / ISSN to verify "
+"for Title:  "
+msgstr ""
+"La correspondance de titres n'a pas pu terminer correctement, merci de "
+"vérifier l'ISBN/l'ISSN du titre :  "
+
+#: uploadComplete.php:979
+msgid "Log Output for "
+msgstr "Fichier journal des résultats pour "
+
+#: uploadComplete.php:980
+msgid "Usage Statistics File Import Run!"
+msgstr "Import réussi du fichier statistiques des utilisations !"
+
+#: uploadComplete.php:980
+msgid "Please find log file: "
+msgstr "Voici le fichier journal : "
+
+#: uploadComplete.php:984
+msgid "Log has been emailed to "
+msgstr "Le fichier journal a été envoyé par email à "
+
+#: uploadComplete.php:1002 uploadComplete.php:1009 uploadComplete.php:1052
+msgid " titles processed."
+msgstr " titres traités."
+
+#: uploadComplete.php:1046
+msgid "Status"
+msgstr "Statut"
+
+#: uploadComplete.php:1048
+msgid "File archived as"
+msgstr "Fichier archivé comme"
+
+#: uploadComplete.php:1049
+msgid "Log file available at:"
+msgstr "Fichier journal disponible : "
+
+#: uploadComplete.php:1050
+msgid "Process completed."
+msgstr "Processus terminé."
+
+#: uploadComplete.php:1052
+msgid "Summary:"
+msgstr "Résumé :"
+
+#~ msgid " (via sushi)"
+#~ msgstr " (via Sushi)"
+
+#~ msgid "Failed"
+#~ msgstr "Echec"
+
+#~ msgid "awaiting import"
+#~ msgstr "En attente d'import"
+
+#~ msgid "At least one report type must be set up!"
+#~ msgstr "Au moins un type de rapport doit être configuré !"
+
+#~ msgid "Connection test successful!"
+#~ msgstr "Test de connexion réussi !"
+
+#~ msgid "No report types are set up!"
+#~ msgstr "Aucun type de rapport configuré !"
+
+#~ msgid "Cannot set value for undefined key ("
+#~ msgstr "Impossible d'assigner une valeur pour la clé indéfinie ("
+
+#~ msgid "Cannot get value for undefined key ("
+#~ msgstr "Impossible d'obtenir la valeur de la clé indéfinie ("
+
+#~ msgid "There was a problem with the database: "
+#~ msgstr "Problème avec la base de données : "
+
+#~ msgid "Could not connect to "
+#~ msgstr "Impossible de se connecter à "
 
 #~ msgid "titles"
 #~ msgstr "Titres"
 
 #~ msgid "logins"
 #~ msgstr "Connexions"
-
-#~ msgid "sushi"
-#~ msgstr "sushi"
 
 #~ msgid "Copyright"
 #~ msgstr "Copyright"

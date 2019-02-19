@@ -611,8 +611,8 @@ class SushiService extends DatabaseObject {
         $xml = simplexml_load_string($clean_xml);
 
         $txtOut = "";
-        $startDateArr = explode("-", '2018-01-01');
-        $endDateArr = explode("-", '2018-02-28');
+        $startDateArr = explode("-", $this->startDate);
+        $endDateArr = explode("-", $this->endDate);
         $startYear = $startDateArr[0];
         $startMonth = $startDateArr[1];
         $endYear = $endDateArr[0];

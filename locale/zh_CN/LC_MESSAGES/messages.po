@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: messages\n"
-"POT-Creation-Date: 2016-10-04 08:45-0600\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-24 16:38+0100\n"
 "PO-Revision-Date: 2016-10-04 08:55-0600\n"
 "Last-Translator: <>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -25,42 +26,42 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-8: usage\n"
 "X-Poedit-SearchPathExcluded-9: locale\n"
 
-#: index.php:67
+#: index.php:54
 msgid "eRM"
 msgstr "eRM"
 
-#: index.php:67
+#: index.php:54
 msgid "eResource Management"
 msgstr "电子资源管理"
 
-#: index.php:69
+#: index.php:55
 msgid "Change language:"
 msgstr "更改语言："
 
-#: index.php:85
+#: index.php:71
 msgid "Invalid translation route!"
 msgstr "无效的翻译路线！"
 
-#: index.php:119 index.php:124
+#: index.php:101
 msgid "Resources"
 msgstr "资源"
 
-#: index.php:134 index.php:139
+#: index.php:101
 msgid "Licensing"
 msgstr "授权许可"
 
-#: index.php:148 index.php:153
+#: index.php:101
 msgid "Organizations"
 msgstr "组织"
 
-#: index.php:162 index.php:167
+#: index.php:101
 msgid "Usage Statistics"
 msgstr "使用统计信息"
 
-#: index.php:176 index.php:181
+#: index.php:101
 msgid "Management"
 msgstr "管理"
 
-#: index.php:188
+#: index.php:132
 msgid "Powered by"
 msgstr "技术支持："
