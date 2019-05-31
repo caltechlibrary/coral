@@ -200,7 +200,11 @@ table.queueDataTable tr {
 
 /* following is all for admin and queue pages
 *************************/
-div.adminRightHeader{font-size:135%; color:#3D545D; margin-bottom:5px; }
+div.ImportElement{margin-top: 5px; margin-right: 8px;}
+div.addElement{margin-top: 3px; margin-right: 8px;}
+div.adminHeader {display: flex;}
+div.adminHeaderAlert {display: flex; flex-direction: column;}
+div.adminRightHeader{font-size:135%; color:#3D545D; margin-bottom:5px; padding-right: 10px;}
 div.adminMenuLink a {color:#707172;text-decoration:none;}
 div.adminMenuLink a:active {color:#3D545D;}
 div.adminMenuLink a:hover {color:#526972;text-decoration:underline;}
@@ -3264,4 +3268,39 @@ input#archiveInd {
 #resourceAcquisitionSelectDiv {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+/*--- Icons align in ProductsDetails ---*/
+.alignIcons{
+	display: flex;
+	justify-content: flex-end;
+
+}
+
+.alignIconLeftSide{
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.removeIcon  {
+	padding: 3px;
+	vertical-align: 100%;
+}
+
+.editIcon  {
+	padding: 3px;
+	margin-left: 3px;
+}
+
+.addIcon {
+	vertical-align: -16px;
+}
+
+.addIconTab {
+	text-align: right;
+}
+
+.addIconAlert {
+	vertical-align: 3px;
 }

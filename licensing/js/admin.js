@@ -354,7 +354,7 @@ function submitQualifier(){
 
 
 function showAdd(tableName){
-       $('#span_new' + tableName).html("<input type='text' name='new" + tableName + "' id='new" + tableName + "' class='adminAddInput' />  <a href='javascript:addData(\"" + tableName + "\");'>"+_("add")+"</a>");
+       $('#span_new' + tableName).html("<input type='text' name='new" + tableName + "' id='new" + tableName + "' class='adminAddInput' />  <a href='javascript:addData(\"" + tableName + "\");'><img id='add' src='images/plus.gif' title='"+_("add")+"' /></a>");
 
        //attach enter key event to new input and call add data when hit
        $('#new' + tableName).keyup(function(e) {
@@ -370,4 +370,3 @@ function showAdd(tableName){
 function emptyResponse(tableName){
 	$('#span_' + tableName + "_response").html("");
 }
-

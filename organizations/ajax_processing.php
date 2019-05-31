@@ -539,6 +539,15 @@ switch ($_GET['action']) {
 
 		break;
 
+    case 'getILSVendorList':
+        if ($config->ils->ilsConnector) {
+            $ilsClient = (new ILSClientSelector())->select();
+            $vendors = $ilsClient->getVendorByName($_GET['q']);
+            foreach ($vendors as $vendor) {
+                print $vendor->name . "\n";
+            }
+        }
+        break;
 
     case 'getILSVendorInfos':
         if ($config->ils->ilsConnector) {

@@ -233,7 +233,7 @@
                             cache:      false,
                             data:       { shortName: $('#saveName').val(), configuration: currentConfig['configuration'], orgNameImported: currentConfig['orgNameImported'], orgNameMapped: currentConfig['orgNameMapped']},
                             success:    function(html) {
-                                $("#saveDiv").html(html == '' ? '<?php echo _('The import configuration has been successfully saved.'); ?>' : '<?php echo _('The import configuration could not be saved: '); ?>' + html);
+                                $("#saveDiv").html(html == '' ? '<?php echo addslashes(_('The import configuration has been successfully saved.')); ?>' : '<?php echo addslashes(_('The import configuration could not be saved: ')); ?>' + html);
                             }
                         });
                     }

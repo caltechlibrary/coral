@@ -98,7 +98,7 @@ if ($_GET['importLogID'] > 0){
 	}else if (count(explode (".", basename( $_FILES['usageFile']['name']))) == "3"){
 		list ($dateStamp, $fileNameStart, $fileNameExt) = explode (".", basename( $_FILES['usageFile']['name']));
 	}else{
-		header( 'Location: import.php?error=3' ) ;
+		header( 'Location: import.php?error=23' ) ;
 	}
 
 	$orgFileName = $fileNameStart .  "." . $fileNameExt;
@@ -108,14 +108,17 @@ if ($_GET['importLogID'] > 0){
 	$checkYear = '';
 
 	if ($fileNameExt != "txt") {
-		header( 'Location: import.php?error=1' ) ;
+		header( 'Location: import.php?error=21' ) ;
 	}else{
-
-		if(move_uploaded_file($_FILES['usageFile']['tmp_name'], $target_path)) {
-			$uploadConfirm = _("The file ").  basename( $_FILES['usageFile']['name'])._(" has been uploaded successfully.")."<br />"._("Please confirm the following data:")."<br />";
-		} else{
-			header( 'Location: import.php?error=2' ) ;
-		}
+        if(is_writable($target_path)) {
+            if(move_uploaded_file($_FILES['usageFile']['tmp_name'], $target_path)) {
+                $uploadConfirm = _("The file ").  basename( $_FILES['usageFile']['name'])._(" has been uploaded successfully.")."<br />"._("Please confirm the following data:")."<br />";
+            } else{
+                header( 'Location: import.php?error='.$_FILES['usageFile']['error'] ) ;
+            }
+        } else {
+                header( 'Location: import.php?error=24' ) ;
+        }
 	}
 
 

@@ -1,7 +1,7 @@
 <?php
 /*
 **************************************************************************************************************************
-** CORAL Licensing Module v. 1.0
+** CORAL Resources Module v. 1.0
 **
 ** Copyright (c) 2010 University of Notre Dame
 **
@@ -17,7 +17,7 @@
 */
 
 
-class Object {
+class Base_Object {
 
 	public function __construct(NamedArguments $arguments = NULL) {
 		if (method_exists($this, 'init')) {
@@ -60,7 +60,7 @@ class Object {
 		if (property_exists($this, $key)) {
 			$this->$key = $value;
 		} else {
-			throw new Exception("Cannot set value for undefined key ($key).");
+			throw new Exception(_("Cannot set value for undefined key (").$key.").");
 		}
 	}
 
@@ -69,7 +69,7 @@ class Object {
 		if (property_exists($this, $key)) {
 			return $this->$key;
 		} else {
-			throw new Exception(_("Cannot get value for undefined key (").$key.").");
+			throw new Exception(_("Cannot set value for undefined key (").$key.").");
 		}
 	}
 

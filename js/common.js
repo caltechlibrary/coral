@@ -34,7 +34,6 @@
 
 //Required for date picker
 Date.firstDayOfWeek = 0;
-Date.format = 'mm/dd/yyyy';
 
 
 // 1 visible, 0 hidden

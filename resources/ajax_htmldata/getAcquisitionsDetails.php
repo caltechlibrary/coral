@@ -9,7 +9,7 @@
                 ?>
 		<!-- Hide the helpful links, etc. -->
         	<script>
-			$('#div_fullRightPanel').hide(); 
+			$('#div_fullRightPanel').hide();
 		</script>
                 <?php
 	}else{
@@ -140,7 +140,7 @@
 				$subEnd = $payment['subscriptionEndDate'] ? normalize_date($payment['subscriptionEndDate']) : "&nbsp;";
 				$fundCode = $payment['fundCode'] ? $payment['fundCode'] : "&nbsp;";
                 $taxRate = $payment['taxRate'] ? integer_to_cost($payment['taxRate']) . '&nbsp;%' : "&nbsp;";
-                foreach (Array('priceTaxExcluded', 'priceTaxIncluded', 'paymentAmount') as $amount) { 
+                foreach (Array('priceTaxExcluded', 'priceTaxIncluded', 'paymentAmount') as $amount) {
                   if (integer_to_cost($payment[$amount])){
                     $cost[$amount] = $payment['currencyCode'] . " " . integer_to_cost($payment[$amount]);
                   }else{
@@ -292,18 +292,23 @@
 				<tr>
 				<th><?php echo _("Additional Notes");?></th>
 				<th>
+
 				<?php if ($user->canEdit()){?>
-					<a href='ajax_forms.php?action=getNoteForm&height=233&width=410&tab=Acquisitions&entityID=<?php echo $resourceAcquisitionID; ?>&resourceNoteID=&modal=true' class='thickbox'><?php echo _("add new note");?></a>
+					<a href='ajax_forms.php?action=getNoteForm&height=233&width=410&tab=Acquisitions&entityID=<?php echo $resourceAcquisitionID; ?>&resourceNoteID=&modal=true' class='thickbox'><?php echo "<div class='addIconTab'><img src='images/plus.gif' title= '"._("Add")."' /></div>";?></a>
 				<?php } ?>
+				<?php if ($user->canEdit()){?>
+
+				<?php } ?>
+
 				</th>
 				</tr>
 				<?php foreach ($noteArray as $resourceNote){ ?>
 					<tr>
-					<td style='width:110px;'><?php echo $resourceNote['noteTypeName']; ?><br />
-					<?php if ($user->canEdit()){?>
-					<a href='ajax_forms.php?action=getNoteForm&height=233&width=410&tab=Acquisitions&entityID=<?php echo $resourceAcquisitionID; ?>&resourceNoteID=<?php echo $resourceNote['resourceNoteID']; ?>&modal=true' class='thickbox'><img src='images/edit.gif' alt='<?php echo _("edit");?>' title='<?php echo _("edit note");?>'></a>  <a href='javascript:void(0);' class='removeNote' id='<?php echo $resourceNote['resourceNoteID']; ?>' tab='Acquisitions'><img src='images/cross.gif' alt='<?php echo _("remove note");?>' title='<?php echo _("remove note");?>'></a>
-					<?php } ?>
-					</td>
+					<td style='width:110px;'><?php echo $resourceNote['noteTypeName']; ?>
+						<br />
+						<a  href='ajax_forms.php?action=getNoteForm&height=233&width=410&tab=Acquisitions&entityID=<?php echo $resourceAcquisitionID; ?>&resourceNoteID=<?php echo $resourceNote['resourceNoteID']; ?>&modal=true' class='thickbox'><img src='images/edit.gif'  alt='<?php echo _("edit");?>' title='<?php echo _("edit note");?>'></a>
+						<a href='javascript:void(0);' class='removeNote'   id='<?php echo $resourceNote['resourceNoteID']; ?>' tab='Acquisitions'><img src='images/cross.gif' alt='<?php echo _("remove note");?>' title='<?php echo _("remove note");?>'></a>
+
 					<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo format_date($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
 					</tr>
 				<?php } ?>
@@ -312,7 +317,7 @@
 		}else{
 			if ($user->canEdit()){
 			?>
-				<a href='ajax_forms.php?action=getNoteForm&height=233&width=410&tab=Acquisitions&entityID=<?php echo $resourceAcquisitionID; ?>&resourceNoteID=&modal=true' class='thickbox'><?php echo _("add new note");?></a>
+				<a href='ajax_forms.php?action=getNoteForm&height=233&width=410&tab=Acquisitions&entityID=<?php echo $resourceAcquisitionID; ?>&resourceNoteID=&modal=true' class='thickbox'><?php echo _("add note");?></a>
 			<?php
 			}
 		}

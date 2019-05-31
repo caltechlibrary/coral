@@ -391,18 +391,11 @@ class SushiService extends DatabaseObject {
 		$ppObj = $this->getPublisherOrPlatform();
 		$serviceProvider = str_replace('"','',$ppObj->reportDisplayName);
 
-		//if report layout is BR and Release is 3, change it to 1
-		if((preg_match('/BR/i', $reportLayout)) && ($this->releaseNumber == "3")){
-			$releaseNumber = '1';
-		}else{
-			$releaseNumber = $this->releaseNumber;
-		}
-
 		if (($this->wsdlURL == '') || (strtoupper($this->wsdlURL) == 'COUNTER')){
-			if ($this->releaseNumber == "4"){
-				$wsdl = 'http://www.niso.org/schemas/sushi/counter_sushi4_0.wsdl';
-			}else{
-				$wsdl = 'http://www.niso.org/schemas/sushi/counter_sushi3_0.wsdl';
+			switch ($this->releaseNumber) {
+        case "4":
+        default:
+				  $wsdl = 'http://www.niso.org/schemas/sushi/counter_sushi4_0.wsdl';
 			}
 		}else{
 			$wsdl=$this->wsdlURL;
@@ -505,7 +498,7 @@ class SushiService extends DatabaseObject {
 							)
 						),
 						'Name' => $reportLayout,
-						'Release' => $releaseNumber
+						'Release' => $this->releaseNumber
 					),
 					'Created' => $createDate,
 					'ID' => $id,

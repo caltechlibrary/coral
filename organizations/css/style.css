@@ -2040,3 +2040,16 @@ table.titleTable {
 	margin-top: 0px !important;
 	overflow-x: hidden !important;
 }
+
+/*--- Icons align in Admin ---*/
+.addIcon {
+	vertical-align: -2px;
+}
+
+.removeIcon  {
+	padding-left: 16px;
+}
+
+.editIcon  {
+	padding-left: 8px;
+}

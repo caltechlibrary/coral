@@ -74,6 +74,17 @@ function return_date_format() {
     return $date_format;
 }
 
+function return_datepicker_date_format() {
+    $config = new Configuration();
+    $config_date_format = $config->settings->datepicker_date_format;
+    if (isset($config_date_format) && $config_date_format != '') {
+        $date_format = $config_date_format;
+    } else {
+        $date_format = "mm/dd/yyyy";
+    }
+    return $date_format;
+}
+
 function format_date($mysqlDate) {
 
 	//see http://php.net/manual/en/function.date.php for options
