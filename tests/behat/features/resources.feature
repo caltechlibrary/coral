@@ -79,5 +79,5 @@ Feature: Resources
     And I wait for 2 seconds
     When I fill in "titleText" with "BEST RESOURCE EVER"
     When I press "submit"
-    And I wait for 2 seconds
+    And I wait until I see "#span_resourceName" element
     Then I should see "BEST RESOURCE EVER"
