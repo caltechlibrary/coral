@@ -4,6 +4,9 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
 switch ($_GET['action']) {
 
 
