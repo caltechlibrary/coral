@@ -1,10 +1,13 @@
 <?php
+
+// @file index.php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
 	session_start();
 	// "install/index.php" will check if CORAL is installed and version is current
 	require_once("install/index.php");
 
-	// Include file of language codes
-	include_once 'LangCodes.php';
 	$lang_name = new LangCodes();
 
 	// Verify the language of the browser

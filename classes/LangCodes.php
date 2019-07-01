@@ -1,8 +1,7 @@
 <?php
-/**
- * @author: Cesar Hernandez
- * getLanguage: This method return the name of the language according to the language code
- */
+
+// @file classes/LangCodes.php
+
 class LangCodes{
     public function getLanguage($code){
         $all_lang=array(
