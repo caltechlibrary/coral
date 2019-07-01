@@ -1,26 +1,14 @@
 <?php
 
-/*
-**************************************************************************************************************************
-** CORAL Authentication Module v. 1.0
-**
-** Copyright (c) 2011 University of Notre Dame
-**
-** This file is part of CORAL.
-**
-** CORAL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-**
-** CORAL is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-**
-** You should have received a copy of the GNU General Public License along with CORAL.  If not, see <http://www.gnu.org/licenses/>.
-**
-**************************************************************************************************************************
-*/
+// @file auth/index.php
 
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
 
 session_start();
 
-include_once 'directory.php';
 $util = new Utility();
 
 
@@ -229,23 +217,23 @@ if(array_key_exists('admin', $_GET)){
             // Get all translations on the 'locale' folder
             $route='locale';
             $lang[]="en_US"; // add default language
-            if (is_dir($route)) { 
-                if ($dh = opendir($route)) { 
+            if (is_dir($route)) {
+                if ($dh = opendir($route)) {
                     while (($file = readdir($dh)) !== false) {
                         if (is_dir("$route/$file") && $file!="." && $file!=".."){
                             $lang[]=$file;
-                        } 
-                    } 
-                    closedir($dh); 
-                } 
+                        }
+                    }
+                    closedir($dh);
+                }
             }else {
-                echo "<br>"._("Invalid translation route!"); 
+                echo "<br>"._("Invalid translation route!");
             }
             // Get language of navigator
             $defLang = $lang_name->getBrowserLanguage();
-            
+
             // Show an ordered list
-            sort($lang); 
+            sort($lang);
             for($i=0; $i<count($lang); $i++){
                 if(isset($_COOKIE["lang"])){
                     if($_COOKIE["lang"]==$lang[$i]){
