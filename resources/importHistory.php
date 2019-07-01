@@ -1,6 +1,11 @@
 <?php
 
-	include_once 'directory.php';
+// @file resources/importHistory.php
+
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
 
 if (isset($_GET['detail'])) {
 

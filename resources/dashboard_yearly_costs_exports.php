@@ -1,6 +1,11 @@
 <?php
 
-    include_once 'directory.php';
+// @file resources/dashboard_yearly_costs_exports.php
+
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
 
     $startYear = $_POST['startYear'];
     if (!$startYear) $startYear = date('Y');
@@ -65,8 +70,8 @@
     $count = sizeof($results);
     $currentCount = 1;
     foreach ($results as $result) {
-        $subject = $result['generalSubject'] && $result['detailedSubject'] ? 
-            $result['generalSubject'] . " / " . $result['detailedSubject'] : 
+        $subject = $result['generalSubject'] && $result['detailedSubject'] ?
+            $result['generalSubject'] . " / " . $result['detailedSubject'] :
             $result['generalSubject'] . $result['detailedSubject'];
 
         if ($result['resourceID'] != null) {

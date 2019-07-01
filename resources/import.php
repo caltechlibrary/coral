@@ -1,4 +1,12 @@
 <?php
+
+// @file resources/import.php
+
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
 	function searchForShortName($shortName, $array)
 	{
 		foreach($array as $key=> $val)
@@ -99,7 +107,6 @@
         rewind($handle);
     }
 
-	include_once 'directory.php';
 	$pageTitle=_('Resources import');
 	include 'templates/header.php';
 ?>

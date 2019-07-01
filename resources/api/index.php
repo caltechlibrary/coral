@@ -1,7 +1,11 @@
 <?php
-require 'vendor/autoload.php';
 
-include_once '../directory.php';
+// @file resources/api/index.php
+
+require_once __DIR__ . '/../../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/..');
 
 # We still need to manually include classes from other modules
 include_once '../../licensing/admin/classes/domain/License.php';

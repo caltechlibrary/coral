@@ -1,5 +1,12 @@
 <?php
-include_once '../directory.php';
+
+// @file resources/resources/cataloging_edit.php
+
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/..');
+
 include_once '../user.php';
 
 $resourceID = $_GET['resourceID'];
@@ -46,21 +53,21 @@ $catalogingType = new CatalogingType();
 		<td><?php echo Html::text_field('bibSourceURL', $resourceAcquisition, array('width' => '240px')) ?>
 		</td>
 		</tr>
-		
+
 		<tr>
 		<td style='vertical-align:top;text-align:left;font-weight:bold;'><?php echo Html::label_tag('catalogingTypeID', _('Cataloging Type')); ?></td>
 		<td>
 		  <?php echo Html::select_field('catalogingTypeID', $resourceAcquisition, $catalogingType->all(), array('width' => '150px')); ?>
 		</td>
 		</tr>
-		
+
 		<tr>
 		<td style='vertical-align:top;text-align:left;font-weight:bold;'><?php echo Html::label_tag('catalogingStatusID', _('Cataloging Status')); ?></td>
 		<td>
 		  <?php echo Html::select_field('catalogingStatusID', $resourceAcquisition, $catalogingStatus->all(), array('width' => '150px')); ?>
 		</td>
 		</tr>
-		
+
 		</table>
 
 	</td>
@@ -80,7 +87,7 @@ $catalogingType = new CatalogingType();
   		  <?php echo Html::text_field('numberRecordsLoaded', $resourceAcquisition, array('width' => '60px')) ?>
   		</td>
   		</tr>
-		
+
 		<tr>
 		<td style='vertical-align:top;text-align:left;font-weight:bold;'><?php echo Html::label_tag('hasOclcHoldings', _('OCLC Holdings')); ?></td>
 		<td><input type='checkbox' value="1" id='hasOclcHoldings' name='hasOclcHoldings' <?php if ($resourceAcquisition->hasOclcHoldings) { echo 'checked'; } ?> /></td>

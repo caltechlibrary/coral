@@ -1,5 +1,12 @@
 <?php
-	include_once 'directory.php';
+
+// @file resources/dashboard.php
+
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
 	$pageTitle=_('Dashboard');
 	include 'templates/header.php';
     $dashboard = new Dashboard();
@@ -86,4 +93,3 @@
 </td></tr>
 </table>
 </div>
-

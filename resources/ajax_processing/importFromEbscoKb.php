@@ -5,7 +5,7 @@
  * TODO: Use namespaces
  * This importer need the Organization classes to create new Orgs from EBSCO Kb.
  * But the current classes aren't namespaced and trying to include the classes manually creats conflicts with __autoload()
- * function in directory.php
+ * function in directory.php // @TODO review after change to bootstrap.php
  *
  * Right now it's using sql inserts instead of the class methods.
  *
@@ -767,9 +767,9 @@ function addOrganizationAlias($organizationId, $aliasTypeId, $ebscoKbId, $alias)
     $dbService = new DBService;
 
     // Check for matching aliases first
-    $selectSql = "SELECT * 
-      FROM $orgDbName.Alias 
-      WHERE organizationID = $organizationId 
+    $selectSql = "SELECT *
+      FROM $orgDbName.Alias
+      WHERE organizationID = $organizationId
       AND aliasTypeID = $aliasTypeId
       AND `name` = '$alias'";
     try {

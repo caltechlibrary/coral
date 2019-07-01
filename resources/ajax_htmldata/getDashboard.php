@@ -1,7 +1,11 @@
 <?php
 
-    include_once 'directory.php';
+// @file resources/ajax_htmldata/getDashboard.php
 
+require_once __DIR__ . '/../../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/..');
 
     $year = $_POST['year'];
     if (!$year) $year = date('Y');
@@ -33,8 +37,8 @@
             echo "<tr>";
             echo '<td><a href="resource.php?resourceID=' . $result['resourceID'] . '">' . $result['titleText'] . "</a></td>";
             echo "<td>" . $result['resourceType'] . "</td>";
-            $subject = $result['generalSubject'] && $result['detailedSubject'] ? 
-                $result['generalSubject'] . " / " . $result['detailedSubject'] : 
+            $subject = $result['generalSubject'] && $result['detailedSubject'] ?
+                $result['generalSubject'] . " / " . $result['detailedSubject'] :
                 $result['generalSubject'] . $result['detailedSubject'];
             echo "<td>" . $subject . "</td>";
             echo "<td>" . $result['acquisitionType'] . "</td>";

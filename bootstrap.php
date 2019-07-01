@@ -2,6 +2,7 @@
 
 // @file bootstrap.php
 
+// use the autoloader from composer
 require_once __DIR__ . '/vendor/autoload.php';
 
 $lang_name = new LangCodes();

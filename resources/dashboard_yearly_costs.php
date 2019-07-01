@@ -1,5 +1,12 @@
 <?php
-    include_once 'directory.php';
+
+// @file resources/dashboard_yearly_costs.php
+
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
     $pageTitle=_('Dashboard');
     include 'templates/header.php';
     $dashboard = new Dashboard();
@@ -70,7 +77,7 @@
         <option value="libraryNumber"><?php echo _("Library Number"); ?></option>
     </select>
     </td>
-    </tr> 
+    </tr>
     <tr>
     <td class='searchRow'>
     <input type="button" id="submitDashboardYearlyCosts" value="<?php echo _("Display"); ?>" />
@@ -87,4 +94,3 @@
 </table>
 
 </div>
-
