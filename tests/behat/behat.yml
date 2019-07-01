@@ -1,0 +1,23 @@
+default:
+  suites:
+    default:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+        - FeatureContext
+  extensions:
+    Behat\MinkExtension:
+      base_url: 'http://localhost/coral'
+      sessions:
+        default:
+          chrome:
+            api_url: 'http://localhost:9222'
+            download_behavior: allow
+            download_path: /tmp
+            socket_timeout: 100
+            validate_certificate: false
+    Bex\Behat\ScreenshotExtension:
+      image_drivers:
+        local:
+          screenshot_directory: screenshots
+          clear_screenshot_directory: false
+    DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
