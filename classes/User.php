@@ -28,6 +28,31 @@ class User extends DatabaseObject {
     return $resultArray;
   }
 
+	public function allAsArrayAuth() {
+		$query = "SELECT * FROM User ORDER BY 1";
+		$result = $this->db->processQuery($query, 'assoc');
+
+		$resultArray = array();
+		$rowArray = array();
+
+		if ($result['loginID']){
+			foreach (array_keys($result) as $attributeName) {
+				$rowArray[$attributeName] = $result[$attributeName];
+			}
+			array_push($resultArray, $rowArray);
+		}else{
+			foreach ($result as $row) {
+				foreach (array_keys($this->attributeNames) as $attributeName) {
+					$rowArray[$attributeName] = $row[$attributeName];
+				}
+				array_push($resultArray, $rowArray);
+			}
+		}
+
+		return $resultArray;
+	}
+
+
   //used for displaying add/update/delete links
   public function canEdit(){
     $privilege = new Privilege(new NamedArguments(array('primaryKey' => $this->privilegeID)));
@@ -263,6 +288,16 @@ class User extends DatabaseObject {
     }
 
   }
+
+  //used only for allowing access to admin page for the auth module
+	public function isAdminAuth(){
+		if ($this->adminInd == 'Y' || $this->adminInd == '1'){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
 
   public function isInGroup($groupID) {
     $query = "SELECT DISTINCT userGroupID FROM UserGroupLink WHERE loginID = '" . $this->loginID . "' AND userGroupID='" . $groupID . "'";

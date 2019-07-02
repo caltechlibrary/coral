@@ -12,7 +12,7 @@ switch ($_GET['action']) {
 
 	case 'getUsers':
 		$userObj = new User();
-		$usersArray = $userObj->allAsArray();
+		$usersArray = $userObj->allAsArrayAuth();
 
 
 		if (count($usersArray) > 0){

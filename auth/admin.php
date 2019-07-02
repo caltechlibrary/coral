@@ -14,7 +14,7 @@ if (isset($_SESSION['loginID'])){
     $user = new User(new NamedArguments(array('primaryKey' => $loginID)));
 }
 
-if (isset($user) && ($user->isAdmin) && ($user->getOpenSession())){
+if (isset($user) && ($user->isAdminAuth) && ($user->getOpenSession())){
 
 ?>
 

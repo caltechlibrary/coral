@@ -12,7 +12,7 @@ switch ($_GET['action']) {
 
 		$eUser = new User(new NamedArguments(array('primaryKey' => $loginID)));
 
-		if ($eUser->isAdmin()){
+		if ($eUser->isAdminAuth()){
 			$adminInd = 'checked';
 		}else{
 			$adminInd = '';

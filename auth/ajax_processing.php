@@ -13,7 +13,7 @@ if (isset($_SESSION['loginID'])){
 $user = new User(new NamedArguments(array('primaryKey' => $loginID)));
 
 
-if (($user->isAdmin) && ($user->getOpenSession())){
+if (($user->isAdminAuth) && ($user->getOpenSession())){
 
 	switch ($_GET['action']) {
 		case 'submitUser':
