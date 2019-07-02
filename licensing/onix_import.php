@@ -1,4 +1,12 @@
 <?php
+
+// @file licensing/onix_import.php
+
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
 	function searchForShortName($shortName, $array)
 	{
 		foreach($array as $key=> $val)
@@ -10,7 +18,7 @@
 		}
 		return null;
 	}
-	include_once 'directory.php';
+
 	$pageTitle=_('ONIX-PL Import');
 	include 'templates/header.php';
 ?>
@@ -337,4 +345,3 @@
 <?php
 	}
 ?>
-
