@@ -44,12 +44,16 @@ class ResourceType extends DatabaseObject {
 
 	}
 
-    public function getAllResourceType(){
-        $query = "SELECT * FROM ResourceType order by shortName";
-        $result = $this->db->processQuery($query, 'assoc');
-        if (isset($result['resourceTypeID'])) { $result = [$result]; }
-        return $result;
+  public function getAllResourceType(){
+    $config = new Configuration;
+    if ($config->settings->resourcesModule == 'Y') {
+      $dbName = $config->settings->resourcesDatabaseName;
+      $query = "SELECT * FROM " . $dbName . ".`ResourceType` order by `shortName`";
+      $result = $this->db->processQuery($query, 'assoc');
+      if (isset($result['resourceTypeID'])) { $result = [$result]; }
     }
+    return $result;
+  }
 
 }
 

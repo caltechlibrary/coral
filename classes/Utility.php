@@ -51,38 +51,59 @@ class Utility {
 
   }
 
-  //returns file path up to /coral/
-  public function getCORALPath(){
-    $pagePath = rtrim($_SERVER['DOCUMENT_ROOT'],'/\\').'/';
-
-    $currentFile = $_SERVER["SCRIPT_NAME"];
-    $parts = Explode('/', $currentFile);
-    for($i=0; $i<count($parts) - 2; $i++){
-      if ($parts[$i] != '' && $parts[$i] !='resources'){
-        $pagePath .= $parts[$i] . '/';
+  // This is a workaround for a bug between autocomplete and thickbox causing a
+  // page refresh on the add/edit license form when 'enter' key is hit on the
+  // autocomplete provider field; this will redirect back to the correct license
+  // record.
+  public function fixLicenseFormEnter($editLicenseID) {
+    // this was an add
+    if ($editLicenseID == '') {
+      // Need to get the most recent added license since it will have been added
+      // but we didn't get the response of the new license ID; since this will
+      // have happened instantly we can be safe to assume this is the correct
+      // record.
+      $this->db = DBService::getInstance();
+      $result = $this->db->processQuery("select max(licenseID) max_licenseID from License;", 'assoc');
+      if ($result['max_licenseID']) {
+        header('Location: license.php?licenseID=' . $result['max_licenseID']);
+        exit; //PREVENT SECURITY HOLE
       }
     }
+    else {
+      header('Location: license.php?licenseID=' . $editLicenseID);
+      exit; //PREVENT SECURITY HOLE
+    }
+  }
 
+  //returns file path up to /coral/
+  public function getCORALPath() {
+    $pagePath = rtrim($_SERVER['DOCUMENT_ROOT'],'/\\').'/';
+    $currentFile = $_SERVER["SCRIPT_NAME"];
+    $parts = explode('/', $currentFile);
+    for ($i = 0; $i < count($parts) - 2; $i++) {
+      $pagePath .= $parts[$i] . '/';
+    }
     return $pagePath;
   }
 
   //returns page URL up to /coral/
-  public function getCORALURL(){
+  public function getCORALURL() {
     $pageURL = 'http';
-    if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+    if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+      $pageURL .= "s";
+    }
     $pageURL .= "://";
     if ($_SERVER["SERVER_PORT"] != "80") {
       $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
-    } else {
+    }
+    else {
       $pageURL .= $_SERVER["SERVER_NAME"];
     }
 
     $currentFile = $_SERVER["PHP_SELF"];
     $parts = Explode('/', $currentFile);
-    for($i=0; $i<count($parts) - 2; $i++){
-      if ($parts[$i] != 'resources') {
-        $pageURL .= $parts[$i] . '/';
-      }
+    for ($i = 0; $i < count($parts) - 2; $i++) {
+      $pageURL .= $parts[$i] . '/';
     }
 
     return $pageURL;
@@ -100,10 +121,18 @@ class Utility {
 
   }
 
+  // @TODO refactor for common class
+  //returns file path for this module, i.e. /coral/licensing/
+  public function getModulePath(){
+    $replace_path = preg_quote(DIRECTORY_SEPARATOR."admin".DIRECTORY_SEPARATOR."classes".DIRECTORY_SEPARATOR."common");
+    return preg_replace("@$replace_path$@", "", dirname(__FILE__));
+  }
+
   public function getOrganizationURL(){
     return $this->getCORALURL() . "organizations/orgDetail.php?organizationID=";
   }
 
+  // @TODO refactor for common class
   //returns page URL up to /resources/
   public function getPageURL(){
     return $this->getCORALURL() . "resources/";
@@ -201,6 +230,19 @@ class Utility {
 
     return $newdate;
 
+  }
+
+  // Return true if there is a setting in config to use the terms tool setting;
+  // setting could be called either `useSFXTermsToolFunctionality` or
+  // `useTermsToolFunctionality`.
+  public function useTermsTool() {
+    $config = new Configuration();
+    if (($config->settings->useSFXTermsToolFunctionality == "Y") || ($config->settings->useTermsToolFunctionality == "Y")) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
   }
 
 }

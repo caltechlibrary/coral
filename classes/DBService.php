@@ -73,6 +73,18 @@ class DBService extends BaseObject {
         return $result;
 	}
 
+  // @TODO getModulePath() needs refactoring for common class
+  public function log($sql, $query_time) {
+    $threshold = $this->config->database->logQueryThreshold;
+    if ($this->config->database->logQueries == "Y" && (!$threshold || $query_time >= $threshold)) {
+      $util = new Utility();
+      $log_path = $util->getModulePath() . "/log";
+      $log_file = $log_path . "/database.log";
+      $log_string = date("c") . "\n" . $_SERVER['REQUEST_URI'] . "\n" . $sql . "\nQuery completed in " . sprintf("%.3f", round($query_time, 3)) . " seconds";
+      error_log($log_string . "\n\n", 3, $log_file);
+    }
+  }
+
 	public function processQuery($sql, $type = NULL) {
     	//echo $sql. "<br />";
 		$result = $this->db->query($sql);

@@ -866,7 +866,7 @@ switch ($_GET['action']) {
 				}
 				echo "</tr>";
 
-				$numberOfChildren = $document->getNumberOfChildren();
+				$numberOfChildren = $document->getNumberOfChildrenLicense();
 				if ($numberOfChildren > 0) {
 					//if display for this child is turned off
 					if ((($showChildrenDocumentID) && ($showChildrenDocumentID != $document->documentID)) || !($showChildrenDocumentID)) {
@@ -983,7 +983,7 @@ switch ($_GET['action']) {
 							}
 							echo "</tr>";
 
-							$numberOfChildren = $childDocument->getNumberOfChildren;
+							$numberOfChildren = $childDocument->getNumberOfChildrenLicense;
 
 							if ($numberOfChildren > 0){
 								if ($displayArchiveInd == '1') {

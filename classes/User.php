@@ -28,6 +28,7 @@ class User extends DatabaseObject {
     return $resultArray;
   }
 
+  // @TODO refactor for common class
 	public function allAsArrayAuth() {
 		$query = "SELECT * FROM User ORDER BY 1";
 		$result = $this->db->processQuery($query, 'assoc');
@@ -289,6 +290,7 @@ class User extends DatabaseObject {
 
   }
 
+  // @TODO refactor for common class
   //used only for allowing access to admin page for the auth module
 	public function isAdminAuth(){
 		if ($this->adminInd == 'Y' || $this->adminInd == '1'){

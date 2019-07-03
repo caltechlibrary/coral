@@ -301,4 +301,14 @@ class DatabaseObject extends DynamicObject {
 		}
 	}
 
+  protected function asArray() {
+    $aarray = array();
+    foreach (array_keys($this->attributeNames) as $attributeName) {
+      if ($this->$attributeName != null) {
+        $aarray[$attributeName] = $this->$attributeName;
+      }
+    }
+    return $aarray;
+  }
+
 }
