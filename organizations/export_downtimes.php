@@ -1,8 +1,13 @@
 <?php
 
-session_start();
+// @file organizations/export_downtimes.php
 
-include_once 'directory.php';
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
+session_start();
 
 $organizationID = $_GET['organizationID'];
 $archivedFlag = (!empty($_GET['archived']) && $_GET['archived'] == 1) ? true:false;

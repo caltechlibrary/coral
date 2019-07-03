@@ -1,24 +1,12 @@
 <?php
 
-/*
-**************************************************************************************************************************
-** CORAL Organizations Module
-**
-** Copyright (c) 2010 University of Notre Dame
-**
-** This file is part of CORAL.
-**
-** CORAL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-**
-** CORAL is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-**
-** You should have received a copy of the GNU General Public License along with CORAL.  If not, see <http://www.gnu.org/licenses/>.
-**
-**************************************************************************************************************************
-*/
+// @file organizations/ajax_processing.php
 
+require_once __DIR__ . '/../bootstrap.php';
 
-include_once 'directory.php';
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
 include_once 'user.php';
 
 $config = new Configuration();
@@ -94,7 +82,7 @@ switch ($_GET['action']) {
                 // Create vendor in ILS
                 if ($organization->ilsID == null) {
                     $ilsID = $ilsClient->addVendor(array(
-                                                "name" => $organization->name, 
+                                                "name" => $organization->name,
                                                 "companyURL" => $organization->companyURL,
                                                 "noteText" => $organization->noteText,
                                                 "accountDetailText" => $organization->accountDetailText,
@@ -113,7 +101,7 @@ switch ($_GET['action']) {
                     $organization->accountDetailText = $ilsVendor['accountDetailText'];
                 }
                 $organization->save();
-            } 
+            }
 
 		} catch (Exception $e) {
 			echo $e->getMessage();

@@ -1,27 +1,13 @@
 <?php
 
-/*
-**************************************************************************************************************************
-** CORAL Organizations Module
-**
-** Copyright (c) 2010 University of Notre Dame
-**
-** This file is part of CORAL.
-**
-** CORAL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-**
-** CORAL is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-**
-** You should have received a copy of the GNU General Public License along with CORAL.  If not, see <http://www.gnu.org/licenses/>.
-**
-**************************************************************************************************************************
-*/
+// @file organizations/summary.php
 
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
 
 session_start();
-
-include_once 'directory.php';
-
 
 $organizationID = $_GET['organizationID'];
 $organization = new Organization(new NamedArguments(array('primaryKey' => $organizationID)));
@@ -51,7 +37,7 @@ if ($organization->name){
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="public">
-	
+
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="print" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="../js/plugins/jquery-1.4.4.js"></script>
@@ -194,7 +180,7 @@ if ($organization->name){
 
 		<?php
 
-	   	
+
 
 		$createUser = new User(new NamedArguments(array('primaryKey' => $organization->createLoginID)));
 		$updateUser = new User(new NamedArguments(array('primaryKey' => $organization->updateLoginID)));
@@ -318,7 +304,7 @@ if ($organization->name){
 		<?php
 		foreach ($contactArray as $contact){
 		?>
-			
+
 			<tr>
 			<th style='width:150px;vertical-align:top;text-align:left'>&nbsp;<?php echo $contact['contactRoles']; ?></th>
 			<th>
@@ -441,7 +427,7 @@ if ($organization->name){
 		<?php
 			foreach ($externalLoginArray as $externalLogin){
 			?>
-			
+
 			<tr>
 			<th style='width:150px;vertical-align:top;text-align:left;'>&nbsp;<?php echo $externalLogin['externalLoginTypeShortName']; ?></th>
 			<th>
@@ -533,7 +519,7 @@ if ($organization->name){
 		$charsToRemove = array("*", "_");
 
 		?>
-		
+
 		<br />
 		<table class='linedFormTable' style='width:440px;'>
 		<tr>
@@ -544,7 +530,7 @@ if ($organization->name){
 
 		if (count($issueLogArray) > 0){
 		?>
-		
+
 		<tr>
 		<th>&nbsp;<?php echo _("Date Added");?></th>
 		<th><?php echo _("Issue Date");?></th>
@@ -591,7 +577,7 @@ if ($organization->name){
 				</tr>
 
 
-				<?php				
+				<?php
 				if (count($licenseArray) > 0){ ?>
 					<tr>
 					<th>&nbsp;</th>
