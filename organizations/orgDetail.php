@@ -74,7 +74,7 @@ if ($organization->name){
             usort($org_roles, function ($a, $b) { return strcmp($a["shortName"], $b["shortName"]); });
             foreach ($org_roles as $role) {
                 $resources = $organization->getResources($role["organizationRoleID"]);
-                if (count($resources) > 0) {
+                if (isset($resources) && count($resources) > 0) {
                     ?>
             <h4 style="margin-top:8px"><?php echo $role["shortName"]. _(" of:");?></h4>
             <div id="org-name">
