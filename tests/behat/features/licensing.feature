@@ -45,3 +45,54 @@ Feature: Licensing
     And I should not see "Notice"
     And I should not see "Warning"
     And I should not see "Fatal"
+    #
+    When I follow "ONIX-PL File Import"
+    Then I should see "ONIX-PL Import" in the "h1" element
+    And I should not see "Notice"
+    And I should not see "Warning"
+    And I should not see "Fatal"
+    #
+    When I follow "Calendar"
+    Then I should see "Upcoming License Renewals"
+    And I should not see "Notice"
+    And I should not see "Warning"
+    And I should not see "Fatal"
+    #
+    When I follow "Expression Comparison"
+    Then I should see "Limit by Expression Type:"
+    And I should not see "Notice"
+    And I should not see "Warning"
+    And I should not see "Fatal"
+    #
+    When I follow "License In Progress"
+    Then I should see "Licenses In Progress" in the ".headerText" element
+    And I should not see "Notice"
+    And I should not see "Warning"
+    And I should not see "Fatal"
+    When I wait for 2 seconds
+    Then I should see a "#div_licenses" element
+    And I should not see "Notice"
+    And I should not see "Warning"
+    And I should not see "Fatal"
+    #
+    When I follow "New License"
+    And I wait for 2 seconds
+    Then I should see "License" in the ".thickboxTable .headerText" element
+    And I should not see "Notice"
+    And I should not see "Warning"
+    And I should not see "Fatal"
+
+  @add
+  Scenario: Add License.
+    Given I am on "licensing"
+    And I wait for 2 seconds
+    #
+    When I follow "New License"
+    And I wait for 2 seconds
+    When I fill in "licenseShortName" with "BEST LICENSE EVER"
+    When I fill in "organizationName" with "BEST PUBLISHER EVER"
+    When I press "submit"
+    And I wait until I see "License Added Successfully."
+    When I follow "Continue"
+    And I wait for 2 seconds
+    Then I should see "BEST LICENSE EVER"
