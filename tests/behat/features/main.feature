@@ -1,7 +1,7 @@
-@landing
-Feature: CORAL Landing Page
+@main
+Feature: CORAL Main Menu
 
-  Scenario: Verify the landing page displays as expected.
+  Scenario: Verify the main menu displays as expected.
     When I go to the homepage
     Then I should see "Resources"
     Then I should see "Licensing"

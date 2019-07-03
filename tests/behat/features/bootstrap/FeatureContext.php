@@ -61,6 +61,32 @@ class FeatureContext extends RawMinkContext {
   }
 
   /**
+   * @BeforeScenario @reset_organizations
+   */
+  public function resetOrganizationsDb(BeforeScenarioScope $scope) {
+    $db = new mysqli('db', 'root', 'foobar', 'coral_organizations');
+
+    if ($db->connect_error) {
+      exit('Connection failed: ' . $db->connect_error);
+    }
+
+    if ($tables = $db->query('SHOW TABLES')) {
+      while ($table = $tables->fetch_array(MYSQLI_NUM)) {
+        $db->query('DROP TABLE IF EXISTS ' . $table[0]);
+      }
+    }
+
+    // This SQL file contains an export of the Organizations database in the state
+    // immediately following installation; no organizations have been added to it.
+    $sql = file_get_contents(__DIR__ . '/coral_organizations.sql');
+    if (!$db->multi_query($sql)) {
+      exit('Database reset failed.');
+    }
+
+    $db->close();
+  }
+
+  /**
    * @BeforeScenario @reset_resources
    */
   public function resetResourcesDb(BeforeScenarioScope $scope) {
