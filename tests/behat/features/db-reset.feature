@@ -43,3 +43,10 @@ Feature: Reset Databases
     Then I should see "Resources" in the "#main-title-text" element
     When I wait for 2 seconds
     Then I should see "Sorry, no requests fit your query"
+
+  @reset_usage
+  Scenario: Verify that the Usage database is empty.
+    Given I am on "usage"
+    Then I should see "Usage Statistics" in the "#main-title-text" element
+    When I wait for 2 seconds
+    Then I should see "Sorry, no platforms or publishers fit your query"
