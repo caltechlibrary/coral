@@ -14,7 +14,7 @@
 class TextParameter extends Parameter implements ParameterInterface {
     public function value() {
         if (isset($_REQUEST["prm_$this->id"])) {
-            $val = trim(DBService::escapeString($_REQUEST["prm_$this->id"]));
+            $val = trim(DBServiceReports::escapeString($_REQUEST["prm_$this->id"]));
             if ($val !== '') {
                 return $val;
             }

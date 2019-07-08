@@ -35,14 +35,14 @@ class ReportNotes {
 		return !empty(self::$platIDs);
 	}
 	public static function platformNotes(){
-		$db = new DBService(Config::$database->{self::$dbname});
+		$db = new DBServiceReports(Config::$database->{self::$dbname});
 		return $db->query("SELECT startYear, endYear, counterCompliantInd, noteText, reportDisplayName
 				FROM PlatformNote pn, Platform p
 				WHERE p.platformID = pn.platformID
 				AND pn.platformID in (" . $db->escapeString(join(',', array_keys(self::$platIDs))) . ");")->fetchRows(MYSQLI_ASSOC);
 	}
 	public static function publisherNotes(){
-		$db = new DBService(Config::$database->{self::$dbname});
+		$db = new DBServiceReports(Config::$database->{self::$dbname});
 		return $db->query("SELECT startYear, endYear, noteText, reportDisplayName
 				FROM PublisherPlatformNote pn, PublisherPlatform pp
 				WHERE pp.publisherPlatformID = pn.publisherPlatformID

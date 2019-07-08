@@ -91,7 +91,7 @@ include 'templates/header.php';
 <?php
 // get all reports for output in drop down
 
-$db = DBService::getInstance();
+$db = DBServiceReports::getInstance();
 foreach ( $db->query("SELECT reportID, reportName FROM Report ORDER BY 2, 1")->fetchRows(MYSQLI_ASSOC) as $report ){
 	echo "<option value='" . $report['reportID'] . "' ";
 	if (isset($report['reportID']) && isset($_GET['reportID']) && $report['reportID'] === $_GET['reportID']){

@@ -14,7 +14,7 @@
 class ParameterFactory {
     public static function makeParam($reportID,$reportParameterID) {
         $parm = null;
-        $db = DBService::getInstance();
+        $db = DBServiceReports::getInstance();
         $result = $db
             ->selectDB(Config::$database->name)
             ->query("SELECT rp.*, rpm.parentReportParameterID
