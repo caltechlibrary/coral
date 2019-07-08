@@ -113,6 +113,32 @@ class FeatureContext extends RawMinkContext {
   }
 
   /**
+   * @BeforeScenario @reset_usage
+   */
+  public function resetUsageDb(BeforeScenarioScope $scope) {
+    $db = new mysqli('db', 'root', 'foobar', 'coral_usage');
+
+    if ($db->connect_error) {
+      exit('Connection failed: ' . $db->connect_error);
+    }
+
+    if ($tables = $db->query('SHOW TABLES')) {
+      while ($table = $tables->fetch_array(MYSQLI_NUM)) {
+        $db->query('DROP TABLE IF EXISTS ' . $table[0]);
+      }
+    }
+
+    // This SQL file contains an export of the Resources database in the state
+    // immediately following installation; no resources have been added to it.
+    $sql = file_get_contents(__DIR__ . '/coral_usage.sql');
+    if (!$db->multi_query($sql)) {
+      exit('Database reset failed.');
+    }
+
+    $db->close();
+  }
+
+  /**
    * @When /^I wait for (\d+) seconds$/
    */
   public function iWaitForSeconds($seconds) {
