@@ -1,5 +1,12 @@
 <?php
-include_once 'directory.php';
+
+// @file usage/titles_spreadsheet.php
+
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
 $titleArray = array();
 $resourceType = $_GET['resourceType'];
 
