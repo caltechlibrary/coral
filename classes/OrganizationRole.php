@@ -112,6 +112,7 @@ class OrganizationRole extends DatabaseObject {
 
 
 
+  // @TODO refactor for common class
 	//returns number of children for this particular contact role
 	public function getNumberOfChildren(){
 
@@ -124,6 +125,17 @@ class OrganizationRole extends DatabaseObject {
 	}
 
 
+  // @TODO refactor for common class
+  //returns number of children for this particular org role
+	public function getNumberOfChildrenOrganization(){
+
+		$query = "SELECT count(*) childCount FROM OrganizationRoleProfile WHERE organizationRoleID = '" . $this->organizationRoleID . "';";
+
+		$result = $this->db->processQuery($query, 'assoc');
+
+		return $result['childCount'];
+
+	}
 
 
 

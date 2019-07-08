@@ -138,6 +138,12 @@ class Utility {
     return $this->getCORALURL() . "resources/";
   }
 
+  // @TODO refactor for common class
+  //returns page URL up to /organizations/
+  public function getPageURLOrganizations(){
+    return $this->getCORALURL() . "organizations/";
+  }
+
   public function getRememberLogin(){
 
     if(array_key_exists('CORALRemember', $_COOKIE)){

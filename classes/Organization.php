@@ -10,15 +10,20 @@ class Organization extends DatabaseObject {
 		return $result['orgcount'];
   }
 
-	public function asArray() {
-		$rarray = array();
-		foreach (array_keys($this->attributeNames) as $attributeName) {
-		if ($this->$attributeName != null) {
-			$rarray[$attributeName] = $this->$attributeName;
-			}
-		}
-		return $rarray;
-	}
+  public function asArray() {
+    $rarray = array();
+    foreach (array_keys($this->attributeNames) as $attributeName) {
+      if ($this->$attributeName != null) {
+        $rarray[$attributeName] = $this->$attributeName;
+      }
+    }
+    $aliases = $this->getAliases();
+    $rarray['aliases'] = array();
+    foreach ($aliases as $alias) {
+      array_push($rarray['aliases'], $alias->name);
+    }
+    return $rarray;
+  }
 
 	//search used for the autocomplete
 	public function autocompleteSearch($q){
@@ -153,8 +158,8 @@ class Organization extends DatabaseObject {
 
   private function getDownTimeResults($archivedOnly=false) {
 		$query = "SELECT d.*
-			  FROM Downtime d
-			  WHERE d.entityID='{$this->primaryKey}'
+			  FROM `{$this->db->config->settings->resourcesDatabaseName}`.Downtime d
+			  WHERE d.entityID='{$this->organizationID}'
 			  AND d.entityTypeID=1";
 
 		if ($archivedOnly) {
@@ -187,8 +192,6 @@ class Organization extends DatabaseObject {
   public function getExportableDowntimes($archivedOnly=false){
 		$result = $this->getDownTimeResults($archivedOnly);
 
-		$objects = array();
-
 		//need to do this since it could be that there's only one request and this is how the dbservice returns result
 		if (isset($result['downtimeID'])){
 			return array($result);
@@ -197,29 +200,24 @@ class Organization extends DatabaseObject {
 		}
 	}
 
-  public function getExportableIssues($archivedOnly=false) {
-		if ($this->db->config->settings->organizationsModule == 'Y' && $this->db->config->settings->organizationsDatabaseName) {
-			$orgDB = $this->db->config->settings->organizationsDatabaseName;
-			$orgField = 'name';
-		} else {
-			$orgDB = $this->db->config->database->name;
-			$orgField = 'shortName';
-		}
-
+  public function getExportableIssues($archivedOnly=false){
+		$orgDB = $this->db->config->database->name;
+		$resourceDB = $this->db->config->settings->resourcesDatabaseName;
 		$query = "SELECT i.*,(SELECT GROUP_CONCAT(CONCAT(sc.name,' - ',sc.emailAddress) SEPARATOR ', ')
-								FROM IssueContact sic
+								FROM `{$resourceDB}`.IssueContact sic
 								LEFT JOIN `{$orgDB}`.Contact sc ON sc.contactID=sic.contactID
 								WHERE sic.issueID=i.issueID) AS `contacts`,
-							 (SELECT GROUP_CONCAT(se.{$orgField} SEPARATOR ', ')
-								FROM IssueRelationship sir
+							 (SELECT GROUP_CONCAT(se.name SEPARATOR ', ')
+								FROM `{$resourceDB}`.IssueRelationship sir
 								LEFT JOIN `{$orgDB}`.Organization se ON (se.organizationID=sir.entityID AND sir.entityTypeID=1)
 								WHERE sir.issueID=i.issueID) AS `appliesto`,
 							 (SELECT GROUP_CONCAT(sie.email SEPARATOR ', ')
-								FROM IssueEmail sie
+								FROM `{$resourceDB}`.IssueEmail sie
 								WHERE sie.issueID=i.issueID) AS `CCs`
-			  FROM Issue i
-			  LEFT JOIN IssueRelationship ir ON (ir.issueID=i.issueID AND ir.entityTypeID=1)
-			  WHERE ir.entityID='{$this->primaryKey}'";
+				  FROM `{$resourceDB}`.Issue i
+				  LEFT JOIN `{$resourceDB}`.IssueRelationship ir ON ir.issueID=i.issueID
+				  WHERE ir.entityID='$this->organizationID' AND ir.entityTypeID=1";
+
 		if ($archivedOnly) {
 			$query .= " AND i.dateClosed IS NOT NULL";
 		} else {
@@ -229,10 +227,11 @@ class Organization extends DatabaseObject {
 		$result = $this->db->processQuery($query, 'assoc');
 
 		$objects = array();
+
 		//need to do this since it could be that there's only one request and this is how the dbservice returns result
-		if (isset($result['issueID'])) {
+		if (isset($result['issueID'])){
 			return array($result);
-		} else {
+		}else{
 			return $result;
 		}
 	}
@@ -263,7 +262,9 @@ class Organization extends DatabaseObject {
 	//returns array of issue log objects
 	public function getIssueLog(){
 
-		$query = "SELECT * FROM IssueLog WHERE organizationID = '" . $this->organizationID . "' order by issueDate desc";
+		$query = "SELECT * FROM IssueLog
+              LEFT JOIN IssueLogType ON IssueLogType.issueLogTypeID = IssueLog.issueLogTypeID
+              WHERE organizationID = '" . $this->organizationID . "' order by issueStartDate desc";
 
 		$result = $this->db->processQuery($query, 'assoc');
 
@@ -285,9 +286,9 @@ class Organization extends DatabaseObject {
 
   public function getIssues($archivedOnly=false) {
 		$query = "SELECT i.*
-			  FROM Issue i
-			  LEFT JOIN IssueRelationship ir ON (ir.issueID=i.issueID AND ir.entityTypeID=1)
-			  WHERE ir.entityID='{$this->primaryKey}'";
+				  FROM `{$this->db->config->settings->resourcesDatabaseName}`.Issue i
+				  LEFT JOIN `{$this->db->config->settings->resourcesDatabaseName}`.IssueRelationship ir ON ir.issueID=i.issueID
+				  WHERE ir.entityID='$this->organizationID' AND ir.entityTypeID=1";
 		if ($archivedOnly) {
 			$query .= " AND i.dateClosed IS NOT NULL";
 		} else {
@@ -295,13 +296,12 @@ class Organization extends DatabaseObject {
 		}
 		$query .= "	ORDER BY i.dateCreated DESC";
 		$result = $this->db->processQuery($query, 'assoc');
-
 		$objects = array();
 		//need to do this since it could be that there's only one request and this is how the dbservice returns result
-		if (isset($result['issueID'])) {
+		if (isset($result['issueID'])){
 			$object = new Issue(new NamedArguments(array('primaryKey' => $result['issueID'])));
 			array_push($objects, $object);
-		} else {
+		}else{
 			foreach ($result as $row) {
 				$object = new Issue(new NamedArguments(array('primaryKey' => $row['issueID'])));
 				array_push($objects, $object);
@@ -434,10 +434,77 @@ class Organization extends DatabaseObject {
 		return $objects;
 	}
 
+	//returns array of resources
+	public function getResources($organizationRoleID = null){
+		$resourceArray = array();
+
+		//make sure we have the resourcesModule
+		$config = new Configuration;
+		if ($config->settings->resourcesModule != 'Y') {
+			return $resourceArray;
+		}
+
+		if (isset($organizationRoleID)) {
+			$whereOptions = " AND organizationRoleID = '$organizationRoleID' ";
+		} else {
+			$whereOptions = '';
+		}
+		$dbName = $config->settings->resourcesDatabaseName;
+		if ($dbName == '') {
+			return $resourceArray;
+		}
+		$query = "SELECT R.resourceID, R.titleText, R.statusID, CASE
+									WHEN UPPER(S.shortName) LIKE '%ARCHIVE%' THEN 1 ELSE 0 END as archived
+								FROM " . $dbName . ".ResourceOrganizationLink ROL
+								NATURAL JOIN " . $dbName .".Resource R
+								NATURAL JOIN " . $dbName .".Status S
+								WHERE ROL.organizationID = '" . $this->organizationID . "' "
+								. $whereOptions . "
+								ORDER BY 4,2;";
+		$result = $this->db->processQuery($query, 'assoc');
+		//this is because processQuery has a bad habit of mixed return values
+		//TODO: change this, maybe, someday
+		if (isset($result['resourceID'])) {
+			$result = array($result);
+		}
+
+		return $result;
+
+	}
+
+	//returns array of statuses from resources database
+	public function getResourceStatuses(){
+		$statusArray = array();
+
+		//make sure we have the resourcesModule
+		$config = new Configuration;
+		if ($config->settings->resourcesModule != 'Y') {
+			return $statusArray;
+		}
+
+		$dbName = $config->settings->resourcesDatabaseName;
+		if ($dbName == '') {
+			return $statusArray;
+		}
+		$query = "SELECT S.statusID, S.shortName FROM " . $dbName . ".Status S;";
+
+		$result = $this->db->processQuery($query, 'assoc');
+		//this is because processQuery has a bad habit of mixed return values
+		//TODO: change this, maybe, someday
+		if ($result['statusID']) {
+			$result = array($result);
+		}
+		foreach ($result as $row) {
+			$ids_by_name[$row["shortName"]] = $row["statusID"];
+		}
+
+		return $ids_by_name;
+	}
+
 	//returns array of contact objects
 	public function getUnarchivedContacts(){
 
-		$query = "SELECT * FROM Contact WHERE (archiveDate = '0000-00-00' || archiveDate = '') AND organizationID = '" . $this->organizationID . "' order by name";
+		$query = "SELECT * FROM Contact WHERE (archiveDate = '0000-00-00' || archiveDate = '' || archiveDate is null) AND organizationID = '" . $this->organizationID . "' order by name";
 
 		$result = $this->db->processQuery($query, 'assoc');
 
@@ -456,6 +523,23 @@ class Organization extends DatabaseObject {
 
 		return $objects;
 	}
+
+  public function hasILSVendorRole() {
+      $config = new Configuration();
+      $organizationRoles = $this->getOrganizationRoles();
+      $roleMatch = false;
+      foreach ($organizationRoles as $organizationRole) {
+         if ($organizationRole->shortName == $config->ils->ilsVendorRole) {
+              $roleMatch = true;
+          }
+
+      }
+      return $roleMatch;;
+  }
+
+  public function isLinkedToILS() {
+      return $this->ilsID != null && $this->hasILSVendorRole();
+  }
 
 	//removes this organization
 	public function removeOrganization(){

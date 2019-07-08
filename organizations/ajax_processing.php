@@ -411,6 +411,7 @@ switch ($_GET['action']) {
 
 	case 'deleteInstance':
 
+// @TODO need to understand how `$_GET['class'];` is working
  		$className = $_GET['class'];
  		$deleteID = $_GET['id'];
 

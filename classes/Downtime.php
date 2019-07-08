@@ -1,5 +1,7 @@
 <?php
 
+// @file classes/Downtime.php
+
 class Downtime extends DatabaseObject {
 	protected $overloadKeys = array();
 
@@ -7,12 +9,16 @@ class Downtime extends DatabaseObject {
 
 	protected function overridePrimaryKeyName() {}
 
+  // @TODO needs tests;
+  // differs from organizations/admin/classes/domain/Downtime.php
 	protected function init(NamedArguments $arguments) {
 		//these are values from other tables that we'll be SELECTing in load(), but don't want to persist as part of DB update operations
 		$this->overloadKeys = array("shortName","subjectText");
 		parent::init($arguments);
 	}
 
+  // @TODO needs tests;
+  // differs from organizations/admin/classes/domain/Downtime.php
 	public function load() {
 
 		//This is a custom load method that joins the downtime type name into the attributes
@@ -57,6 +63,8 @@ class Downtime extends DatabaseObject {
 		parent::save();
 	}
 
+  // @TODO needs tests;
+  // differs from organizations/admin/classes/domain/Downtime.php
 	public function getDowntimeTypesArray() {
 		$query = "SELECT dt.*
 				  FROM DowntimeType dt";

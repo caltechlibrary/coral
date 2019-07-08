@@ -24,6 +24,8 @@ class DatabaseObject extends DynamicObject {
 	protected $peerNames = array();
 	protected $peers = array();
 
+	// @TODO needs tests;
+  // differs from organizations/admin/classes/common/DatabaseObject.php
 	protected function init(NamedArguments $arguments) {
 		$arguments->setDefaultValueForArgumentName('tableName', get_class($this));
 		$this->tableName = $arguments->tableName;
@@ -54,6 +56,8 @@ class DatabaseObject extends DynamicObject {
 	protected function overridePrimaryKeyName() {}
 
 
+  // @TODO needs tests;
+  // differs from organizations/admin/classes/domain/DatabaseObject.php
 	protected function defineAttributes() {
 		// Figure out attributes from existing database
 		$query = "SELECT COLUMN_NAME FROM information_schema.`COLUMNS` WHERE table_schema = '";
@@ -91,6 +95,8 @@ class DatabaseObject extends DynamicObject {
 		return $this->primaryKeyName;
 	}
 
+	// @TODO needs tests;
+	// differs from organizations/admin/classes/domain/DatabaseObject.php
 	public function valueForKey($key) {
 		if (array_key_exists($key, $this->attributeNames)) {
 			if (!array_key_exists($key, $this->attributes)) {
@@ -145,6 +151,8 @@ class DatabaseObject extends DynamicObject {
 		}
 	}
 
+	// @TODO needs tests;
+	// differs from organizations/admin/classes/domain/DatabaseObject.php
 	public function setValueForKey($key, $value) {
 		if (array_key_exists($key, $this->parentNames)) {
 			if (is_a($value, 'DatabaseObject')) {
@@ -200,6 +208,8 @@ class DatabaseObject extends DynamicObject {
 		return $this->db->processQuery($query);
 	}
 
+	// @TODO needs tests;
+	// differs from organizations/admin/classes/domain/DatabaseObject.php
 	public function save($new = 0) {
 		$pairs = array();
 		foreach (array_keys($this->attributeNames) as $attributeName) {
@@ -237,6 +247,8 @@ class DatabaseObject extends DynamicObject {
         return $this->save(1);
     }
 
+	// @TODO needs tests;
+	// differs from organizations/admin/classes/domain/DatabaseObject.php
 	public function all() {
 		$query = "SELECT * FROM `$this->tableName` ORDER BY 2, 1";
 
@@ -251,7 +263,8 @@ class DatabaseObject extends DynamicObject {
 		return $objects;
 	}
 
-
+	// @TODO needs tests;
+	// differs from organizations/admin/classes/domain/DatabaseObject.php
 	public function allAsArray() {
 		$query = "SELECT * FROM `$this->tableName` ORDER BY 2, 1";
 		$result = $this->db->processQuery($query, 'assoc');
@@ -276,7 +289,8 @@ class DatabaseObject extends DynamicObject {
 		return $resultArray;
 	}
 
-
+	// @TODO needs tests;
+	// differs from organizations/admin/classes/domain/DatabaseObject.php
 	public function load() {
 		//if exists in the database
 		if (isset($this->primaryKey)) {

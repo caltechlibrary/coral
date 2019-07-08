@@ -1,11 +1,15 @@
 <?php
 
+// @file classes/Issue.php
+
 class Issue extends DatabaseObject {
 
 	protected function defineRelationships() {}
 
 	protected function overridePrimaryKeyName() {}
 
+  // @TODO needs tests;
+  // differs from organizations/admin/classes/domain/Issue.php
 	public function getContacts() {
 		if ($this->db->config->settings->organizationsModule == 'Y' && $this->db->config->settings->organizationsDatabaseName) {
 			$contactsDB = $this->db->config->settings->organizationsDatabaseName;
@@ -26,6 +30,8 @@ class Issue extends DatabaseObject {
 		}
 	}
 
+  // @TODO needs tests;
+  // differs from organizations/admin/classes/domain/Issue.php
 	public function getAssociatedOrganization() {
 		$orgDB = $this->db->config->settings->organizationsDatabaseName;
 		$query = "SELECT o.organizationID
@@ -42,7 +48,8 @@ class Issue extends DatabaseObject {
 		return $objects;
 	}
 
-
+  // @TODO needs tests;
+  // differs from organizations/admin/classes/domain/Issue.php
 	public function getAssociatedResources() {
 		$query = "SELECT r.resourceID
 				  FROM IssueRelationship ir
@@ -93,6 +100,16 @@ class Issue extends DatabaseObject {
 		}
 
 		return $objects;
+	}
+
+	protected function init(NamedArguments $arguments) {
+		//get an instance of config since we don't have a db handle, yet
+		$config = new Configuration();
+		//if we're using the resources module, use that database
+		if ($config->settings->resourcesModule == 'Y' && $config->settings->resourcesDatabaseName) {
+			$arguments->dbName = $config->settings->resourcesDatabaseName;
+		}
+		parent::init($arguments);
 	}
 
 }
