@@ -85,6 +85,8 @@ class DBService extends BaseObject {
     }
   }
 
+  // @TODO needs tests;
+  // differs from usage/admin/classes/common/DBService.php
 	public function processQuery($sql, $type = NULL) {
     	//echo $sql. "<br />";
 		$result = $this->db->query($sql);

@@ -144,6 +144,12 @@ class Utility {
     return $this->getCORALURL() . "organizations/";
   }
 
+  // @TODO refactor for common class
+  //returns page URL up to /usage/
+  static public function getPageURLUsage(){
+    return self::getCORALURL() . "usage/";
+  }
+
   public function getRememberLogin(){
 
     if(array_key_exists('CORALRemember', $_COOKIE)){
@@ -249,6 +255,23 @@ class Utility {
     else {
       return FALSE;
     }
+  }
+
+  static public function utf8_fopen_read($fileName, $isSushiFile) {
+    //if the string isn't already uft-8
+    if ($isSushiFile) {
+      $fc = file_get_contents($fileName);
+    }
+    else {
+      $fc = iconv('windows-1250', 'utf-8', file_get_contents($fileName));
+      if (empty($fc)) {
+        $fc = mb_convert_encoding(file_get_contents($fileName),'utf-8');
+      }
+    }
+    $handle = fopen("php://memory", "rw");
+    fwrite($handle, $fc);
+    fseek($handle, 0);
+    return $handle;
   }
 
 }

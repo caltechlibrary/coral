@@ -37,7 +37,7 @@ foreach ($sushiServicesArray as $sushiService){
 //if more than one run, send email
 if (count($sushiServicesArray) > 0) {
 
-	$emailLog .= "<br /><br />" . _("Log in to ") . "<a href='" . $util->getPageURL() . "sushi.php'>" . _("Sushi Administration") . "</a>" . _(" for more information.");
+	$emailLog .= "<br /><br />" . _("Log in to ") . "<a href='" . $util->getPageURLUsage() . "sushi.php'>" . _("Sushi Administration") . "</a>" . _(" for more information.");
 
 	//send email to email addresses listed in DB
 	$logEmailAddress = new LogEmailAddress();

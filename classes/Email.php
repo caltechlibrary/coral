@@ -25,6 +25,7 @@ class Email extends BaseObject {
 		//append from and reply to
 		$output .= "From: " . $this->from . "\r\n";
 		$output .= "Reply-To: " . $this->replyTo . "\r\n";
+		$output .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
 
 		return $output;
 	}

@@ -447,7 +447,9 @@ class User extends DatabaseObject {
 
   }
 
-  protected function defineRelationships() {}
+  protected function defineRelationships() {
+    $this->hasOne('Privilege');
+  }
 
   protected function overridePrimaryKeyName() {
     $this->primaryKeyName = 'loginID';
