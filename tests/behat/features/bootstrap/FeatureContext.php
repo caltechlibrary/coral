@@ -87,6 +87,32 @@ class FeatureContext extends RawMinkContext {
   }
 
   /**
+   * @BeforeScenario @reset_reports
+   */
+  public function resetReportsDb(BeforeScenarioScope $scope) {
+    $db = new mysqli('db', 'root', 'foobar', 'coral_reports');
+
+    if ($db->connect_error) {
+      exit('Connection failed: ' . $db->connect_error);
+    }
+
+    if ($tables = $db->query('SHOW TABLES')) {
+      while ($table = $tables->fetch_array(MYSQLI_NUM)) {
+        $db->query('DROP TABLE IF EXISTS ' . $table[0]);
+      }
+    }
+
+    // This SQL file contains an export of the Reports database in the state
+    // immediately following installation; no reports have been added to it.
+    $sql = file_get_contents(__DIR__ . '/coral_reports.sql');
+    if (!$db->multi_query($sql)) {
+      exit('Database reset failed.');
+    }
+
+    $db->close();
+  }
+
+  /**
    * @BeforeScenario @reset_resources
    */
   public function resetResourcesDb(BeforeScenarioScope $scope) {
@@ -128,8 +154,8 @@ class FeatureContext extends RawMinkContext {
       }
     }
 
-    // This SQL file contains an export of the Resources database in the state
-    // immediately following installation; no resources have been added to it.
+    // This SQL file contains an export of the Usage database in the state
+    // immediately following installation; no statistics have been added to it.
     $sql = file_get_contents(__DIR__ . '/coral_usage.sql');
     if (!$db->multi_query($sql)) {
       exit('Database reset failed.');
