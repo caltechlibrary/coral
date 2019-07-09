@@ -25,6 +25,7 @@ Feature: Usage Reports
     And I should not see "Warning"
     And I should not see "Fatal"
     #
+    When I go to "reports"
     When I select "Usage Statistics - Provider Rollup" from "reportID"
     And I press "Submit"
     Then I should see "Usage Statistics - Provider Rollup"
@@ -32,6 +33,7 @@ Feature: Usage Reports
     And I should not see "Warning"
     And I should not see "Fatal"
     #
+    When I go to "reports"
     When I select "Usage Statistics - Publisher Rollup" from "reportID"
     And I press "Submit"
     Then I should see "Usage Statistics - Publisher Rollup"
@@ -39,6 +41,7 @@ Feature: Usage Reports
     And I should not see "Warning"
     And I should not see "Fatal"
     #
+    When I go to "reports"
     When I select "Usage Statistics - Top Resource Requests" from "reportID"
     And I press "Submit"
     Then I should see "Usage Statistics - Top Resource Requests"
@@ -46,6 +49,7 @@ Feature: Usage Reports
     And I should not see "Warning"
     And I should not see "Fatal"
     #
+    When I go to "reports"
     When I select "Usage Statistics - Yearly Usage Statistics" from "reportID"
     And I press "Submit"
     Then I should see "Usage Statistics - Yearly Usage Statistics"
@@ -53,6 +57,7 @@ Feature: Usage Reports
     And I should not see "Warning"
     And I should not see "Fatal"
     #
+    When I go to "reports"
     When I select "Usage Statistics by Provider / Publisher" from "reportID"
     And I press "Submit"
     Then I should see "Usage Statistics by Provider / Publisher"
@@ -60,6 +65,7 @@ Feature: Usage Reports
     And I should not see "Warning"
     And I should not see "Fatal"
     #
+    When I go to "reports"
     When I select "Usage Statistics by Titles" from "reportID"
     And I press "Submit"
     Then I should see "Usage Statistics by Titles"
