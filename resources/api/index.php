@@ -7,15 +7,6 @@ require_once __DIR__ . '/../../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/..');
 
-# We still need to manually include classes from other modules
-include_once '../../licensing/admin/classes/domain/License.php';
-include_once '../../licensing/admin/classes/domain/Document.php';
-include_once '../../licensing/admin/classes/domain/DocumentType.php';
-include_once '../../licensing/admin/classes/domain/Expression.php';
-include_once '../../licensing/admin/classes/domain/ExpressionNote.php';
-include_once '../../licensing/admin/classes/domain/ExpressionType.php';
-include_once '../../licensing/admin/classes/domain/Qualifier.php';
-
 if (!isAllowed()) {
     header('HTTP/1.0 403 Forbidden');
     echo "Unauthorized IP: " . $_SERVER['REMOTE_ADDR'];
@@ -372,13 +363,11 @@ Flight::route('GET /organizations/@id', function($id) {
     $config = new Configuration();
     $db = DBService::getInstance();
     if ($config->settings->organizationsModule == 'Y') {
-        include_once '../../organizations/admin/classes/domain/Organization.php';
         $db->changeDb('organizationsDatabaseName');
         $organization = new Organization(new NamedArguments(array('primaryKey' => $id)));
         Flight::json($organization->asArray());
         $db->changeDb();
     } else {
-        include_once '../admin/classes/domain/Organization.php';
         $organization = new Organization(new NamedArguments(array('primaryKey' => $id)));
         Flight::json($organization->asArray());
     }
