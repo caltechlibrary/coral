@@ -33,10 +33,12 @@ class DateRangeParameter extends DropdownParameter implements ParameterInterface
         if ($this->reportID===null) {
             return array('m0'=>null,'y0'=>null,'m1'=>null,'y1'=>null);
         } else if (! isset($_REQUEST["prm_$this->id"])) {
-            $years = $this->getSelectValues($this->parentID);
+            // set a default value of the current year to avoid errors when
+            // there are no reports
+            $years = (!empty($this->getSelectValues($this->parentID)) ? $this->getSelectValues($this->parentID) : array(date('Y')));
             $y0 = min($years);
             $y1 = max($years);
-            return array('m0'=>1,'y0'=>$y0['val'],'m1'=>12,'y1'=>$y1['val']);
+            return array('m0' => 1, 'y0' => $y0, 'm1' => 12, 'y1' => $y1);
         } else {
             return $this->decode($_REQUEST["prm_$this->id"]);
         }
