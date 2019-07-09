@@ -139,6 +139,12 @@ class Utility {
   }
 
   // @TODO refactor for common class
+  //returns page URL up to /licensing/
+  public function getPageURLLicensing(){
+    return $this->getCORALURL() . "licensing/";
+  }
+
+  // @TODO refactor for common class
   //returns page URL up to /organizations/
   public function getPageURLOrganizations(){
     return $this->getCORALURL() . "organizations/";

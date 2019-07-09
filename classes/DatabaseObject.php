@@ -25,6 +25,7 @@ class DatabaseObject extends DynamicObject {
 	protected $peers = array();
 
 	// @TODO needs tests;
+	// differs from management/admin/classes/common/DatabaseObject.php
 	// differs from organizations/admin/classes/common/DatabaseObject.php
 	// differs from usage/admin/classes/common/DatabaseObject.php
 	protected function init(NamedArguments $arguments) {
@@ -102,6 +103,7 @@ class DatabaseObject extends DynamicObject {
 	}
 
 	// @TODO needs tests;
+	// differs from management/admin/classes/common/DatabaseObject.php
 	// differs from organizations/admin/classes/common/DatabaseObject.php
 	// differs from usage/admin/classes/common/DatabaseObject.php
 	public function valueForKey($key) {
@@ -217,6 +219,7 @@ class DatabaseObject extends DynamicObject {
 	}
 
 	// @TODO needs tests;
+	// differs from management/admin/classes/common/DatabaseObject.php
 	// differs from organizations/admin/classes/common/DatabaseObject.php
 	// differs from usage/admin/classes/common/DatabaseObject.php
 	public function save($new = 0) {

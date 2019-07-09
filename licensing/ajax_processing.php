@@ -322,7 +322,7 @@ switch ($_GET['action']) {
 
 			$emailMessage = _("An expression in the licensing module has been approved for terms tool use.")."\n";
 			$emailMessage.= _("License:  ") . $license->shortName . "\n\n";
-			$emailMessage.= _("View License Record:  ") . $util->getPageURL() . "license.php?licenseID=" . $licenseID;
+			$emailMessage.= _("View License Record:  ") . $util->getPageURLLicensing() . "license.php?licenseID=" . $licenseID;
 
 			$email = new Email();
 			$email->to 			= implode(", ", $toList);

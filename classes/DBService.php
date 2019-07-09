@@ -39,6 +39,8 @@ class DBService extends BaseObject {
 		}
 	}
 
+	// @TODO needs tests;
+	// differs from management/admin/classes/common/DBService.php
 	protected function connect() {
 		$host = $this->config->database->host;
 		$username = $this->config->database->username;
@@ -86,6 +88,7 @@ class DBService extends BaseObject {
   }
 
   // @TODO needs tests;
+  // differs from management/admin/classes/common/DBService.php
   // differs from usage/admin/classes/common/DBService.php
 	public function processQuery($sql, $type = NULL) {
     	//echo $sql. "<br />";
