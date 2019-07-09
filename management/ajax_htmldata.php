@@ -1,31 +1,19 @@
 <?php
 
-/*
-**************************************************************************************************************************
-** CORAL Management Module v. 1.0
-**
-** Copyright (c) 2010 University of Notre Dame
-**
-** This file is part of CORAL.
-**
-** CORAL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-**
-** CORAL is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-**
-** You should have received a copy of the GNU General Public License along with CORAL.  If not, see <http://www.gnu.org/licenses/>.
-**
-**************************************************************************************************************************
-**************************************************************************************************************************
-** ajax_htmldata.php formats display data for all pages - tables and search results
-**
-** when ajax_htmldata.php is called through ajax, 'action' parm is required to dictate which data will be returned
-**
-** this also displays the links to edit/delete data depending on user privileges
-**
-**************************************************************************************************************************
-*/
+// @file management/ajax_htmldata.php
+//
+// ajax_htmldata.php formats display data for all pages - tables and search results
+//
+// when ajax_htmldata.php is called through ajax, 'action' parm is required to
+// dictate which data will be returned
+//
+// this also displays the links to edit/delete data depending on user privileges
 
-include_once 'directory.php';
+require_once __DIR__ . '/../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/');
+
 include_once 'user.php';
 
 
