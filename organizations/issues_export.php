@@ -13,18 +13,7 @@ $dates = new Dates();
 
 $organizationID = $_GET['organizationID'];
 
-function escape_csv($value) {
-  // replace \n with \r\n
-  $value = preg_replace("/(?<!\r)\n/", "\r\n", $value);
-  // escape quotes
-  $value = str_replace('"', '""', $value);
-  return '"'.$value.'"';
-}
-
-function array_to_csv_row($array) {
-  $escaped_array = array_map("escape_csv", $array);
-  return implode(",",$escaped_array)."\r\n";
-}
+$export = new Export();
 
 $issueLogObj = new IssueLog();
 $issues = $issueLogObj->allExpandedAsArray($organizationID);
@@ -36,7 +25,7 @@ header("Pragma: public");
 header("Content-type: text/csv");
 header("Content-Disposition: attachment; filename=\"" . $excelfile . "\"");
 
-echo array_to_csv_row(array("Issues Export " . $dates->formatDate( date( 'Y-m-d' ))));
+echo $export->arrayToCsvRow(array("Issues Export " . $dates->formatDate( date( 'Y-m-d' ))));
 
 $columnHeaders = array(
   "Organization",
@@ -45,7 +34,7 @@ $columnHeaders = array(
   "End Date",
   "Issue Text"
 );
-echo array_to_csv_row($columnHeaders);
+echo $export->arrayToCsvRow($columnHeaders);
 
 foreach($issues as $issue) {
 
@@ -62,6 +51,6 @@ foreach($issues as $issue) {
     preg_replace('/\s+/', ' ', trim($issue['noteText'])),
   );
 
-	echo array_to_csv_row($issueValues);
+	echo $export->arrayToCsvRow($issueValues);
 }
 ?>

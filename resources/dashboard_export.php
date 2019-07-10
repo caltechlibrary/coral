@@ -25,18 +25,7 @@ $dates = new Dates();
     $results = $dashboard->getResults($query);
     if ($groupBy == "GS.shortName") $groupBy = "generalSubject";
 
-    function escape_csv($value) {
-      // replace \n with \r\n
-      $value = preg_replace("/(?<!\r)\n/", "\r\n", $value);
-      // escape quotes
-      $value = str_replace('"', '""', $value);
-      return '"'.$value.'"';
-    }
-
-    function array_to_csv_row($array) {
-      $escaped_array = array_map("escape_csv", $array);
-      return implode(",",$escaped_array)."\r\n";
-    }
+    $export = new Export();
 
     $replace = array("/", "-");
     $excelfile = "dashboard_export_" . str_replace( $replace, "_", $dates->formatDate( date( 'Y-m-d' ) ) ).".csv";
@@ -56,7 +45,7 @@ $dates = new Dates();
       _("Acquisition Type"),
       _("Payment amount"),
     );
-    echo array_to_csv_row($columnHeaders);
+    echo $export->arrayToCsvRow($columnHeaders);
 
     $count = sizeof($results);
     $i = 1;
@@ -77,7 +66,7 @@ $dates = new Dates();
         } else {
             $dashboardValues = array($i == $count ? _('Total') : _("Sub-Total:") . " " . $result[$groupBy], '', '', '', '', $result['paymentAmount']);
         }
-        echo array_to_csv_row($dashboardValues);
+        echo $export->arrayToCsvRow($dashboardValues);
         $i++;
     }
 ?>

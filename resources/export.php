@@ -9,18 +9,7 @@ define('BASE_DIR', __DIR__ . '/');
 
 $dates = new Dates();
 
-function escape_csv($value) {
-  // replace \n with \r\n
-  $value = preg_replace("/(?<!\r)\n/", "\r\n", $value);
-  // escape quotes
-  $value = str_replace('"', '""', $value);
-  return '"'.$value.'"';
-}
-
-function array_to_csv_row($array) {
-  $escaped_array = array_map("escape_csv", $array);
-  return implode(",",$escaped_array)."\r\n";
-}
+$export = new Export();
 
 $queryDetails = Resource::getSearchDetails();
 $whereAdd = $queryDetails["where"];
@@ -97,12 +86,12 @@ $columnHeaders = array(
   _("OCLC Holdings Updated")
 );
 
-echo array_to_csv_row(array(_("Resource Record Export") . " " . $dates->formatDate( date( 'Y-m-d' ))));
+echo $export->arrayToCsvRow(array(_("Resource Record Export") . " " . $dates->formatDate( date( 'Y-m-d' ))));
 if (!$searchDisplay) {
   $searchDisplay = array(_("All Resource Records"));
 }
-echo array_to_csv_row(array(implode('; ', $searchDisplay)));
-echo array_to_csv_row($columnHeaders);
+echo $export->arrayToCsvRow(array(implode('; ', $searchDisplay)));
+echo $export->arrayToCsvRow($columnHeaders);
 
 foreach($resourceArray as $resource) {
 
@@ -163,6 +152,6 @@ foreach($resourceArray as $resource) {
     ($resource['hasOclcHoldings'] ? 'Y' : 'N')
   );
 
-	echo array_to_csv_row($resourceValues);
+	echo $export->arrayToCsvRow($resourceValues);
 }
 ?>
