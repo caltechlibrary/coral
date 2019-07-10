@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 			$resourceID = $_GET['resourceID'];
 			$resource = new Resource(new NamedArguments(array('primaryKey' => $resourceID)));
 			$resourceFormat = new ResourceFormat(new NamedArguments(array('primaryKey' => $resource->resourceFormatID)));
@@ -114,7 +115,7 @@
 				<i>
 
 				<?php
-					echo format_date($resource->archiveDate);
+					echo $dates->formatDate($resource->archiveDate);
 
 					if ($archiveUser->getDisplayName){
 						echo _(" by ") . $archiveUser->getDisplayName;
@@ -139,7 +140,7 @@
 			<i>
 
 				<?php
-					echo format_date($resource->createDate);
+					echo $dates->formatDate($resource->createDate);
 
 					if ($createUser->getDisplayName){
 						echo _(" by ") . $createUser->getDisplayName;
@@ -163,7 +164,7 @@
 				<td>
 				<i>
 				<?php
-					echo format_date($resource->updateDate);
+					echo $dates->formatDate($resource->updateDate);
 
 					if ($updateUser->getDisplayName){
 						echo _(" by ") . $updateUser->getDisplayName;
@@ -450,7 +451,7 @@
 						<a href='javascript:void(0);' class='removeNote' id='<?php echo $resourceNote['resourceNoteID']; ?>' tab='Product'><img src='images/cross.gif' alt='<?php echo _("remove note");?>' title='<?php echo _("remove note");?>'></a>
 						<?php } ?>
 					</td>
-					<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo format_date($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
+					<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo $dates->formatDate($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
 					</tr>
 				<?php } ?>
 			</table>

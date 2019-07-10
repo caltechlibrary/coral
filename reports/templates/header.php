@@ -16,6 +16,7 @@
 **************************************************************************************************************************
 */
 
+$dates = new Dates();
 
 
 Config::init();
@@ -68,7 +69,7 @@ $currentPage = $parts[count($parts) - 1];
 <script type="text/javascript" src="js/plugins/jquery.floatThead.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
-Date.format = '<?php echo return_datepicker_date_format(); ?>';
+Date.format = '<?php echo $dates->returnDatepickerDateFormat(); ?>';
 </script>
 </head>
 <body>

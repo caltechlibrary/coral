@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 		$resourceID = $_GET['resourceID'];
 		$resourceAcquisitionID = $_GET['resourceAcquisitionID'];
 		$resource = new Resource(new NamedArguments(array('primaryKey' => $resourceID)));
@@ -50,27 +51,27 @@
                     $archivingDate = $resourceStep->archivingDate;
                     $stepIndication = $resourceStep->archivingDate ? _("Workflow archived on") . " $archivingDate" : _("Current workflow");
                     if ($resourceStep->archivingDate && $archivedWorkflow == false) {
-                        $archivedWorkflow = true; 
+                        $archivedWorkflow = true;
                         echo "<td colspan='6'><em><strong>Archived Workflows</strong></em></td></tr><tr$stepClass>";
                     }
 
                     echo "<td colspan='6'><em><strong>$stepIndication</strong></em></td></tr><tr$stepClass>";
                 }
-                ?> 
+                ?>
 
 				<td <?php echo $classAdd; ?> ><?php echo $resourceStep->stepName; ?></td>
-				<td <?php echo $classAdd; ?> ><?php if (is_null_date($resourceStep->stepEndDate)){
+				<td <?php echo $classAdd; ?> ><?php if ($dates->isNullDate($resourceStep->stepEndDate)){
 						echo '<a href="ajax_forms.php?action=getResourceStepForm&amp;resourceStepID='.$resourceStep->resourceStepID.'&amp;height=250&amp;width=750&amp;modal=true" class="thickbox"><img src="images/edit.gif" alt="edit" title="edit"></a>';
 					} ?></td>
 				<td <?php echo $classAdd; ?> ><?php echo $userGroup->groupName; ?></td>
-				<td <?php echo $classAdd; ?> ><?php if ($resourceStep->stepStartDate) { echo format_date($resourceStep->stepStartDate); } ?></td>
+				<td <?php echo $classAdd; ?> ><?php if ($resourceStep->stepStartDate) { echo $dates->formatDate($resourceStep->stepStartDate); } ?></td>
 				<td <?php echo $classAdd; ?> >
 				<?php
 					if ($resourceStep->stepEndDate) {
 						if (($eUser->firstName) || ($eUser->lastName)){
-							echo format_date($resourceStep->stepEndDate) . _(" by ") . $eUser->firstName . " " . $eUser->lastName;
+							echo $dates->formatDate($resourceStep->stepEndDate) . _(" by ") . $eUser->firstName . " " . $eUser->lastName;
 						}else{
-							echo format_date($resourceStep->stepEndDate) . _(" by ") . $resourceStep->endLoginID;
+							echo $dates->formatDate($resourceStep->stepEndDate) . _(" by ") . $resourceStep->endLoginID;
 						}
 					}else{
 						//add if user is in group or an admin and resource is not completed or archived
@@ -103,15 +104,15 @@
 			//this was marked complete...
 			if (($openStep > 0) && ($resource->statusID == $completeStatusID)){
 				if ($rUser->firstName){
-					echo "<i>"._("Workflow completed on ") . format_date($resource->workflowRestartDate) . _(" by ") . $rUser->firstName . " " . $rUser->lastName . "</i><br />";
+					echo "<i>"._("Workflow completed on ") . $dates->formatDate($resource->workflowRestartDate) . _(" by ") . $rUser->firstName . " " . $rUser->lastName . "</i><br />";
 				}else{
-					echo "<i>"._("Workflow completed on ") . format_date($resource->workflowRestartDate) . _(" by ") . $resource->workflowRestartLoginID . "</i><br />";
+					echo "<i>"._("Workflow completed on ") . $dates->formatDate($resource->workflowRestartDate) . _(" by ") . $resource->workflowRestartLoginID . "</i><br />";
 				}
 			}else{
 				if ($rUser->firstName){
-					echo "<i>"._("Workflow restarted on ") . format_date($resource->workflowRestartDate) . " by " . $rUser->firstName . " " . $rUser->lastName . "</i><br />";
+					echo "<i>"._("Workflow restarted on ") . $dates->formatDate($resource->workflowRestartDate) . " by " . $rUser->firstName . " " . $rUser->lastName . "</i><br />";
 				}else{
-					echo "<i>"._("Workflow restarted on ") . format_date($resource->workflowRestartDate) . (" by ") . $resource->workflowRestartLoginID . "</i><br />";
+					echo "<i>"._("Workflow restarted on ") . $dates->formatDate($resource->workflowRestartDate) . (" by ") . $resource->workflowRestartLoginID . "</i><br />";
 				}
 			}
 		}
@@ -125,7 +126,7 @@
                 <div class="restartWorkflowDiv" id="restartWorkflowDiv" style="display:none;padding:20px;">
                     <form name="restartWorkflowForm" id="restartWorkflowForm">
 
-                        <label for="workflowArchivingDate"><?php echo _("Select a workflow to restart"); ?></label>: 
+                        <label for="workflowArchivingDate"><?php echo _("Select a workflow to restart"); ?></label>:
                         <select id="workflowArchivingDate">
                             <option value="<?php echo $resource->getCurrentWorkflowID(); ?>"><?php echo _("Current workflow"); ?></option>
                             <?php
@@ -168,4 +169,3 @@
 		}
 
 ?>
-

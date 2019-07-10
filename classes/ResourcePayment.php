@@ -25,13 +25,14 @@ class ResourcePayment extends DatabaseObject {
 
 	//returns array of ResourcePayment objects
 	public function getPaymentAmountChangeFromPreviousYear(){
+    $dates = new Dates();
 		$id = $this->resourceID;
 		$year = $this->year;
 		$currency = $this->currencyCode;
 		if ((isset($year)) && ($year != '')){
 			$sql = "SELECT SUM(paymentAmount) AS total FROM ResourcePayment WHERE resourceID = '%s' AND year = '%s' AND currencyCode = '%s'";
 			$currency = $this->db->escapeString($currency);
-			$query = sprintf($sql, $id, $this->db->escapeString(previous_year($year)), $currency);
+			$query = sprintf($sql, $id, $this->db->escapeString($dates->previousYear($year)), $currency);
 			$result = $this->db->processQuery($query, 'assoc');
 			if ((isset($result['total'])) && ($result['total'] > 0)){
 				$prev_total = $result['total'];

@@ -9,6 +9,7 @@ define('BASE_DIR', __DIR__ . '/');
 
 include_once 'user.php';
 
+$dates = new Dates();
 
 switch ($_GET['action']) {
 
@@ -857,13 +858,13 @@ if ($issues) {
     	$issueLog = new IssueLog(new NamedArguments(array('primaryKey' => $issueLogID)));
 
 		if (($issueLog->issueStartDate != '') && ($issueLog->issueStartDate != "0000-00-00")) {
-			$issueStartDate=format_date($issueLog->issueStartDate);
+			$issueStartDate=$dates->formatDate($issueLog->issueStartDate);
 		}else{
 			$issueStartDate='';
 		}
 
     if (($issueLog->issueEndDate != '') && ($issueLog->issueEndDate != "0000-00-00")) {
-			$issueEndDate=format_date($issueLog->issueEndDate);
+			$issueEndDate=$dates->formatDate($issueLog->issueEndDate);
 		}else{
 			$issueEndDate='';
 		}

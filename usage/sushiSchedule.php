@@ -9,6 +9,7 @@ define('BASE_DIR', __DIR__ . '/');
 
 session_start();
 
+$dates = new Dates();
 $util = new Utility();
 $config = new Configuration();
 
@@ -50,7 +51,7 @@ if (count($sushiServicesArray) > 0) {
 	if (count($emailAddresses) > 0){
 		$email = new Email();
 		$email->to 			= implode(", ", $emailAddresses);
-		$email->subject		= _("SUSHI Scheduled run log for ") . format_date(date) . " - " . count($sushiServicesArray) . _(" runs");
+		$email->subject		= _("SUSHI Scheduled run log for ") . $dates->formatDate(date) . " - " . count($sushiServicesArray) . _(" runs");
 		$email->message		= $emailLog;
 
 

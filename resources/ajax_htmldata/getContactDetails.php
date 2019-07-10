@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 	$resourceID = $_GET['resourceID'];
     $resourceAcquisitionID = isset($_GET['resourceAcquisitionID']) ? $_GET['resourceAcquisitionID'] : null;
 	if (isset($_GET['archiveInd'])) $archiveInd = $_GET['archiveInd']; else $archiveInd='';
@@ -92,7 +93,7 @@
 				if (($contact['archiveDate'] != '0000-00-00') && ($contact['archiveDate'])) { ?>
 				<tr>
 				<td style='vertical-align:top;background-color:#ebebeb; width:110px;'><?php echo _("No longer valid:");?></td>
-				<td style='background-color:#ebebeb'><i><?php echo format_date($contact['archiveDate']); ?></i></td>
+				<td style='background-color:#ebebeb'><i><?php echo $dates->formatDate($contact['archiveDate']); ?></i></td>
 				</tr>
 				<?php
 				}
@@ -173,7 +174,7 @@
 				if ($contact['lastUpdateDate']) { ?>
 				<tr>
 				<td style='vertical-align:top; width:110px;'><?php echo _("Last Updated:");?></td>
-				<td><i><?php echo format_date($contact['lastUpdateDate']); ?></i></td>
+				<td><i><?php echo $dates->formatDate($contact['lastUpdateDate']); ?></i></td>
 				</tr>
 				<?php
 				}
@@ -214,4 +215,3 @@
 		echo "<br /><br />";
 
 ?>
-

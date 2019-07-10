@@ -4,6 +4,7 @@
 
 include_once 'user.php';
 
+$dates = new Dates();
 
 $util = new Utility();
 $config = new Configuration();
@@ -53,7 +54,7 @@ $coralURL = $util->getCORALURL();
 <script type="text/javascript" src="../js/plugins/translate.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
-Date.format = '<?php echo return_datepicker_date_format(); ?>';
+Date.format = '<?php echo $dates->returnDatepickerDateFormat(); ?>';
 </script>
 </head>
 <body>

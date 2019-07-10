@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 	Resource::setSearch($_POST['search']);
 
 	$queryDetails = Resource::getSearchDetails();
@@ -147,7 +148,7 @@
 				}else{
 					echo "<td $classAdd>" . $resource['createLoginID'] . "</td>";
 				}
-				echo "<td $classAdd>" . format_date($resource['createDate']) . "</td>";
+				echo "<td $classAdd>" . $dates->formatDate($resource['createDate']) . "</td>";
 
 				echo "<td $classAdd>" . $resource['acquisitionType'] . "</td>";
 				echo "<td $classAdd>" . $resource['status'] . "</td>";

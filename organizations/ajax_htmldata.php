@@ -9,6 +9,8 @@ define('BASE_DIR', __DIR__ . '/');
 
 include_once 'user.php';
 
+$dates = new Dates();
+
 //shared html template for organization and resource issues
 function generateIssueHTML($issue,$associatedEntities=null) {
 	$html = "
@@ -266,7 +268,7 @@ switch ($_GET['action']) {
 		<br />
 		<i><?php echo _("Created:");?>
 		<?php
-			echo format_date($organization->createDate);
+			echo $dates->formatDate($organization->createDate);
 			//since organizations can be created by other modules the user may or may not be set and may or may not have a user entry in this db
 			if ($createUser->primaryKey){
 				echo _(" by ");
@@ -283,7 +285,7 @@ switch ($_GET['action']) {
 
 		<?php
 		if (($organization->updateDate) && ($organization->updateDate != '0000-00-00')){
-			echo "<i>"._("Last Update:"). format_date($organization->updateDate)._(" by "); ?><?php echo $updateUser->firstName . " " . $updateUser->lastName . "</i>";
+			echo "<i>"._("Last Update:"). $dates->formatDate($organization->updateDate)._(" by "); ?><?php echo $updateUser->firstName . " " . $updateUser->lastName . "</i>";
 		}
 
         break;
@@ -435,7 +437,7 @@ switch ($_GET['action']) {
 				<?php if (($contact['archiveDate'] != '0000-00-00') && ($contact['archiveDate'])) { ?>
 				<tr>
 				<td style='vertical-align:top;text-align:left;background-color:#ebebeb'><?php echo _("No longer valid:");?></td>
-				<td style='background-color:#ebebeb'><i><?php echo format_date($contact['archiveDate']); ?></i></td>
+				<td style='background-color:#ebebeb'><i><?php echo $dates->formatDate($contact['archiveDate']); ?></i></td>
 				</tr>
 				<?php
 				}
@@ -499,7 +501,7 @@ switch ($_GET['action']) {
 				if ($contact['lastUpdateDate']) { ?>
 				<tr>
 				<td style='vertical-align:top;text-align:left;'><?php echo _("Last Updated:");?></td>
-				<td><i><?php echo format_date($contact['lastUpdateDate']); ?></i></td>
+				<td><i><?php echo $dates->formatDate($contact['lastUpdateDate']); ?></i></td>
 				</tr>
 				<?php
 				}
@@ -605,7 +607,7 @@ switch ($_GET['action']) {
 				if ($externalLogin['updateDate']) { ?>
 				<tr>
 				<td style='vertical-align:top;text-align:left;'><?php echo _("Last Updated:");?></td>
-				<td><i><?php echo format_date($externalLogin['updateDate']); ?></i></td>
+				<td><i><?php echo $dates->formatDate($externalLogin['updateDate']); ?></i></td>
 				</tr>
 				<?php
 				}
@@ -764,19 +766,19 @@ switch ($_GET['action']) {
 
 		<?php foreach ($issueLogArray as $issueLog){
 			if (($issueLog['issueStartDate'] != '') && ($issueLog['issueStartDate'] != "0000-00-00")) {
-				$issueStartDate= format_date($issueLog['issueStartDate']);
+				$issueStartDate= $dates->formatDate($issueLog['issueStartDate']);
 			}else{
 				$issueStartDate='';
 			}
       if (($issueLog['issueEndDate'] != '') && ($issueLog['issueEndDate'] != "0000-00-00")) {
-				$issueEndDate= format_date($issueLog['issueEndDate']);
+				$issueEndDate= $dates->formatDate($issueLog['issueEndDate']);
 			}else{
 				$issueEndDate='';
 			}
 
 			?>
 			<tr>
-			<td style='width:80px;'><?php echo format_date($issueLog['updateDate']); ?><br /><?php echo _("by ");?><i><?php echo $issueLog['updateUser']; ?></i></td>
+			<td style='width:80px;'><?php echo $dates->formatDate($issueLog['updateDate']); ?><br /><?php echo _("by ");?><i><?php echo $issueLog['updateUser']; ?></i></td>
 			<td><?php
         if ($issueStartDate && $issueEndDate) {
           echo $issueStartDate._(" to ").$issueEndDate;

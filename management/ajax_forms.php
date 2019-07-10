@@ -16,6 +16,7 @@ define('BASE_DIR', __DIR__ . '/');
 
 include_once 'user.php';
 
+$dates = new Dates();
 
 switch ($_GET['action']) {
 
@@ -107,7 +108,7 @@ switch ($_GET['action']) {
 					<tr>
 						<td colspan="2">
 							<label for="revisionDate" class="formText"><?php echo _("Last Document Revision:");?></label>
-							<div><input class="date-pick" type='input' id='revisionDate' name='revisionDate' value="<?php echo format_date(date('m/d/Y'));?>" /></div>
+							<div><input class="date-pick" type='input' id='revisionDate' name='revisionDate' value="<?php echo $dates->formatDate(date('m/d/Y'));?>" /></div>
 						</td>
 					</tr>
 <?php
@@ -266,15 +267,15 @@ switch ($_GET['action']) {
 
 		//if effective date isn't set, set it to today's date
 		if (($document->effectiveDate == "0000-00-00") || ($document->effectiveDate == "")){
-			$effectiveDate = format_date(date("m/d/Y"));
+			$effectiveDate = $dates->formatDate(date("m/d/Y"));
 		}else{
-			$effectiveDate=format_date($document->effectiveDate);
+			$effectiveDate=$dates->formatDate($document->effectiveDate);
 		}
 		//if revision date isn't set, set it to today's date
 		if (($document->revisionDate == "0000-00-00") || ($document->revisionDate == "")){
-			$revisionDate = format_date(date("m/d/Y"));
+			$revisionDate = $dates->formatDate(date("m/d/Y"));
 		} else {
-			$revisionDate = format_date($document->revisionDate);
+			$revisionDate = $dates->formatDate($document->revisionDate);
 		}
 
 		if (($document->expirationDate) && ($document->expirationDate != '0000-00-00')){
@@ -443,7 +444,7 @@ if ($_GET['isArchived'] == 1) {
 		<tr>
 		<td>
 		<input type='hidden' name='documentID' id='documentID' value='<?php echo $documentID; ?>' />
-		<?php echo _("Archive Date:");?>  <input class='date-pick' id='expirationDate' name='expirationDate' style='width:80px' value='<?php echo format_date(date); ?>' />
+		<?php echo _("Archive Date:");?>  <input class='date-pick' id='expirationDate' name='expirationDate' style='width:80px' value='<?php echo $dates->formatDate(date); ?>' />
 		</td>
 		</tr>
 		<tr><td style='text-align:center;width:100%;'><br /><br /><a href='javascript:void(0)' name='submitArchive' id='submitArchive' class='submit-button'><?php echo _("Continue");?></a></td></tr>
@@ -567,7 +568,7 @@ if ($_GET['isArchived'] == 1) {
 				//used for in-line editing (since this is already a form, can't make another form to edit sigs!)
 				if ($signatureID == $display['signatureID']){
 					echo "<td><input type='textbox' id='signerName' value=\"" . $display['signerName'] . "\" style='width:118px;' /></td>";
-					echo "<td><input class='date-pick' id='signatureDate' name='signatureDate' style='width:80px' value=\"" . format_date($display['signatureDate']) . "\" /></td>";
+					echo "<td><input class='date-pick' id='signatureDate' name='signatureDate' style='width:80px' value=\"" . $dates->formatDate($display['signatureDate']) . "\" /></td>";
 					echo "<td><span id='span_signatureType'><select id='signatureTypeID' name='signatureTypeID'>";
 
 					$stdisplay = array();
@@ -591,7 +592,7 @@ if ($_GET['isArchived'] == 1) {
 
 				}else{
 					echo "<td>" . $display['signerName'] . "</td>";
-					echo "<td>" . format_date($display['signatureDate']) . "</td>";
+					echo "<td>" . $dates->formatDate($display['signatureDate']) . "</td>";
 					echo "<td>" . $display['signatureTypeName'] . "</td>";
 					if ($signatureID){
 						echo "<td>&nbsp;</td>";
@@ -915,7 +916,7 @@ if ($_GET['isArchived'] == 1) {
 		$attachment = new Attachment(new NamedArguments(array('primaryKey' => $attachmentID)));
 
 		if (($attachment->sentDate != '') && ($attachment->sentDate != "0000-00-00")) {
-			$sentDate = format_date($attachment->sentDate);
+			$sentDate = $dates->formatDate($attachment->sentDate);
 		}else{
 			$sentDate='';
 		}

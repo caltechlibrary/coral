@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 	$resourceID = $_GET['resourceID'];
 	$resource = new Resource(new NamedArguments(array('primaryKey' => $resourceID)));
 
@@ -88,7 +89,7 @@
 				if ($externalLogin['updateDate']) { ?>
 				<tr>
 				<td style='vertical-align:top; width:130px;'><?php echo _("Last Updated:");?></td>
-				<td><i><?php echo format_date($externalLogin['updateDate']); ?></i></td>
+				<td><i><?php echo $dates->formatDate($externalLogin['updateDate']); ?></i></td>
 				</tr>
 				<?php
 				}
@@ -124,4 +125,3 @@
 		}
 
 ?>
-

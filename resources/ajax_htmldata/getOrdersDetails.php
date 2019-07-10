@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 $resourceID = $_GET['resourceID'];
 $resourceAcquisitionID = $_GET['resourceAcquisitionID'];
 
@@ -97,14 +98,14 @@ if ($resourceAcquisitionID) {
 			<?php if (($resourceAcquisition->subscriptionStartDate) && ($resourceAcquisition->subscriptionStartDate != '0000-00-00')) { ?>
 			<tr>
 			<td style='vertical-align:top;width:110px;'><?php echo _("Sub Start:");?></td>
-			<td style='width:350px;'><?php echo format_date($resourceAcquisition->subscriptionStartDate); ?></td>
+			<td style='width:350px;'><?php echo $dates->formatDate($resourceAcquisition->subscriptionStartDate); ?></td>
 			</tr>
 			<?php } ?>
 
 			<?php if (($resourceAcquisition->subscriptionEndDate) && ($resourceAcquisition->subscriptionEndDate != '0000-00-00')) { ?>
 			<tr>
 			<td style='vertical-align:top;width:110px;'>Current Sub End:</td>
-			<td style='width:350px;'><?php echo format_date($resourceAcquisition->subscriptionEndDate); ?>&nbsp;&nbsp;
+			<td style='width:350px;'><?php echo $dates->formatDate($resourceAcquisition->subscriptionEndDate); ?>&nbsp;&nbsp;
 			<?php if ($resourceAcquisition->subscriptionAlertEnabledInd == "1") { echo "<i>"._("Expiration Alert Enabled")."</i>"; } ?>
 			</td>
 			</tr>
@@ -112,8 +113,8 @@ if ($resourceAcquisitionID) {
 
 			</table>
 			<?php if ($user->canEdit()){ ?>
-				<a href='ajax_forms.php?action=getOrderForm&height=400&width=440&modal=true&resourceID=<?php echo $resourceAcquisition->resourceID; ?>' class='thickbox'><?php echo _("create new order");?></a> - 
-				<a href='ajax_forms.php?action=getOrderForm&height=400&width=440&modal=true&resourceAcquisitionID=<?php echo $resourceAcquisition->resourceAcquisitionID; ?>&resourceID=<?php echo $resourceAcquisition->resourceID; ?>&op=clone' class='thickbox'><?php echo _("clone order");?></a> - 
+				<a href='ajax_forms.php?action=getOrderForm&height=400&width=440&modal=true&resourceID=<?php echo $resourceAcquisition->resourceID; ?>' class='thickbox'><?php echo _("create new order");?></a> -
+				<a href='ajax_forms.php?action=getOrderForm&height=400&width=440&modal=true&resourceAcquisitionID=<?php echo $resourceAcquisition->resourceAcquisitionID; ?>&resourceID=<?php echo $resourceAcquisition->resourceID; ?>&op=clone' class='thickbox'><?php echo _("clone order");?></a> -
 				<a href='ajax_forms.php?action=getOrderForm&height=400&width=440&modal=true&resourceAcquisitionID=<?php echo $resourceAcquisition->resourceAcquisitionID; ?>&resourceID=<?php echo $resourceAcquisition->resourceID; ?>' class='thickbox'><?php echo _("edit order information");?></a>
 			<?php } ?>
 <?php } else {

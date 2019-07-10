@@ -7,6 +7,8 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
+$dates = new Dates();
+
 function escape_csv($value) {
   // replace \n with \r\n
   $value = preg_replace("/(?<!\r)\n/", "\r\n", $value);
@@ -33,7 +35,7 @@ $resourceArray = $resourceObj->export($whereAdd, $orderBy);
 
 
 $replace = array("/", "-");
-$excelfile = "resources_export_" . str_replace( $replace, "_", format_date( date( 'Y-m-d' ) ) ).".csv";
+$excelfile = "resources_export_" . str_replace( $replace, "_", $dates->formatDate( date( 'Y-m-d' ) ) ).".csv";
 
 header("Pragma: public");
 header("Content-type: text/csv");
@@ -95,7 +97,7 @@ $columnHeaders = array(
   _("OCLC Holdings Updated")
 );
 
-echo array_to_csv_row(array(_("Resource Record Export") . " " . format_date( date( 'Y-m-d' ))));
+echo array_to_csv_row(array(_("Resource Record Export") . " " . $dates->formatDate( date( 'Y-m-d' ))));
 if (!$searchDisplay) {
   $searchDisplay = array(_("All Resource Records"));
 }
@@ -104,13 +106,13 @@ echo array_to_csv_row($columnHeaders);
 
 foreach($resourceArray as $resource) {
 
-	$updateDateFormatted=normalize_date($resource['updateDate']);
+	$updateDateFormatted=$dates->normalizeDate($resource['updateDate']);
   $resourceValues = array(
 	  $resource['resourceID'],
     $resource['titleText'],
     $resource['resourceType'],
     $resource['resourceFormat'],
-    format_date($resource['createDate']),
+    $dates->formatDate($resource['createDate']),
     $resource['createName'],
     $updateDateFormatted,
     $resource['updateName'],

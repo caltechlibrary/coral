@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 		$resourceArray = array();
 		$resourceArray = $user->getResourcesInQueue('progress');
 
@@ -34,7 +35,7 @@
 				<tr id='tr_<?php echo $resource['resourceID']; ?>'>
 					<td <?php echo $classAdd; ?>><a href='resource.php?resourceID=<?php echo $resource['resourceID']; ?>'><?php echo $resource['resourceID']; ?></a></td>
 					<td <?php echo $classAdd; ?>><a href='resource.php?resourceID=<?php echo $resource['resourceID']; ?>'><?php echo $resource['titleText']; ?></a></td>
-					<td <?php echo $classAdd; ?>><?php echo format_date($resource['createDate']); ?></td>
+					<td <?php echo $classAdd; ?>><?php echo $dates->formatDate($resource['createDate']); ?></td>
 					<td <?php echo $classAdd; ?>><?php echo $status->shortName; ?></td>
 					</td>
 				</tr>
@@ -49,4 +50,3 @@
 		}
 
 ?>
-

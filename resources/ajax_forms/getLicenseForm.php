@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 	$config = new Configuration();
 	$resourceID = $_GET['resourceID'];
 	$resourceAcquisitionID = $_GET['resourceAcquisitionID'];
@@ -165,7 +166,7 @@
 				<?php
 				if (count($resourceLicenseStatusArray) > 0){
 					foreach ($resourceLicenseStatusArray as $licenseStatus){
-						echo $licenseStatus['licenseStatus'] . " - <i>" . format_date($licenseStatus['licenseStatusChangeDate']) . _(" by ") . $licenseStatus['changeName'] . "</i><br />";
+						echo $licenseStatus['licenseStatus'] . " - <i>" . $dates->formatDate($licenseStatus['licenseStatusChangeDate']) . _(" by ") . $licenseStatus['changeName'] . "</i><br />";
 					}
 				}else{
 					echo "<i>"._("No license status information available.")."</i>";
@@ -200,4 +201,3 @@
 		<?php }else{ ?>
 		<script type="text/javascript" src="js/forms/licenseStatusOnlyForm.js?random=<?php echo rand(); ?>"></script>
 		<?php } ?>
-

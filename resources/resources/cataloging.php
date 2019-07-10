@@ -9,6 +9,7 @@ define('BASE_DIR', __DIR__ . '/..');
 
 include_once '../user.php';
 
+$dates = new Dates();
 $config = new Configuration();
 $util = new Utility();
 
@@ -211,7 +212,7 @@ if (count($noteArray) > 0){
 			<a href='javascript:void(0);' class='removeNote' id='<?php echo $resourceNote['resourceNoteID']; ?>' tab='Cataloging'><img src='images/cross.gif'  alt='remove note' title='<?php echo _("remove note");?>'></a>
 			<?php } ?>
 		</td>
-		<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo format_date($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
+		<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo $dates->formatDate($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
 		</tr>
 	<?php } ?>
 </table>

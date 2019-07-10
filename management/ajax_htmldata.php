@@ -16,6 +16,7 @@ define('BASE_DIR', __DIR__ . '/');
 
 include_once 'user.php';
 
+$dates = new Dates();
 
 switch ($_GET['action']) {
 
@@ -70,8 +71,8 @@ switch ($_GET['action']) {
 			}
 		}
 //		echo "Category:  " . $license->getConsortiumName();
-		echo "<br />" . _("Creation Date: ") . format_date($license->createDate())." ({$license->createLoginID})";
-		echo "<br />" . _("Last Update: ") . format_date($license->statusDate())." ({$license->statusLoginID})";
+		echo "<br />" . _("Creation Date: ") . $dates->formatDate($license->createDate())." ({$license->createLoginID})";
+		echo "<br />" . _("Last Update: ") . $dates->formatDate($license->statusDate())." ({$license->statusLoginID})";
 
 		?>
 		</div>
@@ -199,7 +200,7 @@ switch ($_GET['action']) {
 				if (($note->createDate == "0000-00-00") || ($note->createDate == "")) {
 					$createDate='';
 				}else{
-					$createDate=format_date($note->createDate);
+					$createDate=$dates->formatDate($note->createDate);
 				}
 				$noteText = nl2br($note->body);
 
@@ -267,7 +268,7 @@ switch ($_GET['action']) {
 				if (($attachment->sentDate == "0000-00-00") || ($attachment->sentDate == "")) {
 					$sentDate='';
 				}else{
-					$sentDate=format_date($attachment->sentDate);
+					$sentDate=$dates->formatDate($attachment->sentDate);
 				}
 				$attachmentText = nl2br($attachment->attachmentText);
 
@@ -889,17 +890,17 @@ switch ($_GET['action']) {
 				if (($document->effectiveDate == "0000-00-00") || ($document->effectiveDate == "")){
 					$displayEffectiveDate = '';
 				}else{
-					$displayEffectiveDate = format_date($document->effectiveDate);
+					$displayEffectiveDate = $dates->formatDate($document->effectiveDate);
 				}
 */
 				if (($document->revisionDate == "0000-00-00") || ($document->revisionDate == "")){
 					$displayRevisionDate = '';
 				}else{
-					$displayRevisionDate = format_date($document->revisionDate);
+					$displayRevisionDate = $dates->formatDate($document->revisionDate);
 				}
 
 				if (($document->expirationDate != "0000-00-00") && ($document->expirationDate != "")){
-					$displayExpirationDate = _("archived on: ") . format_date($document->expirationDate);
+					$displayExpirationDate = _("archived on: ") . $dates->formatDate($document->expirationDate);
 				}else{
 					$displayExpirationDate = '';
 				}
@@ -920,7 +921,7 @@ switch ($_GET['action']) {
 //					foreach($signatureArray as $signature) {
 //
 //						if (($signature['signatureDate'] != '') && ($signature['signatureDate'] != "0000-00-00")) {
-//							$signatureDate = format_date($signature['signatureDate']);
+//							$signatureDate = $dates->formatDate($signature['signatureDate']);
 //						}else{
 //							$signatureDate='(no date)';
 //						}
@@ -1013,13 +1014,13 @@ switch ($_GET['action']) {
 							if (($childDocument->effectiveDate == "0000-00-00") || ($childDocument->effectiveDate == "")){
 								$displayEffectiveDate = '';
 							}else{
-								$displayEffectiveDate = format_date($childDocument->effectiveDate);
+								$displayEffectiveDate = $dates->formatDate($childDocument->effectiveDate);
 							}
 
 							if ((($childDocument->expirationDate == "0000-00-00") || ($childDocument->expirationDate == "")) && ($user->canEdit())){
 								$displayExpirationDate = "<a href='javascript:archiveDocument(" . $childDocument->documentID . ");'>" . _("archive document") . "</a>";
 							}else{
-								$displayExpirationDate = _("archived on: ") . format_date($childDocument->expirationDate);
+								$displayExpirationDate = _("archived on: ") . $dates->formatDate($childDocument->expirationDate);
 							}
 
 
@@ -1038,7 +1039,7 @@ switch ($_GET['action']) {
 
 								foreach($signatureArray as $signature) {
 									if (($signature['signatureDate'] != '') && ($signature['signatureDate'] != "0000-00-00")) {
-										$signatureDate = format_date($signature['signatureDate']);
+										$signatureDate = $dates->formatDate($signature['signatureDate']);
 									}else{
 										$signatureDate=_('(no date)');
 									}

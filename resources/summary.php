@@ -7,6 +7,7 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
+$dates = new Dates();
 $util = new Utility();
 
 $resourceID = $_GET['resourceID'];
@@ -216,7 +217,7 @@ if ($resource->titleText){
 		<td>
 		<i>
 		<?php
-			echo format_date($resource->createDate);
+			echo $dates->formatDate($resource->createDate);
 			//since resources could be created by other modules the user may or may not be set and may or may not have a user entry in this db
 			if ($createUser->primaryKey){
 				echo _(" by ");
@@ -232,7 +233,7 @@ if ($resource->titleText){
 		</tr>
 
 		<?php
-		if (!is_null_date($resource->updateDate)){
+		if (!$dates->isNullDate($resource->updateDate)){
 		?>
 
 			<tr>
@@ -242,7 +243,7 @@ if ($resource->titleText){
 			<td>
 			<i>
 			<?php
-				echo format_date($resource->updateDate);
+				echo $dates->formatDate($resource->updateDate);
 				//since resources could be updated by other modules the user may or may not be set and may or may not have a user entry in this db
 				if ($updateUser->primaryKey){
 					echo _(" by ");
@@ -400,7 +401,7 @@ if ($resource->titleText){
 			<?php foreach ($noteArray as $resourceNote){ ?>
 				<tr>
 				<td style='width:150px;'><?php echo $resourceNote['noteTypeName']; ?>:</td>
-				<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo format_date($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
+				<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo $dates->formatDate($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
 				</tr>
 			<?php } ?>
 		</table>
@@ -456,17 +457,17 @@ if ($resource->titleText){
 	<?php } ?>
 
 
-	<?php if (!is_null_date($resourceAcquisition->subscriptionStartDate)) { ?>
+	<?php if (!$dates->isNullDate($resourceAcquisition->subscriptionStartDate)) { ?>
 	<tr>
 	<td style='vertical-align:top;width:150px;'><?php echo _("Sub Start:");?></td>
-	<td><?php echo format_date($resourceAcquisition->subscriptionStartDate); ?></td>
+	<td><?php echo $dates->formatDate($resourceAcquisition->subscriptionStartDate); ?></td>
 	</tr>
 	<?php } ?>
 
-	<?php if (!is_null_date($resourceAcquisition->subscriptionEndDate)) { ?>
+	<?php if (!$dates->isNullDate($resourceAcquisition->subscriptionEndDate)) { ?>
 	<tr>
 	<td style='vertical-align:top;width:150px;'><?php echo _("Current Sub End:");?></td>
-	<td><?php echo format_date($resourceAcquisition->subscriptionEndDate); ?>&nbsp;&nbsp;
+	<td><?php echo $dates->formatDate($resourceAcquisition->subscriptionEndDate); ?>&nbsp;&nbsp;
 	<?php if ($resourceAcquisition->subscriptionAlertEnabledInd == "1") { echo "<i>"._("Expiration Alert Enabled")."</i>"; } ?>
 	</td>
 	</tr>
@@ -570,7 +571,7 @@ if ($resource->titleText){
 	<?php
 	if (count($licenseStatusArray) > 0){
 		foreach ($licenseStatusArray as $licenseStatus){
-			echo $licenseStatus['licenseStatus'] . _(" on ")."<i>" . format_date($licenseStatus['licenseStatusChangeDate']) . _(" by ") . $licenseStatus['changeName'] . "</i><br />";
+			echo $licenseStatus['licenseStatus'] . _(" on ")."<i>" . $dates->formatDate($licenseStatus['licenseStatusChangeDate']) . _(" by ") . $licenseStatus['changeName'] . "</i><br />";
 		}
 	}else{
 		echo "<i>"._("No license status information available.")."</i>";
@@ -645,7 +646,7 @@ if ($resource->titleText){
 				<td style='width:150px;'><?php echo $resourceNote['noteTypeName']; ?></td>
 
 				</td>
-				<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo format_date($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
+				<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo $dates->formatDate($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
 				</tr>
 			<?php } ?>
 		</table>
@@ -767,7 +768,7 @@ if ($resource->titleText){
 			<?php foreach ($noteArray as $resourceNote){ ?>
 				<tr>
 				<td style='width:150px;'><?php echo $resourceNote['noteTypeName']; ?>:</td>
-				<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo format_date($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
+				<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo $dates->formatDate($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
 				</tr>
 			<?php } ?>
 		</table>
@@ -880,7 +881,7 @@ if ($resource->titleText){
 			<?php foreach ($noteArray as $resourceNote){ ?>
 				<tr>
 				<td style='width:150px;'><?php echo $resourceNote['noteTypeName']; ?>:</td>
-				<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo format_date($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
+				<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo $dates->formatDate($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
 				</tr>
 			<?php } ?>
 		</table>

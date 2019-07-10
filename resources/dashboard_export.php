@@ -7,6 +7,7 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
+$dates = new Dates();
     include_once 'util.php';
 
     $year = $_POST['year'];
@@ -38,7 +39,7 @@ define('BASE_DIR', __DIR__ . '/');
     }
 
     $replace = array("/", "-");
-    $excelfile = "dashboard_export_" . str_replace( $replace, "_", format_date( date( 'Y-m-d' ) ) ).".csv";
+    $excelfile = "dashboard_export_" . str_replace( $replace, "_", $dates->formatDate( date( 'Y-m-d' ) ) ).".csv";
 
     header("Pragma: public");
     header("Content-type: text/csv");

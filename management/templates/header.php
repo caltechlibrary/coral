@@ -18,6 +18,7 @@
 
 include_once 'user.php';
 
+$dates = new Dates();
 $util = new Utility();
 $config = new Configuration();
 
@@ -81,7 +82,7 @@ $coralURL = $util->getCORALURL();
 <script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
-Date.format = '<?php echo return_datepicker_date_format(); ?>';
+Date.format = '<?php echo $dates->returnDatepickerDateFormat(); ?>';
 </script>
 </head>
 <body>
@@ -97,12 +98,12 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
 <div style="text-align:left;">
 
 <center>
-    
+
 <table class="titleTable" style="width:1024px;text-align:left;">
 
     <tr style='vertical-align:top;'>
         <td style='height:53px;' colspan='3'>
-                
+
             <div id="main-title">
                 <img src="images/title-icon-management.png" />
                 <span id="main-title-text"><?php echo _("Management"); ?></span>
@@ -135,18 +136,18 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
                                 while (($file = readdir($dh)) !== false) {
                                     if (is_dir("$route/$file") && $file!="." && $file!=".."){
                                         $lang[]=$file;
-                                    } 
-                                } 
-                                closedir($dh); 
-                            } 
+                                    }
+                                }
+                                closedir($dh);
+                            }
                         }else {
-                            echo "<br>"._("Invalid translation route!"); 
+                            echo "<br>"._("Invalid translation route!");
                         }
                         // Get language of navigator
                         $defLang = $lang_name->getBrowserLanguage();
-                        
+
                         // Show an ordered list
-                        sort($lang); 
+                        sort($lang);
                         for($i=0; $i<count($lang); $i++){
                             if(isset($_COOKIE["lang"])){
                                 if($_COOKIE["lang"]==$lang[$i]){
@@ -163,7 +164,7 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
                             }
                         }
                         ?>
-                        
+
                     </select>
                 </span>
             </div>
@@ -227,10 +228,10 @@ echo '</div>';
             <img src="images/menu/icon-admin.png" />
             <span><?php echo _("Admin");?></span>
         </div>
-    </a>   
+    </a>
 
 <?php }else if ($user->canEdit()){ ?>
-	
+
     <a href='index.php'>
         <div class="main-menu-link <?php if ($currentPage == 'index.php') { echo "active"; } ?>">
             <img src="images/menu/icon-home.png" />
@@ -323,7 +324,7 @@ if ((file_exists($util->getCORALPath() . "index.php")) || ($config->settings->or
             setLanguage($("#lang").val());
             location.reload();
         });
-        
+
         function setLanguage(lang) {
 			var wl = window.location, now = new Date(), time = now.getTime();
             var cookievalid=2592000000; // 30 days (1000*60*60*24*30)

@@ -19,6 +19,7 @@
 
 include_once 'user.php';
 
+$dates = new Dates();
 $util = new Utility();
 $config = new Configuration();
 
@@ -82,7 +83,7 @@ $coralURL = $util->getCORALURL();
 <script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
-Date.format = '<?php echo return_datepicker_date_format(); ?>';
+Date.format = '<?php echo $dates->returnDatepickerDateFormat(); ?>';
 </script>
 </head>
 <body id="licensing">
@@ -100,12 +101,12 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
 <center>
 
 <center>
-    
+
 <table class="titleTable" style="width:1125px;text-align:left;">
 
     <tr style='vertical-align:top;'>
         <td style='height:53px;' colspan='3'>
-                
+
             <div id="main-title">
                 <img src="images/title-icon-licensing.png" />
                 <span id="main-title-text"><?php echo _("Licensing"); ?></span>
@@ -138,18 +139,18 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
                                 while (($file = readdir($dh)) !== false) {
                                     if (is_dir("$route/$file") && $file!="." && $file!=".."){
                                         $lang[]=$file;
-                                    } 
-                                } 
-                                closedir($dh); 
-                            } 
+                                    }
+                                }
+                                closedir($dh);
+                            }
                         }else {
-                            echo "<br>"._("Invalid translation route!"); 
+                            echo "<br>"._("Invalid translation route!");
                         }
                         // Get language of navigator
                         $defLang = $lang_name->getBrowserLanguage();
-                        
+
                         // Show an ordered list
-                        sort($lang); 
+                        sort($lang);
                         for($i=0; $i<count($lang); $i++){
                             if(isset($_COOKIE["lang"])){
                                 if($_COOKIE["lang"]==$lang[$i]){
@@ -166,7 +167,7 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
                             }
                         }
                         ?>
-                        
+
                     </select>
                 </span>
             </div>
@@ -205,7 +206,7 @@ if ($user->isAdmin()) { ?>
             <img src="images/menu/icon-expression.png" />
             <span><?php echo _("Expression Comparison");?></span>
         </div>
-    </a>    
+    </a>
 
     <?php if (($config->settings->resourcesModule == 'Y') && (strlen($config->settings->resourcesDatabaseName) > 0)) { ?>
         <a href='calendar.php'>
@@ -213,7 +214,7 @@ if ($user->isAdmin()) { ?>
                 <img src="images/menu/icon-calendar.png" />
                 <span><?php echo _("Calendar");?></span>
             </div>
-        </a>  
+        </a>
     <?php } ?>
 
     <a href='onix_import.php'>
@@ -221,19 +222,19 @@ if ($user->isAdmin()) { ?>
             <img src="images/menu/icon-import.png" />
             <span><?php echo _("ONIX-PL File Import");?></span>
         </div>
-    </a> 
+    </a>
 
     <a href='admin.php'>
         <div class="main-menu-link <?php if ($currentPage == 'admin.php') { echo "active"; } ?>">
             <img src="images/menu/icon-admin.png" />
             <span><?php echo _("Admin");?></span>
         </div>
-    </a>     
+    </a>
 
 <?php
 }
 else if ($user->canEdit()) { ?>
-    
+
     <a href='index.php'>
         <div class="main-menu-link <?php if ($currentPage == 'index.php') { echo "active"; } ?>">
             <img src="images/menu/icon-home.png" />
@@ -260,7 +261,7 @@ else if ($user->canEdit()) { ?>
             <img src="images/menu/icon-expression.png" />
             <span><?php echo _("Expression Comparison");?></span>
         </div>
-    </a>    
+    </a>
 
     <?php if (($config->settings->resourcesModule == 'Y') && (strlen($config->settings->resourcesDatabaseName) > 0)) { ?>
         <a href='calendar.php'>
@@ -268,7 +269,7 @@ else if ($user->canEdit()) { ?>
                 <img src="images/menu/icon-calendar.png" />
                 <span><?php echo _("Calendar");?></span>
             </div>
-        </a>  
+        </a>
     <?php } ?>
 
     <a href='onix_import.php'>
@@ -276,7 +277,7 @@ else if ($user->canEdit()) { ?>
             <img src="images/menu/icon-import.png" />
             <span><?php echo _("ONIX-PL File Import");?></span>
         </div>
-    </a> 
+    </a>
 
 <?php
 }
@@ -308,7 +309,7 @@ else { ?>
             <img src="images/menu/icon-expression.png" />
             <span><?php echo _("Expression Comparison");?></span>
         </div>
-    </a>    
+    </a>
 
     <?php if (($config->settings->resourcesModule == 'Y') && (strlen($config->settings->resourcesDatabaseName) > 0)) { ?>
         <a href='calendar.php'>
@@ -316,7 +317,7 @@ else { ?>
                 <img src="images/menu/icon-calendar.png" />
                 <span><?php echo _("Calendar");?></span>
             </div>
-        </a>  
+        </a>
     <?php } ?>
 
     <a href='onix_import.php'>
@@ -324,7 +325,7 @@ else { ?>
             <img src="images/menu/icon-import.png" />
             <span><?php echo _("ONIX-PL File Import");?></span>
         </div>
-    </a> 
+    </a>
 
 <?php
 } ?>
@@ -388,7 +389,7 @@ if ((file_exists($util->getCORALPath() . "index.php")) || ($config->settings->or
             setLanguage($("#lang").val());
             location.reload();
         });
-        
+
         function setLanguage(lang) {
 			var wl = window.location, now = new Date(), time = now.getTime();
             var cookievalid=2592000000; // 30 days (1000*60*60*24*30)

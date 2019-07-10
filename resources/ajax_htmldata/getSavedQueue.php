@@ -1,5 +1,6 @@
 <?php
 
+$dates = new Dates();
 		$resourceArray = array();
 		$resourceArray = $user->getResourcesInQueue('saved');
 
@@ -40,7 +41,7 @@
 				<tr id='tr_<?php echo $resource['resourceID']; ?>'>
 					<td <?php echo $classAdd; ?>><a href='ajax_forms.php?action=getNewResourceForm&height=483&width=775&resourceID=<?php echo $resource['resourceID']; ?>&modal=true' class='thickbox'><?php echo $resource['resourceID']; ?></a></td>
 					<td <?php echo $classAdd; ?>><a href='ajax_forms.php?action=getNewResourceForm&height=483&width=775&resourceID=<?php echo $resource['resourceID']; ?>&modal=true' class='thickbox'><?php echo $resource['titleText']; ?></a></td>
-					<td <?php echo $classAdd; ?>><?php echo format_date($resource['createDate']); ?></td>
+					<td <?php echo $classAdd; ?>><?php echo $dates->formatDate($resource['createDate']); ?></td>
 					<td <?php echo $classAdd; ?>><?php echo $status->shortName; ?></td>
 					<td <?php echo $classAdd; ?> style='text-align:right; width:40px;'>
 					<a href='ajax_forms.php?action=getNewResourceForm&height=483&width=775&resourceID=<?php echo $resource['resourceID']; ?>&modal=true' class='thickbox'><img src='images/edit.gif' alt='<?php echo _("edit");?>' title='<?php echo _("edit request");?>'></a>&nbsp;
@@ -58,4 +59,3 @@
 		}
 
 ?>
-

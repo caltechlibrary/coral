@@ -16,6 +16,7 @@ define('BASE_DIR', __DIR__ . '/');
 
 include_once 'user.php';
 
+$dates = new Dates();
 
 switch ($_GET['action']) {
 
@@ -132,7 +133,7 @@ switch ($_GET['action']) {
 		if (($document->effectiveDate == "0000-00-00") || ($document->effectiveDate == "")){
 			$effectiveDate='';
 		}else{
-			$effectiveDate=format_date($document->effectiveDate);
+			$effectiveDate = $dates->formatDate($document->effectiveDate);
 		}
 
 
@@ -288,7 +289,7 @@ switch ($_GET['action']) {
 		<tr>
 		<td>
 		<input type='hidden' name='documentID' id='documentID' value='<?php echo $documentID; ?>' />
-		<?php echo _("Archive Date:");?>  <input class='date-pick' id='expirationDate' name='expirationDate' style='width:80px' value='<?php echo format_date(date); ?>' />
+		<?php echo _("Archive Date:"); ?>  <input class='date-pick' id='expirationDate' name='expirationDate' style='width: 80px;' value='<?php echo $dates->formatDate(date); ?>' />
 		</td>
 		</tr>
 		<tr><td style='text-align:center;width:100%;'><br /><br /><a href='javascript:void(0)' name='submitArchive' id='submitArchive'><?php echo _("Continue");?></a></td></tr>
@@ -413,7 +414,7 @@ switch ($_GET['action']) {
 				//used for in-line editing (since this is already a form, can't make another form to edit sigs!)
 				if ($signatureID == $display['signatureID']){
 					echo "<td><input type='textbox' id='signerName' value=\"" . $display['signerName'] . "\" style='width:118px;' /></td>";
-					echo "<td><input class='date-pick' id='signatureDate' name='signatureDate' style='width:80px' value=\"" . format_date($display['signatureDate']) . "\" /></td>";
+					echo "<td><input class='date-pick' id='signatureDate' name='signatureDate' style='width: 80px;' value=\"" . $dates->formatDate($display['signatureDate']) . "\" /></td>";
 					echo "<td><span id='span_signatureType'><select id='signatureTypeID' name='signatureTypeID'>";
 
 					$stdisplay = array();
@@ -437,7 +438,7 @@ switch ($_GET['action']) {
 
 				}else{
 					echo "<td>" . $display['signerName'] . "</td>";
-					echo "<td>" . format_date($display['signatureDate']) . "</td>";
+					echo "<td>" . $dates->formatDate($display['signatureDate']) . "</td>";
 					echo "<td>" . $display['signatureTypeName'] . "</td>";
 					if ($signatureID){
 						echo "<td>&nbsp;</td>";
@@ -762,7 +763,7 @@ switch ($_GET['action']) {
 		$attachment = new Attachment(new NamedArguments(array('primaryKey' => $attachmentID)));
 
 		if (($attachment->sentDate != '') && ($attachment->sentDate != "0000-00-00")) {
-			$sentDate = format_date($attachment->sentDate);
+			$sentDate = $dates->formatDate($attachment->sentDate);
 		}else{
 			$sentDate='';
 		}

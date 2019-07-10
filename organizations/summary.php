@@ -9,6 +9,8 @@ define('BASE_DIR', __DIR__ . '/');
 
 session_start();
 
+$dates = new Dates();
+
 $organizationID = $_GET['organizationID'];
 $organization = new Organization(new NamedArguments(array('primaryKey' => $organizationID)));
 $pageTitle=$organization->name;
@@ -185,7 +187,7 @@ if ($organization->name){
 		$createUser = new User(new NamedArguments(array('primaryKey' => $organization->createLoginID)));
 		$updateUser = new User(new NamedArguments(array('primaryKey' => $organization->updateLoginID)));
 
-		echo "<i>"._("Created: ") . format_date($organization->createDate);
+		echo "<i>"._("Created: ") . $dates->formatDate($organization->createDate);
 		//since organizations can be created by other modules the user may or may not be set and may or may not have a user entry in this db
 		if ($createUser->primaryKey){
 			echo _(" by ");
@@ -204,7 +206,7 @@ if ($organization->name){
 
 		<?php
 		if (($organization->updateDate) && ($organization->updateDate != '0000-00-00')){
-			echo "<i>"._("Last Update: ") . format_date($organization->updateDate)._(" by "); ?><?php echo $updateUser->firstName . " " . $updateUser->lastName . "</i>";
+			echo "<i>"._("Last Update: ") . $dates->formatDate($organization->updateDate)._(" by "); ?><?php echo $updateUser->firstName . " " . $updateUser->lastName . "</i>";
 		}
 
 
@@ -321,7 +323,7 @@ if ($organization->name){
 			<?php if (($contact['archiveDate'] != '0000-00-00') && ($contact['archiveDate'])) { ?>
 			<tr>
 			<td style='vertical-align:top;text-align:left;background-color:#ebebeb'><?php echo _("No longer valid:");?></td>
-			<td style='background-color:#ebebeb'><i><?php echo format_date($contact['archiveDate']); ?></i></td>
+			<td style='background-color:#ebebeb'><i><?php echo $dates->formatDate($contact['archiveDate']); ?></i></td>
 			</tr>
 			<?php
 			}
@@ -385,7 +387,7 @@ if ($organization->name){
 			if ($contact['lastUpdateDate']) { ?>
 			<tr>
 			<td style='vertical-align:top;text-align:left;'><?php echo _("Last Updated:");?></td>
-			<td><i><?php echo format_date($contact['lastUpdateDate']); ?></i></td>
+			<td><i><?php echo $dates->formatDate($contact['lastUpdateDate']); ?></i></td>
 			</tr>
 			<?php
 			}
@@ -473,7 +475,7 @@ if ($organization->name){
 			if ($externalLogin['updateDate']) { ?>
 			<tr>
 			<td style='vertical-align:top;text-align:left;'><?php echo _("Last Updated:");?></td>
-			<td><i><?php echo format_date($externalLogin['updateDate']); ?></i></td>
+			<td><i><?php echo $dates->formatDate($externalLogin['updateDate']); ?></i></td>
 			</tr>
 			<?php
 			}
@@ -539,13 +541,13 @@ if ($organization->name){
 
 		<?php foreach ($issueLogArray as $issueLog){
 			if (($issueLog['issueDate'] != '') && ($issueLog['issueDate'] != "0000-00-00")) {
-				$issueDate= format_date($issueLog['issueDate']);
+				$issueDate= $dates->formatDate($issueLog['issueDate']);
 			}else{
 				$issueDate='';
 			}
 			?>
 			<tr>
-			<td style='width:80px;'><?php echo format_date($issueLog['updateDate']); ?><br /><?php echo _("by ");?><i><?php echo $issueLog['updateUser']; ?></i></td>
+			<td style='width:80px;'><?php echo $dates->formatDate($issueLog['updateDate']); ?><br /><?php echo _("by ");?><i><?php echo $issueLog['updateUser']; ?></i></td>
 			<td><?php echo $issueDate ?></td>
 			<td style='width:360px;'><?php echo nl2br(str_replace($charsToRemove, "", $issueLog['noteText'])); ?></td>
 			</tr>

@@ -1,9 +1,10 @@
 <?php
+$dates = new Dates();
 	$resourceID = $_GET['resourceID'];
 	$resource = new Resource(new NamedArguments(array('primaryKey' => $resourceID)));
 
 
-		if (!is_null_date($resource->archiveDate)) {
+		if (!$dates->isNullDate($resource->archiveDate)) {
 			$archiveChecked = 'checked';
 		}else{
 			$archiveChecked = '';
@@ -431,4 +432,3 @@ $parentResourceObj = new Resource(new NamedArguments(array('primaryKey' => $pare
 			</tr>
 		</table>
 		<script type="text/javascript" src="js/forms/resourceUpdateForm.js?random=<?php echo rand(); ?>"></script>
-

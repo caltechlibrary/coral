@@ -7,7 +7,7 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
-include "common.php";
+$dates = new Dates();
 
 $action = $_REQUEST['action'];
 $classAdd = "";
@@ -53,7 +53,7 @@ switch ($action) {
 
 			foreach($importLogArray as $importLog) {
 				echo "<tr>";
-				echo "<td $classAdd style='padding:3px;'>" . format_date($importLog->importDateTime) . "</td>";
+				echo "<td $classAdd style='padding:3px;'>" . $dates->formatDate($importLog->importDateTime) . "</td>";
 				echo "<td $classAdd style='padding:3px;'>" . $importLog->loginID . "</td>";
 				echo "<td $classAdd style='padding:3px;'>" . nl2br($importLog->details) . "</td>";
 				echo "<td $classAdd style='padding:3px;'><a href='" . $importLog->logFileURL . "'>" . _("view log") . "</a></td>";
@@ -490,7 +490,7 @@ switch ($action) {
 
 			if ($month['archiveInd'] == "1") {$archive = '&nbsp;(archive)';}else{$archive='';}
 
-			echo "<label for='month' class='month'><b>" . numberToMonth($month['month']) . " " . $month['year'] . "</b> " . $archive . "</label>";
+			echo "<label for='month' class='month'><b>" . $dates->numberToMonth($month['month']) . " " . $month['year'] . "</b> " . $archive . "</label>";
 			echo "<label for='deleteStats' class='deleteStats'><a href=\"javascript:deleteMonth('" . $month['month'] . "','" . $month['year'] . "','" . $month['archiveInd'] . "', '" . $publisherPlatformID . "', '" . $platformID . "')\">" . _("delete entire month") . "</a></label>";
 
 			//monthly ouliers
@@ -581,7 +581,7 @@ switch ($action) {
 					echo "<td style='padding:0px;'>";
 					echo "<table class='noBorderTable' style='width:340px;'>";
 					echo "<tr>";
-					echo "<td style='width:70px;font-weight:bold;'>" . numberToMonth($month) . " " . $statArray['year'] . "</td>";
+					echo "<td style='width:70px;font-weight:bold;'>" . $dates->numberToMonth($month) . " " . $statArray['year'] . "</td>";
 					echo "<td><a href=\"javascript:deleteMonth('" . $statArray['resourceType'] . "','" . $month . "','" . $statArray['year'] . "','" . $statArray['archiveInd'] . "', '" . $publisherPlatformID . "', '" . $platformID . "')\" style='font-size:100%;'>" . _("delete entire month") . "</a>";
 
 					//print out prompt for outliers if outlierID is > 0
@@ -1146,7 +1146,7 @@ switch ($action) {
 				}
 
 				echo "<tr>";
-				echo "<td $classAdd style='padding:3px;'>" . format_date($importLog['dateTime'], "%m/%e/%y %I:%i %p") . "</td>";
+				echo "<td $classAdd style='padding:3px;'>" . $dates->formatDate($importLog['dateTime'], "%m/%e/%y %I:%i %p") . "</td>";
 				echo "<td $classAdd style='padding:3px;'>" . $importLog['loginID'] . "</td>";
 				echo "<td $classAdd style='padding:3px;'>" . nl2br($importLog['details']) . "</td>";
 				echo "<td $classAdd style='padding:3px;'><a href='" . $importLog['logFileURL'] . "'>" . _("view log") . "</a></td>";
@@ -1233,7 +1233,7 @@ switch ($action) {
 
 				echo "<tr>";
 				echo "<td $classAdd style='padding:3px;'><a href='publisherPlatform.php?" . $urlstring . "'>" . $obj->name . "</a></td>";
-				echo "<td $classAdd style='padding:3px;'>" . format_date($sushi['importDateTime']) . "</td>";
+				echo "<td $classAdd style='padding:3px;'>" . $dates->formatDate($sushi['importDateTime']) . "</td>";
 				echo "<td $classAdd style='padding:3px;'>" . nl2br($sushi['details']) . "</td>";
 				echo "<td $classAdd style='padding:3px;'><a href='uploadConfirmation.php?importLogID=" . $sushi['importLogID'] . "'>" . _("view to process") . "</a></td>";
 				echo "<td $classAdd style='padding:3px;'><a href='javascript:deleteImportLog(" . $sushi['importLogID'] . ")'>" . _("delete import") . "</a></td>";
@@ -1280,7 +1280,7 @@ switch ($action) {
 
 				if ($obj->getImportLogs[0]){
 					$lastImportObj = $obj->getImportLogs[0];
-					$lastImportDate = format_date($lastImportObj->importDateTime);
+					$lastImportDate = $dates->formatDate($lastImportObj->importDateTime);
 					$lastImportDetails = nl2br($lastImportObj->details);
 					$logFileURL = $lastImportObj->logFileURL;
 				}
@@ -1339,7 +1339,7 @@ switch ($action) {
 
 				if (isset($obj->getImportLogs[0])){
 					$lastImportObj = $obj->getImportLogs[0];
-					$lastImportDate = format_date($lastImportObj->importDateTime);
+					$lastImportDate = $dates->formatDate($lastImportObj->importDateTime);
 					$lastImportDetails = nl2br($lastImportObj->details);
 				}else{
 					$lastImportDate="";
@@ -1350,8 +1350,8 @@ switch ($action) {
 				echo "<tr>";
 				echo "<td $classAdd style='padding:3px;'><a href='publisherPlatform.php?" . $urlstring . "'>" . $obj->name . "</a></td>";
 				echo "<td $classAdd style='padding:3px;'>" . $sushi['releaseNumber'] . ":" . $sushi['reportLayouts'] . "</td>";
-				echo "<td $classAdd style='padding:3px;'>" . format_date($sushi['next_import']) . "</td>";
-				echo "<td $classAdd style='padding:3px;'>" . format_date($lastImportDate) . "</td>";
+				echo "<td $classAdd style='padding:3px;'>" . $dates->formatDate($sushi['next_import']) . "</td>";
+				echo "<td $classAdd style='padding:3px;'>" . $dates->formatDate($lastImportDate) . "</td>";
 				echo "<td $classAdd style='padding:3px;'>" . $lastImportDetails . "</td>";
 				echo "<td $classAdd style='padding:3px;'><a href='ajax_forms.php?action=getSushiRunForm&sushiServiceID=" . $sushi['sushiServiceID'] . "&height=216&width=348&modal=true' class='thickbox'>" . _("run now") . "</a></td>";
 				echo "<td $classAdd style='padding:3px;'><a href='publisherPlatform.php?" . $urlstring . "&showTab=sushi'>" . _("change/test connection") . "</a></td>";
@@ -1541,8 +1541,8 @@ switch ($action) {
 				echo "</td>";
 
 
-				echo "<td $classAdd>" . format_date($platform['next_import']) . "</td>";
-				echo "<td $classAdd>" . format_date($platform['last_import']) . "</td>";
+				echo "<td $classAdd>" . $dates->formatDate($platform['next_import']) . "</td>";
+				echo "<td $classAdd>" . $dates->formatDate($platform['last_import']) . "</td>";
 				echo "<td $classAdd>" . ImportLog::shortStatusFromDetails($platform['details']) . "</td>";
 				echo "<td $classAdd>" . $platform['loginID'] . "</td>";
 				echo "</tr>";

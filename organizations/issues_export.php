@@ -9,6 +9,8 @@ define('BASE_DIR', __DIR__ . '/');
 
 session_start();
 
+$dates = new Dates();
+
 $organizationID = $_GET['organizationID'];
 
 function escape_csv($value) {
@@ -28,13 +30,13 @@ $issueLogObj = new IssueLog();
 $issues = $issueLogObj->allExpandedAsArray($organizationID);
 
 $replace = array("/", "-");
-$excelfile = "issues_export_" . str_replace( $replace, "_", format_date( date( 'Y-m-d' ) ) ).".csv";
+$excelfile = "issues_export_" . str_replace( $replace, "_", $dates->formatDate( date( 'Y-m-d' ) ) ).".csv";
 
 header("Pragma: public");
 header("Content-type: text/csv");
 header("Content-Disposition: attachment; filename=\"" . $excelfile . "\"");
 
-echo array_to_csv_row(array("Issues Export " . format_date( date( 'Y-m-d' ))));
+echo array_to_csv_row(array("Issues Export " . $dates->formatDate( date( 'Y-m-d' ))));
 
 $columnHeaders = array(
   "Organization",
@@ -50,7 +52,7 @@ foreach($issues as $issue) {
 	if ($resource['updateDate'] == "0000-00-00"){
 		$updateDateFormatted="";
 	}else{
-		$updateDateFormatted=format_date($resource['updateDate']);
+		$updateDateFormatted=$dates->formatDate($resource['updateDate']);
 	}
   $issueValues = array(
     $issue['name'],

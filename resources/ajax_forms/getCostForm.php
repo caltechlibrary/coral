@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 $resourceID = $_GET['resourceID'];
 $resource = new Resource(new NamedArguments(array('primaryKey' => $resourceID)));
 
@@ -214,10 +215,10 @@ if ($enhancedCostFlag){
 									<input type='text' value='<?php echo $payment['year']; ?>' class='changeInput year costHistoryYear' />
 								</td>
 								<td>
-									<input type='text' value='<?php echo normalize_date($payment['subscriptionStartDate']); ?>' class='date-pick changeInput subscriptionStartDate costHistorySubStart' />
+									<input type='text' value='<?php echo $dates->normalizeDate($payment['subscriptionStartDate']); ?>' class='date-pick changeInput subscriptionStartDate costHistorySubStart' />
 								</td>
 								<td>
-									<input type='text' value='<?php echo normalize_date($payment['subscriptionEndDate']); ?>' class='date-pick changeInput subscriptionEndDate costHistorySubEnd' />
+									<input type='text' value='<?php echo $dates->normalizeDate($payment['subscriptionEndDate']); ?>' class='date-pick changeInput subscriptionEndDate costHistorySubEnd' />
 								</td>
 								<?php } ?>
 								<td>

@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
     $resourceAcquisitionID = isset($_GET['resourceAcquisitionID']) ? $_GET['resourceAcquisitionID'] : null;
 	$resourceID = $_GET['resourceID'];
     $op = isset($_GET['op']) ? $_GET['op'] : null;
@@ -12,8 +13,8 @@
 		//used to get default currency
 		$config = new Configuration();
 
-		$startDate = normalize_date($resourceAcquisition->subscriptionStartDate);
-		$endDate = normalize_date($resourceAcquisition->subscriptionEndDate);
+		$startDate = $dates->normalizeDate($resourceAcquisition->subscriptionStartDate);
+		$endDate = $dates->normalizeDate($resourceAcquisition->subscriptionEndDate);
 
 		//get all purchase sites for output in checkboxes
 		$purchaseSiteArray = array();
@@ -184,4 +185,3 @@
 
 
 		<script type="text/javascript" src="js/forms/acquisitionsForm.js?random=<?php echo rand(); ?>"></script>
-

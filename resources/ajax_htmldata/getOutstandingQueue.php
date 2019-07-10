@@ -1,5 +1,6 @@
 <?php
 
+$dates = new Dates();
 
 		$resourceArray = array();
 		$resourceArray = $user->getOutstandingTasks();
@@ -72,7 +73,7 @@
 
 
 								echo "<td " . $classAdd . " " . $styleAdd . ">" . $task['stepName'] . "</td>";
-								echo "<td " . $classAdd . " " . $styleAdd . ">" . format_date($task['startDate']) . "</td>";
+								echo "<td " . $classAdd . " " . $styleAdd . ">" . $dates->formatDate($task['startDate']) . "</td>";
 								echo "</tr>";
 
 								$j++;
@@ -91,4 +92,3 @@
 		}
 
 ?>
-

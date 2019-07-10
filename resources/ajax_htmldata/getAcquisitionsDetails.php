@@ -1,4 +1,5 @@
 <?php
+$dates = new Dates();
 	$config = new Configuration();
 	$enhancedCostFlag = ((isset($config->settings->enhancedCostHistory)) && (strtoupper($config->settings->enhancedCostHistory) == 'Y')) ? 1 : 0;
 	$enhancedCostFlag = (strtoupper($config->settings->enhancedCostHistory) == 'Y') ? 1 : 0;
@@ -136,8 +137,8 @@
 					$classAdd="";
 				}
 				$year = $payment['year'] ? $payment['year'] : "&nbsp;";
-				$subStart = $payment['subscriptionStartDate'] ? normalize_date($payment['subscriptionStartDate']) : "&nbsp;";
-				$subEnd = $payment['subscriptionEndDate'] ? normalize_date($payment['subscriptionEndDate']) : "&nbsp;";
+				$subStart = $payment['subscriptionStartDate'] ? $dates->normalizeDate($payment['subscriptionStartDate']) : "&nbsp;";
+				$subEnd = $payment['subscriptionEndDate'] ? $dates->normalizeDate($payment['subscriptionEndDate']) : "&nbsp;";
 				$fundCode = $payment['fundCode'] ? $payment['fundCode'] : "&nbsp;";
                 $taxRate = $payment['taxRate'] ? integer_to_cost($payment['taxRate']) . '&nbsp;%' : "&nbsp;";
                 foreach (Array('priceTaxExcluded', 'priceTaxIncluded', 'paymentAmount') as $amount) {
@@ -210,7 +211,7 @@
 			<?php
 			if (count($licenseStatusArray) > 0){
 				foreach ($licenseStatusArray as $licenseStatus){
-					echo $licenseStatus['licenseStatus'] . _(" on ")."<i>" . format_date($licenseStatus['licenseStatusChangeDate']) . _(" by ") . $licenseStatus['changeName'] . "</i><br />";
+					echo $licenseStatus['licenseStatus'] . _(" on ")."<i>" . $dates->formatDate($licenseStatus['licenseStatusChangeDate']) . _(" by ") . $licenseStatus['changeName'] . "</i><br />";
 				}
 			}else{
 				echo "<i>"._("No license status information available.")."</i>";
@@ -309,7 +310,7 @@
 						<a  href='ajax_forms.php?action=getNoteForm&height=233&width=410&tab=Acquisitions&entityID=<?php echo $resourceAcquisitionID; ?>&resourceNoteID=<?php echo $resourceNote['resourceNoteID']; ?>&modal=true' class='thickbox'><img src='images/edit.gif'  alt='<?php echo _("edit");?>' title='<?php echo _("edit note");?>'></a>
 						<a href='javascript:void(0);' class='removeNote'   id='<?php echo $resourceNote['resourceNoteID']; ?>' tab='Acquisitions'><img src='images/cross.gif' alt='<?php echo _("remove note");?>' title='<?php echo _("remove note");?>'></a>
 
-					<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo format_date($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
+					<td><?php echo nl2br($resourceNote['noteText']); ?><br /><i><?php echo $dates->formatDate($resourceNote['updateDate']) . _(" by ") . $resourceNote['updateUser']; ?></i></td>
 					</tr>
 				<?php } ?>
 			</table>

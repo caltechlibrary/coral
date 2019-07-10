@@ -20,6 +20,7 @@
 
 include_once 'user.php';
 
+$dates = new Dates();
 $util = new Utility();
 $config = new Configuration();
 
@@ -76,7 +77,7 @@ $coralURL = $util->getCORALURL();
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
 const CORAL_ILS_LINK=<?php echo $config->ils->ilsConnector ? 1 : 0; ?>;
-Date.format = '<?php echo return_datepicker_date_format(); ?>';
+Date.format = '<?php echo $dates->returnDatepickerDateFormat(); ?>';
 </script>
 
 </head>
@@ -93,12 +94,12 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
 <div style="text-align:left;">
 
 <center>
-    
+
 <table class="titleTable" style="width:1024px;text-align:left;">
 
     <tr style='vertical-align:top;'>
         <td style='height:53px;' colspan='3'>
-                
+
             <div id="main-title">
                 <img src="images/title-icon-organizations.png" />
                 <span id="main-title-text"><?php echo _("Organizations"); ?></span>
@@ -131,18 +132,18 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
                                 while (($file = readdir($dh)) !== false) {
                                     if (is_dir("$route/$file") && $file!="." && $file!=".."){
                                         $lang[]=$file;
-                                    } 
-                                } 
-                                closedir($dh); 
-                            } 
+                                    }
+                                }
+                                closedir($dh);
+                            }
                         }else {
-                            echo "<br>"._("Invalid translation route!"); 
+                            echo "<br>"._("Invalid translation route!");
                         }
                         // Get language of navigator
                         $defLang = $lang_name->getBrowserLanguage();
-                        
+
                         // Show an ordered list
-                        sort($lang); 
+                        sort($lang);
                         for($i=0; $i<count($lang); $i++){
                             if(isset($_COOKIE["lang"])){
                                 if($_COOKIE["lang"]==$lang[$i]){
@@ -159,7 +160,7 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
                             }
                         }
                         ?>
-                        
+
                     </select>
                 </span>
             </div>
@@ -192,7 +193,7 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
             <img src="images/menu/icon-admin.png" />
             <span><?php echo _("Admin"); ?></span>
         </div>
-    </a>   
+    </a>
 
 <?php }else if ($user->canEdit()){?>
 
@@ -232,7 +233,7 @@ Date.format = '<?php echo return_datepicker_date_format(); ?>';
             <img src="images/menu/icon-admin.png" />
             <span><?php echo _("Admin"); ?></span>
         </div>
-    </a>  
+    </a>
 
 <?php } ?>
 </td>
