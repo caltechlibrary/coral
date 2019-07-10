@@ -6,7 +6,7 @@
 class Export {
 
   function arrayToCsvRow($array) {
-    $escaped_array = array_map('escape_csv', $array);
+    $escaped_array = array_map([$this, 'escapeCsv'], $array);
     return implode(',', $escaped_array) . "\r\n";
   }
 
