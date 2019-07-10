@@ -23,7 +23,7 @@ Feature: Resources
     And I should not see "Notice"
     And I should not see "Warning"
     And I should not see "Fatal"
-    When I wait for 2 seconds
+    When I wait until I see "#div_searchResults > i" element
     Then I should see "Sorry, no requests fit your query"
     And I should not see "Notice"
     And I should not see "Warning"
@@ -34,7 +34,7 @@ Feature: Resources
     And I should not see "Notice"
     And I should not see "Warning"
     And I should not see "Fatal"
-    When I wait for 2 seconds
+    When I wait until I see ".adminRightHeader" element
     Then I should see "coral_admin" in the "#div_AdminContent" element
     And I should not see "Notice"
     And I should not see "Warning"
@@ -64,7 +64,7 @@ Feature: Resources
     And I should not see "Fatal"
     #
     When I follow "New Resource"
-    And I wait for 2 seconds
+    And I wait until I see "#TB_ajaxContent .submit-button" element
     Then I should see "Add New Resource" in the ".formTitle" element
     And I should not see "Notice"
     And I should not see "Warning"
@@ -73,11 +73,22 @@ Feature: Resources
   @add
   Scenario: Add Resources.
     Given I am on "resources"
-    And I wait for 2 seconds
-    #
     When I follow "New Resource"
-    And I wait for 2 seconds
+    And I wait until I see "#TB_ajaxContent .submit-button" element
     When I fill in "titleText" with "BEST RESOURCE EVER"
     When I press "submit"
     And I wait until I see "#span_resourceName" element
     Then I should see "BEST RESOURCE EVER"
+
+  @clone
+  Scenario: Clone an Order.
+    Given I am on "resources"
+    And I wait until I see "#div_searchResults > .dataTable" element
+    When I follow "BEST RESOURCE EVER"
+    When I follow "Orders"
+    And I wait until I see "#div_orders .div_mainContent > .thickbox + .thickbox" element
+    When I follow "clone order"
+    And I wait until I see "#TB_ajaxContent .submit-button" element
+    When I press "submit"
+    And I wait until I see "label[for='resourceAcquisitionSelect']" element
+    Then I should see "Order:" in the "label" element
