@@ -1,12 +1,6 @@
-# Composer: installed libs folder
-vendor/
-
-# Composer: installed binaries: PhantomJS, Codeception
-bin/
-
-# Codeception temp and generated files
-tests/_output/
-tests/_support/_generated/
+# Composer files
+## exclude vendor directory for behat tests
+/tests/behat/vendor
 
 # Config files
 /common/configuration.ini
