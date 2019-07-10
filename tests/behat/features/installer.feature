@@ -3,7 +3,7 @@ Feature: Installer
 
   # NOTE: The configuration.ini files and the databases must not exist before
   # this installer test can be run.
-  @docker
+  @install
   Scenario: Verify the installer process.
     When I go to the homepage
     And I wait until I see "Modules to use" in the ".section-title" element
