@@ -102,7 +102,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('product')); ?>
+						<?php echo $resource->sidemenu('product'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -122,7 +122,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('orders')); ?>
+						<?php echo $resource->sidemenu('orders'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -142,7 +142,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('acquisitions')); ?>
+						<?php echo $resource->sidemenu('acquisitions'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -167,7 +167,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('access')); ?>
+						<?php echo $resource->sidemenu('access'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -185,7 +185,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('contacts')); ?>
+						<?php echo $resource->sidemenu('contacts'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -202,7 +202,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('accounts')); ?>
+						<?php echo $resource->sidemenu('accounts'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -218,7 +218,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('issues')); ?>
+						<?php echo $resource->sidemenu('issues'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -238,7 +238,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('accounts')); ?>
+						<?php echo $resource->sidemenu('accounts'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -257,7 +257,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('attachments')); ?>
+						<?php echo $resource->sidemenu('attachments'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -273,7 +273,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('workflow')); ?>
+						<?php echo $resource->sidemenu('workflow'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -293,7 +293,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo resource_sidemenu(watchString('cataloging')); ?>
+						<?php echo $resource->sidemenu('cataloging'); ?>
 					</td>
 					<td class='mainContent'>
 

@@ -1,5 +1,7 @@
 <?php
 
+$usage = new Usage();
+
 if (isset($_GET['publisherPlatformID'])){
 	$publisherPlatformID = $_GET['publisherPlatformID'];
 	$platformID = '';
@@ -54,7 +56,7 @@ if ($publisherPlatformID) {
 			<table cellpadding="0" cellspacing="0" style="width: 100%; table-layout: initial;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo usage_sidemenu(watchString('imports')); ?>
+						<?php echo $usage->sidemenu('imports'); ?>
 					</td>
 					<td class='mainContent'>
 						<div class='div_mainContent'>
@@ -68,7 +70,7 @@ if ($publisherPlatformID) {
 			<table cellpadding="0" cellspacing="0" style="width: 100%; table-layout: initial;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo usage_sidemenu(watchString('titles')); ?>
+						<?php echo $usage->sidemenu('titles'); ?>
 					</td>
 					<td class='mainContent'>
 						<div class='div_mainContent'>
@@ -81,7 +83,7 @@ if ($publisherPlatformID) {
 			<table cellpadding="0" cellspacing="0" style="width: 100%; table-layout: initial;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo usage_sidemenu(watchString('statistics')); ?>
+						<?php echo $usage->sidemenu('statistics'); ?>
 					</td>
 					<td class='mainContent'>
 						<div class='div_mainContent'>
@@ -94,7 +96,7 @@ if ($publisherPlatformID) {
 			<table cellpadding="0" cellspacing="0" style="width: 100%; table-layout: initial;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo usage_sidemenu(watchString('logins')); ?>
+						<?php echo $usage->sidemenu('logins'); ?>
 					</td>
 					<td class='mainContent'>
 						<div class='div_mainContent'>
@@ -108,7 +110,7 @@ if ($publisherPlatformID) {
 			<table cellpadding="0" cellspacing="0" style="width: 100%; table-layout: initial;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo usage_sidemenu(watchString('sushi')); ?>
+						<?php echo $usage->sidemenu('sushi'); ?>
 					</td>
 					<td class='mainContent'>
 						<div class='div_mainContent'>
