@@ -1,5 +1,16 @@
 <?php
-require 'vendor/autoload.php';
+
+// @file resources/api_client/index.php
+// @TODO changes to the Composer setup for the API are likely needed
+
+require_once __DIR__ . '/../../bootstrap.php';
+
+// Define the MODULE base directory, ending with `/`.
+define('BASE_DIR', __DIR__ . '/..');
+
+$api = new Api();
+$cost = new Cost();
+
 $server = "http://coral.local/resources/api/";
 $user = $_SERVER['REMOTE_USER'] ? $_SERVER['REMOTE_USER'] : 'API';
 ?>
@@ -47,7 +58,7 @@ if (isset($_POST['submitProposeResourceForm'])) {
 //    $descriptionFields = array("author");
 //
 //    foreach ($descriptionFields as $descField){
-//        addToDescriptionText($body,$descField);
+//        $api->addToDescriptionText($body,$descField);
 //    }
 
 	if(!empty($body['neededByDate'])){
@@ -79,7 +90,7 @@ if (isset($_POST['submitProposeResourceForm'])) {
                 echo "<li>Fund shortName: " . $fundResponse->body . "</li>";
 			}
 			if (!empty($_POST['cost'])){
-                echo "<li>Cost: $" . cost_to_integer($_POST['cost']) . "</li>";
+                echo "<li>Cost: $" . $cost->costToInteger($_POST['cost']) . "</li>";
 			}
 
             $formatResponse = Unirest\Request::post($server . "getResourceFormat/" . $_POST['resourceFormatID']); ?>
@@ -363,41 +374,6 @@ function getFundCodesAsDropdown($server, $headers, $body) {
 		}
 	}
 	echo '</select>';
-}
-
-function addToDescriptionText(&$body, $inputField){
-    if(isset($_POST[$inputField]) && $_POST[$inputField]!=""){
-        if(isset($body['descriptionText'])){
-            if($body['descriptionText']!= ""){
-                $body['descriptionText'].="\n";
-            }
-        }else{
-            $body['descriptionText']="";
-        }
-        $body['descriptionText'] .= ucfirst($inputField) . ": " . $_POST[$inputField];
-    }
-}
-
-function cost_to_integer($price) {
-
-	$price = preg_replace("/[^0-9\.]/", "", $price);
-
-	$decimal_place = strpos($price,".");
-
-	if (strpos($price,".") > 0) {
-		$cents = '.' . substr($price, $decimal_place+1, 2);
-		$price = substr($price,0,$decimal_place);
-	}else{
-		$cents = '.00';
-	}
-
-	$price = preg_replace("/[^0-9]/", "", $price);
-
-	if (is_numeric($price . $cents)){
-		return ($price . $cents);
-	}else{
-		return false;
-	}
 }
 
 ?>

@@ -1,13 +1,17 @@
 <?php
 
 // @file resources/api/index.php
+// @TODO changes to the Composer setup for the API are likely needed
 
 require_once __DIR__ . '/../../bootstrap.php';
 
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/..');
 
-if (!isAllowed()) {
+$api = new Api();
+$cost = new Cost();
+
+if (!$api->isAllowed()) {
     header('HTTP/1.0 403 Forbidden');
     echo "Unauthorized IP: " . $_SERVER['REMOTE_ADDR'];
     die();
@@ -15,7 +19,7 @@ if (!isAllowed()) {
 
 Flight::route('/proposeResource/', function(){
 
-    $user = userExists(Flight::request()->data['user']) ? Flight::request()->data['user'] : 'API';
+    $user = $api->userExists(Flight::request()->data['user']) ? Flight::request()->data['user'] : 'API';
     $status = new Status();
     $resource = new Resource();
     $resource->createDate = date( 'Y-m-d' );
@@ -91,7 +95,7 @@ Flight::route('/proposeResource/', function(){
         foreach (array("homeLocationNote" => "Home Location") as $key => $value) {
             if (Flight::request()->data[$key]) {
                 $noteType = new NoteType();
-                $noteTypeID = $value ? createNoteType($value) : $noteType->getInitialNoteTypeID();
+                $noteTypeID = $value ? $api->createNoteType($value) : $noteType->getInitialNoteTypeID();
                 $resourceNote = new ResourceNote();
                 $resourceNote->resourceNoteID   = '';
                 $resourceNote->updateLoginID    = $user;
@@ -132,7 +136,7 @@ Flight::route('/proposeResource/', function(){
             $noteText .= $value . " " . Flight::request()->data[$key] . "\n";
         }
         if ($noteText) {
-            $noteTypeID = createNoteType("License Type");
+            $noteTypeID = $api->createNoteType("License Type");
             $resourceNote = new ResourceNote();
             $resourceNote->resourceNoteID   = '';
             $resourceNote->updateLoginID    = $user;
@@ -147,7 +151,7 @@ Flight::route('/proposeResource/', function(){
         // add CM Ranking
         foreach (array("CMRanking" => "CM Ranking") as $key => $value) {
             if (Flight::request()->data[$key]) {
-                $noteTypeID = createNoteType("CM Ranking");
+                $noteTypeID = $api->createNoteType("CM Ranking");
                 $resourceNote = new ResourceNote();
                 $resourceNote->resourceNoteID   = '';
                 $resourceNote->updateLoginID    = $user;
@@ -168,7 +172,7 @@ Flight::route('/proposeResource/', function(){
             }
         }
         if ($noteText) {
-            $noteTypeID = createNoteType("CM Important Factor");
+            $noteTypeID = $api->createNoteType("CM Important Factor");
             $resourceNote = new ResourceNote();
             $resourceNote->resourceNoteID   = '';
             $resourceNote->updateLoginID    = $user;
@@ -192,7 +196,7 @@ Flight::route('/proposeResource/', function(){
             $rp->costNote = '';
             $rp->invoiceNum = '';
             $rp->resourceAcquisitionID = $resourceAcquisition->resourceAcquisitionID;
-            $rp->paymentAmount = cost_to_integer(Flight::request()->data['cost']);
+            $rp->paymentAmount = $cost->costToInteger(Flight::request()->data['cost']);
             $rp->currencyCode = 'USD';
             $rp->orderTypeID = 2;
             $rp->priceTaxExcluded = '';
@@ -374,44 +378,3 @@ Flight::route('GET /organizations/@id', function($id) {
 });
 
 Flight::start();
-
-function isAllowed() {
-    $config = new Configuration();
-
-    // If apiAuthorizedIP is not set, don't allow
-    if (!$config->settings->apiAuthorizedIP) { return 0; }
-
-    // If apiAuthorizedIP could not be parsed, don't allow
-    $authorizedIP = explode(',', $config->settings->apiAuthorizedIP);
-    if (!$authorizedIP) { return 0; }
-
-    // If a matching IP has been found, allow
-    if (array_filter($authorizedIP, "IpFilter")) { return 1; }
-
-    return 0;
-}
-
-// A matching IP is either a complete IP or the start of one (allowing IP range)
-function IpFilter($var) {
-    $pos = strpos($_SERVER['REMOTE_ADDR'], $var);
-    return $pos === false ? false : true;
-}
-
-// Create a note type if it doesn't exist
-// Return noteTypeID
-function createNoteType($name) {
-    $noteType = new NoteType();
-    $noteTypeID = $noteType->getNoteTypeIDByName($name);
-    if ($noteTypeID) return $noteTypeID;
-
-    $noteType->shortName = $name;
-    $noteType->noteTypeID = '';
-    $noteType->save();
-    return $noteType->noteTypeID;
-}
-
-function userExists($user) {
-    $createUser = new User(new NamedArguments(array('primaryKey' => $user)));
-    return $createUser->loginID ? true : false;
-}
-?>
