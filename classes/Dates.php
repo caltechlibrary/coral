@@ -5,15 +5,15 @@
  */
 class Dates {
 
-  function formatDate($date) {
+  public function formatDate($date) {
     return strftime($this->returnDateFormat(), strtotime($date));
   }
 
-  function isNullDate($date) {
+  public function isNullDate($date) {
     return (!$date || $date == '0000-00-00' || $date == '');
   }
 
-  function normalizeDate($date) {
+  public function normalizeDate($date) {
     if (($date == '0000-00-00') || ($date == '')) {
       return '';
     }
@@ -22,7 +22,7 @@ class Dates {
     }
   }
 
-  function numberToMonth($number) {
+  public function numberToMonth($number) {
     $number = $number - 1;
     $months = [
       'Jan',
@@ -41,13 +41,13 @@ class Dates {
     return $months[$number];
   }
 
-  function previousYear($year) {
+  public function previousYear($year) {
     return preg_replace_callback('/(19[0-9][0-9]|2[0-9][0-9][0-9])/', function ($matches) {
       return $matches[0] - 1;
     }, $year, 1);
   }
 
-  function returnDateFormat() {
+  public function returnDateFormat() {
     $config = new Configuration();
     $config_date_format = $config->settings->date_format;
     if (isset($config_date_format) && $config_date_format != '') {
@@ -59,7 +59,7 @@ class Dates {
     return $date_format;
   }
 
-  function returnDatepickerDateFormat() {
+  public function returnDatepickerDateFormat() {
     $config = new Configuration();
     $config_date_format = $config->settings->datepicker_date_format;
     if (isset($config_date_format) && $config_date_format != '') {

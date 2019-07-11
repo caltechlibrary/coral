@@ -5,12 +5,12 @@
  */
 class Export {
 
-  function arrayToCsvRow($array) {
+  public function arrayToCsvRow($array) {
     $escaped_array = array_map([$this, 'escapeCsv'], $array);
     return implode(',', $escaped_array) . "\r\n";
   }
 
-  function escapeCsv($value) {
+  public function escapeCsv($value) {
     // replace \n with \r\n
     $value = preg_replace('/(?<!\r)\n/', "\r\n", $value);
     // escape quotes
