@@ -7,6 +7,7 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
+$cost = new Cost();
 $dates = new Dates();
 $util = new Utility();
 
@@ -508,7 +509,7 @@ if ($resource->titleText){
             <?php if ($enhancedCostFlag){ ?>
                 <tr>
                     <td style='vertical-align:top;width:150px;'><?php echo _("Tax Excl.:");?></td>
-                    <td><?php echo $payment['currencyCode'] . " " .integer_to_cost($payment['priceTaxExcluded']); ?></td>
+                    <td><?php echo $payment['currencyCode'] . " " .$cost->integerToCost($payment['priceTaxExcluded']); ?></td>
                 </tr>
                 <tr>
                     <td style='vertical-align:top;width:150px;'><?php echo _("Tax Rate:");?></td>
@@ -517,13 +518,13 @@ if ($resource->titleText){
 
                 <tr>
                     <td style='vertical-align:top;width:150px;'><?php echo _("Tax Incl.:");?></td>
-                    <td><?php echo $payment['currencyCode'] . " " .integer_to_cost($payment['priceTaxIncluded']); ?></td>
+                    <td><?php echo $payment['currencyCode'] . " " .$cost->integerToCost($payment['priceTaxIncluded']); ?></td>
                 </tr>
             <?php } ?>
 
                 <tr>
                     <td style='vertical-align:top;width:150px;'><?php echo _("Payment:");?></td>
-                    <td><?php echo $payment['currencyCode'] . " " . integer_to_cost($payment['paymentAmount']); ?></td>
+                    <td><?php echo $payment['currencyCode'] . " " . $cost->integerToCost($payment['paymentAmount']); ?></td>
                 </tr>
                 <tr>
                     <td style='vertical-align:top;width:150px;'><?php echo _("Order Type:");?></td>

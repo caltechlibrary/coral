@@ -1,4 +1,6 @@
 <?php
+
+$cost = new Cost();
 $dates = new Dates();
 	$config = new Configuration();
 	$enhancedCostFlag = ((isset($config->settings->enhancedCostHistory)) && (strtoupper($config->settings->enhancedCostHistory) == 'Y')) ? 1 : 0;
@@ -140,10 +142,10 @@ $dates = new Dates();
 				$subStart = $payment['subscriptionStartDate'] ? $dates->normalizeDate($payment['subscriptionStartDate']) : "&nbsp;";
 				$subEnd = $payment['subscriptionEndDate'] ? $dates->normalizeDate($payment['subscriptionEndDate']) : "&nbsp;";
 				$fundCode = $payment['fundCode'] ? $payment['fundCode'] : "&nbsp;";
-                $taxRate = $payment['taxRate'] ? integer_to_cost($payment['taxRate']) . '&nbsp;%' : "&nbsp;";
+                $taxRate = $payment['taxRate'] ? $cost->integerToCost($payment['taxRate']) . '&nbsp;%' : "&nbsp;";
                 foreach (Array('priceTaxExcluded', 'priceTaxIncluded', 'paymentAmount') as $amount) {
-                  if (integer_to_cost($payment[$amount])){
-                    $cost[$amount] = $payment['currencyCode'] . " " . integer_to_cost($payment[$amount]);
+                  if ($cost->integerToCost($payment[$amount])){
+                    $cost[$amount] = $payment['currencyCode'] . " " . $cost->integerToCost($payment[$amount]);
                   }else{
                     $cost[$amount] = "&nbsp;";
                   }

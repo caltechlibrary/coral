@@ -1,4 +1,7 @@
 <?php
+
+$cost = new Cost();
+
 		$resourceAcquisitionID = $_POST['resourceAcquisitionID'];
 		$resourceAcquisition = new ResourceAcquisition(new NamedArguments(array('primaryKey' => $resourceAcquisitionID)));
 
@@ -32,10 +35,10 @@
 					$resourcePayment->subscriptionStartDate = $start;
 					$resourcePayment->subscriptionEndDate   = $end;
 					$resourcePayment->fundID        = $fundIDArray[$key];
-					$resourcePayment->priceTaxExcluded = cost_to_integer($pteArray[$key]);
-					$resourcePayment->taxRate       = cost_to_integer($taxRateArray[$key]);
-					$resourcePayment->priceTaxIncluded = cost_to_integer($ptiArray[$key]);
-					$resourcePayment->paymentAmount = cost_to_integer($paymentAmountArray[$key]);
+					$resourcePayment->priceTaxExcluded = $cost->costToInteger($pteArray[$key]);
+					$resourcePayment->taxRate       = $cost->costToInteger($taxRateArray[$key]);
+					$resourcePayment->priceTaxIncluded = $cost->costToInteger($ptiArray[$key]);
+					$resourcePayment->paymentAmount = $cost->costToInteger($paymentAmountArray[$key]);
 					$resourcePayment->currencyCode  = $currencyCodeArray[$key];
 					$resourcePayment->orderTypeID   = $value;
 					$resourcePayment->costDetailsID = $costDetailsArray[$key];

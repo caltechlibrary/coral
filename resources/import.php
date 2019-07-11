@@ -7,6 +7,7 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
+$cost = new Cost();
 $import = new Import();
 
 	$pageTitle=_('Resources import');
@@ -547,7 +548,7 @@ $import = new Import();
                             if (isset($fundCode) && isset($cost)) {
                                 $resourcePayment = new ResourcePayment();
                                 $resourcePayment->resourceAcquisitionID = $resourceAcquisition->resourceAcquisitionID;
-                                $resourcePayment->paymentAmount = cost_to_integer($cost);
+                                $resourcePayment->paymentAmount = $cost->costToInteger($cost);
                                 $resourcePayment->currencyCode = $_POST['currency'];
                                 $resourcePayment->orderTypeID = $_POST['orderType'];
 

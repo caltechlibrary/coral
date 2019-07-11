@@ -1,5 +1,7 @@
 <?php
 
+$cost = new Cost();
+
 		$resourceID = $_POST['resourceID'];
 
 		if ($resourceID){
@@ -133,7 +135,7 @@
 					$resourcePayment->subscriptionStartDate = $subStartArray[$key];
 					$resourcePayment->subscriptionEndDate   = $subEndArray[$key];
 					$resourcePayment->fundID        = $fundIDArray[$key];
-					$resourcePayment->paymentAmount = cost_to_integer($paymentAmountArray[$key]);
+					$resourcePayment->paymentAmount = $cost->costToInteger($paymentAmountArray[$key]);
 					$resourcePayment->currencyCode  = $currencyCodeArray[$key];
 					$resourcePayment->orderTypeID   = $value;
 					$resourcePayment->costDetails   = $costDetailsArray[$key];

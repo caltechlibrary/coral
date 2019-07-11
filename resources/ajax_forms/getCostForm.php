@@ -1,4 +1,6 @@
 <?php
+
+$cost = new Cost();
 $dates = new Dates();
 $resourceID = $_GET['resourceID'];
 $resource = new Resource(new NamedArguments(array('primaryKey' => $resourceID)));
@@ -253,17 +255,17 @@ if ($enhancedCostFlag){
 								</td>
 								<?php if ($enhancedCostFlag){ ?>
 						        <td>
-									<input type='text' value='<?php echo integer_to_cost($payment['priceTaxExcluded']); ?>' style='width:60px;' class='changeInput priceTaxExcluded' />
+									<input type='text' value='<?php echo $cost->integerToCost($payment['priceTaxExcluded']); ?>' style='width:60px;' class='changeInput priceTaxExcluded' />
 								</td>
 						        <td>
-									<input type='text' value='<?php echo integer_to_cost($payment['taxRate']); ?>' style='width:60px;' class='changeInput taxRate' />
+									<input type='text' value='<?php echo $cost->integerToCost($payment['taxRate']); ?>' style='width:60px;' class='changeInput taxRate' />
 								</td>
 						        <td>
-									<input type='text' value='<?php echo integer_to_cost($payment['priceTaxIncluded']); ?>' style='width:60px;' class='changeInput priceTaxIncluded' />
+									<input type='text' value='<?php echo $cost->integerToCost($payment['priceTaxIncluded']); ?>' style='width:60px;' class='changeInput priceTaxIncluded' />
 								</td>
 								<?php } ?>
 								<td>
-									<input type='text' value='<?php echo integer_to_cost($payment['paymentAmount']); ?>' class='changeInput paymentAmount costHistoryPayment' />
+									<input type='text' value='<?php echo $cost->integerToCost($payment['paymentAmount']); ?>' class='changeInput paymentAmount costHistoryPayment' />
 								</td>
 								<td>
 									<select class='changeSelect currencyCode costHistoryCurrency'>
