@@ -10,100 +10,7 @@ define('BASE_DIR', __DIR__ . '/');
 include_once 'user.php';
 
 $dates = new Dates();
-
-//shared html template for organization and resource issues
-function generateIssueHTML($issue,$associatedEntities=null) {
-	$html = "
-	<div class=\"issue\">";
-	if (!$issue->dateClosed) {
-		$html .= "
-		<a class=\"thickbox action closeResourceIssueBtn\" href=\"ajax_forms.php?action=getCloseResourceIssueForm&issueID={$issue->issueID}&height=120&width=345&modal=true\">close</a>
-		<a class=\"thickbox action\" href=\"ajax_forms.php?action=getNewDowntimeForm&organizationID={$GLOBALS['organizationID']}&issueID={$issue->issueID}&height=200&width=390&modal=true\">downtime</a>";
-	}
-	$html .= "
-	  	<dl>
-	  		<dt>Date reported:</dt>
-	  		<dd>{$issue->dateCreated}</dd>";
-	if ($issue->dateClosed) {
-
-		$html .= "<dt>Date closed:</dt>
-	  		<dd>{$issue->dateClosed}</dd>
-	  		<dt>Resolution</dt>
-	  		<dd>{$issue->resolutionText}</dd>";
-	  	}
-
-	$html .= "<dt>Contact(s):</dt>
-	  		<dd>";
-	$contacts = $issue->getContacts();
-	if ($contacts) {
-		$html .= "<ul class=\"contactList\">";
-		foreach($contacts as $contact) {
-			$html .= "<li><a href=\"mailto:".urlencode($contact['emailAddress'])."?Subject=RE: {$issue->subjectText}\">{$contact['name']}</a></li>";
-		}
-		$html .= "</ul>";
-	}
-
-
-	$html .= "	</dd>
-	  		<dt>Applies to:</dt>
-	  		<dd>";
-	if ($associatedEntities) {
-		$temp ='';
-		foreach ($associatedEntities as $entity) {
-			$temp .= " {$entity['name']},";
-		}
-		$html .= rtrim($temp,',');
-	}
-	$html .= "</dd>
-	  		<dt>Subject:</dt>
-	  		<dd>{$issue->subjectText}</dd>
-
-	  		<dt class=\"block\">Body:</dt>
-	  		<dd>{$issue->bodyText}</dd>
-	  	</dl>
-	</div>";
-	return $html;
-}
-
-//shared html template for organization and resource downtimes
-function generateDowntimeHTML($downtime) {
-
-	$html = "
-	<div class=\"downtime\">";
-
-	$html .= "
-	  	<dl>
-	  		<dt>Type:</dt>
-	  		<dd>{$downtime->shortName}</dd>
-
-	  		<dt>Downtime Start:</dt>
-	  		<dd>{$downtime->startDate}</dd>
-
-	  		<dt>Downtime Resolved:</dt>
-	  		<dd>";
-	if ($downtime->endDate != null) {
-		$html .= $downtime->endDate;
-	} else {
-		$html .= "<a class=\"thickbox\" href=\"ajax_forms.php?action=getResolveDowntimeForm&height=363&width=345&modal=true&downtimeID={$downtime->downtimeID}\">Resolve</a>";
-	}
-	$html .= "</dd>";
-
-	if($downtime->subjectText) {
-		$html .= "
-	  		<dt>Linked issue:</dt>
-	  		<dd>{$downtime->subjectText}</dd>";
-	}
-	if ($downtime->note) {
-		$html .= "
-	  		<dt>Note:</dt>
-	  		<dd>{$downtime->note}</dd>";
-	}
-	$html .= "
-		</dl>
-	</div>";
-
-	return $html;
-}
+$html = new Html();
 
 switch ($_GET['action']) {
 
@@ -702,7 +609,7 @@ switch ($_GET['action']) {
 
 		if(count($orgIssues) > 0) {
 			foreach ($orgIssues as $issue) {
-				echo generateIssueHTML($issue,array(array("name"=>$organization->name,"id"=>$organization->organizationID,"entityType"=>1)));
+				echo $html->generateIssueHtml($issue, array(array('name' => $organization->name, 'id' => $organization->organizationID, 'entityType' => 1)));
 			}
 		} else {
 			echo "<br><p>" . _("There are no organization level issues.") . "</p><br>";
@@ -717,7 +624,7 @@ switch ($_GET['action']) {
 
 		if(count($orgDowntime) > 0) {
 			foreach ($orgDowntime as $downtime) {
-				echo generateDowntimeHTML($downtime);
+				echo $html->generateDowntimeHtml($downtime);
 			}
 		} else {
 			echo "<br><p>" . _("There are no organization level downtimes.") . "</p><br>";

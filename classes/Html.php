@@ -1,23 +1,67 @@
 <?php
-/*
-**************************************************************************************************************************
-** CORAL Resources Module v. 1.0
-**
-** Copyright (c) 2010 University of Notre Dame
-**
-** This file is part of CORAL.
-**
-** CORAL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-**
-** CORAL is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-**
-** You should have received a copy of the GNU General Public License along with CORAL.  If not, see <http://www.gnu.org/licenses/>.
-**
-**************************************************************************************************************************
-*/
 
-
+/**
+ * Generate and format HTML.
+ */
 class Html {
+
+  public function generateDowntimeHtml($downtime, $associatedEntities = NULL) {
+    $html = '';
+    $html .= '<div class="downtime">';
+    $html .= '<dl><dt>' . _('Type:') . '</dt><dd>' . $downtime->shortName . '</dd><dt>' . _('Downtime Start:') . '</dt><dd>' . $downtime->startDate . '</dd><dt>' . _('Downtime Resolved:') . '</dt><dd>';
+    if ($downtime->endDate != NULL) {
+      $html .= $downtime->endDate;
+    }
+    else {
+      $html .= '<a class="thickbox" href="ajax_forms.php?action=getResolveDowntimeForm&height=363&width=345&modal=true&downtimeID=' . $downtime->downtimeID . '">' . _('Resolve') . '</a>';
+    }
+    $html .= '</dd>';
+    if ($downtime->subjectText) {
+      $html .= '<dt>' . _('Linked issue:') . '</dt><dd>' . $downtime->subjectText . '</dd>';
+    }
+    if ($downtime->note) {
+      $html .= '<dt>' . _('Note:') . '</dt><dd>' . $downtime->note . '</dd>';
+    }
+    $html .= '</dl></div>';
+    return $html;
+  }
+
+  public function generateIssueHtml($issue, $associatedEntities = NULL) {
+    $html = '';
+    $html .= '<div class="issue">';
+    if (!$issue->dateClosed) {
+      $html .= '<a class="thickbox action closeIssueBtn" href="ajax_forms.php?action=getCloseIssueForm&issueID=' . $issue->issueID . '&height=120&width=345&modal=true">' . _('close') . '</a>';
+      if ($associatedEntities && $associatedEntities[0]['entityType'] == 1) {
+        $html .= '<a class="thickbox action" href="ajax_forms.php?action=getNewDowntimeForm&organizationID=' . $associatedEntities[0]['id'] . '&issueID=' . $issue->issueID . '&height=200&width=390&modal=true">' . _('downtime') . '</a>';
+      }
+      else {
+        $html .= '<a class="thickbox action" href="ajax_forms.php?action=getNewDowntimeForm&resourceID=' . $GLOBALS['resourceID'] . '&issueID=' . $issue->issueID . '&height=200&width=390&modal=true">' . _('downtime') . '</a>';
+      }
+    }
+    $html .= '<dl><dt>' . _('Date reported:') . '</dt><dd>' . $issue->dateCreated . '</dd>';
+    if ($issue->dateClosed) {
+      $html .= '<dt>' . _('Date closed:') . '</dt><dd>' . $issue->dateClosed . '</dd><dt>' . _('Resolution') . '</dt><dd>' . $issue->resolutionText . '</dd>';
+    }
+    $html .= '<dt>' . _('Contact(s):') . '</dt><dd>';
+    $contacts = $issue->getContacts();
+    if ($contacts) {
+      $html .= '<ul class="contactList">';
+      foreach ($contacts as $contact) {
+        $html .= '<li><a href="mailto:' . urlencode($contact['emailAddress']) . '"?Subject=RE: ' . $issue->subjectText . '">' . $contact['name'] . '</a></li>';
+      }
+      $html .= '</ul>';
+    }
+    $html .= '</dd><dt>' . _('Applies to:') . '</dt><dd>';
+    if ($associatedEntities) {
+      $temp = '';
+      foreach ($associatedEntities as $entity) {
+        $temp .= ' ' . $entity['name'] . ',';
+      }
+      $html .= rtrim($temp, ',');
+    }
+    $html .= '</dd><dt>' . _('Subject:') . '</dt><dd>' . $issue->subjectText . '</dd><dt class="block">' . _('Body:') . '</dt><dd>' . $issue->bodyText . '</dd></dl></div>';
+    return $html;
+  }
 
   public function nameToID($str) {
     $str = preg_replace('/[^a-zA-Z0-9]/', ' ', $str);
