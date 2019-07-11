@@ -1,4 +1,6 @@
 <?php
+
+$formInputs = new FormInputs();
 $util = new utility();
 
 $organizationID = isset($_GET["organizationID"]) ? $_GET["organizationID"] : NULL;
@@ -68,7 +70,7 @@ if ($isOrgDowntime) {
 				<div style="clear:both;">
 					<div><i><?php echo _("Time");?></i></div>
 <?php
-echo buildTimeForm("startTime");
+echo $formInputs->buildTimeForm("startTime");
 ?>
 					<span id='span_error_startDate' class='smallDarkRedText addDowntimeError'></span>
 				</div>
@@ -85,7 +87,7 @@ echo buildTimeForm("startTime");
 				<div style="clear:both;">
 					<div><i><?php echo _("Time");?></i></div>
 <?php
-echo buildTimeForm("endTime");
+echo $formInputs->buildTimeForm("endTime");
 ?>
 					<span id='span_error_endDate' class='smallDarkRedText addDowntimeError'></span>
 				</div>
@@ -145,5 +147,3 @@ if ($issues) {
 	echo '<input type="button" value="' . _("cancel") . '" onclick="tb_remove();">';
 }
 ?>
-
-

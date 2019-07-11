@@ -10,6 +10,7 @@ define('BASE_DIR', __DIR__ . '/');
 include_once 'user.php';
 
 $dates = new Dates();
+$formInputs = new FormInputs();
 
 switch ($_GET['action']) {
 
@@ -711,7 +712,7 @@ switch ($_GET['action']) {
 				<div style="clear:both;">
 					<div><i><?php echo _("Time");?></i></div>
 <?php
-echo buildTimeForm("endTime");
+echo $formInputs->buildTimeForm("endTime");
 ?>
 					<span id='span_error_endDate' class='smallDarkRedText updateDowntimeError'></span>
 				</div>
@@ -778,7 +779,7 @@ echo buildTimeForm("endTime");
 				<div style="clear:both;">
 					<div><i><?php echo _("Time");?></i></div>
 <?php
-echo buildTimeForm("startTime");
+echo $formInputs->buildTimeForm("startTime");
 ?>
 					<span id='span_error_startDate' class='smallDarkRedText addDowntimeError'></span>
 				</div>
@@ -795,7 +796,7 @@ echo buildTimeForm("startTime");
 				<div style="clear:both;">
 					<div><i><?php echo _("Time");?></i></div>
 <?php
-echo buildTimeForm("endTime");
+echo $formInputs->buildTimeForm("endTime");
 ?>
 					<span id='span_error_endDate' class='smallDarkRedText addDowntimeError'></span>
 				</div>

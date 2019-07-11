@@ -1,4 +1,7 @@
 <?php
+
+$formInputs = new FormInputs();
+
 $downtimeID = is_numeric($_GET['downtimeID']) ? $_GET['downtimeID']:null;
 
 if ($downtimeID) {
@@ -26,7 +29,7 @@ if ($downtimeID) {
 				<div style="clear:both;">
 					<div><i>Time</i></div>
 <?php
-echo buildTimeForm("endTime");
+echo $formInputs->buildTimeForm("endTime");
 ?>
 					<span id='span_error_endDate' class='smallDarkRedText updateDowntimeError'></span>
 				</div>

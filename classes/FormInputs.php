@@ -1,17 +1,39 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of FormInputs
- *
- * @author bgarcia
+ * Provides helper methods for form inputs.
  */
 class FormInputs {
+
+    public function buildSelectableHours($fieldNameBase,$defaultHour=8) {
+        $html = "<select name=\"{$fieldNameBase}[hour]\">";
+        for ($hour=1;$hour<13;$hour++) {
+            $html .= "<option".(($hour == $defaultHour) ? ' selected':'').">{$hour}</option>";
+        }
+        $html .= '</select>';
+        return $html;
+    }
+
+    public function buildSelectableMinutes($fieldNameBase,$intervals=4) {
+        $html = "<select name=\"{$fieldNameBase}[minute]\">";
+        for ($minute=0;$minute<=($intervals-1);$minute++) {
+            $html .= "<option>".sprintf("%02d",$minute*(60/$intervals))."</option>";
+        }
+        $html .= '</select>';
+        return $html;
+    }
+
+    public function buildSelectableMeridian($fieldNameBase) {
+        return "<select name=\"{$fieldNameBase}[meridian]\">
+                        <option>AM</option>
+                        <option>PM</option>
+                    </select>";
+    }
+
+    public function buildTimeForm($fieldNameBase,$defaultHour=8,$minuteIntervals=4) {
+        return $this->buildSelectableHours($fieldNameBase, $defaultHour) . $this->buildSelectableMinutes($fieldNameBase, $minuteIntervals) . $this->buildSelectableMeridian($fieldNameBase);
+    }
+
     private static $hidden = array();
     private static $visible = array();
 
