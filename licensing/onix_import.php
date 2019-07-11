@@ -7,17 +7,7 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
-	function searchForShortName($shortName, $array)
-	{
-		foreach($array as $key=> $val)
-		{
-			if(strtolower($val['shortName']) == strtolower($shortName)) {
-				return $key;
-				break;
-			}
-		}
-		return null;
-	}
+$import = new Import();
 
 	$pageTitle=_('ONIX-PL Import');
 	include 'templates/header.php';
@@ -80,7 +70,7 @@ define('BASE_DIR', __DIR__ . '/');
 					{
 						//get the expressionTypeID -- create expressionType if necessary
 						$expression = preg_replace('/^onixPL\:/s','',$usage->UsageType);
-						$index = searchForShortName($expression, $expressionTypeArray);
+						$index = $import->searchForShortName($expression, $expressionTypeArray);
 						if($index !== null)
 						{
 							$expressionTypeID = $expressionTypeArray[$index]['expressionTypeID'];
@@ -143,7 +133,7 @@ define('BASE_DIR', __DIR__ . '/');
 					{
 						//get the expressionTypeID -- create expressionType if necessary
 						$expression = preg_replace('/^onixPL\:/s','',$supplyTerm->SupplyTermType);
-						$index = searchForShortName($expression, $expressionTypeArray);
+						$index = $import->searchForShortName($expression, $expressionTypeArray);
 						if($index !== null)
 						{
 							$expressionTypeID = $expressionTypeArray[$index]['expressionTypeID'];
@@ -181,7 +171,7 @@ define('BASE_DIR', __DIR__ . '/');
 					{
 						//get the expressionTypeID -- create expressionType if necessary
 						$expression = preg_replace('/^onixPL\:/s','',$continuingAccessTerm->ContinuingAccessTermType);
-						$index = searchForShortName($expression, $expressionTypeArray);
+						$index = $import->searchForShortName($expression, $expressionTypeArray);
 						if($index !== null)
 						{
 							$expressionTypeID = $expressionTypeArray[$index]['expressionTypeID'];
@@ -219,7 +209,7 @@ define('BASE_DIR', __DIR__ . '/');
 					{
 						//get the expressionTypeID -- create expressionType if necessary
 						$expression = preg_replace('/^onixPL\:/s','',$paymentTerm->PaymentTermType);
-						$index = searchForShortName($expression, $expressionTypeArray);
+						$index = $import->searchForShortName($expression, $expressionTypeArray);
 						if($index !== null)
 						{
 							$expressionTypeID = $expressionTypeArray[$index]['expressionTypeID'];
@@ -257,7 +247,7 @@ define('BASE_DIR', __DIR__ . '/');
 					{
 						//get the expressionTypeID -- create expressionType if necessary
 						$expression = preg_replace('/^onixPL\:/s','',$generalTerm->GeneralTermType);
-						$index = searchForShortName($expression, $expressionTypeArray);
+						$index = $import->searchForShortName($expression, $expressionTypeArray);
 						if($index !== null)
 						{
 							$expressionTypeID = $expressionTypeArray[$index]['expressionTypeID'];
