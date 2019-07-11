@@ -8,8 +8,6 @@ require_once __DIR__ . '/../bootstrap.php';
 define('BASE_DIR', __DIR__ . '/');
 
 session_start();
-//require 'minify.php';
-//ob_start('minify_output');
 ob_start();
 
 if (isset($_REQUEST['outputType'])) {
