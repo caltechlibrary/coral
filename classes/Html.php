@@ -63,6 +63,57 @@ class Html {
     return $html;
   }
 
+  public function getResourceTypesAsDropdown($server, $headers, $body) {
+      $response = Unirest\Request::post($server . "getResourceTypes/", $headers, $body);
+      echo '<select name="resourceTypeID" class="pure-u-1 pure-u-md-1-4">';
+      foreach ($response->body as $resourceType) {
+          echo ' <option value="' . $resourceType->resourceTypeID  . '">' . $resourceType->shortName . "</option>";
+      }
+      echo '</select>';
+  }
+
+  public function getAcquisitionTypesAsRadio($server, $headers, $body) {
+      $response = Unirest\Request::post($server . "getAcquisitionTypes/", $headers, $body);
+      foreach ($response->body as $AcquisitionType) {
+          $default = (isset($AcquisitionType->shortName) && strtolower($AcquisitionType->shortName) == "approved")? ' checked':'' ;  //Replace 'approved' with your default
+          if (strtolower($AcquisitionType->shortName) == "approved" || strtolower($AcquisitionType->shortName) == "needs approval") {
+              echo ' <label for="acquisitionType'.$AcquisitionType->acquisitionTypeID.'" class="pure-radio"> ';
+              echo ' <input id="acquisitionType'.$AcquisitionType->acquisitionTypeID.'" type="radio" name="acquisitionTypeID" value="' . $AcquisitionType->acquisitionTypeID . '" '.$default.'> ';
+              echo $AcquisitionType->shortName . '</label>';
+          }
+      }
+  }
+
+  public function getResourceFormatsAsDropdown($server, $headers, $body) {
+      $response = Unirest\Request::post($server . "getResourceFormats/", $headers, $body);
+      echo '<select name="resourceFormatID">';
+      foreach ($response->body as $resourceFormat) {
+          echo ' <option value="' . $resourceFormat->resourceFormatID . '">' . $resourceFormat->shortName . "</option>\n";
+      }
+      echo '</select>';
+  }
+
+  public function getAdministeringSitesAsDropdown($server, $headers, $body) {
+      $response = Unirest\Request::post($server . "getAdministeringSites/", $headers, $body);
+      echo '<select name="administeringSiteID[]" multiple="multiple">';
+      foreach ($response->body as $administeringSite) {
+          echo ' <option value="' . $administeringSite->administeringSiteID . '">' . $administeringSite->shortName . "</option>\n";
+      }
+      echo '</select>';
+  }
+
+  public function getFundCodesAsDropdown($server, $headers, $body) {
+    $response = Unirest\Request::post($server . "getFundCodes/", $headers, $body);
+    echo "<select name='fund'>\n";
+    echo "  <option value=''>unknown</option>\n";
+    foreach ($response->body as $fund) {
+          if (!is_null($fund->fundCode) && !is_null($fund->shortName) && is_null($fund->archived)){
+        echo ' <option value="' . $fund->fundCode . '">' . $fund->shortName ."</option>\n";
+      }
+    }
+    echo '</select>';
+  }
+
   public function nameToID($str) {
     $str = preg_replace('/[^a-zA-Z0-9]/', ' ', $str);
     $str = explode(' ', $str);

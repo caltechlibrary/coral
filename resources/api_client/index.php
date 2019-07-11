@@ -10,6 +10,7 @@ define('BASE_DIR', __DIR__ . '/..');
 
 $api = new Api();
 $cost = new Cost();
+$html = new Html();
 
 $server = "http://coral.local/resources/api/";
 $user = $_SERVER['REMOTE_USER'] ? $_SERVER['REMOTE_USER'] : 'API';
@@ -205,7 +206,7 @@ if (isset($_POST['submitProposeResourceForm'])) {
                 </div>
                 <div class="pure-u-1">
                     <label for="fund">Fund code</label>
-					<?php getFundCodesAsDropdown($server, $headers, $body); ?>
+					<?php $html->getFundCodesAsDropdown($server, $headers, $body); ?>
                 </div>
                 <div class="pure-u-1">
                     <label id="costLabel" for="cost">Cost</label>
@@ -223,22 +224,22 @@ if (isset($_POST['submitProposeResourceForm'])) {
                 </div>
                 <div class="pure-u-1">
                     <label for="resourceFormatID">Format</label>
-					<?php getResourceFormatsAsDropdown($server, $headers, $body); ?>
+					<?php $html->getResourceFormatsAsDropdown($server, $headers, $body); ?>
                 </div>
 
                 <div class="pure-u-1">
                     <p>Acquisition Type:</p>
-					<?php getAcquisitionTypesAsRadio($server, $headers, $body); ?>
+					<?php $html->getAcquisitionTypesAsRadio($server, $headers, $body); ?>
                 </div>
 
                 <div class="pure-u-1">
                     <label for="resourceTypeID">Resource Type</label>
-					<?php getResourceTypesAsDropdown($server, $headers, $body); ?>
+					<?php $html->getResourceTypesAsDropdown($server, $headers, $body); ?>
                 </div>
 
                 <div class="pure-u-1">
                     <label for="administeringSiteID[]">Library</label>
-					<?php getAdministeringSitesAsDropdown($server, $headers, $body); ?>
+					<?php $html->getAdministeringSitesAsDropdown($server, $headers, $body); ?>
                 </div>
 
                 <div class="pure-u-1">
@@ -324,58 +325,6 @@ if (isset($_POST['submitProposeResourceForm'])) {
 <?php
 }
 }
-
-function getResourceTypesAsDropdown($server, $headers, $body) {
-    $response = Unirest\Request::post($server . "getResourceTypes/", $headers, $body);
-    echo '<select name="resourceTypeID" class="pure-u-1 pure-u-md-1-4">';
-    foreach ($response->body as $resourceType) {
-        echo ' <option value="' . $resourceType->resourceTypeID  . '">' . $resourceType->shortName . "</option>";
-    }
-    echo '</select>';
-}
-
-function getAcquisitionTypesAsRadio($server, $headers, $body) {
-    $response = Unirest\Request::post($server . "getAcquisitionTypes/", $headers, $body);
-    foreach ($response->body as $AcquisitionType) {
-        $default = (isset($AcquisitionType->shortName) && strtolower($AcquisitionType->shortName) == "approved")? ' checked':'' ;  //Replace 'approved' with your default
-        if (strtolower($AcquisitionType->shortName) == "approved" || strtolower($AcquisitionType->shortName) == "needs approval") {
-            echo ' <label for="acquisitionType'.$AcquisitionType->acquisitionTypeID.'" class="pure-radio"> ';
-            echo ' <input id="acquisitionType'.$AcquisitionType->acquisitionTypeID.'" type="radio" name="acquisitionTypeID" value="' . $AcquisitionType->acquisitionTypeID . '" '.$default.'> ';
-            echo $AcquisitionType->shortName . '</label>';
-        }
-    }
-}
-
-function getResourceFormatsAsDropdown($server, $headers, $body) {
-    $response = Unirest\Request::post($server . "getResourceFormats/", $headers, $body);
-    echo '<select name="resourceFormatID">';
-    foreach ($response->body as $resourceFormat) {
-        echo ' <option value="' . $resourceFormat->resourceFormatID . '">' . $resourceFormat->shortName . "</option>\n";
-    }
-    echo '</select>';
-}
-
-function getAdministeringSitesAsDropdown($server, $headers, $body) {
-    $response = Unirest\Request::post($server . "getAdministeringSites/", $headers, $body);
-    echo '<select name="administeringSiteID[]" multiple="multiple">';
-    foreach ($response->body as $administeringSite) {
-        echo ' <option value="' . $administeringSite->administeringSiteID . '">' . $administeringSite->shortName . "</option>\n";
-    }
-    echo '</select>';
-}
-
-function getFundCodesAsDropdown($server, $headers, $body) {
-	$response = Unirest\Request::post($server . "getFundCodes/", $headers, $body);
-	echo "<select name='fund'>\n";
-	echo "  <option value=''>unknown</option>\n";
-	foreach ($response->body as $fund) {
-        if (!is_null($fund->fundCode) && !is_null($fund->shortName) && is_null($fund->archived)){
-			echo ' <option value="' . $fund->fundCode . '">' . $fund->shortName ."</option>\n";
-		}
-	}
-	echo '</select>';
-}
-
 ?>
 </body>
 </html>
