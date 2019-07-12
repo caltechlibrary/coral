@@ -7,6 +7,8 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
+$menu = new Menu();
+
 $resourceID = $_GET['resourceID'];
 $resourceAcquisitionID = isset($_GET['resourceAcquisitionID']) ? $_GET['resourceAcquisitionID'] : null;
 $resource = new Resource(new NamedArguments(array('primaryKey' => $resourceID)));
@@ -102,7 +104,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('product'); ?>
+						<?php echo $menu->resourcesSideMenu('product'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -122,7 +124,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('orders'); ?>
+						<?php echo $menu->resourcesSideMenu('orders'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -142,7 +144,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('acquisitions'); ?>
+						<?php echo $menu->resourcesSideMenu('acquisitions'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -167,7 +169,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('access'); ?>
+						<?php echo $menu->resourcesSideMenu('access'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -185,7 +187,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('contacts'); ?>
+						<?php echo $menu->resourcesSideMenu('contacts'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -202,7 +204,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('accounts'); ?>
+						<?php echo $menu->resourcesSideMenu('accounts'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -218,7 +220,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('issues'); ?>
+						<?php echo $menu->resourcesSideMenu('issues'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -238,7 +240,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('accounts'); ?>
+						<?php echo $menu->resourcesSideMenu('accounts'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -257,7 +259,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('attachments'); ?>
+						<?php echo $menu->resourcesSideMenu('attachments'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -273,7 +275,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('workflow'); ?>
+						<?php echo $menu->resourcesSideMenu('workflow'); ?>
 					</td>
 					<td class='mainContent'>
 
@@ -293,7 +295,7 @@ if ($resource->titleText){
 			<table cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 					<td class="sidemenu">
-						<?php echo $resource->sidemenu('cataloging'); ?>
+						<?php echo $menu->resourcesSideMenu('cataloging'); ?>
 					</td>
 					<td class='mainContent'>
 

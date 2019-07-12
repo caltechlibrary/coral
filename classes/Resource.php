@@ -1667,38 +1667,7 @@ class Resource extends DatabaseObject {
 		$result = $this->db->processQuery($query);
 	}
 
-  public function sidemenu($selected_link = '') {
-    global $user;
-    $links = array(
-      'product' => _("Product"),
-      'orders' => _("Orders"),
-      'acquisitions' => _("Acquisitions"),
-      'access' => _("Access"),
-      'cataloging' => _("Cataloging"),
-      'contacts' => _("Contacts"),
-      'accounts' => _("Accounts"),
-      'issues' => _("Issues"),
-      'attachments' => _("Attachments"),
-      'workflow' => _("Workflow"),
-    );
-    foreach ($links as $key => $value) {
-      $name = ucfirst($key);
-      if ($selected_link == $key) {
-        $class = 'sidemenuselected';
-      } else {
-        $class = 'sidemenuunselected';
-      }
-      if ($key != 'accounts' || $user->accountTabIndicator == '1') {
-      ?>
-      <div class="<?php echo $class; ?>" style='position: relative; width: 105px'><span class='link'><a href='javascript:void(0)' class='show<?php echo $name; ?>' title="<?php echo $value; ?>"><?php echo $value; ?></a></span>
-        <?php if ($key == 'attachments') { ?>
-          <span class='span_AttachmentNumber smallGreyText' style='clear:right; margin-left:18px;'></span>
-        <?php } ?>
-      </div>
-      <?php
-      }
-    }
-  }
+
 
 	public function setIsbnOrIssn($isbnorissns) {
 		$this->removeAllIsbnOrIssn();
