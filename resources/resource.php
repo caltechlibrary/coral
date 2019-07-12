@@ -7,8 +7,6 @@ require_once __DIR__ . '/../bootstrap.php';
 // Define the MODULE base directory, ending with `/`.
 define('BASE_DIR', __DIR__ . '/');
 
-$menu = new Menu();
-
 $resourceID = $_GET['resourceID'];
 $resourceAcquisitionID = isset($_GET['resourceAcquisitionID']) ? $_GET['resourceAcquisitionID'] : null;
 $resource = new Resource(new NamedArguments(array('primaryKey' => $resourceID)));
@@ -31,6 +29,8 @@ if ((isset($_GET['ref'])) && ($_GET['ref'] == 'new')){
 $pageTitle=$resource->titleText;
 include 'templates/header.php';
 
+// The `$user` variable is created in `templates/header.php`.
+$menu = new Menu($user);
 
 if ($resource->titleText){
 	?>

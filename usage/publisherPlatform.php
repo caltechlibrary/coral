@@ -1,7 +1,5 @@
 <?php
 
-$menu = new Menu();
-
 if (isset($_GET['publisherPlatformID'])){
 	$publisherPlatformID = $_GET['publisherPlatformID'];
 	$platformID = '';
@@ -23,6 +21,8 @@ $pageTitle = _('View or Edit Publisher / Platform');
 
 include 'templates/header.php';
 
+// The `$user` variable is created in `templates/header.php`.
+$menu = new Menu($user);
 
 if ($publisherPlatformID) {
 	$obj = new PublisherPlatform(new NamedArguments(array('primaryKey' => $publisherPlatformID)));
