@@ -77,7 +77,25 @@ $resourceTypeCache = [];
 
 // Setup the ebsco connection
 $ebscoKb = EbscoKbService::getInstance();
-$ebscoKbImport = new EbscoKbImport();
+$ebscoKbImport = new EbscoKbImport(
+  $acquisitionTypeId,
+  $config,
+  $generalDetailIdCache,
+  $generalSubjectCache,
+  $loginID,
+  $newWorkflow,
+  $noteText,
+  $organizationId,
+  $organizationRoleId,
+  $orgModule,
+  $providerText,
+  $resourceFormatId,
+  $resourceStatus,
+  $resourceTypeCache,
+  $resourceTypeId,
+  $selection,
+  $statusId
+);
 
 /* ------ Check user input errors --------- */
 $errors = [];

@@ -5,6 +5,61 @@
  */
 class EbscoKbImport {
 
+  protected $acquisitionTypeId;
+  protected $config;
+  protected $generalDetailIdCache;
+  protected $generalSubjectCache;
+  protected $loginID;
+  protected $newWorkflow;
+  protected $noteText;
+  protected $organizationId;
+  protected $organizationRoleId;
+  protected $orgModule;
+  protected $providerText;
+  protected $resourceFormatId;
+  protected $resourceStatus;
+  protected $resourceTypeCache;
+  protected $resourceTypeId;
+  protected $selection;
+  protected $statusId;
+
+  public function __construct(
+    string $acquisitionTypeId,
+    Configuration $config,
+    array $generalDetailIdCache,
+    array $generalSubjectCache,
+    int $loginID,
+    bool $newWorkflow,
+    string $noteText,
+    int $organizationId,
+    int $organizationRoleId,
+    string $orgModule,
+    string $providerText,
+    int $resourceFormatId,
+    string $resourceStatus,
+    array $resourceTypeCache,
+    int $resourceTypeId,
+    int $selection,
+    int $statusId
+  ) {
+    $this->acquisitionTypeId = $acquisitionTypeId;
+    $this->config = $config;
+    $this->generalDetailIdCache = $generalDetailIdCache;
+    $this->generalSubjectCache = $generalSubjectCache;
+    $this->loginID = $loginID;
+    $this->newWorkflow = $newWorkflow;
+    $this->noteText = $noteText;
+    $this->organizationId = $organizationId;
+    $this->organizationRoleId = $organizationRoleId;
+    $this->orgModule = $orgModule;
+    $this->providerText = $providerText;
+    $this->resourceFormatId = $resourceFormatId;
+    $this->resourceStatus = $resourceStatus;
+    $this->resourceTypeCache = $resourceTypeCache;
+    $this->resourceTypeId = $resourceTypeId;
+    $this->selection = $selection;
+    $this->statusId = $statusId;
+  }
     public function createError($target, $text, $context = ''){
         return ['target' => $target, 'text' => _($text), 'context' => $context];
     }
@@ -15,9 +70,6 @@ class EbscoKbImport {
     }
 
     public function generateBatchers($parentId, $totalTitles, $batchAmount, $maxReturn){
-        global $newWorkflow, $organizationId, $resourceFormatId, $acquisitionTypeId, $selection,
-               $package, $resourceStatus;
-
         $batchers = [];
         $totalBatchersNeeded = ceil($totalTitles/$batchAmount);
         $inc = ceil($batchAmount / $maxReturn);
@@ -36,50 +88,41 @@ class EbscoKbImport {
                 'batchAmount' => $batchAmount,
                 'offsets' => range($x,$y),
                 'parentId' => $parentId,
-                'newWorkflow' => $newWorkflow,
-                'organizationId' => $organizationId,
-                'resourceFormatId' => $resourceFormatId,
-                'acquisitionTypeId' => $acquisitionTypeId,
-                'selection' => $selection,
-                'packageId' => $package->packageId,
-                'vendorId' => $package->vendorId,
-                'resourceStatus' => $resourceStatus,
+                'newWorkflow' => $this->newWorkflow,
+                'organizationId' => $this->organizationId,
+                'resourceFormatId' => $this->resourceFormatId,
+                'acquisitionTypeId' => $this->acquisitionTypeId,
+                'selection' => $this->selection,
+                'packageId' => $this->package->packageId,
+                'vendorId' => $this->package->vendorId,
+                'resourceStatus' => $this->resourceStatus,
             ];
         }
         return $batchers;
     }
 
-    public function importPackage($package){
-
-        global $loginID,
-               $statusId,
-               $acquisitionTypeId,
-               $resourceFormatId,
-               $resourceTypeId,
-               $providerText,
-               $noteText;
-
+    public function importPackage($this->package){
         $resource = new Resource();
-        $existingResource = $resource->getResourceByEbscoKbId($package->packageId);
+        $existingResource = $resource->getResourceByEbscoKbId($this->package->packageId);
         if ($existingResource){
             //get this resource
             $resource = $existingResource;
         } else {
             //set up new resource
-            $resource->createLoginID = $loginID;
+            $resource->createLoginID = $this->loginID;
             $resource->createDate = date( 'Y-m-d' );
             $resource->updateLoginID = '';
             $resource->updateDate = '';
         }
-        if($resourceTypeId == '-1'){
-            $resource->resourceTypeID = $this->getResourceTypeId($package->contentType);
+        if($this->resourceTypeId == '-1'){
+            $resource->resourceTypeID = $this->getResourceTypeId($this->package->contentType);
         } else {
-            $resource->resourceTypeID = $resourceTypeId;
+            $resource->resourceTypeID = $this->resourceTypeId;
         }
-        $resource->resourceFormatID = $resourceFormatId;
-        $resource->acquisitionTypeID = $acquisitionTypeId;
-        $resource->titleText = $package->packageName;
-        $resource->statusID	= $statusId;
+        $resource->resourceFormatID = $this->resourceFormatId;
+        $resource->acquisitionTypeID = $this->acquisitionTypeId;
+        $resource->titleText = $this->package->packageName;
+        $resource->statusID	= $this->statusId;
         $resource->orderNumber = '';
         $resource->systemNumber = '';
         $resource->userLimitID = '';
@@ -87,8 +130,8 @@ class EbscoKbImport {
         $resource->authenticationPassword = '';
         $resource->storageLocationID = '';
         $resource->registeredIPAddresses = '';
-        $resource->providerText	= $providerText;
-        $resource->ebscoKbID = $package->packageId;
+        $resource->providerText	= $this->providerText;
+        $resource->ebscoKbID = $this->package->packageId;
         try {
             $resource->save();
         } catch (Exception $e) {
@@ -97,8 +140,8 @@ class EbscoKbImport {
 
         $this->addResourceAcquisition($resource);
         $this->addProvider($resource);
-        if(!empty($noteText)){
-            $this->addNote($resource, 'Product', $noteText);
+        if(!empty($this->noteText)){
+            $this->addNote($resource, 'Product', $this->noteText);
         }
 
         if(empty($resource->getCurrentWorkflowID())){
@@ -110,17 +153,6 @@ class EbscoKbImport {
     }
 
     public function importTitle($title, $parentId = null){
-
-        global $loginID,
-               $statusId,
-               $organizationId,
-               $resourceStatus,
-               $newWorkflow,
-               $acquisitionTypeId,
-               $resourceFormatId,
-               $providerText,
-               $noteText;
-
         $resource = new Resource();
         $existingResource = $resource->getResourceByEbscoKbId($title->titleId);
         if ($existingResource){
@@ -128,18 +160,18 @@ class EbscoKbImport {
             $resource = $existingResource;
         } else {
             //set up new resource
-            $resource->createLoginID = $loginID;
+            $resource->createLoginID = $this->loginID;
             $resource->createDate = date( 'Y-m-d' );
             $resource->updateLoginID = '';
             $resource->updateDate = '';
         }
 
         $resource->resourceTypeID = $this->getResourceTypeId($title->pubType);
-        $resource->resourceFormatID = $resourceFormatId;
-        $resource->acquisitionTypeID = $acquisitionTypeId;
+        $resource->resourceFormatID = $this->resourceFormatId;
+        $resource->acquisitionTypeID = $this->acquisitionTypeId;
         $resource->titleText = $title->titleName;
         $resource->descriptionText = $title->description;
-        $resource->statusID	= $statusId;
+        $resource->statusID	= $this->statusId;
         $resource->orderNumber = '';
         $resource->systemNumber = '';
         $resource->userLimitID = '';
@@ -147,7 +179,7 @@ class EbscoKbImport {
         $resource->authenticationPassword = '';
         $resource->storageLocationID = '';
         $resource->registeredIPAddresses = '';
-        $resource->providerText	= $providerText;
+        $resource->providerText	= $this->providerText;
         $resource->ebscoKbID = $title->titleId;
 
         $urlsByCoverage = $title->sortUrlsByCoverage();
@@ -173,14 +205,14 @@ class EbscoKbImport {
         $this->addSubjects($resource, $title->subjects);
 
         //add notes
-        if ($providerText && !$organizationId && $resourceStatus == 'progress') {
-            $this->addNote($resource, 'Product', "Provider:  $providerText");
+        if ($this->providerText && !$this->organizationId && $this->resourceStatus == 'progress') {
+            $this->addNote($resource, 'Product', "Provider:  $this->providerText");
         }
         if(isset($additionalUrls)) {
             $this->addNote($resourceAcquisition, 'Access', $additionalUrls);
         }
-        if(!empty($noteText)){
-            $this->addNote($resource, 'Product', $noteText);
+        if(!empty($this->noteText)){
+            $this->addNote($resource, 'Product', $this->noteText);
         }
 
         if(!empty($parentId)){
@@ -202,7 +234,7 @@ class EbscoKbImport {
         }
 
         // Workflow
-        if ($newWorkflow && empty($resource->getCurrentWorkflowID())){
+        if ($this->newWorkflow && empty($resource->getCurrentWorkflowID())){
             // Create the default order
             $resource->enterNewWorkflow();
         }
@@ -211,15 +243,13 @@ class EbscoKbImport {
     }
 
     public function addProvider(Resource $resource){
-        global $organizationId, $organizationRoleId;
-
-        if ($organizationId && $organizationRoleId){
+        if ($this->organizationId && $this->organizationRoleId){
 
             // create an original list of organzational links
             $linkedOrganizations = array_map(public function($org){
                 return ['organizationId' => $org['organizationID'], 'organizationRoleId' => $org['organizationRoleID']];
             }, $resource->getOrganizationArray());
-            $linkedOrganizations[] = ['organizationId' => $organizationId, 'organizationRoleId' => $organizationRoleId];
+            $linkedOrganizations[] = ['organizationId' => $this->organizationId, 'organizationRoleId' => $this->organizationRoleId];
             $linkedOrganizations = array_map("unserialize", array_unique(array_map("serialize", $linkedOrganizations)));
             // Remove old links
             $resource->removeResourceOrganizations();
@@ -238,9 +268,6 @@ class EbscoKbImport {
     }
 
     public function addNote($entity, $tab = 'Product', $text = ''){
-
-        global $loginID;
-
         // check if note exists
         if ($tab === 'Product') {
             $existingNotes = $entity->getNotes();
@@ -253,7 +280,7 @@ class EbscoKbImport {
             $noteType = new NoteType();
             $resourceNote = new ResourceNote();
             $resourceNote->resourceNoteID = '';
-            $resourceNote->updateLoginID = $loginID;
+            $resourceNote->updateLoginID = $this->loginID;
             $resourceNote->updateDate = date('Y-m-d');
             $resourceNote->noteTypeID = $noteType->getInitialNoteTypeID();
             $resourceNote->tabName = $tab;
@@ -300,10 +327,8 @@ class EbscoKbImport {
     }
 
     public function getGeneralDetailId($generalSubjectId){
-        global $generalDetailIdCache;
-
         // Search for the cached key
-        $cachedKey = array_search($generalSubjectId, $generalDetailIdCache);
+        $cachedKey = array_search($generalSubjectId, $this->generalDetailIdCache);
         if($cachedKey) {
             return $cachedKey;
         }
@@ -319,15 +344,13 @@ class EbscoKbImport {
             $generalDetailId = $generalDetail->primaryKey;
         }
         // add the key and name to the cache
-        $generalDetailIdCache[$generalDetailId] = $generalSubjectId;
+        $this->generalDetailIdCache[$generalDetailId] = $generalSubjectId;
         return $generalDetailId;
     }
 
     public function getGeneralSubjectId($subject){
-        global $generalSubjectCache;
-
         // Search for the cached key
-        $cachedKey = array_search($subject, $generalSubjectCache);
+        $cachedKey = array_search($subject, $this->generalSubjectCache);
         if($cachedKey) {
             return $cachedKey;
         }
@@ -351,24 +374,21 @@ class EbscoKbImport {
             $generalSubjectId = $generalSubject->primaryKey;
         }
         // add the key and name to the cache
-        $generalSubjectCache[$generalSubjectId] = $subject;
+        $this->generalSubjectCache[$generalSubjectId] = $subject;
         return $generalSubjectId;
     }
 
     public function getResourceTypeId($typeName){
-
-        global $resourceTypeCache;
-
         // Search for the cached key
-        $cachedKey = array_search($typeName, $resourceTypeCache);
+        $cachedKey = array_search($typeName, $this->resourceTypeCache);
         if($cachedKey) {
             return $cachedKey;
         }
 
         // If it doesn't exist, create or get the resource type id
         $resourceType = new ResourceType();
-        $resourceTypeId = $resourceType->getResourceTypeIDByName($typeName);
-        if(empty($resourceTypeId)){
+        $this->resourceTypeId = $resourceType->getResourceTypeIDByName($typeName);
+        if(empty($this->resourceTypeId)){
             // create a new resource type
             $resourceType->shortName = $typeName;
             try {
@@ -376,21 +396,18 @@ class EbscoKbImport {
             } catch (Exception $e) {
                 $this->sendErrors([$this->createError('general', 'Could not save new resource type', $e->getMessage())]);
             }
-            $resourceTypeId = $resourceType->primaryKey;
+            $this->resourceTypeId = $resourceType->primaryKey;
         }
         // add the key and name to the cache
-        $resourceTypeCache[$resourceTypeId] = $typeName;
-        return $resourceTypeId;
+        $this->resourceTypeCache[$this->resourceTypeId] = $typeName;
+        return $this->resourceTypeId;
     }
 
 
     // TODO: Update to use Organization domain classes instead of sql calls, see note above
     public function createOrUpdateOrganization($ebscoKbId, $organizationName){
-        global $loginID, $config, $orgModule, $dbService;
-
-
-        if($orgModule){
-            $orgDbName = $config->settings->organizationsDatabaseName;
+        if($this->orgModule){
+            $orgDbName = $this->config->settings->organizationsDatabaseName;
             $dbService = new DBService;
 
             // search for existing matches
@@ -411,7 +428,7 @@ class EbscoKbImport {
                 $now = date( 'Y-m-d H:i:s' );
                 $insert = "INSERT INTO $orgDbName.Organization
                   (createDate, createLoginID, updateDate, updateLoginID, `name`, ebscoKbID)
-                  VALUES('$now','$loginID','','','$organizationName',$ebscoKbId)";
+                  VALUES('$now','$this->loginID','','','$organizationName',$ebscoKbId)";
                 try {
                     $dbService->query($insert);
                 } catch (Exception $e) {
@@ -435,7 +452,7 @@ class EbscoKbImport {
                     $organization = new Organization(new NamedArguments(array('primaryKey' => $existingOrg)));
                 } else {
                     //set up new resource
-                    $organization->createLoginID 		= $loginID;
+                    $organization->createLoginID 		= $this->loginID;
                     $organization->createDate			= date( 'Y-m-d H:i:s' );
                     $organization->updateLoginID 		= '';
                     $organization->updateDate			= '';
@@ -454,15 +471,14 @@ class EbscoKbImport {
     }
 
     // TODO: Update to use Organization domain classes instead of sql calls, see note above
-    public function addOrganizationAlias($organizationId, $aliasTypeId, $ebscoKbId, $alias){
-        global $config;
-        $orgDbName = $config->settings->organizationsDatabaseName;
+    public function addOrganizationAlias($this->organizationId, $aliasTypeId, $ebscoKbId, $alias){
+        $orgDbName = $this->config->settings->organizationsDatabaseName;
         $dbService = new DBService;
 
         // Check for matching aliases first
         $selectSql = "SELECT *
           FROM $orgDbName.Alias
-          WHERE organizationID = $organizationId
+          WHERE organizationID = $this->organizationId
           AND aliasTypeID = $aliasTypeId
           AND `name` = '$alias'";
         try {
@@ -479,7 +495,7 @@ class EbscoKbImport {
         // Insert the alias
         $insert = "INSERT INTO $orgDbName.Alias
           (organizationID, aliasTypeID, `name`)
-          VALUES ($organizationId, $aliasTypeId, '$alias')";
+          VALUES ($this->organizationId, $aliasTypeId, '$alias')";
         try {
             $dbService->query($insert);
         } catch (Exception $e) {
@@ -487,7 +503,7 @@ class EbscoKbImport {
         }
 
         // update with the ebscoKbId
-        $update = "UPDATE $orgDbName.Organization SET ebscoKbID = $ebscoKbId WHERE organizationID = $organizationId";
+        $update = "UPDATE $orgDbName.Organization SET ebscoKbID = $ebscoKbId WHERE organizationID = $this->organizationId";
         try {
             $dbService->query($update);
         } catch (Exception $e) {
@@ -497,8 +513,7 @@ class EbscoKbImport {
 
     // TODO: Update to use Organization domain classes instead of sql calls, see note above
     public function addOrganizationRelationship($parentOrganizationId, $childOrganizationId){
-        global $config;
-        $orgDbName = $config->settings->organizationsDatabaseName;
+        $orgDbName = $this->config->settings->organizationsDatabaseName;
         $dbService = new DBService;
 
         // Delete any existing parents from the child
